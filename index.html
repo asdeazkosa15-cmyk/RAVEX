@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LunaGame | عالم الألعاب</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: white;
+      line-height: 1.7;
+    }
+
+    header {
+      background: #111a33;
+      padding: 18px 7%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #26345c;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #20c7ff;
+    }
+
+    nav {
+      display: flex;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #20c7ff;
+    }
+
+    .hero {
+      min-height: 420px;
+      padding: 80px 7%;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at 20% 30%, #1769aa 0%, transparent 35%),
+        linear-gradient(135deg, #101a38, #0877b8);
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 span {
+      color: #20c7ff;
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: #d8e6ff;
+      margin-bottom: 25px;
+    }
+
+    .main-button {
+      display: inline-block;
+      padding: 13px 25px;
+      border-radius: 10px;
+      background: #16c5ff;
+      color: #00131d;
+      text-decoration: none;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .main-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px #16c5ff55;
+    }
+
+    .section {
+      padding: 55px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .section-title h2 {
+      font-size: 32px;
+    }
+
+    .section-title p {
+      color: #9eabc8;
+    }
+
+    .search-box {
+      max-width: 650px;
+      margin: 0 auto 35px;
+      display: flex;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 15px 20px;
+      border: 1px solid #34436d;
+      border-radius: 12px;
+      background: #121b34;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    .search-box input:focus {
+      border-color: #20c7ff;
+    }
+
+    .filters {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    .filter {
+      padding: 9px 18px;
+      border-radius: 20px;
+      border: 1px solid #34436d;
+      background: #121b34;
+      color: white;
+      cursor: pointer;
+    }
+
+    .filter:hover {
+      background: #168ec0;
+    }
+
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 22px;
+    }
+
+    .game-card {
+      background: #121b34;
+      border: 1px solid #25365f;
+      border-radius: 15px;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .game-card:hover {
+      transform: translateY(-7px);
+      border-color: #20c7ff;
+      box-shadow: 0 15px 35px #00000055;
+    }
+
+    .game-image {
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 55px;
+      background: linear-gradient(135deg, #1a3868, #0b729d);
+    }
+
+    .game-info {
+      padding: 20px;
+    }
+
+    .game-info h3 {
+      margin-bottom: 8px;
+      font-size: 21px;
+    }
+
+    .game-info p {
+      color: #aebbd6;
+      font-size: 14px;
+      min-height: 50px;
+    }
+
+    .game-meta {
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 0;
+      color: #7fdfff;
+      font-size: 13px;
+    }
+
+    .details-button {
+      width: 100%;
+      padding: 11px;
+      border: none;
+      border-radius: 9px;
+      background: #168ec0;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .details-button:hover {
+      background: #20c7ff;
+      color: #00131d;
+    }
+
+    .about {
+      background: #10182e;
+      text-align: center;
+    }
+
+    .about p {
+      max-width: 750px;
+      margin: auto;
+      color: #b6c2dc;
+    }
+
+    footer {
+      padding: 30px 7%;
+      text-align: center;
+      background: #080d19;
+      color: #8996b2;
+    }
+
+    .empty {
+      text-align: center;
+      color: #9eabc8;
+      padding: 30px;
+      display: none;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        gap: 15px;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 60px 5%;
+      }
+
+      .hero h1 {
+        font-size: 35px;
+      }
+
+      .section {
+        padding: 40px 5%;
+      }
+    }
+  </style>
+</head>
+<!-- ===== RAVEX GAMES ===== -->
+
+<style>
+.ravex-games {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+    direction: rtl;
+}
+
+.ravex-title {
+    text-align: center;
+    font-size: 38px;
+    margin-bottom: 10px;
+}
+
+.ravex-subtitle {
+    text-align: center;
+    color: #aaa;
+    margin-bottom: 35px;
+}
+
+.ravex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.ravex-card {
+    background: #111827;
+    border: 1px solid #26354d;
+    border-radius: 18px;
+    padding: 22px;
+    transition: .3s;
+    box-shadow: 0 10px 30px rgba(0,0,0,.3);
+}
+
+.ravex-card:hover {
+    transform: translateY(-8px);
+    border-color: #2196f3;
+}
+
+.ravex-icon {
+    font-size: 55px;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.ravex-card h3 {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.ravex-card p {
+    color: #b8c0cc;
+    line-height: 1.7;
+    min-height: 75px;
+}
+
+.ravex-details {
+    display: flex;
+    justify-content: space-between;
+    color: #8e9aaa;
+    font-size: 14px;
+    margin: 18px 0;
+}
+
+.ravex-download {
+    display: block;
+    text-align: center;
+    padding: 13px;
+    background: #2196f3;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+.ravex-download:hover {
+    background: #1976d2;
+}
+
+.ravex-free {
+    color: #4ade80;
+}
+</style>
+
+<section class="ravex-games">
+
+    <h2 class="ravex-title">🎮 ألعاب RAVEX</h2>
+
+    <p class="ravex-subtitle">
+        ألعاب مجانية ومفتوحة المصدر
+    </p>
+
+    <div class="ravex-grid">
+
+        <!-- 0 A.D. -->
+        <div class="ravex-card">
+
+            <div class="ravex-icon">⚔️</div>
+
+            <h3>0 A.D.</h3>
+
+            <p>
+                لعبة استراتيجية تاريخية مجانية.
+                ابنِ إمبراطوريتك وخض المعارك.
+            </p>
+
+            <div class="ravex-details">
+                <span>💻 PC</span>
+                <span class="ravex-free">🆓 مجانية</span>
+            </div>
+
+            <a
+                class="ravex-download"
+                href="https://play0ad.com/download/"
+                target="_blank"
+                rel="noopener">
+                ⬇️ تحميل اللعبة
+            </a>
+
+        </div>
+
+
+        <!-- SuperTuxKart -->
+        <div class="ravex-card">
+
+            <div class="ravex-icon">🏎‍🟀</div>
+
+            <h3>SuperTuxKart</h3>
+
+            <p>
+                لعبة سباقات ممتعة ومجانية
+                مع سيارات وحلبات متعددة.
+            </p>
+
+            <div class="ravex-details">
+                <span>💻 PC</span>
+                <span class="ravex-free">🆓 مجانية</span>
+            </div>
+
+            <a
+                class="ravex-download"
+                href="https://supertuxkart.net/Download"
+                target="_blank"
+                rel="noopener">
+                ⬇️ تحميل اللعبة
+            </a>
+
+        </div>
+
+
+        <!-- OpenTTD -->
+        <div class="ravex-card">
+
+            <div class="ravex-icon">🚂</div>
+
+            <h3>OpenTTD</h3>
+
+            <p>
+                أنشئ شركة نقل وقم ببناء القطارات
+                والطرق وإدارة شبكتك.
+            </p>
+
+            <div class="ravex-details">
+                <span>💻 PC</span>
+                <span class="ravex-free">🆓 مجانية</span>
+            </div>
+
+            <a
+                class="ravex-download"
+                href="https://www.openttd.org/downloads/openttd-releases/latest"
+                target="_blank"
+                rel="noopener">
+                ⬇️ تحميل اللعبة
+            </a>
+
+        </div>
+
+
+        <!-- Xonotic -->
+        <div class="ravex-card">
+
+            <div class="ravex-icon">🔫</div>
+
+            <h3>Xonotic</h3>
+
+            <p>
+                لعبة تصويب سريعة ومجانية
+                ومفتوحة المصدر.
+            </p>
+
+            <div class="ravex-details">
+                <span>💻 PC</span>
+                <span class="ravex-free">🆓 مجانية</span>
+            </div>
+
+            <a
+                class="ravex-download"
+                href="https://xonotic.org/download/"
+                target="_blank"
+                rel="noopener">
+                ⬇️ تحميل اللعبة
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+<body>
+
+  <header>
+    <div class="logo">🎮 LunaGame</div>
+
+    <nav>
+      <a href="#home">الرئيسية</a>
+      <a href="#games">الألعاب</a>
+      <a href="#about">حول الموقع</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>مرحباً بك في <span>LunaGame</span> 🎮</h1>
+
+      <p>
+        عالمك الخاص بالألعاب — اكتشف ألعاب جديدة،
+        تصفح الألعاب واستمتع بتجربة بسيطة وسريعة.
+      </p>
+
+      <a href="#games" class="main-button">استكشف الألعاب</a>
+    </div>
+  </section>
+
+  <section class="section" id="games">
+
+    <div class="section-title">
+      <h2>🔥 مكتبة الألعاب</h2>
+      <p>ابحث عن اللعبة التي تريدها</p>
+    </div>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="search"
+        placeholder="🔎 ابحث عن لعبة..."
+      >
+    </div>
+
+    <div class="filters">
+      <button class="filter" onclick="filterGames('all')">الكل</button>
+      <button class="filter" onclick="filterGames('action')">أكشن</button>
+      <button class="filter" onclick="filterGames('racing')">سباق</button>
+      <button class="filter" onclick="filterGames('adventure')">مغامرات</button>
+    </div>
+
+    <div class="games" id="gamesList">
+
+      <div class="game-card" data-category="action" data-name="Grand Theft Auto V">
+        <div class="game-image">🚗</div>
+
+        <div class="game-info">
+          <h3>Grand Theft Auto V</h3>
+
+          <p>
+            لعبة عالم مفتوح ومغامرات وأكشن.
+          </p>
+
+          <div class="game-meta">
+            <span>⭐ 4.8</span>
+            <span>🎮 أكشن</span>
+          </div>
+
+          <button class="details-button"
+            onclick="showGame('Grand Theft Auto V')">
+            عرض التفاصيل
+          </button>
+        </div>
+      </div>
+
+
+      <div class="game-card" data-category="action" data-name="Far Cry 4">
+        <div class="game-image">🏔️</div>
+
+        <div class="game-info">
+          <h3>Far Cry 4</h3>
+
+          <p>
+            مغامرة وأكشن في عالم مفتوح مليء بالتحديات.
+          </p>
+
+          <div class="game-meta">
+            <span>⭐ 4.7</span>
+            <span>🎯 أكشن</span>
+          </div>
+
+          <button class="details-button"
+            onclick="showGame('Far Cry 4')">
+            عرض التفاصيل
+          </button>
+        </div>
+      </div>
+
+
+      <div class="game-card" data-category="racing" data-name="Forza Horizon">
+        <div class="game-image">🏎‍🟀</div>
+
+        <div class="game-info">
+          <h3>Forza Horizon</h3>
+
+          <p>
+            تجربة سباق سريعة مع سيارات ومضامير متنوعة.
+          </p>
+
+          <div class="game-meta">
+            <span>⭐ 4.9</span>
+            <span>🏎‍🟀 سباق</span>
+          </div>
+
+          <button class="details-button"
+            onclick="showGame('Forza Horizon')">
+            عرض التفاصيل
+          </button>
+        </div>
+      </div>
+
+
+      <div class="game-card" data-category="adventure" data-name="Minecraft">
+        <div class="game-image">⛏️</div>
+
+        <div class="game-info">
+          <h3>Minecraft</h3>
+
+          <p>
+            ابنِ عالمك الخاص واستكشف واصنع ما تريد.
+          </p>
+
+          <div class="game-meta">
+            <span>⭐ 4.9</span>
+            <span>🌎 مغامرات</span>
+          </div>
+
+          <button class="details-button"
+            onclick="showGame('Minecraft')">
+            عرض التفاصيل
+          </button>
+        </div>
+      </div>
+
+
+      <div class="game-card" data-category="adventure" data-name="Resident Evil">
+        <div class="game-image">🧟</div>
+
+        <div class="game-info">
+          <h3>Resident Evil</h3>
+
+          <p>
+            رعب وبقاء ومغامرات في عالم مليء بالأخطار.
+          </p>
+
+          <div class="game-meta">
+            <span>⭐ 4.8</span>
+            <span>👻 رعب</span>
+          </div>
+
+          <button class="details-button"
+            onclick="showGame('Resident Evil')">
+            عرض التفاصيل
+          </button>
+        </div>
+      </div>
+
+
+      <div class="game-card" data-category="action" data-name="Call of Duty">
+        <div class="game-image">🔫</div>
+
+        <div class="game-info">
+          <h3>Call of Duty</h3>
+
+          <p>
+            لعبة تصويب وأكشن مليئة بالمواجهات.
+          </p>
+
+          <div class="game-meta">
+            <span>⭐ 4.7</span>
+            <span>🎯 أكشن</span>
+          </div>
+
+          <button class="details-button"
+            onclick="showGame('Call of Duty')">
+            عرض التفاصيل
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="empty" id="empty">
+      لا توجد لعبة بهذا الاسم 😕
+    </div>
+
+  </section>
+
+
+  <section class="section about" id="about">
+
+    <div class="section-title">
+      <h2>🌙 حول LunaGame</h2>
+    </div>
+
+    <p>
+      LunaGame مشروع عربي لمحبي الألعاب.
+      هدفنا تقديم مكتبة ألعاب مرتبة وسهلة الاستخدام
+      مع تجربة جميلة على الكمبيوتر والهاتف.
+    </p>
+
+  </section>
+
+
+  <footer>
+    © 2026 LunaGame — جميع الحقوق محفوظة
+  </footer>
+
+
+  <script>
+
+    const search = document.getElementById("search");
+    const cards = document.querySelectorAll(".game-card");
+    const empty = document.getElementById("empty");
+
+    search.addEventListener("input", function () {
+
+      const text = this.value.toLowerCase();
+      let visible = 0;
+
+      cards.forEach(card => {
+
+        const name = card.dataset.name.toLowerCase();
+
+        if (name.includes(text)) {
+          card.style.display = "block";
+          visible++;
+        } else {
+          card.style.display = "none";
+        }
+
+      });
+
+      empty.style.display = visible === 0 ? "block" : "none";
+
+    });
+
+
+    function filterGames(category) {
+
+      let visible = 0;
+
+      cards.forEach(card => {
+
+        if (category === "all" ||
+            card.dataset.category === category) {
+
+          card.style.display = "block";
+          visible++;
+
+        } else {
+
+          card.style.display = "none";
+
+        }
+
+      });
+
+      empty.style.display = visible === 0 ? "block" : "none";
+    }
+
+
+    function showGame(name) {
+
+      alert(
+        "🎮 " + name +
+        "\\n\\nصفحة اللعبة قيد التطوير 🔥" +
+        "\\n\\nسنضيف لاحقاً الصور والتفاصيل ومتطلبات التشغيل."
+      );
+
+    }
+
+  </script>
+  // ===== LunaGame - نظام المفضلة ⭐ =====
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach((card) => {
+
+    const title = card.querySelector("h3");
+
+    if (!title) return;
+
+    const button = document.createElement("button");
+
+    button.textContent = "☆";
+    button.title = "إضافة للمفضلة";
+
+    button.style.cssText = `
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        border: none;
+        background: rgba(0,0,0,0.35);
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        z-index: 5;
+    `;
+
+    card.style.position = "relative";
+    card.appendChild(button);
+
+    const gameName = title.textContent.trim();
+
+    let favorites = JSON.parse(
+        localStorage.getItem("LunaGameFavorites") || "[]"
+    );
+
+    if (favorites.includes(gameName)) {
+        button.textContent = "★";
+    }
+
+    button.addEventListener("click", (event) => {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        let favorites = JSON.parse(
+            localStorage.getItem("LunaGameFavorites") || "[]"
+        );
+
+        if (favorites.includes(gameName)) {
+
+            favorites = favorites.filter(
+                name => name !== gameName
+            );
+
+            button.textContent = "☆";
+
+        } else {
+
+            favorites.push(gameName);
+            button.textContent = "★";
+
+        }
+
+        localStorage.setItem(
+            "LunaGameFavorites",
+            JSON.stringify(favorites)
+        );
+    });
+});// ===== LunaGame - نظام المفضلة ⭐ =====
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach((card) => {
+
+    const title = card.querySelector("h3");
+
+    if (!title) return;
+
+    const button = document.createElement("button");
+
+    button.textContent = "☆";
+    button.title = "إضافة للمفضلة";
+
+    button.style.cssText = `
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        border: none;
+        background: rgba(0,0,0,0.35);
+        color: white;
+        font-size: 25px;
+        cursor: pointer;
+        border-radius: 50%;
+        width: 42px;
+        height: 42px;
+        z-index: 5;
+    `;
+
+    card.style.position = "relative";
+    card.appendChild(button);
+
+    const gameName = title.textContent.trim();
+
+    let favorites = JSON.parse(
+        localStorage.getItem("LunaGameFavorites") || "[]"
+    );
+
+    if (favorites.includes(gameName)) {
+        button.textContent = "★";
+    }
+
+    button.addEventListener("click", (event) => {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        let favorites = JSON.parse(
+            localStorage.getItem("LunaGameFavorites") || "[]"
+        );
+
+        if (favorites.includes(gameName)) {
+
+            favorites = favorites.filter(
+                name => name !== gameName
+            );
+
+            button.textContent = "☆";
+
+        } else {
+
+            favorites.push(gameName);
+            button.textContent = "★";
+
+        }
+
+        localStorage.setItem(
+            "LunaGameFavorites",
+            JSON.stringify(favorites)
+        );
+    });
+});
+<!-- ===== LunaGame - الألعاب ===== -->
+
+<style>
+.games-section {
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.games-section h2 {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.luna-game {
+    background: #171b25;
+    border: 1px solid #303746;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+.luna-game h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.luna-game p {
+    color: #b8becb;
+    line-height: 1.6;
+}
+
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+    color: #aaa;
+}
+
+.download-game {
+    display: block;
+    padding: 12px;
+    background: #2196f3;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 9px;
+    font-weight: bold;
+}
+
+.download-game:hover {
+    background: #1976d2;
+}
+</style>
+
+<section class="games-section">
+
+    <h2>🎮 ألعاب LunaGame</h2>
+
+    <div class="games-grid">
+
+        <div class="luna-game">
+            <h3>⚔️ 0 A.D.</h3>
+            <p>
+                لعبة استراتيجية تاريخية مجانية ومفتوحة
+</body>
+</htmسس
