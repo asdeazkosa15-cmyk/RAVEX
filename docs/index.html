@@ -1873,6 +1873,20 @@ cards.forEach((card) => {
         </div>
 
     </div>
-</section>
+</section
+  <script>
+function filterCategory(cat) {
+    let cards = document.querySelectorAll('.game-card');
+    cards.forEach(card => {
+        if (cat === 'all') {
+            card.style.display = 'block';
+        } else if (card.getAttribute('data-category') === cat) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
         </body>
 </htm
