@@ -1,31 +1,29 @@
-\<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>RAVEX | Gaming Universe</title>
-
+<title>RAVEX ⚡ Gaming Universe</title>
 <meta name="description" content="RAVEX - عالم الألعاب والتطبيقات والبرامج">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
 
 :root{
-    --bg:#03040a;
-    --bg2:#070812;
-    --card:#0b0e19;
-    --card2:#101426;
+    --bg:#03020a;
+    --bg2:#080512;
+    --card:#0d0918;
+    --card2:#120c20;
     --purple:#9b5cff;
-    --purple2:#6d35ff;
-    --blue:#00d9ff;
-    --red:#ff315d;
-    --pink:#ff3cac;
-    --green:#21e6a0;
-    --gold:#ffc857;
-    --text:#f8f9ff;
-    --muted:#8d94a8;
-    --border:#20263a;
+    --purple2:#6d35d9;
+    --cyan:#22d3ee;
+    --pink:#f43f9f;
+    --green:#22c55e;
+    --gold:#fbbf24;
+    --white:#f8f7ff;
+    --muted:#9b94aa;
+    --border:#2a1c43;
 }
 
 *{
@@ -40,11 +38,8 @@ html{
 
 body{
     font-family:'Cairo',Tahoma,Arial,sans-serif;
-    background:
-        radial-gradient(circle at 10% 10%,#6d35ff10,transparent 30%),
-        radial-gradient(circle at 90% 30%,#00d9ff09,transparent 30%),
-        var(--bg);
-    color:var(--text);
+    background:var(--bg);
+    color:var(--white);
     overflow-x:hidden;
 }
 
@@ -54,28 +49,43 @@ body:before{
     inset:0;
     pointer-events:none;
     z-index:-1;
-    background-image:
-        linear-gradient(#ffffff03 1px,transparent 1px),
-        linear-gradient(90deg,#ffffff03 1px,transparent 1px);
-    background-size:45px 45px;
+    background:
+        radial-gradient(circle at 15% 15%,#9b5cff14,transparent 25%),
+        radial-gradient(circle at 85% 30%,#22d3ee0d,transparent 25%),
+        radial-gradient(circle at 50% 90%,#f43f9f09,transparent 30%);
 }
 
-/* ================= HEADER ================= */
+/* ===== SCROLLBAR ===== */
+
+::-webkit-scrollbar{
+    width:9px;
+}
+
+::-webkit-scrollbar-track{
+    background:#05030b;
+}
+
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(var(--purple),var(--cyan));
+    border-radius:20px;
+}
+
+/* ===== HEADER ===== */
 
 header{
     position:sticky;
     top:0;
-    z-index:9999;
-    background:rgba(3,4,10,.82);
+    z-index:5000;
+    background:#03020ae8;
     backdrop-filter:blur(22px);
-    border-bottom:1px solid #9b5cff28;
+    border-bottom:1px solid #9b5cff22;
 }
 
 .nav{
     max-width:1450px;
     min-height:78px;
     margin:auto;
-    padding:12px 25px;
+    padding:12px 24px;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -83,68 +93,69 @@ header{
 }
 
 .logo{
-    font-size:34px;
+    font-size:32px;
     font-weight:900;
-    letter-spacing:4px;
-    background:linear-gradient(90deg,var(--purple),var(--blue),var(--pink));
+    letter-spacing:5px;
+    background:linear-gradient(90deg,var(--purple),var(--cyan),var(--pink));
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
-    text-shadow:0 0 30px #9b5cff55;
+    text-shadow:0 0 30px #9b5cff44;
 }
 
 .logo small{
     display:block;
     font-size:8px;
-    letter-spacing:5px;
+    letter-spacing:4px;
     text-align:center;
-    color:#9299aa;
-    -webkit-text-fill-color:#9299aa;
+    -webkit-text-fill-color:#777083;
 }
 
 nav{
     display:flex;
-    gap:5px;
     flex-wrap:wrap;
     justify-content:center;
+    gap:5px;
 }
 
 nav a{
+    color:#cfc8df;
     text-decoration:none;
-    color:#cdd2df;
     padding:10px 12px;
-    border-radius:10px;
+    border-radius:11px;
     font-size:13px;
     transition:.25s;
 }
 
 nav a:hover{
     color:white;
-    background:linear-gradient(135deg,#9b5cff,#6530df);
-    box-shadow:0 0 25px #9b5cff45;
+    background:#9b5cff1c;
+    box-shadow:0 0 22px #9b5cff20;
 }
 
-/* ================= HERO ================= */
+/* ===== HERO ===== */
 
 .hero{
-    min-height:690px;
+    min-height:720px;
     position:relative;
     display:flex;
     align-items:center;
-    background:
-        linear-gradient(90deg,#03040af5,#03040ad9 35%,#03040a65 75%,#03040aaa),
-        url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2200&q=95")
-        center/cover;
     overflow:hidden;
+    background:
+        linear-gradient(90deg,#03020af7 0%,#03020ad9 40%,#03020a66 75%,#03020aa8 100%),
+        url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
 }
 
-.hero:after{
+.hero:before{
     content:"";
     position:absolute;
-    inset:0;
-    background:
-        radial-gradient(circle at 70% 40%,#9b5cff35,transparent 30%),
-        radial-gradient(circle at 30% 80%,#00d9ff15,transparent 30%);
-    pointer-events:none;
+    width:550px;
+    height:550px;
+    right:10%;
+    top:10%;
+    background:#9b5cff1c;
+    filter:blur(100px);
+    border-radius:50%;
 }
 
 .hero-content{
@@ -153,32 +164,18 @@ nav a:hover{
     max-width:1450px;
     width:100%;
     margin:auto;
-    padding:80px 25px;
+    padding:90px 25px;
 }
 
-.hero-badge{
+.badge{
     display:inline-flex;
-    align-items:center;
-    gap:8px;
-    padding:9px 18px;
-    border:1px solid #9b5cff66;
+    padding:8px 18px;
+    border:1px solid #9b5cff55;
     border-radius:30px;
-    background:#9b5cff15;
-    color:#d0b5ff;
-    box-shadow:0 0 35px #9b5cff22;
-}
-
-.live-dot{
-    width:8px;
-    height:8px;
-    background:#ff315d;
-    border-radius:50%;
-    box-shadow:0 0 15px #ff315d;
-    animation:pulse 1.4s infinite;
-}
-
-@keyframes pulse{
-    50%{opacity:.3;transform:scale(.65)}
+    color:#d0b7ff;
+    background:#9b5cff12;
+    box-shadow:0 0 35px #9b5cff18;
+    font-weight:800;
 }
 
 .hero h1{
@@ -189,33 +186,36 @@ nav a:hover{
 }
 
 .gradient{
-    background:linear-gradient(90deg,var(--purple),var(--blue),var(--pink));
+    background:linear-gradient(90deg,var(--purple),var(--cyan),var(--pink));
     -webkit-background-clip:text;
     -webkit-text-fill-color:transparent;
 }
 
 .hero p{
-    max-width:730px;
-    margin-top:22px;
-    color:#b8bfce;
-    font-size:18px;
+    max-width:720px;
+    margin-top:24px;
+    color:#bdb6cb;
     line-height:2;
+    font-size:17px;
 }
 
-.hero-buttons{
-    margin-top:32px;
+.buttons{
     display:flex;
-    gap:14px;
     flex-wrap:wrap;
+    gap:13px;
+    margin-top:32px;
 }
 
 .btn{
-    display:inline-block;
+    border:0;
     text-decoration:none;
-    padding:14px 26px;
+    cursor:pointer;
+    padding:14px 25px;
     border-radius:13px;
+    color:white;
+    font-family:inherit;
     font-weight:900;
-    transition:.3s;
+    transition:.25s;
 }
 
 .btn:hover{
@@ -223,18 +223,16 @@ nav a:hover{
 }
 
 .btn-main{
-    color:white;
     background:linear-gradient(135deg,var(--purple),var(--purple2));
-    box-shadow:0 12px 40px #9b5cff45;
+    box-shadow:0 12px 40px #9b5cff35;
 }
 
 .btn-dark{
-    color:white;
-    background:#090c16;
-    border:1px solid #30374d;
+    background:#0c0915;
+    border:1px solid #302245;
 }
 
-/* ================= CONTAINER ================= */
+/* ===== CONTAINER ===== */
 
 .container{
     max-width:1450px;
@@ -256,157 +254,136 @@ nav a:hover{
     margin-top:7px;
 }
 
-/* ================= CATEGORIES ================= */
+/* ===== STATS ===== */
+
+.stats{
+    max-width:1100px;
+    margin:-55px auto 0;
+    position:relative;
+    z-index:10;
+    padding:0 20px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:14px;
+}
+
+.stat{
+    padding:20px;
+    text-align:center;
+    border:1px solid #9b5cff25;
+    border-radius:18px;
+    background:#0b0814e8;
+    backdrop-filter:blur(15px);
+}
+
+.stat strong{
+    display:block;
+    font-size:27px;
+    color:#d4b8ff;
+}
+
+.stat span{
+    color:#81798e;
+    font-size:12px;
+}
+
+/* ===== CATEGORIES ===== */
 
 .categories{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:20px;
+    gap:18px;
 }
 
 .category{
     position:relative;
-    min-height:185px;
-    padding:28px;
-    text-decoration:none;
-    color:white;
-    background:linear-gradient(145deg,#101323,#070912);
+    overflow:hidden;
+    min-height:175px;
+    padding:25px;
     border:1px solid var(--border);
     border-radius:22px;
-    overflow:hidden;
-    transition:.35s;
-}
-
-.category:after{
-    content:"";
-    position:absolute;
-    width:150px;
-    height:150px;
-    background:#9b5cff25;
-    filter:blur(50px);
-    top:-70px;
-    left:-50px;
+    text-decoration:none;
+    color:white;
+    background:linear-gradient(145deg,#130d21,#08060e);
+    transition:.3s;
 }
 
 .category:hover{
-    transform:translateY(-9px);
-    border-color:#9b5cff99;
-    box-shadow:0 20px 60px #000,0 0 35px #9b5cff20;
+    transform:translateY(-8px);
+    border-color:#9b5cff88;
+    box-shadow:0 20px 50px #000,0 0 30px #9b5cff18;
 }
 
-.category-icon{
-    position:relative;
-    z-index:2;
-    font-size:45px;
-}
-
-.category h3,
-.category p{
-    position:relative;
-    z-index:2;
+.category .icon{
+    font-size:43px;
 }
 
 .category h3{
-    margin-top:8px;
+    margin-top:10px;
     font-size:20px;
 }
 
 .category p{
-    color:#858ca0;
+    margin-top:5px;
+    color:#858092;
     font-size:13px;
 }
 
-/* ================= LIVE ================= */
+/* ===== FEATURED ===== */
 
-.live-section{
-    border-top:1px solid #181d2b;
-    border-bottom:1px solid #181d2b;
+.featured{
     background:
-        radial-gradient(circle at 50% 0,#9b5cff13,transparent 40%),
-        #050711;
+        linear-gradient(90deg,#03020af5,#03020a99),
+        url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=2200&q=90")
+        center/cover;
 }
 
-.live-box{
-    display:grid;
-    grid-template-columns:1.2fr 1fr;
-    gap:20px;
-}
-
-.live-card{
-    min-height:230px;
-    padding:30px;
-    border-radius:22px;
-    border:1px solid #282e43;
-    background:linear-gradient(145deg,#111625,#080b14);
-    position:relative;
-    overflow:hidden;
-}
-
-.live-card:before{
-    content:"";
-    position:absolute;
-    width:230px;
-    height:230px;
-    background:#9b5cff18;
-    filter:blur(60px);
-    left:-70px;
-    top:-80px;
-}
-
-.live-card > *{
-    position:relative;
-}
-
-.live-label{
-    color:#ff536f;
-    font-weight:900;
-}
-
-.live-card h2{
-    margin-top:15px;
-    font-size:35px;
-}
-
-.live-card p{
-    color:#8f97aa;
-    margin-top:8px;
-}
-
-.live-btn{
-    display:inline-block;
-    margin-top:20px;
-    padding:11px 20px;
-    border-radius:10px;
-    text-decoration:none;
-    color:white;
-    background:linear-gradient(135deg,#ff315d,#a719ff);
-    font-weight:800;
-}
-
-/* ================= SEARCH ================= */
-
-.tools{
+.feature-box{
+    min-height:440px;
     display:flex;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-bottom:25px;
+    align-items:flex-end;
+    padding:55px;
+    border:1px solid #9b5cff44;
+    border-radius:30px;
+    overflow:hidden;
+    background:
+        linear-gradient(transparent 20%,#03020af5),
+        url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2000&q=90")
+        center/cover;
+    box-shadow:0 30px 90px #000;
 }
+
+.feature-box h2{
+    font-size:52px;
+}
+
+.feature-box p{
+    max-width:720px;
+    margin-top:10px;
+    color:#c6bfd2;
+    line-height:2;
+}
+
+/* ===== SEARCH ===== */
 
 .search{
-    flex:1;
-    min-width:250px;
+    display:flex;
+    gap:10px;
+    margin-bottom:22px;
 }
 
 .search input{
-    width:100%;
+    flex:1;
     padding:17px 20px;
-    border-radius:14px;
-    border:1px solid #292f43;
-    background:#090c15;
+    background:#0a0712;
     color:white;
+    border:1px solid #2b203d;
+    border-radius:14px;
     outline:none;
     font-family:inherit;
-    font-size:14px;
 }
 
 .search input:focus{
@@ -414,18 +391,21 @@ nav a:hover{
     box-shadow:0 0 25px #9b5cff18;
 }
 
+/* ===== FILTERS ===== */
+
 .filters{
     display:flex;
-    gap:8px;
     flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:28px;
 }
 
 .filter{
-    border:1px solid #292f43;
-    background:#090c15;
-    color:#aeb5c5;
+    border:1px solid #2a203a;
+    background:#0b0813;
+    color:#aaa1b8;
+    padding:9px 15px;
     border-radius:10px;
-    padding:11px 15px;
     cursor:pointer;
     font-family:inherit;
 }
@@ -433,246 +413,218 @@ nav a:hover{
 .filter.active,
 .filter:hover{
     color:white;
-    border-color:#9b5cff;
-    background:#9b5cff20;
+    border-color:#9b5cff77;
+    background:#9b5cff18;
 }
 
-/* ================= GRID ================= */
+/* ===== CARDS ===== */
 
 .grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
-    gap:22px;
+    gap:21px;
 }
 
 .card{
-    position:relative;
-    background:linear-gradient(145deg,#101321,#080a11);
-    border:1px solid #20263a;
-    border-radius:20px;
     overflow:hidden;
+    border:1px solid #211834;
+    border-radius:20px;
+    background:linear-gradient(145deg,#110c1d,#08060d);
     transition:.35s;
 }
 
 .card:hover{
-    transform:translateY(-9px);
+    transform:translateY(-8px);
     border-color:#9b5cff88;
-    box-shadow:0 25px 60px #000,0 0 30px #9b5cff18;
-}
-
-.card-img{
-    position:relative;
-    overflow:hidden;
+    box-shadow:0 25px 55px #000,0 0 30px #9b5cff15;
 }
 
 .card img{
     width:100%;
-    height:205px;
+    height:200px;
     object-fit:cover;
     display:block;
     transition:.5s;
 }
 
 .card:hover img{
-    transform:scale(1.07);
-}
-
-.badge{
-    position:absolute;
-    top:13px;
-    right:13px;
-    padding:6px 10px;
-    border-radius:8px;
-    font-size:10px;
-    font-weight:900;
-    background:#ff315ddd;
-    box-shadow:0 0 20px #ff315d55;
-}
-
-.badge.new{
-    background:#9b5cffdd;
-}
-
-.badge.ravex{
-    background:#00aee8dd;
+    transform:scale(1.06);
 }
 
 .card-body{
-    padding:18px;
+    padding:17px;
 }
 
 .card h3{
-    font-size:19px;
-    margin-bottom:7px;
+    font-size:18px;
 }
 
 .card p{
-    color:#8991a4;
+    margin-top:5px;
+    color:#91899e;
     font-size:13px;
     line-height:1.8;
 }
 
-.status{
-    display:inline-block;
-    margin-top:13px;
-    padding:6px 10px;
-    border-radius:8px;
-    color:#bfa7ff;
+.tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+    margin-top:11px;
+}
+
+.tag{
+    padding:5px 9px;
+    border-radius:7px;
     background:#9b5cff12;
     border:1px solid #9b5cff25;
+    color:#cbb1ff;
     font-size:10px;
-    font-weight:800;
 }
 
-.card-actions{
-    display:flex;
-    gap:8px;
-    margin-top:13px;
-}
-
-.game-open{
-    flex:1;
-    border:0;
+.open{
+    width:100%;
+    margin-top:14px;
     padding:11px;
+    border:0;
     border-radius:10px;
-    background:linear-gradient(135deg,#9b5cff,#6330d8);
+    cursor:pointer;
     color:white;
+    background:linear-gradient(135deg,var(--purple),var(--purple2));
     font-family:inherit;
     font-weight:900;
-    cursor:pointer;
     transition:.25s;
 }
 
-.game-open:hover{
+.open:hover{
     box-shadow:0 0 25px #9b5cff55;
-    transform:translateY(-2px);
 }
 
-.favorite{
-    width:45px;
-    border:1px solid #30374a;
-    border-radius:10px;
-    background:#0b0e17;
-    color:#9299aa;
-    cursor:pointer;
-    font-size:19px;
-}
+/* ===== SECTIONS ===== */
 
-.favorite.active{
-    color:#ff315d;
-    border-color:#ff315d66;
-    background:#ff315d12;
-}
-
-/* ================= FEATURED ================= */
-
-.featured{
+.dark-section{
     background:
-        linear-gradient(90deg,#03040aee,#03040aaa),
-        url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=2200&q=95")
-        center/cover;
+        radial-gradient(circle at 80% 20%,#9b5cff0b,transparent 30%),
+        #06040c;
+    border-top:1px solid #171124;
+    border-bottom:1px solid #171124;
 }
 
-.feature-box{
-    min-height:430px;
-    padding:55px;
-    display:flex;
-    align-items:flex-end;
-    border-radius:28px;
-    border:1px solid #9b5cff44;
-    background:linear-gradient(transparent,#03040af5),
-        url("https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2000&q=95")
-        center/cover;
-    box-shadow:0 30px 80px #000;
-}
-
-.feature-box h2{
-    font-size:48px;
-}
-
-.feature-box p{
-    max-width:700px;
-    margin-top:10px;
-    color:#c2c8d5;
-    line-height:2;
-}
-
-/* ================= WINDOWS ================= */
-
-.windows{
+.mobile-section{
     background:
-        radial-gradient(circle at 20% 50%,#9b5cff12,transparent 35%),
-        #060811;
+        radial-gradient(circle at 20% 30%,#22d3ee0c,transparent 30%),
+        #08060f;
+}
+
+.windows-section{
+    background:
+        radial-gradient(circle at 80% 40%,#9b5cff0d,transparent 30%),
+        #05030b;
+}
+
+/* ===== WINDOWS CATEGORIES ===== */
+
+.sub-title{
+    margin:35px 0 18px;
+    font-size:25px;
+    color:#d4c2f4;
 }
 
 .windows-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:22px;
+    gap:18px;
 }
 
 .windows-card{
-    min-height:300px;
+    min-height:250px;
     position:relative;
     overflow:hidden;
-    border-radius:22px;
+    border-radius:21px;
+    border:1px solid #261b39;
     background-size:cover;
     background-position:center;
-    border:1px solid #252c40;
-    transition:.35s;
+    transition:.3s;
 }
 
 .windows-card:hover{
-    transform:translateY(-8px);
+    transform:translateY(-7px);
     border-color:#9b5cff88;
-    box-shadow:0 20px 50px #000;
 }
 
 .windows-overlay{
     position:absolute;
     inset:0;
+    padding:22px;
     display:flex;
     flex-direction:column;
     justify-content:flex-end;
-    padding:25px;
-    background:linear-gradient(transparent 15%,#03040a66 45%,#03040af7);
+    background:linear-gradient(transparent 15%,#03020af7);
 }
 
 .windows-overlay .icon{
-    font-size:40px;
+    font-size:38px;
 }
 
 .windows-overlay h3{
-    margin-top:7px;
-    font-size:25px;
+    margin-top:5px;
+    font-size:23px;
 }
 
 .windows-overlay p{
-    color:#aeb5c5;
-    margin-top:5px;
+    color:#b0a9b9;
+    font-size:13px;
 }
 
 .windows-overlay span{
     width:max-content;
-    margin-top:12px;
-    padding:6px 10px;
-    border-radius:8px;
-    background:#9b5cff15;
-    color:#c8afff;
+    margin-top:9px;
+    padding:5px 9px;
+    border-radius:7px;
+    background:#9b5cff18;
+    color:#c7aaff;
     font-size:10px;
 }
 
-/* ================= ABOUT ================= */
+/* ===== NEWS ===== */
+
+.news-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.news{
+    padding:24px;
+    border-radius:19px;
+    background:#0c0815;
+    border:1px solid #241a35;
+}
+
+.news .news-icon{
+    font-size:32px;
+}
+
+.news h3{
+    margin-top:10px;
+}
+
+.news p{
+    color:#898192;
+    font-size:13px;
+    line-height:1.8;
+    margin-top:6px;
+}
+
+/* ===== ABOUT ===== */
 
 .about{
-    border-top:1px solid #20263a;
-    background:
-        radial-gradient(circle at center,#9b5cff0b,transparent 45%),
-        #080a12;
+    background:#07050d;
+    border-top:1px solid #1c1429;
 }
 
 .about-box{
-    max-width:850px;
+    max-width:900px;
     margin:auto;
     text-align:center;
 }
@@ -682,7 +634,7 @@ nav a:hover{
 }
 
 .about-box p{
-    color:#9ca4b6;
+    color:#a39bac;
     line-height:2;
     margin-top:12px;
 }
@@ -690,261 +642,205 @@ nav a:hover{
 .owner{
     margin-top:25px;
     padding:22px;
-    background:#0d101b;
-    border:1px solid #282f44;
-    border-radius:17px;
+    border-radius:18px;
+    border:1px solid #29203c;
+    background:#0e0a18;
 }
 
-/* ================= CONTACT ================= */
+.owner strong{
+    color:#c4a0ff;
+}
+
+/* ===== CONTACT ===== */
 
 .contact{
     text-align:center;
     padding:75px 20px;
-    background:#03040a;
+    background:#03020a;
+}
+
+.contact h2{
+    font-size:35px;
 }
 
 .contact p{
-    color:#858da0;
-    margin:10px 0 25px;
+    color:#817a8e;
+    margin:8px 0 22px;
 }
 
 .socials{
     display:flex;
     justify-content:center;
-    gap:12px;
     flex-wrap:wrap;
+    gap:10px;
 }
 
 .social{
+    padding:12px 22px;
     text-decoration:none;
-    padding:13px 22px;
-    border-radius:12px;
-    font-weight:bold;
+    border-radius:11px;
+    color:white;
+    font-weight:800;
     transition:.25s;
-}
-
-.whatsapp{
-    background:#159447;
-    color:white;
-}
-
-.instagram{
-    background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
-    color:white;
 }
 
 .social:hover{
     transform:translateY(-4px);
-    box-shadow:0 10px 30px #000;
 }
 
-/* ================= FOOTER ================= */
+.whatsapp{
+    background:#159447;
+}
+
+.instagram{
+    background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045);
+}
+
+/* ===== FOOTER ===== */
 
 footer{
-    padding:40px 20px;
     text-align:center;
-    background:#020308;
-    border-top:1px solid #191e2c;
+    padding:40px 20px;
+    background:#020107;
+    border-top:1px solid #181126;
 }
 
-footer .brand{
-    font-size:30px;
+.brand{
+    font-size:29px;
     font-weight:900;
-    color:#a76bff;
+    color:#a86dff;
 }
 
 footer p{
-    color:#626a7c;
-    margin-top:7px;
-    font-size:13px;
+    color:#625c70;
+    margin-top:6px;
+    font-size:12px;
 }
 
-/* ================= GAME PAGE ================= */
+/* ===== MODAL ===== */
 
-.game-page{
+.modal{
     position:fixed;
     inset:0;
     z-index:99999;
     display:none;
-    overflow-y:auto;
-    background:#03040a;
+    align-items:center;
+    justify-content:center;
+    padding:18px;
+    background:#000000e8;
+    backdrop-filter:blur(14px);
 }
 
-.game-page.show{
-    display:block;
-    animation:pageIn .35s ease;
-}
-
-@keyframes pageIn{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:none}
-}
-
-.game-hero{
-    min-height:430px;
-    position:relative;
-    background-position:center;
-    background-size:cover;
+.modal.show{
     display:flex;
-    align-items:flex-end;
 }
 
-.game-hero:after{
-    content:"";
+.modal-box{
+    position:relative;
+    width:100%;
+    max-width:1050px;
+    max-height:94vh;
+    overflow:auto;
+    border-radius:25px;
+    background:linear-gradient(145deg,#140d21,#07050d);
+    border:1px solid #9b5cff55;
+    box-shadow:0 30px 120px #000;
+    animation:modalIn .3s ease;
+}
+
+@keyframes modalIn{
+    from{opacity:0;transform:scale(.94) translateY(20px)}
+    to{opacity:1;transform:scale(1) translateY(0)}
+}
+
+.modal-image{
+    width:100%;
+    height:330px;
+    object-fit:cover;
+    display:block;
+}
+
+.close{
     position:absolute;
-    inset:0;
-    background:
-        linear-gradient(0deg,#03040a 0%,#03040a88 45%,#03040a22 100%),
-        linear-gradient(90deg,#03040aaa,#03040a22);
+    top:18px;
+    left:18px;
+    width:45px;
+    height:45px;
+    border:1px solid #ffffff44;
+    border-radius:50%;
+    background:#000b;
+    color:white;
+    font-size:25px;
+    cursor:pointer;
+    z-index:5;
 }
 
 .back-btn{
-    position:fixed;
-    top:20px;
-    right:25px;
-    z-index:100;
-    padding:11px 19px;
-    border-radius:12px;
-    border:1px solid #ffffff38;
-    background:#05060dcc;
-    color:white;
-    font-family:inherit;
-    font-weight:900;
+    margin-bottom:17px;
+    padding:10px 16px;
+    border-radius:10px;
+    border:1px solid #34254a;
+    background:#0b0813;
+    color:#d9d0e5;
     cursor:pointer;
-    backdrop-filter:blur(12px);
-    transition:.25s;
+    font-family:inherit;
+    font-weight:800;
 }
 
-.back-btn:hover{
-    border-color:#9b5cff;
-    box-shadow:0 0 25px #9b5cff55;
-    transform:translateX(-3px);
+.modal-content{
+    padding:30px;
 }
 
-.game-hero-content{
-    position:relative;
-    z-index:2;
-    width:100%;
-    max-width:1450px;
-    margin:auto;
-    padding:50px 25px;
+.modal-content h2{
+    font-size:38px;
 }
 
-.game-hero-content h1{
-    font-size:62px;
-    font-weight:900;
-}
-
-.game-tags{
-    display:flex;
-    gap:8px;
-    flex-wrap:wrap;
-    margin-top:15px;
-}
-
-.game-tag{
-    padding:7px 12px;
-    border-radius:9px;
-    background:#9b5cff18;
-    border:1px solid #9b5cff44;
-    color:#cdb5ff;
-    font-size:12px;
-}
-
-.game-content{
-    max-width:1450px;
-    margin:auto;
-    padding:50px 25px 100px;
-}
-
-.game-layout{
-    display:grid;
-    grid-template-columns:1.6fr .8fr;
-    gap:25px;
-}
-
-.game-main-box,
-.info-box{
-    background:linear-gradient(145deg,#0c101b,#070910);
-    border:1px solid #20263a;
-    border-radius:20px;
-    padding:25px;
-}
-
-.game-main-box h2,
-.info-box h2{
-    font-size:25px;
-    margin-bottom:13px;
-}
-
-.game-description{
-    color:#aab1c0;
+.description{
+    color:#bcb4c8;
     line-height:2;
+    margin-top:9px;
 }
 
-.gallery{
+.info-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(4,1fr);
     gap:10px;
     margin-top:22px;
 }
 
-.gallery img{
-    width:100%;
-    height:145px;
-    object-fit:cover;
+.info{
+    padding:13px;
     border-radius:12px;
-    cursor:pointer;
-    transition:.25s;
-    border:1px solid #252c3e;
+    border:1px solid #271d38;
+    background:#0b0813;
 }
 
-.gallery img:hover{
-    transform:scale(1.03);
-    border-color:#9b5cff;
-}
-
-.spec{
-    display:flex;
-    justify-content:space-between;
-    gap:10px;
-    padding:12px 0;
-    border-bottom:1px solid #20263a;
-    color:#9199aa;
-}
-
-.spec strong{
-    color:#f2f4fa;
-}
-
-.download-big{
+.info small{
     display:block;
-    width:100%;
-    margin-top:20px;
-    padding:15px;
-    border:0;
-    border-radius:12px;
-    color:white;
-    background:linear-gradient(135deg,#9b5cff,#6330d8);
-    font-family:inherit;
-    font-weight:900;
-    cursor:pointer;
-    font-size:15px;
-    box-shadow:0 10px 30px #9b5cff22;
+    color:#766e80;
+    font-size:10px;
 }
 
-.trailer{
-    margin-top:25px;
+.info strong{
+    display:block;
+    margin-top:4px;
+    font-size:13px;
+}
+
+.trailer-title,
+.requirements-title{
+    margin-top:28px;
+    margin-bottom:12px;
+    color:#d7c4f7;
 }
 
 .video-box{
-    position:relative;
     width:100%;
     aspect-ratio:16/9;
     overflow:hidden;
     border-radius:16px;
-    border:1px solid #2a3044;
-    background:#010207;
+    border:1px solid #33254a;
+    background:#020204;
 }
 
 .video-box iframe{
@@ -953,33 +849,78 @@ footer p{
     border:0;
 }
 
-/* ================= NOTIFICATION ================= */
+.requirements{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
 
-.toast{
+.req-box{
+    padding:20px;
+    border-radius:16px;
+    background:#0b0813;
+    border:1px solid #281d39;
+}
+
+.req-box h4{
+    color:#c9a9ff;
+    margin-bottom:10px;
+}
+
+.req-box p{
+    color:#a39baa;
+    font-size:13px;
+    line-height:2;
+}
+
+.download{
+    margin-top:24px;
+    padding:22px;
+    text-align:center;
+    border-radius:16px;
+    background:linear-gradient(135deg,#9b5cff0e,#22d3ee09);
+    border:1px solid #302343;
+}
+
+.download-btn{
+    display:inline-block;
+    margin-top:12px;
+    padding:13px 30px;
+    border-radius:11px;
+    background:linear-gradient(135deg,var(--purple),var(--purple2));
+    color:white;
+    text-decoration:none;
+    font-weight:900;
+}
+
+.download small{
+    display:block;
+    color:#777080;
+    margin-top:8px;
+}
+
+/* ===== TO TOP ===== */
+
+.top{
     position:fixed;
-    bottom:25px;
-    left:25px;
-    z-index:100000;
-    max-width:330px;
-    padding:15px 18px;
-    border-radius:13px;
-    background:#101523;
-    border:1px solid #9b5cff66;
-    box-shadow:0 15px 50px #000;
+    left:18px;
+    bottom:18px;
+    z-index:3000;
+    width:45px;
+    height:45px;
+    border:1px solid #9b5cff55;
+    border-radius:50%;
+    background:#0d0918e8;
+    color:white;
+    cursor:pointer;
     display:none;
 }
 
-.toast.show{
+.top.show{
     display:block;
-    animation:toastIn .3s ease;
 }
 
-@keyframes toastIn{
-    from{opacity:0;transform:translateY(15px)}
-    to{opacity:1;transform:none}
-}
-
-/* ================= MOBILE ================= */
+/* ===== MOBILE ===== */
 
 @media(max-width:1100px){
     .grid{
@@ -991,43 +932,58 @@ footer p{
     }
 
     .hero h1{
-        font-size:62px;
+        font-size:60px;
     }
 }
 
-@media(max-width:800px){
+@media(max-width:760px){
     .nav{
         flex-direction:column;
     }
 
     .hero{
-        min-height:570px;
+        min-height:610px;
     }
 
     .hero h1{
-        font-size:45px;
+        font-size:44px;
+    }
+
+    .hero p{
+        font-size:14px;
     }
 
     .grid{
         grid-template-columns:repeat(2,1fr);
     }
 
-    .windows-grid{
+    .windows-grid,
+    .news-grid{
         grid-template-columns:1fr;
     }
 
-    .live-box,
-    .game-layout{
+    .stats-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .feature-box{
+        padding:30px;
+    }
+
+    .feature-box h2{
+        font-size:36px;
+    }
+
+    .info-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .requirements{
         grid-template-columns:1fr;
     }
 
-    .game-hero-content h1{
-        font-size:43px;
-    }
-
-    .back-btn{
-        top:12px;
-        right:12px;
+    .modal-image{
+        height:230px;
     }
 }
 
@@ -1036,8 +992,8 @@ footer p{
         padding:55px 16px;
     }
 
-    .grid,
-    .categories{
+    .categories,
+    .grid{
         grid-template-columns:1fr;
     }
 
@@ -1045,44 +1001,35 @@ footer p{
         font-size:37px;
     }
 
-    .hero p{
-        font-size:14px;
+    nav a{
+        font-size:11px;
+        padding:7px 8px;
     }
 
-    .title h2{
-        font-size:30px;
+    .stats{
+        margin-top:-30px;
     }
 
-    .feature-box{
-        padding:30px;
-    }
-
-    .feature-box h2{
-        font-size:34px;
-    }
-
-    .gallery{
+    .stats-grid{
         grid-template-columns:1fr 1fr;
     }
 
-    .gallery img{
-        height:110px;
+    .card img{
+        height:220px;
     }
 
-    .game-hero{
-        min-height:380px;
+    .modal-content{
+        padding:20px;
     }
 
-    .game-content{
-        padding:35px 16px 80px;
+    .modal-content h2{
+        font-size:29px;
     }
 }
 </style>
 </head>
 
 <body>
-
-<!-- ================= HEADER ================= -->
 
 <header>
 <div class="nav">
@@ -1098,130 +1045,106 @@ RAVEX
 <a href="#mobile">📱 الجوال</a>
 <a href="#windows">🪟 Windows</a>
 <a href="#programs">💻 البرامج</a>
+<a href="#news">⚡ الأخبار</a>
 <a href="#contact">📞 تواصل</a>
 </nav>
 
 </div>
 </header>
 
-
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 
 <section class="hero" id="home">
 <div class="hero-content">
 
-<div class="hero-badge">
-<span class="live-dot"></span>
-RAVEX LIVE — عالم الألعاب
-</div>
+<div class="badge">⚡ مرحبًا بك في عالم RAVEX</div>
 
 <h1>
 عالم الألعاب<br>
-<span>بين يديك</span>
+<span class="gradient">بأسلوب مختلف</span>
 </h1>
 
 <p>
-اكتشف عالم RAVEX — منصة تجمع الألعاب،
-ألعاب الجوال، التطبيقات، برامج Windows
+RAVEX منصة Gaming متطورة تجمع الألعاب،
+ألعاب الجوال، التطبيقات، المحاكيات، برامج Windows
 ومشاريعنا الخاصة في تجربة واحدة.
 </p>
 
-<div class="hero-buttons">
-<a href="#games" class="btn btn-main">
-🎮 استكشف الألعاب
-</a>
-
-<a href="#mobile" class="btn btn-dark">
-📱 عالم الجوال
-</a>
+<div class="buttons">
+<a href="#games" class="btn btn-main">🎮 استكشف الألعاب</a>
+<a href="#windows" class="btn btn-dark">🪟 مركز Windows</a>
 </div>
 
 </div>
 </section>
 
+<!-- STATS -->
 
-<!-- ================= CATEGORIES ================= -->
+<div class="stats">
+<div class="stats-grid">
+
+<div class="stat">
+<strong>🎮</strong>
+<span>عالم الألعاب</span>
+</div>
+
+<div class="stat">
+<strong>📱</strong>
+<span>تطبيقات الجوال</span>
+</div>
+
+<div class="stat">
+<strong>🪟</strong>
+<span>برامج Windows</span>
+</div>
+
+<div class="stat">
+<strong>⚡</strong>
+<span>مشاريع RAVEX</span>
+</div>
+
+</div>
+</div>
+
+<!-- CATEGORIES -->
 
 <section class="container">
 
 <div class="title">
 <h2>استكشف <span class="gradient">RAVEX</span></h2>
-<p>كل عالم الألعاب والتقنية في مكان واحد</p>
+<p>كل ما تحتاجه في مكان واحد</p>
 </div>
 
 <div class="categories">
 
-<a href="#games" class="category">
-<div class="category-icon">🎮</div>
+<a class="category" href="#games">
+<div class="icon">🎮</div>
 <h3>ألعاب الكمبيوتر</h3>
-<p>ألعاب ضخمة ومشاريع قادمة</p>
+<p>ألعاب ضخمة وتجارب مميزة</p>
 </a>
 
-<a href="#mobile" class="category">
-<div class="category-icon">📱</div>
-<h3>ألعاب الجوال</h3>
-<p>ألعاب Android القادمة</p>
-</a>
-
-<a href="#mobile" class="category">
-<div class="category-icon">📲</div>
+<a class="category" href="#mobile">
+<div class="icon">📱</div>
 <h3>تطبيقات الجوال</h3>
-<p>تطبيقات وأدوات مفيدة</p>
+<p>تطبيقات وأدوات Android</p>
 </a>
 
-<a href="#windows" class="category">
-<div class="category-icon">🪟</div>
+<a class="category" href="#windows">
+<div class="icon">🪟</div>
 <h3>Windows</h3>
-<p>برامج وأدوات الكمبيوتر</p>
+<p>محاكيات وبرامج وأدوات</p>
+</a>
+
+<a class="category" href="#programs">
+<div class="icon">🎨</div>
+<h3>التصميم والبرامج</h3>
+<p>تصميم، مونتاج، برمجة وأكثر</p>
 </a>
 
 </div>
 </section>
 
-
-<!-- ================= LIVE ================= -->
-
-<section class="live-section">
-<div class="container">
-
-<div class="title">
-<h2>🔴 <span class="gradient">RAVEX LIVE</span></h2>
-<p>آخر ما يحدث داخل المنصة</p>
-</div>
-
-<div class="live-box">
-
-<div class="live-card">
-<div class="live-label">🔥 لعبة اليوم</div>
-<h2>Call of Duty</h2>
-<p>
-استعد لمعركة قوية — واحدة من أشهر ألعاب التصويب والأكشن.
-</p>
-
-<a href="#games" class="live-btn">
-شاهد الألعاب
-</a>
-</div>
-
-<div class="live-card">
-<div class="live-label">🚧 RAVEX PROJECT</div>
-<h2>Adam Parkour</h2>
-<p>
-مشروع RAVEX الأصلي قيد التطوير.
-</p>
-
-<a href="#games" class="live-btn">
-اكتشف المشروع
-</a>
-</div>
-
-</div>
-
-</div>
-</section>
-
-
-<!-- ================= FEATURED ================= -->
+<!-- FEATURED -->
 
 <section class="featured">
 <div class="container">
@@ -1229,466 +1152,375 @@ RAVEX LIVE — عالم الألعاب
 <div class="feature-box">
 <div>
 <h2 class="gradient">RAVEX NEXT</h2>
-
 <p>
-نحن لا نبني مجرد موقع ألعاب...
-نحن نبني عالمًا خاصًا بعشاق الألعاب والتقنية.
-تابع RAVEX لاكتشاف المشاريع والألعاب القادمة.
+هنا تبدأ الرحلة. ألعاب جديدة، تطبيقات، أدوات،
+ومشاريع أصلية يتم تطويرها باستمرار.
 </p>
-
-<span class="status">🚀 المشروع مستمر</span>
+<div class="badge" style="margin-top:18px">
+🚀 مستقبل RAVEX يبدأ الآن
+</div>
 </div>
 </div>
 
 </div>
 </section>
 
+<!-- GAMES -->
 
-<!-- ================= GAMES ================= -->
-
-<section class="container" id="games">
+<section class="container dark-section" id="games">
 
 <div class="title">
 <h2>🎮 مكتبة <span class="gradient">الألعاب</span></h2>
-<p>اضغط على أي لعبة لفتح صفحة التفاصيل الكاملة</p>
+<p>اضغط على أي لعبة لفتح مركز التفاصيل</p>
 </div>
 
-<div class="tools">
-
 <div class="search">
-<input
-id="gameSearch"
-type="text"
-placeholder="🔎 ابحث عن لعبة..."
-oninput="filterGames()">
+<input id="gameSearch" type="text" placeholder="🔎 ابحث عن لعبة..." oninput="searchGames()">
 </div>
 
 <div class="filters">
-
-<button class="filter active" onclick="filterCategory('all',this)">
-الكل
-</button>
-
-<button class="filter" onclick="filterCategory('action',this)">
-⚡ أكشن
-</button>
-
-<button class="filter" onclick="filterCategory('horror',this)">
-👻 رعب
-</button>
-
-<button class="filter" onclick="filterCategory('open',this)">
-🌎 عالم مفتوح
-</button>
-
-<button class="filter" onclick="filterCategory('rpg',this)">
-🧙 RPG
-</button>
-
+<button class="filter active" onclick="filterGames('all',this)">الكل</button>
+<button class="filter" onclick="filterGames('action',this)">أكشن</button>
+<button class="filter" onclick="filterGames('horror',this)">رعب</button>
+<button class="filter" onclick="filterGames('open',this)">عالم مفتوح</button>
+<button class="filter" onclick="filterGames('rpg',this)">RPG</button>
 </div>
-</div>
-
 
 <div class="grid" id="gamesGrid">
 
+<!-- GTA -->
 
-<!-- GTA V -->
-
-<div class="card game"
-data-name="grand theft auto v gta 5 gta"
-data-category="action open">
-
-<div class="card-img">
-<img src="https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg">
-<span class="badge">🔥 HOT</span>
-</div>
-
+<div class="card game" data-name="grand theft auto v gta 5 gta" data-type="action open">
+<img src="https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg" alt="GTA V">
 <div class="card-body">
 <h3>Grand Theft Auto V</h3>
 <p>عالم مفتوح • أكشن • مغامرات</p>
-<span class="status">🔥 لعبة قادمة</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('Grand Theft Auto V','https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg','عالم مفتوح ضخم مليء بالمغامرات والمطاردات والشخصيات. ستجد في RAVEX معلومات اللعبة وتفاصيلها والتريلر الرسمي.','https://www.youtube.com/embed/QkkoHAzjnUs','أكشن • عالم مفتوح','Windows','108 GB')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
+<div class="tags">
+<span class="tag">🔥 مشهور</span>
+<span class="tag">Open World</span>
+</div>
+<button class="open" onclick="openGame('Grand Theft Auto V','https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg','عالم مفتوح ضخم مليء بالمغامرات والمطاردات والشخصيات.','https://www.youtube.com/embed/QkkoHAzjnUs','Rockstar Games','Windows','8 GB','72 GB','Intel Core 2 Quad / AMD Phenom II','NVIDIA GTX 660 / AMD HD 7870')">عرض التفاصيل 🎬</button>
 </div>
 </div>
-</div>
-
-
-<!-- COD -->
-
-<div class="card game"
-data-name="call of duty cod callofduty كول اوف ديوتي"
-data-category="action">
-
-<div class="card-img">
-<img src="https://images.unsplash.com/photo-1603481546238-487240415921?auto=format&fit=crop&w=1200&q=90">
-<span class="badge new">NEW</span>
-</div>
-
-<div class="card-body">
-<h3>Call of Duty</h3>
-<p>تصويب • أكشن • حرب</p>
-<span class="status">🔥 لعبة جديدة</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('Call of Duty','https://images.unsplash.com/photo-1603481546238-487240415921?auto=format&fit=crop&w=1800&q=90','تجربة تصويب وحروب مليئة بالإثارة والمعارك. صفحة RAVEX جاهزة لعرض معلومات اللعبة والتحديثات والتريلر.','https://www.youtube.com/embed/ztjfwecrY8E','تصويب • أكشن • حرب','Windows','يحدد لاحقًا')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
-</div>
-</div>
-</div>
-
 
 <!-- MINECRAFT -->
 
-<div class="card game"
-data-name="minecraft ماين كرافت minecraft java"
-data-category="open">
-
-<div class="card-img">
-<img src="https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=1200&q=90">
-<span class="badge new">NEW</span>
-</div>
-
+<div class="card game" data-name="minecraft ماين كرافت" data-type="open">
+<img src="https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png" alt="Minecraft">
 <div class="card-body">
 <h3>Minecraft</h3>
 <p>بقاء • بناء • عالم مفتوح</p>
-<span class="status">⛏️ لعبة قادمة</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('Minecraft','https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?auto=format&fit=crop&w=1800&q=90','عالم مفتوح يمكنك فيه البناء والاستكشاف والبقاء وصناعة مغامرتك الخاصة.','https://www.youtube.com/embed/MmB9b5njVbA','بقاء • بناء • عالم مفتوح','Windows / Android','يحدد لاحقًا')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
+<div class="tags">
+<span class="tag">⛏️ Sandbox</span>
+<span class="tag">Open World</span>
 </div>
+<button class="open" onclick="openGame('Minecraft','https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png','عالم لا نهائي تقريبًا من البناء والاستكشاف والبقاء. اجمع الموارد وابنِ عالمك وخض مغامراتك الخاصة.','https://www.youtube.com/embed/MmB9b5njVbA','Mojang Studios','Windows / Android','4 GB','4 GB+','Intel Celeron J4125 / AMD FX-4100','Intel HD Graphics 4000 / Radeon R5')">عرض التفاصيل 🎬</button>
 </div>
 </div>
 
+<!-- CALL OF DUTY -->
 
-<!-- Resident Evil 4 -->
-
-<div class="card game"
-data-name="resident evil 4 re4"
-data-category="horror action">
-
-<div class="card-img">
-<img src="https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg">
-<span class="badge">HORROR</span>
+<div class="card game" data-name="call of duty cod كول اوف ديوتي" data-type="action">
+<img src="https://cdn.akamai.steamstatic.com/steam/apps/1938090/header.jpg" alt="Call of Duty">
+<div class="card-body">
+<h3>Call of Duty</h3>
+<p>أكشن • تصويب • حرب</p>
+<div class="tags">
+<span class="tag">🔥 FPS</span>
+<span class="tag">Action</span>
+</div>
+<button class="open" onclick="openGame('Call of Duty','https://cdn.akamai.steamstatic.com/steam/apps/1938090/header.jpg','تجربة تصويب حماسية مليئة بالمعارك والمهام وأسلوب اللعب السريع.','https://www.youtube.com/embed/4v6XJx3fG5Y','Activision','Windows','8 GB','16 GB','Intel Core i3-6100 / AMD Ryzen 3 1200','GTX 960 / RX 470','')">عرض التفاصيل 🎬</button>
+</div>
 </div>
 
+<!-- RESIDENT EVIL 4 -->
+
+<div class="card game" data-name="resident evil 4" data-type="horror action">
+<img src="https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg" alt="Resident Evil 4">
 <div class="card-body">
 <h3>Resident Evil 4</h3>
 <p>رعب • بقاء • أكشن</p>
-<span class="status">🚧 قيد التطوير</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('Resident Evil 4','https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg','واحدة من أشهر ألعاب الرعب والبقاء. رحلة مليئة بالخطر والأعداء والأحداث المشوقة.','https://www.youtube.com/embed/Id2EaldBaWw','رعب • بقاء • أكشن','Windows','67 GB')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
+<div class="tags">
+<span class="tag">👻 Horror</span>
+<span class="tag">Action</span>
 </div>
+<button class="open" onclick="openGame('Resident Evil 4','https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg','رحلة مرعبة مليئة بالخطر والأعداء والأحداث المشوقة.','https://www.youtube.com/embed/Id2EaldBaWw','CAPCOM','Windows','8 GB','16 GB','Ryzen 3 1200 / Core i5-7500','GTX 1050 Ti / RX 560','60 GB')">عرض التفاصيل 🎬</button>
 </div>
 </div>
 
+<!-- VILLAGE -->
 
-<!-- Resident Evil Village -->
-
-<div class="card game"
-data-name="resident evil village"
-data-category="horror action">
-
-<div class="card-img">
-<img src="https://cdn.akamai.steamstatic.com/steam/apps/1196590/header.jpg">
-<span class="badge">HORROR</span>
-</div>
-
+<div class="card game" data-name="resident evil village" data-type="horror action">
+<img src="https://cdn.akamai.steamstatic.com/steam/apps/1196590/header.jpg" alt="Resident Evil Village">
 <div class="card-body">
 <h3>Resident Evil Village</h3>
 <p>رعب • بقاء • مغامرات</p>
-<span class="status">🚧 قيد التطوير</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('Resident Evil Village','https://cdn.akamai.steamstatic.com/steam/apps/1196590/header.jpg','رحلة مرعبة في قرية غامضة مليئة بالأسرار والمخاطر.','https://www.youtube.com/embed/tZz6tYx5m6A','رعب • بقاء • مغامرات','Windows','50 GB')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
+<div class="tags">
+<span class="tag">👻 Horror</span>
+<span class="tag">Adventure</span>
 </div>
+<button class="open" onclick="openGame('Resident Evil Village','https://cdn.akamai.steamstatic.com/steam/apps/1196590/header.jpg','قرية غامضة مليئة بالأسرار والمخاطر والأحداث المرعبة.','https://www.youtube.com/embed/tZz6tYx5m6A','CAPCOM','Windows','8 GB','16 GB','Intel Core i5-7500 / Ryzen 3 1200','GTX 1050 Ti / RX 560','50 GB')">عرض التفاصيل 🎬</button>
 </div>
 </div>
 
+<!-- FAR CRY -->
 
-<!-- Far Cry 5 -->
-
-<div class="card game"
-data-name="far cry 5"
-data-category="action open">
-
-<div class="card-img">
-<img src="https://cdn.akamai.steamstatic.com/steam/apps/552520/header.jpg">
-<span class="badge">HOT</span>
-</div>
-
+<div class="card game" data-name="far cry 5" data-type="action open">
+<img src="https://cdn.akamai.steamstatic.com/steam/apps/552520/header.jpg" alt="Far Cry 5">
 <div class="card-body">
 <h3>Far Cry 5</h3>
-<p>عالم مفتوح • أكشن</p>
-<span class="status">🔥 لعبة قادمة</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('Far Cry 5','https://cdn.akamai.steamstatic.com/steam/apps/552520/header.jpg','عالم مفتوح ومواجهات وأحداث مليئة بالأكشن والمغامرات.','https://www.youtube.com/embed/7f3ZKJ0wQJ8','أكشن • عالم مفتوح','Windows','40 GB')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
+<p>عالم مفتوح • أكشن • مغامرات</p>
+<div class="tags">
+<span class="tag">🔥 Action</span>
+<span class="tag">Open World</span>
 </div>
+<button class="open" onclick="openGame('Far Cry 5','https://cdn.akamai.steamstatic.com/steam/apps/552520/header.jpg','عالم مفتوح ومواجهات وأحداث مليئة بالأكشن والمغامرات.','https://www.youtube.com/embed/7f3ZKJ0wQJ8','Ubisoft','Windows','8 GB','16 GB','Intel Core i5-2400 / AMD FX-6300','GTX 670 / R9 270','40 GB')">عرض التفاصيل 🎬</button>
 </div>
 </div>
 
+<!-- GOD OF WAR -->
 
-<!-- God of War -->
-
-<div class="card game"
-data-name="god of war"
-data-category="action rpg">
-
-<div class="card-img">
-<img src="https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg">
-<span class="badge">EPIC</span>
-</div>
-
+<div class="card game" data-name="god of war" data-type="action rpg">
+<img src="https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg" alt="God of War">
 <div class="card-body">
 <h3>God of War</h3>
 <p>أكشن • أساطير • مغامرات</p>
-<span class="status">🚧 قيد التطوير</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('God of War','https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg','مغامرة ملحمية تجمع القتال والاستكشاف والقصة في عالم أسطوري.','https://www.youtube.com/embed/K0u_kAWLJOA','أكشن • RPG • مغامرات','Windows','70 GB')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
+<div class="tags">
+<span class="tag">⚔️ Action</span>
+<span class="tag">RPG</span>
+</div>
+<button class="open" onclick="openGame('God of War','https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg','مغامرة ملحمية تجمع القتال والاستكشاف والقصة في عالم أسطوري.','https://www.youtube.com/embed/K0u_kAWLJOA','Santa Monica Studio','Windows','8 GB','16 GB','Intel i5-2500K / Ryzen 5 1400','GTX 960 / R9 290X','70 GB')">عرض التفاصيل 🎬</button>
 </div>
 </div>
-</div>
-
 
 <!-- RDR2 -->
 
-<div class="card game"
-data-name="red dead redemption 2 rdr2"
-data-category="action open rpg">
-
-<div class="card-img">
-<img src="https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg">
-<span class="badge">EPIC</span>
-</div>
-
+<div class="card game" data-name="red dead redemption 2 rdr2" data-type="action open">
+<img src="https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg" alt="Red Dead Redemption 2">
 <div class="card-body">
 <h3>Red Dead Redemption 2</h3>
 <p>عالم مفتوح • مغامرات</p>
-<span class="status">🔥 لعبة قادمة</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('Red Dead Redemption 2','https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg','عالم مفتوح ضخم وتجربة قصصية مليئة بالمغامرات والاستكشاف.','https://www.youtube.com/embed/gmA6MrX81z4','مغامرات • عالم مفتوح','Windows','150 GB')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
+<div class="tags">
+<span class="tag">🤠 Open World</span>
+<span class="tag">Story</span>
 </div>
+<button class="open" onclick="openGame('Red Dead Redemption 2','https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg','عالم مفتوح ضخم وتجربة قصصية مليئة بالمغامرات والاستكشاف.','https://www.youtube.com/embed/gmA6MrX81z4','Rockstar Games','Windows','8 GB','12 GB','Intel Core i5-2500K / FX-6300','GTX 770 / R9 280','150 GB')">عرض التفاصيل 🎬</button>
 </div>
 </div>
 
+<!-- CYBERPUNK -->
 
-<!-- Cyberpunk -->
-
-<div class="card game"
-data-name="cyberpunk 2077 cyberpunk"
-data-category="action open rpg">
-
-<div class="card-img">
-<img src="https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg">
-<span class="badge">RPG</span>
-</div>
-
+<div class="card game" data-name="cyberpunk 2077" data-type="action open rpg">
+<img src="https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg" alt="Cyberpunk 2077">
 <div class="card-body">
 <h3>Cyberpunk 2077</h3>
 <p>RPG • عالم مفتوح • أكشن</p>
-<span class="status">🚧 قيد التطوير</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('Cyberpunk 2077','https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg','مدينة مستقبلية ضخمة، قصة، مهام وأسلوب لعب مليء بالتفاصيل.','https://www.youtube.com/embed/8X2kIfS6fb8','RPG • أكشن • عالم مفتوح','Windows','70 GB')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
+<div class="tags">
+<span class="tag">🌆 Open World</span>
+<span class="tag">RPG</span>
 </div>
+<button class="open" onclick="openGame('Cyberpunk 2077','https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg','مدينة مستقبلية ضخمة، قصة، مهام وأسلوب لعب مليء بالتفاصيل.','https://www.youtube.com/embed/8X2kIfS6fb8','CD PROJEKT RED','Windows','12 GB','16 GB','Core i7-6700 / Ryzen 5 1600','GTX 1060 / RX 580','70 GB')">عرض التفاصيل 🎬</button>
 </div>
 </div>
 
+<!-- ELDEN RING -->
 
-<!-- Elden Ring -->
-
-<div class="card game"
-data-name="elden ring"
-data-category="action rpg open">
-
-<div class="card-img">
-<img src="https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg">
-<span class="badge">RPG</span>
-</div>
-
+<div class="card game" data-name="elden ring" data-type="action open rpg">
+<img src="https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg" alt="Elden Ring">
 <div class="card-body">
 <h3>Elden Ring</h3>
 <p>RPG • أكشن • عالم مفتوح</p>
-<span class="status">🔥 لعبة قادمة</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('Elden Ring','https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg','عالم فانتازي ضخم مليء بالأعداء والزعماء والاستكشاف.','https://www.youtube.com/embed/E3Huy2cdih0','RPG • أكشن • عالم مفتوح','Windows','60 GB')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
+<div class="tags">
+<span class="tag">⚔️ RPG</span>
+<span class="tag">Open World</span>
 </div>
+<button class="open" onclick="openGame('Elden Ring','https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg','عالم فانتازي ضخم مليء بالأعداء والزعماء والاستكشاف.','https://www.youtube.com/embed/E3Huy2cdih0','FromSoftware','Windows','12 GB','16 GB','Intel Core i5-8400 / Ryzen 3 3300X','GTX 1060 / RX 580','60 GB')">عرض التفاصيل 🎬</button>
 </div>
 </div>
 
+<!-- ADAM -->
 
-<!-- Adam -->
-
-<div class="card game"
-data-name="adam parkour آدم باركور"
-data-category="action open">
-
-<div class="card-img">
-<img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=90">
-<span class="badge ravex">RAVEX</span>
-</div>
-
+<div class="card game" data-name="adam parkour" data-type="action">
+<img src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1200&q=90" alt="Adam Parkour">
 <div class="card-body">
 <h3>Adam Parkour</h3>
 <p>مشروع RAVEX الأصلي • باركور</p>
-<span class="status">⚡ مشروع RAVEX</span>
-
-<div class="card-actions">
-<button class="game-open"
-onclick="openGame('Adam Parkour','https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1800&q=90','مشروع لعبة RAVEX الأصلية. مغامرات وباركور وتحديات وحركة. اللعبة حاليًا قيد التطوير.','','باركور • أكشن • مغامرات','Windows','يحدد لاحقًا')">
-عرض التفاصيل 🎬
-</button>
-
-<button class="favorite" onclick="favoriteGame(this)">♡</button>
+<div class="tags">
+<span class="tag">⚡ RAVEX</span>
+<span class="tag">NEW</span>
+</div>
+<button class="open" onclick="openGame('Adam Parkour','https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1600&q=90','مشروع لعبة RAVEX الأصلية. مغامرات وباركور وتحديات وحركة. اللعبة حاليًا قيد التطوير.','','RAVEX','Windows','4 GB','8 GB','Intel Core i3','GTX 750 / RX 550','10 GB')">عرض التفاصيل 🚀</button>
 </div>
 </div>
-</div>
-
 
 </div>
 </section>
 
+<!-- MOBILE -->
 
-<!-- ================= MOBILE ================= -->
-
-<section id="mobile" class="android-section">
+<section class="mobile-section" id="mobile">
 <div class="container">
 
 <div class="title">
 <h2>📱 عالم <span class="gradient">الجوال</span></h2>
-<p>ألعاب وتطبيقات Android القادمة إلى RAVEX</p>
+<p>قسم مرتب لألعاب وتطبيقات وأدوات الهاتف</p>
 </div>
+
+<h3 class="sub-title">🎮 ألعاب الجوال</h3>
 
 <div class="grid">
 
 <div class="card">
-<div class="card-img">
-<img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=90">
-</div>
+<img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?auto=format&fit=crop&w=1200&q=90">
 <div class="card-body">
-<h3>📲 تطبيقات الجوال</h3>
-<p>تطبيقات مفيدة وأدوات عملية للهواتف.</p>
-<span class="status">🚧 قريبًا</span>
+<h3>🎮 ألعاب Android</h3>
+<p>مجموعة ألعاب Android ستتم إضافتها إلى RAVEX.</p>
+<div class="tags"><span class="tag">ANDROID</span><span class="tag">قريبًا</span></div>
+<button class="open" onclick="comingSoon()">تفاصيل اللعبة 🚀</button>
 </div>
 </div>
 
 <div class="card">
-<div class="card-img">
 <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=90">
-</div>
 <div class="card-body">
-<h3>🎮 ألعاب الجوال</h3>
-<p>مجموعة من ألعاب Android القادمة.</p>
-<span class="status">🚧 قريبًا</span>
+<h3>🔥 ألعاب جديدة</h3>
+<p>قسم خاص بالألعاب الجديدة والقادمة.</p>
+<div class="tags"><span class="tag">NEW</span><span class="tag">ANDROID</span></div>
+<button class="open" onclick="comingSoon()">قريبًا 🚀</button>
+</div>
+</div>
+
+</div>
+
+<h3 class="sub-title">📲 تطبيقات الجوال</h3>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=90">
+<div class="card-body">
+<h3>📲 تطبيقات Android</h3>
+<p>تطبيقات مفيدة وأدوات عملية للهواتف.</p>
+<div class="tags"><span class="tag">ANDROID</span><span class="tag">APPS</span></div>
+<button class="open" onclick="comingSoon()">التحميل قريبًا</button>
 </div>
 </div>
 
 <div class="card">
-<div class="card-img">
 <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?auto=format&fit=crop&w=1200&q=90">
+<div class="card-body">
+<h3>🤖 تطبيقات AI</h3>
+<p>أدوات وتطبيقات الذكاء الاصطناعي.</p>
+<div class="tags"><span class="tag">AI</span><span class="tag">TOOLS</span></div>
+<button class="open" onclick="comingSoon()">التحميل قريبًا</button>
 </div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1596742578443-7682ef5251cd?auto=format&fit=crop&w=1200&q=90">
 <div class="card-body">
 <h3>🛠️ أدوات الهاتف</h3>
-<p>أدوات وتطبيقات عملية ومفيدة.</p>
-<span class="status">🚧 قيد التطوير</span>
-</div>
-</div>
-
-<div class="card">
-<div class="card-img">
-<img src="https://images.unsplash.com/photo-1596742578443-7682ef5251cd?auto=format&fit=crop&w=1200&q=90">
-</div>
-<div class="card-body">
-<h3>⚡ RAVEX Mobile</h3>
-<p>مشاريع وتطبيقات خاصة من RAVEX.</p>
-<span class="status">🔥 مشروع قادم</span>
+<p>أدوات عملية ومفيدة للهواتف.</p>
+<div class="tags"><span class="tag">TOOLS</span><span class="tag">MOBILE</span></div>
+<button class="open" onclick="comingSoon()">التحميل قريبًا</button>
 </div>
 </div>
 
 </div>
+
 </div>
 </section>
 
+<!-- WINDOWS -->
 
-<!-- ================= WINDOWS ================= -->
-
-<section class="windows" id="windows">
+<section class="windows-section" id="windows">
 <div class="container">
 
 <div class="title">
-<h2>🪟 <span class="gradient">Windows</span></h2>
-<p>برامج وأدوات الكمبيوتر القادمة</p>
+<h2>🪟 <span class="gradient">Windows Hub</span></h2>
+<p>المحاكيات، التصميم، البرمجة، المونتاج وأدوات الكمبيوتر</p>
 </div>
+
+<h3 class="sub-title">🎮 المحاكيات</h3>
 
 <div class="windows-grid">
 
-<div class="windows-card"
-style="background-image:url('https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=90')">
+<div class="windows-card" style="background-image:url('https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?auto=format&fit=crop&w=1400&q=90')">
 <div class="windows-overlay">
-<div class="icon">⚙️</div>
-<h3>RAVEX Tools</h3>
-<p>مجموعة أدوات للكمبيوتر</p>
-<span>🚧 قيد التطوير</span>
+<div class="icon">📱</div>
+<h3>Android Emulators</h3>
+<p>محاكيات أندرويد على الكمبيوتر</p>
+<span>📥 رابط التحميل قريبًا</span>
 </div>
 </div>
 
-<div class="windows-card"
-style="background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=90')">
+<div class="windows-card" style="background-image:url('https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=1400&q=90')">
+<div class="windows-overlay">
+<div class="icon">🎮</div>
+<h3>PlayStation Emulators</h3>
+<p>محاكيات PlayStation</p>
+<span>📥 رابط التحميل قريبًا</span>
+</div>
+</div>
+
+<div class="windows-card" style="background-image:url('https://images.unsplash.com/photo-1578303512597-81e6cc155b3e?auto=format&fit=crop&w=1400&q=90')">
+<div class="windows-overlay">
+<div class="icon">🕹️</div>
+<h3>Retro Emulators</h3>
+<p>محاكيات الألعاب الكلاسيكية</p>
+<span>📥 رابط التحميل قريبًا</span>
+</div>
+</div>
+
+</div>
+
+<h3 class="sub-title">🎨 برامج التصميم والمونتاج</h3>
+
+<div class="windows-grid">
+
+<div class="windows-card" style="background-image:url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1400&q=90')">
+<div class="windows-overlay">
+<div class="icon">🎨</div>
+<h3>Graphic Design</h3>
+<p>برامج تصميم الصور والجرافيك</p>
+<span>📥 روابط قادمة</span>
+</div>
+</div>
+
+<div class="windows-card" style="background-image:url('https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1400&q=90')">
+<div class="windows-overlay">
+<div class="icon">🎬</div>
+<h3>Video Editing</h3>
+<p>برامج المونتاج وتحرير الفيديو</p>
+<span>📥 روابط قادمة</span>
+</div>
+</div>
+
+<div class="windows-card" style="background-image:url('https://images.unsplash.com/photo-1633356122544-f134324a6cee?auto=format&fit=crop&w=1400&q=90')">
+<div class="windows-overlay">
+<div class="icon">🧊</div>
+<h3>3D Design</h3>
+<p>النمذجة والتصميم ثلاثي الأبعاد</p>
+<span>📥 روابط قادمة</span>
+</div>
+</div>
+
+</div>
+
+<h3 class="sub-title">💻 البرمجة والأدوات</h3>
+
+<div class="windows-grid">
+
+<div class="windows-card" style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=90')">
+<div class="windows-overlay">
+<div class="icon">👨‍💻</div>
+<h3>Developer Tools</h3>
+<p>أدوات للمبرمجين والمطورين</p>
+<span>🚧 قريبًا</span>
+</div>
+</div>
+
+<div class="windows-card" style="background-image:url('https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=90')">
 <div class="windows-overlay">
 <div class="icon">🎮</div>
 <h3>Gaming Tools</h3>
@@ -1697,28 +1529,7 @@ style="background-image:url('https://images.unsplash.com/photo-1531297484001-800
 </div>
 </div>
 
-<div class="windows-card"
-style="background-image:url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=90')">
-<div class="windows-overlay">
-<div class="icon">👨‍💻</div>
-<h3>Developer Tools</h3>
-<p>أدوات للمبرمجين</p>
-<span>🚧 قيد التطوير</span>
-</div>
-</div>
-
-<div class="windows-card"
-style="background-image:url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1400&q=90')">
-<div class="windows-overlay">
-<div class="icon">🚀</div>
-<h3>RAVEX Launcher</h3>
-<p>مشغل RAVEX المستقبلي</p>
-<span>🔥 مشروع قادم</span>
-</div>
-</div>
-
-<div class="windows-card"
-style="background-image:url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1400&q=90')">
+<div class="windows-card" style="background-image:url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1400&q=90')">
 <div class="windows-overlay">
 <div class="icon">🧰</div>
 <h3>PC Utilities</h3>
@@ -1727,81 +1538,98 @@ style="background-image:url('https://images.unsplash.com/photo-1488590528505-98d
 </div>
 </div>
 
-<div class="windows-card"
-style="background-image:url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=90')">
-<div class="windows-overlay">
-<div class="icon">💻</div>
-<h3>RAVEX Software</h3>
-<p>برامج خاصة من تطوير RAVEX</p>
-<span>🔥 قيد التطوير</span>
-</div>
 </div>
 
-</div>
 </div>
 </section>
 
+<!-- PROGRAMS -->
 
-<!-- ================= PROGRAMS ================= -->
-
-<section class="container" id="programs">
+<section class="container dark-section" id="programs">
 
 <div class="title">
 <h2>💻 <span class="gradient">البرامج</span></h2>
-<p>برامج وأدوات قادمة إلى المنصة</p>
+<p>مكتبة البرامج والأدوات الخاصة بـ RAVEX</p>
 </div>
 
 <div class="grid">
 
 <div class="card">
-<div class="card-img">
 <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=90">
-</div>
 <div class="card-body">
-<h3>Programming Tools</h3>
+<h3>👨‍💻 Programming Tools</h3>
 <p>أدوات للمبرمجين والمطورين.</p>
-<span class="status">🚧 قريبًا</span>
+<div class="tags"><span class="tag">PROGRAMMING</span></div>
+<button class="open" onclick="comingSoon()">تحميل قريبًا</button>
 </div>
 </div>
 
 <div class="card">
-<div class="card-img">
 <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=90">
-</div>
 <div class="card-body">
-<h3>PC Utilities</h3>
+<h3>🛠️ PC Utilities</h3>
 <p>أدوات مساعدة للكمبيوتر.</p>
-<span class="status">🚧 قيد التطوير</span>
+<div class="tags"><span class="tag">WINDOWS</span></div>
+<button class="open" onclick="comingSoon()">تحميل قريبًا</button>
 </div>
 </div>
 
 <div class="card">
-<div class="card-img">
-<img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=90">
-</div>
+<img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=1200&q=90">
 <div class="card-body">
-<h3>Office Tools</h3>
-<p>برامج وأدوات للعمل والإنتاجية.</p>
-<span class="status">🚧 قريبًا</span>
+<h3>🎨 Design Tools</h3>
+<p>برامج وأدوات التصميم والجرافيك.</p>
+<div class="tags"><span class="tag">DESIGN</span></div>
+<button class="open" onclick="comingSoon()">تحميل قريبًا</button>
 </div>
 </div>
 
 <div class="card">
-<div class="card-img">
-<img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=90">
-</div>
+<img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=90">
 <div class="card-body">
-<h3>RAVEX Projects</h3>
-<p>مشاريع خاصة بالموقع.</p>
-<span class="status">🔥 قيد التطوير</span>
+<h3>🎬 Video Editing</h3>
+<p>أدوات المونتاج وتحرير الفيديو.</p>
+<div class="tags"><span class="tag">VIDEO</span></div>
+<button class="open" onclick="comingSoon()">تحميل قريبًا</button>
 </div>
 </div>
 
 </div>
 </section>
 
+<!-- NEWS -->
 
-<!-- ================= ABOUT ================= -->
+<section class="container" id="news">
+
+<div class="title">
+<h2>⚡ أخبار <span class="gradient">RAVEX</span></h2>
+<p>آخر التطورات والمشاريع القادمة</p>
+</div>
+
+<div class="news-grid">
+
+<div class="news">
+<div class="news-icon">🎮</div>
+<h3>Minecraft + Call of Duty</h3>
+<p>تمت إضافة الألعاب إلى مكتبة RAVEX مع صفحة تفاصيل ومتطلبات تشغيل.</p>
+</div>
+
+<div class="news">
+<div class="news-icon">🪟</div>
+<h3>Windows Hub</h3>
+<p>قسم جديد للمحاكيات وبرامج التصميم والبرمجة وأدوات الكمبيوتر.</p>
+</div>
+
+<div class="news">
+<div class="news-icon">🚀</div>
+<h3>المستقبل قادم</h3>
+<p>روابط التحميل والمشاريع الجديدة سيتم إضافتها تدريجيًا إلى RAVEX.</p>
+</div>
+
+</div>
+</section>
+
+<!-- ABOUT -->
 
 <section class="about">
 <div class="container">
@@ -1812,509 +1640,329 @@ style="background-image:url('https://images.unsplash.com/photo-1515879218367-846
 
 <p>
 RAVEX ليست مجرد مكتبة ألعاب.
-إنها منصة نعمل على تطويرها لتصبح عالمًا متكاملًا
-للألعاب والتطبيقات والبرامج والمشاريع الخاصة.
-كل ما تراه اليوم هو بداية الطريق.
+إنها منصة نعمل على تطويرها لتجمع الألعاب والتطبيقات
+والبرامج والمحاكيات والمشاريع الخاصة في مكان واحد.
 </p>
 
 <div class="owner">
 <p>⚡ <strong>DEED — Founder & Developer</strong></p>
-<p>نبني المستقبل... لعبة بعد لعبة.</p>
+<p>نبني المستقبل... لعبة وبرنامج ومشروع بعد الآخر.</p>
 </div>
 
 </div>
+
 </div>
 </section>
 
-
-<!-- ================= CONTACT ================= -->
+<!-- CONTACT -->
 
 <section class="contact" id="contact">
 
 <h2>تواصل مع <span class="gradient">RAVEX</span></h2>
-
 <p>للاستفسارات والمشاريع والتواصل</p>
 
 <div class="socials">
 
-<a class="social whatsapp"
-href="https://wa.me/963995870515"
-target="_blank">
+<a class="social whatsapp" href="https://wa.me/963995870515" target="_blank">
 💬 WhatsApp
 </a>
 
-<a class="social instagram"
-href="https://instagram.com/leonardoo_688"
-target="_blank">
+<a class="social instagram" href="https://instagram.com/leonardoo_688" target="_blank">
 📸 Instagram
 </a>
 
 </div>
+
 </section>
 
-
-<!-- ================= FOOTER ================= -->
-
 <footer>
+
 <div class="brand">RAVEX ⚡</div>
 <p>DEED — Founder & Developer</p>
 <p>© 2026 RAVEX — جميع الحقوق محفوظة</p>
+
 </footer>
 
+<!-- GAME MODAL -->
 
-<!-- ================= GAME DETAILS PAGE ================= -->
+<div class="modal" id="gameModal" onclick="closeOutside(event)">
 
-<div class="game-page" id="gamePage">
+<div class="modal-box">
 
-<button class="back-btn" onclick="closeGamePage()">
-← رجوع للألعاب
+<button class="close" onclick="closeGame()">×</button>
+
+<img id="modalImage" class="modal-image" src="" alt="Game">
+
+<div class="modal-content">
+
+<button class="back-btn" onclick="closeGame()">← رجوع إلى الألعاب</button>
+
+<h2 id="modalTitle" class="gradient">اسم اللعبة</h2>
+
+<p id="modalDescription" class="description"></p>
+
+<div class="info-grid">
+
+<div class="info">
+<small>🏢 الناشر</small>
+<strong id="modalPublisher">-</strong>
+</div>
+
+<div class="info">
+<small>🖥️ المنصة</small>
+<strong id="modalPlatform">-</strong>
+</div>
+
+<div class="info">
+<small>🧠 RAM</small>
+<strong id="modalRam">-</strong>
+</div>
+
+<div class="info">
+<small>💾 التخزين</small>
+<strong id="modalStorage">-</strong>
+</div>
+
+</div>
+
+<h3 class="trailer-title">🎬 التريلر والإعلان</h3>
+
+<div class="video-box" id="videoContainer"></div>
+
+<h3 class="requirements-title">⚙️ متطلبات تشغيل اللعبة</h3>
+
+<div class="requirements">
+
+<div class="req-box">
+<h4>🔴 الحد الأدنى</h4>
+<p id="minimumRequirements"></p>
+</div>
+
+<div class="req-box">
+<h4>🟢 الموصى به</h4>
+<p id="recommendedRequirements"></p>
+</div>
+
+</div>
+
+<div class="download">
+
+<strong>📥 تحميل اللعبة</strong>
+
+<br>
+
+<a href="#" class="download-btn" onclick="comingSoon(event)">
+تحميل اللعبة
+</a>
+
+<small>
+🚧 رابط التحميل غير متوفر حاليًا — ستتم إضافته لاحقًا.
+</small>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<button class="top" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+↑
 </button>
-
-<div class="game-hero" id="gameHero">
-
-<div class="game-hero-content">
-
-<h1 id="gamePageTitle">اسم اللعبة</h1>
-
-<div class="game-tags">
-
-<span class="game-tag" id="gamePageType">
-أكشن
-</span>
-
-<span class="game-tag" id="gamePagePlatform">
-Windows
-</span>
-
-<span class="game-tag">
-⭐ RAVEX
-</span>
-
-</div>
-
-</div>
-</div>
-
-
-<div class="game-content">
-
-<div class="game-layout">
-
-<div class="game-main-box">
-
-<h2>📖 عن اللعبة</h2>
-
-<p
-class="game-description"
-id="gamePageDescription">
-</p>
-
-
-<div class="gallery">
-
-<img id="gallery1" src="" onclick="showImage(this.src)">
-<img id="gallery2" src="" onclick="showImage(this.src)">
-<img id="gallery3" src="" onclick="showImage(this.src)">
-
-</div>
-
-
-<div class="trailer">
-
-<h2>🎬 التريلر</h2>
-
-<div class="video-box" id="gameVideo">
-<div style="
-height:100%;
-display:flex;
-align-items:center;
-justify-content:center;
-color:#858da0;
-">
-🎬 التريلر قادم قريبًا
-</div>
-</div>
-
-</div>
-
-</div>
-
-
-<div class="info-box">
-
-<h2>📊 معلومات اللعبة</h2>
-
-<div class="spec">
-<span>النوع</span>
-<strong id="infoType">-</strong>
-</div>
-
-<div class="spec">
-<span>المنصة</span>
-<strong id="infoPlatform">-</strong>
-</div>
-
-<div class="spec">
-<span>الحجم</span>
-<strong id="infoSize">-</strong>
-</div>
-
-<div class="spec">
-<span>الحالة</span>
-<strong>🚧 قيد الإضافة</strong>
-</div>
-
-<div class="spec">
-<span>RAVEX</span>
-<strong>⭐ مميزة</strong>
-</div>
-
-<button
-class="download-big"
-onclick="downloadComingSoon()">
-📥 تحميل اللعبة
-</button>
-
-<p style="
-color:#737b8e;
-font-size:11px;
-text-align:center;
-margin-top:10px;
-line-height:1.8;
-">
-رابط التحميل سيظهر هنا عند توفره بشكل رسمي.
-</p>
-
-</div>
-
-</div>
-</div>
-
-</div>
-
-
-<!-- ================= IMAGE VIEWER ================= -->
-
-<div
-id="imageViewer"
-onclick="closeImage()"
-style="
-position:fixed;
-inset:0;
-z-index:100001;
-display:none;
-align-items:center;
-justify-content:center;
-padding:25px;
-background:#000e;
-backdrop-filter:blur(15px);
-">
-
-<img
-id="viewerImage"
-src=""
-style="
-max-width:95%;
-max-height:90%;
-object-fit:contain;
-border-radius:15px;
-box-shadow:0 0 70px #000;
-">
-
-</div>
-
-
-<!-- ================= TOAST ================= -->
-
-<div class="toast" id="toast"></div>
-
 
 <script>
 
 /* ================= SEARCH ================= */
 
-let currentCategory = "all";
-
-function filterGames(){
+function searchGames(){
 
     const search =
-        document
-        .getElementById("gameSearch")
+        document.getElementById("gameSearch")
         .value
         .toLowerCase()
         .trim();
 
-    const games =
-        document.querySelectorAll(".game");
+    document.querySelectorAll(".game").forEach(function(game){
 
-    games.forEach(function(game){
-
-        const name =
-            game.dataset.name.toLowerCase();
-
-        const category =
-            game.dataset.category;
-
-        const searchOK =
-            name.includes(search);
-
-        const categoryOK =
-            currentCategory === "all" ||
-            category.includes(currentCategory);
+        const text =
+            (game.innerText + " " + game.dataset.name)
+            .toLowerCase();
 
         game.style.display =
-            searchOK && categoryOK
-            ? ""
-            : "none";
+            text.includes(search) ? "" : "none";
 
     });
+
 }
 
+/* ================= FILTER ================= */
 
-/* ================= CATEGORY ================= */
+function filterGames(type,button){
 
-function filterCategory(category,button){
-
-    currentCategory = category;
-
-    document
-    .querySelectorAll(".filter")
+    document.querySelectorAll(".filter")
     .forEach(function(btn){
         btn.classList.remove("active");
     });
 
     button.classList.add("active");
 
-    filterGames();
+    document.querySelectorAll(".game")
+    .forEach(function(game){
+
+        if(type === "all"){
+            game.style.display="";
+            return;
+        }
+
+        const types = game.dataset.type || "";
+
+        game.style.display =
+            types.includes(type) ? "" : "none";
+
+    });
+
 }
 
-
-/* ================= FAVORITES ================= */
-
-function favoriteGame(button){
-
-    button.classList.toggle("active");
-
-    if(button.classList.contains("active")){
-
-        button.textContent="♥";
-
-        showToast("❤️ تمت إضافة اللعبة إلى المفضلة");
-
-    }else{
-
-        button.textContent="♡";
-
-        showToast("تمت إزالة اللعبة من المفضلة");
-
-    }
-}
-
-
-/* ================= OPEN GAME PAGE ================= */
+/* ================= OPEN GAME ================= */
 
 function openGame(
     title,
     image,
     description,
     video,
-    type,
+    publisher,
     platform,
-    size
+    ram,
+    storage,
+    cpu,
+    gpu,
+    customStorage
 ){
 
-    document
-    .getElementById("gamePageTitle")
-    .textContent=title;
+    document.getElementById("modalTitle").textContent = title;
 
-    document
-    .getElementById("gamePageDescription")
-    .textContent=description;
+    document.getElementById("modalImage").src = image;
 
-    document
-    .getElementById("gameHero")
-    .style.backgroundImage=
-        "url('" + image + "')";
+    document.getElementById("modalDescription").textContent =
+        description;
 
-    document
-    .getElementById("gamePageType")
-    .textContent=type;
+    document.getElementById("modalPublisher").textContent =
+        publisher || "غير محدد";
 
-    document
-    .getElementById("gamePagePlatform")
-    .textContent=platform;
+    document.getElementById("modalPlatform").textContent =
+        platform || "Windows";
 
-    document
-    .getElementById("infoType")
-    .textContent=type;
+    document.getElementById("modalRam").textContent =
+        ram || "غير محدد";
 
-    document
-    .getElementById("infoPlatform")
-    .textContent=platform;
+    document.getElementById("modalStorage").textContent =
+        customStorage || storage || "غير محدد";
 
-    document
-    .getElementById("infoSize")
-    .textContent=size;
+    document.getElementById("minimumRequirements").innerHTML =
+        "🪟 نظام التشغيل: Windows 10/11<br>" +
+        "⚙️ المعالج: " + (cpu || "غير محدد") + "<br>" +
+        "🧠 RAM: " + (ram || "غير محدد") + "<br>" +
+        "🎨 كرت الشاشة: " + (gpu || "غير محدد") + "<br>" +
+        "💾 مساحة: " + (customStorage || storage || "غير محدد");
 
+    document.getElementById("recommendedRequirements").innerHTML =
+        "🪟 نظام التشغيل: Windows 10/11 64-bit<br>" +
+        "⚙️ المعالج: Core i5 / Ryzen 5 أو أفضل<br>" +
+        "🧠 RAM: 16 GB أو أكثر<br>" +
+        "🎨 كرت الشاشة: GTX 1660 / RX 5600 XT أو أفضل<br>" +
+        "💾 مساحة إضافية حسب التحديثات";
 
-    /* Gallery */
-
-    document
-    .getElementById("gallery1")
-    .src=image;
-
-    document
-    .getElementById("gallery2")
-    .src=image;
-
-    document
-    .getElementById("gallery3")
-    .src=image;
-
-
-    /* Trailer */
-
-    const videoBox =
-        document.getElementById("gameVideo");
+    const videoContainer =
+        document.getElementById("videoContainer");
 
     if(video){
 
-        videoBox.innerHTML =
-        '<iframe ' +
-        'src="' + video + '?rel=0" ' +
-        'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
-        'allowfullscreen>' +
-        '</iframe>';
+        videoContainer.innerHTML =
+            '<iframe src="' +
+            video +
+            '?rel=0" ' +
+            'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" ' +
+            'allowfullscreen></iframe>';
 
     }else{
 
-        videoBox.innerHTML =
-        '<div style="' +
-        'height:100%;' +
-        'display:flex;' +
-        'align-items:center;' +
-        'justify-content:center;' +
-        'color:#858da0;' +
-        'font-size:16px;' +
-        '">' +
-        '🎬 التريلر قادم قريبًا' +
-        '</div>';
+        videoContainer.innerHTML =
+            '<div style="' +
+            'height:100%;display:flex;align-items:center;' +
+            'justify-content:center;color:#948b9f;' +
+            'font-size:16px">' +
+            '🎬 التريلر قادم قريبًا' +
+            '</div>';
 
     }
 
-
-    document
-    .getElementById("gamePage")
-    .classList.add("show");
+    document.getElementById("gameModal")
+        .classList.add("show");
 
     document.body.style.overflow="hidden";
 
-    document
-    .getElementById("gamePage")
-    .scrollTop=0;
-
 }
 
+/* ================= CLOSE ================= */
 
-/* ================= BACK ================= */
+function closeGame(){
 
-function closeGamePage(){
+    document.getElementById("gameModal")
+        .classList.remove("show");
 
-    const page =
-        document.getElementById("gamePage");
-
-    page.classList.remove("show");
-
-    document
-    .getElementById("gameVideo")
-    .innerHTML="";
+    document.getElementById("videoContainer")
+        .innerHTML="";
 
     document.body.style.overflow="";
-
 }
 
+function closeOutside(event){
 
-/* ================= ESC ================= */
-
-document.addEventListener(
-    "keydown",
-    function(e){
-
-        if(e.key==="Escape"){
-
-            if(
-                document
-                .getElementById("gamePage")
-                .classList.contains("show")
-            ){
-                closeGamePage();
-            }
-
-            closeImage();
-
-        }
-
+    if(event.target.id === "gameModal"){
+        closeGame();
     }
-);
-
-
-/* ================= IMAGE VIEWER ================= */
-
-function showImage(src){
-
-    document
-    .getElementById("viewerImage")
-    .src=src;
-
-    document
-    .getElementById("imageViewer")
-    .style.display="flex";
 
 }
 
-function closeImage(){
+/* ================= COMING SOON ================= */
 
-    document
-    .getElementById("imageViewer")
-    .style.display="none";
+function comingSoon(event){
 
-}
+    if(event){
+        event.preventDefault();
+    }
 
-
-/* ================= DOWNLOAD ================= */
-
-function downloadComingSoon(){
-
-    showToast(
-        "🚧 قريبًا!\nرابط تحميل اللعبة سيتم توفيره عند جاهزية اللعبة."
+    alert(
+        "🚧 قريبًا!\n\n" +
+        "رابط التحميل غير متوفر حاليًا.\n" +
+        "سيتم إضافته إلى RAVEX عند جاهزيته."
     );
 
 }
 
+/* ================= ESC ================= */
 
-/* ================= TOAST ================= */
+document.addEventListener("keydown",function(e){
 
-let toastTimer;
+    if(e.key === "Escape"){
+        closeGame();
+    }
 
-function showToast(message){
+});
 
-    const toast =
-        document.getElementById("toast");
+/* ================= TOP BUTTON ================= */
 
-    toast.textContent=message;
+window.addEventListener("scroll",function(){
 
-    toast.classList.add("show");
+    const btn =
+        document.getElementById("topBtn");
 
-    clearTimeout(toastTimer);
+    if(window.scrollY > 500){
+        btn.classList.add("show");
+    }else{
+        btn.classList.remove("show");
+    }
 
-    toastTimer =
-        setTimeout(function(){
-
-            toast.classList.remove("show");
-
-        },3000);
-
-}
+});
 
 </script>
 
