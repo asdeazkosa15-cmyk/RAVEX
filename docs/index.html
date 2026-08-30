@@ -4,55 +4,57 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>RAVEX | Gaming Universe</title>
-<meta name="description" content="RAVEX - عالم الألعاب والتطبيقات والبرامج">
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
 
 :root{
- --bg:#04030a;
- --bg2:#080611;
- --card:#0d0a18;
+ --bg:#03040a;
+ --card:#0b0e18;
+ --card2:#111522;
  --purple:#a855f7;
- --violet:#7c3aed;
- --blue:#22d3ee;
+ --blue:#00c6ff;
+ --cyan:#22d3ee;
  --pink:#ec4899;
- --text:#fff;
- --muted:#a6a0b5;
- --border:#29203e;
+ --white:#f8f9ff;
+ --muted:#9299ad;
+ --line:#242a3d;
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
-
+*{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-
 body{
- font-family:Cairo,Tahoma,Arial,sans-serif;
- background:
- radial-gradient(circle at 10% 10%,#7c3aed12,transparent 25%),
- radial-gradient(circle at 90% 40%,#22d3ee0d,transparent 25%),
- var(--bg);
- color:var(--text);
+ font-family:Cairo,Arial,sans-serif;
+ background:var(--bg);
+ color:var(--white);
  overflow-x:hidden;
 }
 
-a{text-decoration:none;color:inherit}
-button,input{font-family:inherit}
+body:before{
+ content:"";
+ position:fixed;
+ inset:0;
+ pointer-events:none;
+ z-index:-1;
+ background:
+ radial-gradient(circle at 15% 20%,#8b5cf620,transparent 30%),
+ radial-gradient(circle at 85% 40%,#00c6ff16,transparent 30%);
+}
 
 header{
  position:sticky;
  top:0;
- z-index:1000;
- background:#04030ae8;
+ z-index:999;
+ background:#03040adc;
  backdrop-filter:blur(18px);
- border-bottom:1px solid #a855f733;
+ border-bottom:1px solid #ffffff12;
 }
 
 .nav{
  max-width:1450px;
  margin:auto;
  min-height:76px;
- padding:10px 25px;
+ padding:10px 22px;
  display:flex;
  align-items:center;
  justify-content:space-between;
@@ -60,32 +62,32 @@ header{
 }
 
 .logo{
- font-size:32px;
+ font-size:30px;
  font-weight:900;
- letter-spacing:5px;
+ letter-spacing:4px;
  background:linear-gradient(90deg,var(--purple),var(--blue),var(--pink));
  -webkit-background-clip:text;
- -webkit-text-fill-color:transparent;
+ color:transparent;
 }
 
 .logo small{
  display:block;
  font-size:8px;
- letter-spacing:4px;
+ letter-spacing:3px;
  text-align:center;
- color:#aaa;
- -webkit-text-fill-color:#aaa;
+ color:#8990a5;
 }
 
 nav{
  display:flex;
- gap:5px;
  flex-wrap:wrap;
+ gap:5px;
  justify-content:center;
 }
 
 nav a{
- color:#d9d4e5;
+ color:#d5d9e6;
+ text-decoration:none;
  padding:9px 12px;
  border-radius:10px;
  font-size:13px;
@@ -93,56 +95,51 @@ nav a{
 }
 
 nav a:hover{
- background:linear-gradient(135deg,var(--violet),var(--purple));
- color:#fff;
- box-shadow:0 0 25px #a855f755;
+ background:linear-gradient(135deg,var(--purple),#5b21b6);
+ color:white;
 }
 
-/* HERO */
-
 .hero{
- min-height:720px;
+ min-height:650px;
  position:relative;
  display:flex;
  align-items:center;
- background:
- linear-gradient(90deg,#04030af8 5%,#04030acc 40%,#04030a55 75%,#04030ad9),
- url("https://cdn.akamai.steamstatic.com/steam/apps/1174180/ss_5b8e1f8a6e8e7f7f5f5b7d8f7d7b8e6d3d5c3b2a.jpg")
- center/cover;
  overflow:hidden;
+ background:
+ linear-gradient(90deg,#03040af5 0%,#03040ac8 38%,#03040a55 100%),
+ url("https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=2200&q=90")
+ center/cover;
 }
 
-.hero:before{
+.hero:after{
  content:"";
  position:absolute;
  inset:0;
- background:
- radial-gradient(circle at 75% 40%,#a855f733,transparent 28%),
- linear-gradient(transparent 70%,#04030a);
+ background:radial-gradient(circle at 70% 45%,#a855f730,transparent 35%);
+ pointer-events:none;
 }
 
 .hero-content{
- position:relative;
- z-index:2;
  width:100%;
  max-width:1450px;
  margin:auto;
- padding:90px 25px;
+ padding:80px 25px;
+ position:relative;
+ z-index:2;
 }
 
 .badge{
  display:inline-block;
- padding:8px 18px;
- border:1px solid #a855f766;
+ padding:8px 17px;
+ border:1px solid #a855f755;
+ background:#a855f718;
  border-radius:30px;
- background:#a855f714;
- color:#d6b8ff;
+ color:#d9b9ff;
  font-weight:800;
- box-shadow:0 0 30px #a855f722;
 }
 
 .hero h1{
- font-size:78px;
+ font-size:70px;
  line-height:1.05;
  margin-top:20px;
  font-weight:900;
@@ -151,52 +148,63 @@ nav a:hover{
 .gradient{
  background:linear-gradient(90deg,var(--purple),var(--blue),var(--pink));
  -webkit-background-clip:text;
- -webkit-text-fill-color:transparent;
+ color:transparent;
 }
 
 .hero p{
  max-width:720px;
  margin-top:20px;
- color:#c1bacd;
+ color:#c3c7d5;
+ font-size:17px;
  line-height:2;
- font-size:18px;
 }
 
 .buttons{
  display:flex;
- gap:13px;
  flex-wrap:wrap;
- margin-top:30px;
+ gap:12px;
+ margin-top:28px;
 }
 
 .btn{
- padding:14px 25px;
- border-radius:13px;
+ border:0;
+ cursor:pointer;
+ text-decoration:none;
+ display:inline-block;
+ padding:13px 23px;
+ border-radius:12px;
+ color:white;
+ font-family:inherit;
  font-weight:900;
  transition:.25s;
- display:inline-block;
 }
 
-.btn:hover{
- transform:translateY(-4px);
-}
+.btn:hover{transform:translateY(-3px)}
 
 .primary{
- background:linear-gradient(135deg,var(--violet),var(--purple));
- box-shadow:0 12px 40px #7c3aed44;
+ background:linear-gradient(135deg,var(--purple),#5b21b6);
+ box-shadow:0 10px 35px #8b5cf633;
 }
 
 .secondary{
- background:#0d0a17;
- border:1px solid #34284d;
+ background:#0d111c;
+ border:1px solid #343b51;
 }
 
-/* GENERAL */
-
-.container{
+.section{
  max-width:1450px;
  margin:auto;
- padding:75px 25px;
+ padding:70px 25px;
+}
+
+.dark{
+ background:#070912;
+ max-width:none;
+}
+
+.dark>.inside{
+ max-width:1450px;
+ margin:auto;
 }
 
 .title{
@@ -204,105 +212,42 @@ nav a:hover{
 }
 
 .title h2{
- font-size:38px;
+ font-size:36px;
  font-weight:900;
 }
 
 .title p{
- color:#827b91;
+ color:var(--muted);
  margin-top:7px;
 }
 
-.section-dark{
- background:#07050e;
- border-top:1px solid #1c1630;
- border-bottom:1px solid #1c1630;
-}
-
-.ticker{
- background:#090611;
- border-bottom:1px solid #211837;
- overflow:hidden;
- white-space:nowrap;
-}
-
-.ticker div{
- display:inline-block;
- padding:12px;
- color:#cbb8e9;
- animation:move 20s linear infinite;
-}
-
-@keyframes move{
- from{transform:translateX(0)}
- to{transform:translateX(100%)}
-}
-
-/* FEATURED */
-
-.featured{
+.categories{
  display:grid;
- grid-template-columns:1.5fr 1fr;
- gap:25px;
+ grid-template-columns:repeat(4,1fr);
+ gap:18px;
 }
 
-.feature-main{
- min-height:420px;
- border-radius:25px;
- padding:40px;
- display:flex;
- align-items:flex-end;
- background:
- linear-gradient(transparent 20%,#04030af5),
- url("https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg")
- center/cover;
- border:1px solid #a855f755;
- box-shadow:0 25px 80px #000;
-}
-
-.feature-main h2{
- font-size:48px;
-}
-
-.feature-main p{
- color:#ccc4d3;
- max-width:700px;
- line-height:2;
-}
-
-.feature-side{
- display:grid;
- grid-template-columns:1fr 1fr;
- gap:15px;
-}
-
-.mini{
- min-height:200px;
+.category{
+ text-decoration:none;
+ color:white;
+ background:linear-gradient(145deg,#111522,#080a12);
+ border:1px solid var(--line);
+ padding:25px;
  border-radius:20px;
- padding:22px;
- display:flex;
- flex-direction:column;
- justify-content:flex-end;
- overflow:hidden;
+ transition:.3s;
  position:relative;
- border:1px solid #2a213d;
- background:#0d0a17;
+ overflow:hidden;
 }
 
-.mini:before{
- content:"";
- position:absolute;
- inset:0;
- background:linear-gradient(transparent,#05030bf2);
- z-index:0;
+.category:hover{
+ transform:translateY(-7px);
+ border-color:#a855f777;
+ box-shadow:0 20px 50px #000;
 }
 
-.mini>*{position:relative;z-index:1}
-
-.mini h3{font-size:20px}
-.mini p{color:#aaa2b3;font-size:12px}
-
-/* SEARCH */
+.category .icon{font-size:40px}
+.category h3{margin-top:10px}
+.category p{color:var(--muted);font-size:13px;margin-top:5px}
 
 .search{
  margin-bottom:25px;
@@ -311,387 +256,293 @@ nav a:hover{
 .search input{
  width:100%;
  padding:17px 20px;
- border-radius:14px;
- border:1px solid #2a213d;
+ background:#080b14;
+ color:white;
+ border:1px solid #272d40;
+ border-radius:13px;
  outline:none;
- background:#0b0813;
- color:#fff;
- font-size:15px;
+ font-family:inherit;
+ font-size:14px;
 }
 
-.search input:focus{
- border-color:var(--purple);
- box-shadow:0 0 25px #a855f722;
-}
-
-/* FILTERS */
+.search input:focus{border-color:var(--purple)}
 
 .filters{
  display:flex;
- gap:8px;
  flex-wrap:wrap;
+ gap:8px;
  margin-bottom:25px;
 }
 
 .filter{
- border:1px solid #302544;
- background:#0c0915;
- color:#bbb3c9;
- padding:9px 15px;
+ border:1px solid #30364a;
+ background:#0b0f19;
+ color:#d5d9e5;
+ padding:9px 14px;
  border-radius:10px;
  cursor:pointer;
- transition:.2s;
+ font-family:inherit;
 }
 
 .filter.active,.filter:hover{
- background:linear-gradient(135deg,var(--violet),var(--purple));
- color:#fff;
- border-color:transparent;
+ background:linear-gradient(135deg,var(--purple),#5b21b6);
+ color:white;
 }
 
-/* CARDS */
-
-.grid{
+.games{
  display:grid;
  grid-template-columns:repeat(4,1fr);
  gap:20px;
 }
 
 .card{
- background:linear-gradient(145deg,#110c1d,#08060d);
- border:1px solid #241b35;
- border-radius:20px;
+ background:linear-gradient(145deg,#111522,#080a11);
+ border:1px solid #20263a;
+ border-radius:18px;
  overflow:hidden;
  transition:.3s;
 }
 
 .card:hover{
- transform:translateY(-8px);
+ transform:translateY(-7px);
  border-color:#a855f777;
- box-shadow:0 25px 55px #000,0 0 30px #a855f711;
+ box-shadow:0 20px 50px #000;
 }
 
-.card-img{
+.card img{
  width:100%;
  height:205px;
  object-fit:cover;
  display:block;
- transition:.5s;
+ transition:.4s;
 }
 
-.card:hover .card-img{transform:scale(1.05)}
+.card:hover img{transform:scale(1.04)}
 
 .card-body{padding:17px}
 
-.card h3{
- font-size:18px;
- margin-bottom:5px;
-}
+.card h3{font-size:18px}
 
-.card-info{
- color:#8e8799;
+.card p{
+ color:#969daf;
  font-size:12px;
+ margin-top:5px;
  line-height:1.8;
 }
 
 .tags{
  display:flex;
- gap:6px;
  flex-wrap:wrap;
- margin-top:10px;
+ gap:5px;
+ margin-top:11px;
 }
 
 .tag{
+ font-size:10px;
  padding:5px 8px;
  border-radius:7px;
- background:#a855f714;
- color:#c7a9ff;
- border:1px solid #a855f726;
- font-size:10px;
+ background:#a855f715;
+ color:#cdb1ff;
+ border:1px solid #a855f725;
 }
 
 .open{
  width:100%;
- margin-top:13px;
- border:0;
+ margin-top:14px;
  padding:11px;
+ border:0;
  border-radius:10px;
- background:linear-gradient(135deg,var(--violet),var(--purple));
- color:#fff;
+ background:linear-gradient(135deg,var(--purple),#5b21b6);
+ color:white;
+ font-family:inherit;
  font-weight:900;
  cursor:pointer;
- transition:.2s;
 }
 
-.open:hover{
- box-shadow:0 0 25px #a855f755;
+.feature{
+ margin-top:35px;
+ min-height:360px;
+ border-radius:25px;
+ overflow:hidden;
+ display:flex;
+ align-items:end;
+ padding:40px;
+ background:
+ linear-gradient(transparent,#03040af5),
+ url("https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=2000&q=90")
+ center/cover;
+ border:1px solid #a855f744;
 }
 
-/* MOBILE / WINDOWS */
-
-.category-grid{
- display:grid;
- grid-template-columns:repeat(4,1fr);
- gap:18px;
+.feature h2{font-size:45px}
+.feature p{
+ color:#d1d5df;
+ max-width:700px;
+ line-height:2;
+ margin-top:8px;
 }
 
-.category{
- min-height:190px;
- border-radius:20px;
- padding:25px;
- background:linear-gradient(145deg,#110c1d,#08060d);
- border:1px solid #271d39;
- transition:.3s;
-}
-
-.category:hover{
- transform:translateY(-7px);
- border-color:#a855f777;
-}
-
-.category .icon{
- font-size:43px;
- margin-bottom:12px;
-}
-
-.category h3{font-size:20px}
-.category p{font-size:13px;color:#888195;margin-top:6px}
-
-.windows-grid{
+.info-grid{
  display:grid;
  grid-template-columns:repeat(3,1fr);
  gap:20px;
 }
 
-.win-card{
- min-height:260px;
- border-radius:22px;
- padding:25px;
- display:flex;
- flex-direction:column;
- justify-content:flex-end;
+.info-card{
+ min-height:210px;
+ padding:27px;
+ border-radius:20px;
+ border:1px solid var(--line);
+ background:linear-gradient(145deg,#111522,#080a11);
+}
+
+.info-card .big{font-size:42px}
+.info-card h3{margin-top:8px}
+.info-card p{color:var(--muted);font-size:13px;line-height:1.9;margin-top:6px}
+
+.design{
  background:
- linear-gradient(transparent,#05030bf2),
- url("https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1400&q=90")
- center/cover;
- border:1px solid #291f3d;
- transition:.3s;
+ radial-gradient(circle at 80% 20%,#ec489922,transparent 30%),
+ #080a12;
+ border-top:1px solid #20263a;
+ border-bottom:1px solid #20263a;
 }
 
-.win-card:hover{
- transform:translateY(-7px);
- border-color:#a855f777;
+.design-box{
+ padding:40px;
+ border-radius:25px;
+ background:linear-gradient(135deg,#171024,#09131c);
+ border:1px solid #a855f744;
 }
 
-.win-card:nth-child(2){
- background:
- linear-gradient(transparent,#05030bf2),
- url("https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=90")
- center/cover;
-}
+.design-box h2{font-size:38px}
+.design-box p{color:#adb3c3;line-height:2;margin-top:10px}
 
-.win-card:nth-child(3){
- background:
- linear-gradient(transparent,#05030bf2),
- url("https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1400&q=90")
- center/cover;
-}
-
-.win-card:nth-child(4){
- background:
- linear-gradient(transparent,#05030bf2),
- url("https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=1400&q=90")
- center/cover;
-}
-
-.win-card:nth-child(5){
- background:
- linear-gradient(transparent,#05030bf2),
- url("https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1400&q=90")
- center/cover;
-}
-
-.win-card:nth-child(6){
- background:
- linear-gradient(transparent,#05030bf2),
- url("https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1400&q=90")
- center/cover;
-}
-
-.win-card h3{
- font-size:25px;
- color:#d3b8ff;
-}
-
-.win-card p{color:#c2bacb;font-size:13px}
-
-/* ABOUT */
-
-.about-box{
- max-width:900px;
- margin:auto;
- text-align:center;
-}
-
-.about-box p{
- color:#9d96aa;
- line-height:2.1;
- margin-top:12px;
-}
-
-.owner{
+.design-grid{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:15px;
  margin-top:25px;
+}
+
+.design-item{
  padding:20px;
- border-radius:17px;
- background:#0d0916;
- border:1px solid #29203c;
+ border-radius:15px;
+ background:#090c15;
+ border:1px solid #272d40;
 }
 
-.owner strong{color:#c59eff}
-
-/* CONTACT */
-
-.contact{
- text-align:center;
- padding:70px 20px;
-}
-
-.socials{
- display:flex;
- justify-content:center;
- gap:12px;
- margin-top:20px;
- flex-wrap:wrap;
-}
-
-.social{
- padding:12px 22px;
- border-radius:11px;
- font-weight:800;
-}
-
-.whatsapp{background:#159447}
-.instagram{background:linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)}
-
-/* MODAL */
+.design-item b{display:block;margin-bottom:5px}
+.design-item span{color:#858c9f;font-size:12px}
 
 .modal{
+ display:none;
  position:fixed;
  inset:0;
  z-index:99999;
- display:none;
- align-items:center;
- justify-content:center;
- padding:18px;
  background:#000000e8;
- backdrop-filter:blur(15px);
+ backdrop-filter:blur(14px);
+ padding:20px;
+ overflow:auto;
 }
 
-.modal.show{display:flex}
+.modal.show{display:flex;align-items:center;justify-content:center}
 
 .modal-box{
  width:100%;
  max-width:1050px;
- max-height:94vh;
- overflow:auto;
- border-radius:25px;
- background:linear-gradient(145deg,#130d21,#07050e);
+ background:#080b13;
  border:1px solid #a855f766;
- box-shadow:0 30px 120px #000;
+ border-radius:25px;
+ overflow:hidden;
+ box-shadow:0 30px 100px #000;
  position:relative;
- animation:pop .25s ease;
 }
 
-@keyframes pop{
- from{opacity:0;transform:scale(.94)}
- to{opacity:1;transform:scale(1)}
+.modal-hero{
+ height:310px;
+ position:relative;
+ background-size:cover;
+ background-position:center;
 }
 
-.modal-image{
- width:100%;
- height:320px;
- object-fit:cover;
- display:block;
+.modal-hero:after{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(transparent,#080b13);
 }
 
 .close{
  position:absolute;
- top:15px;
- left:15px;
- z-index:5;
- width:45px;
- height:45px;
+ top:18px;
+ left:18px;
+ z-index:4;
+ width:48px;
+ height:48px;
  border-radius:50%;
- border:1px solid #fff4;
- background:#000b;
- color:#fff;
+ border:1px solid #ffffff44;
+ background:#05060acc;
+ color:white;
  font-size:25px;
  cursor:pointer;
 }
 
-.modal-content{padding:30px}
-
 .back{
- display:inline-block;
- padding:9px 15px;
- border-radius:10px;
- background:#ffffff0a;
- border:1px solid #ffffff18;
- color:#d4cce0;
+ position:absolute;
+ top:18px;
+ right:18px;
+ z-index:4;
+ border:1px solid #ffffff33;
+ background:#05060acc;
+ color:white;
+ padding:10px 16px;
+ border-radius:11px;
+ font-family:inherit;
+ font-weight:800;
  cursor:pointer;
- margin-bottom:18px;
 }
 
-.modal-title{
- font-size:38px;
- background:linear-gradient(90deg,var(--purple),var(--blue));
- -webkit-background-clip:text;
- -webkit-text-fill-color:transparent;
+.modal-content{padding:25px}
+
+.modal-content h2{font-size:35px}
+
+.meta{
+ display:flex;
+ flex-wrap:wrap;
+ gap:8px;
+ margin-top:12px;
+}
+
+.meta span{
+ padding:7px 11px;
+ border-radius:8px;
+ background:#111624;
+ border:1px solid #282f43;
+ color:#c8cdd9;
+ font-size:11px;
 }
 
 .description{
- color:#bdb5c8;
+ color:#adb3c1;
  line-height:2;
- margin-top:10px;
+ margin-top:14px;
 }
 
-.detail-grid{
- display:grid;
- grid-template-columns:repeat(3,1fr);
- gap:12px;
- margin-top:22px;
+.trailer{
+ margin-top:25px;
 }
 
-.detail{
- background:#0b0813;
- border:1px solid #29203b;
- border-radius:13px;
- padding:14px;
-}
-
-.detail span{
- display:block;
- color:#81798e;
- font-size:11px;
- margin-bottom:4px;
-}
-
-.detail strong{
- font-size:13px;
-}
-
-.trailer-title{
- margin:28px 0 12px;
- color:#d6b9ff;
+.trailer h3,.requirements h3{
+ margin-bottom:12px;
 }
 
 .video{
- width:100%;
  aspect-ratio:16/9;
- border-radius:16px;
+ border-radius:15px;
  overflow:hidden;
- border:1px solid #312545;
- background:#020204;
+ background:#030407;
+ border:1px solid #292f42;
 }
 
 .video iframe{
@@ -700,88 +551,90 @@ nav a:hover{
  border:0;
 }
 
-.no-video{
- width:100%;
- height:100%;
- display:flex;
- align-items:center;
- justify-content:center;
- color:#888091;
+.requirements{
+ margin-top:25px;
+}
+
+.req-grid{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:10px;
+}
+
+.req{
+ padding:14px;
+ background:#0e121d;
+ border:1px solid #252c3f;
+ border-radius:11px;
+}
+
+.req b{
+ display:block;
+ color:#cdaeff;
+ font-size:12px;
+}
+
+.req span{
+ color:#9ca3b3;
+ font-size:12px;
 }
 
 .download{
- margin-top:24px;
+ margin-top:25px;
  padding:22px;
- border-radius:16px;
  text-align:center;
- background:#0b0813;
- border:1px solid #29203b;
+ background:#0c101a;
+ border:1px solid #292f42;
+ border-radius:15px;
 }
-
-.download a{
- display:inline-block;
- margin-top:12px;
- padding:12px 30px;
- border-radius:10px;
- background:linear-gradient(135deg,var(--violet),var(--purple));
- font-weight:900;
-}
-
-.download small{
- display:block;
- color:#756e80;
- margin-top:8px;
-}
-
-/* FOOTER */
 
 footer{
  text-align:center;
  padding:40px 20px;
- background:#020107;
- border-top:1px solid #191326;
+ background:#020307;
+ border-top:1px solid #171b29;
 }
 
 footer .brand{
- font-size:29px;
+ font-size:28px;
  font-weight:900;
  color:#a855f7;
 }
 
-footer p{
- color:#625c70;
- font-size:12px;
- margin-top:5px;
-}
-
-/* RESPONSIVE */
+footer p{color:#687083;font-size:12px;margin-top:5px}
 
 @media(max-width:1100px){
- .grid{grid-template-columns:repeat(3,1fr)}
- .category-grid{grid-template-columns:repeat(2,1fr)}
- .hero h1{font-size:60px}
- .featured{grid-template-columns:1fr}
+ .games{grid-template-columns:repeat(3,1fr)}
+ .categories{grid-template-columns:repeat(2,1fr)}
+ .design-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 @media(max-width:750px){
- .nav{flex-direction:column}
- .hero{min-height:590px}
+ .nav{flex-direction:column;padding:12px 14px}
+ nav a{font-size:11px;padding:7px 8px}
+ .hero{min-height:570px}
  .hero h1{font-size:43px}
  .hero p{font-size:14px}
- .grid{grid-template-columns:repeat(2,1fr)}
- .windows-grid{grid-template-columns:1fr}
- .detail-grid{grid-template-columns:1fr 1fr}
- .modal-image{height:220px}
- .feature-main h2{font-size:35px}
+ .section{padding:50px 16px}
+ .games{grid-template-columns:repeat(2,1fr);gap:12px}
+ .card img{height:165px}
+ .info-grid{grid-template-columns:1fr}
+ .feature{padding:25px;min-height:300px}
+ .feature h2{font-size:32px}
+ .modal{padding:8px}
+ .modal-hero{height:220px}
+ .modal-content{padding:18px}
+ .modal-content h2{font-size:28px}
 }
 
-@media(max-width:520px){
- .grid{grid-template-columns:1fr}
- .category-grid{grid-template-columns:1fr}
+@media(max-width:500px){
+ .games{grid-template-columns:1fr}
+ .categories{grid-template-columns:1fr}
+ .design-grid{grid-template-columns:1fr}
  .hero h1{font-size:36px}
- .container{padding:55px 16px}
- nav a{font-size:11px;padding:7px 8px}
- .detail-grid{grid-template-columns:1fr}
+ .hero-content{padding:60px 18px}
+ .req-grid{grid-template-columns:1fr}
+ .card img{height:210px}
 }
 </style>
 </head>
@@ -790,121 +643,98 @@ footer p{
 
 <header>
 <div class="nav">
-
-<div class="logo">
-RAVEX
-<small>GAMING UNIVERSE</small>
-</div>
+<div class="logo">RAVEX<small>GAMING UNIVERSE</small></div>
 
 <nav>
 <a href="#home">الرئيسية</a>
 <a href="#games">🎮 الألعاب</a>
 <a href="#mobile">📱 الجوال</a>
 <a href="#windows">🪟 Windows</a>
-<a href="#programs">💻 البرامج</a>
-<a href="#contact">📞 تواصل</a>
+<a href="#design">🎨 التصميم</a>
 </nav>
-
 </div>
 </header>
 
-<div class="ticker">
-<div>
-⚡ RAVEX GAMING UNIVERSE &nbsp; • &nbsp;
-🔥 ألعاب جديدة قادمة &nbsp; • &nbsp;
-🎬 تريلرات &nbsp; • &nbsp;
-💻 Windows &nbsp; • &nbsp;
-📱 Android &nbsp; • &nbsp;
-🚀 RAVEX ORIGINALS
-</div>
-</div>
-
-<!-- HERO -->
 
 <section class="hero" id="home">
 <div class="hero-content">
 
-<div class="badge">⚡ أهلاً بك في RAVEX</div>
+<div class="badge">⚡ مرحبًا بك في RAVEX</div>
 
 <h1>
 عالم الألعاب<br>
-<span class="gradient">بطريقة مختلفة</span>
+<span class="gradient">بين يديك</span>
 </h1>
 
 <p>
-اكتشف مكتبة RAVEX الضخمة للألعاب،
-ألعاب الجوال، التطبيقات، برامج Windows
-ومشاريعنا الخاصة — كل شيء في مكان واحد.
+🌌 كل ما تحتاجه لعالم الألعاب والتقنية...
+نسعى لأن تجده هنا في RAVEX.
+نواصل التطوير وإضافة المزيد لنقدم لك تجربة أفضل.
 </p>
 
 <div class="buttons">
-<a href="#games" class="btn primary">🎮 استكشف الألعاب</a>
-<a href="#mobile" class="btn secondary">📱 عالم الجوال</a>
+<a class="btn primary" href="#games">🎮 استكشف الألعاب</a>
+<a class="btn secondary" href="#design">🎨 RAVEX DESIGN</a>
 </div>
 
 </div>
 </section>
 
-<!-- FEATURED -->
 
-<section class="container">
-
+<section class="section">
 <div class="title">
-<h2>🔥 <span class="gradient">RAVEX FEATURED</span></h2>
-<p>اختياراتنا المميزة لهذا الأسبوع</p>
+<h2>🔥 استكشف <span class="gradient">RAVEX</span></h2>
+<p>كل عالمك التقني في مكان واحد.</p>
 </div>
 
-<div class="featured">
+<div class="categories">
 
-<div class="feature-main">
-<div>
-<h2>Red Dead Redemption 2</h2>
-<p>
-رحلة ضخمة في عالم مفتوح مليء بالمغامرات،
-القصة، الاستكشاف والشخصيات.
-</p>
-<br>
-<button class="btn primary"
-onclick="openGame('Red Dead Redemption 2','https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg','عالم مفتوح ضخم وتجربة قصصية مليئة بالمغامرات والاستكشاف.','gTA?')">
-🎬 اكتشف اللعبة
-</button>
-</div>
-</div>
+<a class="category" href="#games">
+<div class="icon">🎮</div>
+<h3>ألعاب الكمبيوتر</h3>
+<p>ألعاب ضخمة ومغامرات لا تنتهي.</p>
+</a>
 
-<div class="feature-side">
+<a class="category" href="#mobile">
+<div class="icon">📱</div>
+<h3>ألعاب وتطبيقات الجوال</h3>
+<p>عالم Android بين يديك.</p>
+</a>
 
-<div class="mini" style="background:linear-gradient(transparent,#05030bf5),url('https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg') center/cover">
-<h3>GTA V</h3>
-<p>عالم مفتوح • أكشن</p>
-</div>
+<a class="category" href="#windows">
+<div class="icon">🪟</div>
+<h3>Windows</h3>
+<p>أدوات وبرامج ومحاكيات.</p>
+</a>
 
-<div class="mini" style="background:linear-gradient(transparent,#05030bf5),url('https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg') center/cover">
-<h3>Elden Ring</h3>
-<p>RPG • فانتازيا</p>
-</div>
-
-<div class="mini" style="background:linear-gradient(transparent,#05030bf5),url('https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg') center/cover">
-<h3>Resident Evil 4</h3>
-<p>رعب • بقاء</p>
-</div>
-
-<div class="mini" style="background:linear-gradient(transparent,#05030bf5),url('https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg') center/cover">
-<h3>God of War</h3>
-<p>أكشن • مغامرات</p>
-</div>
-
-</div>
+<a class="category" href="#design">
+<div class="icon">🎨</div>
+<h3>RAVEX DESIGN</h3>
+<p>أدوات وتطبيقات التصميم وصناعة المحتوى.</p>
+</a>
 
 </div>
 </section>
 
-<!-- GAMES -->
 
-<section class="container section-dark" id="games">
+<section class="section">
+<div class="feature">
+<div>
+<h2 class="gradient">RAVEX NEXT 🚀</h2>
+<p>
+نحاول أن نقدم أفضل تجربة ممكنة، ونواصل العمل لتوفير المزيد من الألعاب والتطبيقات والأدوات في مكان واحد.
+</p>
+</div>
+</div>
+</section>
+
+
+<section class="dark" id="games">
+<div class="inside section">
 
 <div class="title">
 <h2>🎮 مكتبة <span class="gradient">الألعاب</span></h2>
-<p>اضغط على أي لعبة لعرض التفاصيل والتريلر ومتطلبات التشغيل</p>
+<p>اختَر لعبتك وافتح صفحة التفاصيل الكاملة.</p>
 </div>
 
 <div class="search">
@@ -912,764 +742,422 @@ onclick="openGame('Red Dead Redemption 2','https://cdn.akamai.steamstatic.com/st
 </div>
 
 <div class="filters">
-<button class="filter active" onclick="filterGames('all',this)">الكل</button>
-<button class="filter" onclick="filterGames('action',this)">🔥 أكشن</button>
-<button class="filter" onclick="filterGames('horror',this)">👻 رعب</button>
-<button class="filter" onclick="filterGames('racing',this)">🏎️ سباق</button>
-<button class="filter" onclick="filterGames('rpg',this)">⚔️ RPG</button>
-<button class="filter" onclick="filterGames('open',this)">🌍 عالم مفتوح</button>
+<button class="filter active" onclick="filterGames('all',this)">🔥 الكل</button>
+<button class="filter" onclick="filterGames('farcry',this)">🎯 Far Cry</button>
+<button class="filter" onclick="filterGames('batman',this)">🦇 Batman</button>
+<button class="filter" onclick="filterGames('spiderman',this)">🕷️ Spider-Man</button>
+<button class="filter" onclick="filterGames('action',this)">💥 Action</button>
 </div>
 
-<div class="grid" id="gamesGrid">
-
-<!-- 1 -->
-
-<div class="card game" data-name="gta v grand theft auto 5 gta" data-type="action open">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg">
-
-<div class="card-body">
-<h3>Grand Theft Auto V</h3>
-<div class="card-info">عالم مفتوح • أكشن • مغامرات</div>
-<div class="tags">
-<span class="tag">🔥 مشهور</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Grand Theft Auto V',
-'https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg',
-'عالم مفتوح ضخم مليء بالمغامرات والمطاردات والشخصيات والمهام.',
-'https://www.youtube.com/embed/QkkoHAzjnUs',
-'Windows 10/11',
-'Intel Core i5-3470 / AMD FX-8350',
-'8 GB RAM',
-'GTX 660 2GB / Radeon HD 7870',
-'110 GB',
-'DirectX 11'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 2 -->
-
-<div class="card game" data-name="minecraft" data-type="action open">
-
-<img class="card-img" src="https://image.api.playstation.com/vulcan/ap/rnd/202209/2717/7YfX4bXxX7g7wYhYfQx7VYpB.png">
-
-<div class="card-body">
-<h3>Minecraft</h3>
-<div class="card-info">بناء • بقاء • عالم مفتوح</div>
-<div class="tags">
-<span class="tag">⭐ كلاسيكية</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Minecraft',
-'https://image.api.playstation.com/vulcan/ap/rnd/202209/2717/7YfX4bXxX7g7wYhYfQx7VYpB.png',
-'عالم مفتوح يسمح لك بالبناء والاستكشاف والبقاء وصناعة عالمك الخاص.',
-'https://www.youtube.com/embed/MmB9b5njVbA',
-'Windows 10/11',
-'Intel Core i3 أو ما يعادله',
-'4 GB RAM',
-'Intel HD Graphics 4000 أو أفضل',
-'4 GB+',
-'OpenGL 4.4'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 3 -->
-
-<div class="card game" data-name="call of duty modern warfare warzone" data-type="action">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/1938090/header.jpg">
-
-<div class="card-body">
-<h3>Call of Duty</h3>
-<div class="card-info">تصويب • أكشن • حرب</div>
-<div class="tags">
-<span class="tag">🔥 FPS</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Call of Duty',
-'https://cdn.akamai.steamstatic.com/steam/apps/1938090/header.jpg',
-'تجربة تصويب وحروب سريعة مليئة بالمواجهات والأسلحة والعمليات.',
-'https://www.youtube.com/embed/BLTZqY5GWhI',
-'Windows 10/11 64-bit',
-'Intel Core i5-6600 / Ryzen 5 1600',
-'8 GB RAM',
-'GTX 960 / Radeon RX 470',
-'125 GB+',
-'DirectX 12'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 4 -->
-
-<div class="card game" data-name="resident evil 4" data-type="horror action">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg">
-
-<div class="card-body">
-<h3>Resident Evil 4</h3>
-<div class="card-info">رعب • بقاء • أكشن</div>
-<div class="tags">
-<span class="tag">👻 Horror</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Resident Evil 4',
-'https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg',
-'مغامرة رعب وبقاء مليئة بالأعداء والأحداث والمواجهات.',
-'https://www.youtube.com/embed/Id2EaldBaWw',
-'Windows 10 64-bit',
-'Intel Core i5-7500 / Ryzen 3 1200',
-'8 GB RAM',
-'GTX 1050 Ti / RX 560',
-'70 GB',
-'DirectX 12'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 5 -->
-
-<div class="card game" data-name="resident evil village" data-type="horror">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/1196590/header.jpg">
-
-<div class="card-body">
-<h3>Resident Evil Village</h3>
-<div class="card-info">رعب • بقاء • مغامرات</div>
-<div class="tags">
-<span class="tag">👻 رعب</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Resident Evil Village',
-'https://cdn.akamai.steamstatic.com/steam/apps/1196590/header.jpg',
-'رحلة مرعبة في قرية غامضة مليئة بالأسرار والمخاطر.',
-'https://www.youtube.com/embed/tZz6tYx5m6A',
-'Windows 10 64-bit',
-'Intel Core i5-7500 / Ryzen 3 1200',
-'8 GB RAM',
-'GTX 1050 Ti / RX 560',
-'50 GB',
-'DirectX 12'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 6 -->
-
-<div class="card game" data-name="far cry 5" data-type="action open">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/552520/header.jpg">
-
-<div class="card-body">
-<h3>Far Cry 5</h3>
-<div class="card-info">عالم مفتوح • أكشن</div>
-<div class="tags">
-<span class="tag">🔥 أكشن</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Far Cry 5',
-'https://cdn.akamai.steamstatic.com/steam/apps/552520/header.jpg',
-'عالم مفتوح مليء بالمواجهات والاستكشاف والمغامرات.',
-'https://www.youtube.com/embed/7f3ZKJ0wQJ8',
-'Windows 10',
-'Intel Core i5-2400 / AMD FX-6300',
-'8 GB RAM',
-'GTX 670 / Radeon R9 270',
-'40 GB',
-'DirectX 11'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 7 -->
-
-<div class="card game" data-name="god of war" data-type="action rpg">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg">
-
-<div class="card-body">
-<h3>God of War</h3>
-<div class="card-info">أكشن • أساطير • مغامرات</div>
-<div class="tags">
-<span class="tag">⚔️ RPG</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'God of War',
-'https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg',
-'مغامرة ملحمية تجمع القتال والاستكشاف والقصة في عالم أسطوري.',
-'https://www.youtube.com/embed/K0u_kAWLJOA',
-'Windows 10 64-bit',
-'Intel Core i5-2500K / Ryzen 3 1200',
-'8 GB RAM',
-'GTX 960 / R9 290X',
-'70 GB',
-'DirectX 11'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 8 -->
-
-<div class="card game" data-name="red dead redemption 2 rdr2" data-type="action open rpg">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg">
-
-<div class="card-body">
-<h3>Red Dead Redemption 2</h3>
-<div class="card-info">عالم مفتوح • مغامرات</div>
-<div class="tags">
-<span class="tag">👑 ملحمية</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Red Dead Redemption 2',
-'https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg',
-'تجربة عالم مفتوح ضخمة وقصة ملحمية مليئة بالشخصيات والاستكشاف.',
-'https://www.youtube.com/embed/gmA6MrX81z4',
-'Windows 10 64-bit',
-'Intel Core i5-2500K / AMD FX-6300',
-'8 GB RAM',
-'GTX 770 2GB / R9 280',
-'150 GB',
-'DirectX 12'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 9 -->
-
-<div class="card game" data-name="cyberpunk 2077" data-type="action rpg open">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg">
-
-<div class="card-body">
-<h3>Cyberpunk 2077</h3>
-<div class="card-info">RPG • عالم مفتوح • أكشن</div>
-<div class="tags">
-<span class="tag">🌆 مستقبل</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Cyberpunk 2077',
-'https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg',
-'مدينة مستقبلية ضخمة وقصة ومهام وأسلوب لعب مليء بالتفاصيل.',
-'https://www.youtube.com/embed/8X2kIfS6fb8',
-'Windows 10 64-bit',
-'Core i7-6700 / Ryzen 5 1600',
-'12 GB RAM',
-'GTX 1060 6GB / RX 580',
-'70 GB SSD',
-'DirectX 12'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 10 -->
-
-<div class="card game" data-name="elden ring" data-type="rpg open action">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg">
-
-<div class="card-body">
-<h3>Elden Ring</h3>
-<div class="card-info">RPG • أكشن • عالم مفتوح</div>
-<div class="tags">
-<span class="tag">⚔️ RPG</span>
-<span class="tag">🔥 ضخم</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Elden Ring',
-'https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg',
-'عالم فانتازي ضخم مليء بالأعداء والزعماء والاستكشاف.',
-'https://www.youtube.com/embed/E3Huy2cdih0',
-'Windows 10',
-'Intel Core i5-8400 / Ryzen 3 3300X',
-'12 GB RAM',
-'GTX 1060 3GB / RX 580',
-'60 GB',
-'DirectX 12'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 11 -->
-
-<div class="card game" data-name="forza horizon 5" data-type="racing open">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/1551360/header.jpg">
-
-<div class="card-body">
-<h3>Forza Horizon 5</h3>
-<div class="card-info">سباق • سيارات • عالم مفتوح</div>
-<div class="tags">
-<span class="tag">🏎️ Racing</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Forza Horizon 5',
-'https://cdn.akamai.steamstatic.com/steam/apps/1551360/header.jpg',
-'عالم مفتوح للسيارات والسباقات مع خريطة ضخمة ومئات السيارات.',
-'https://www.youtube.com/embed/FYH9n37B7Yw',
-'Windows 10/11',
-'Intel i5-4460 / Ryzen 3 1200',
-'8 GB RAM',
-'GTX 970 / RX 470',
-'110 GB',
-'DirectX 12'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 12 -->
-
-<div class="card game" data-name="assassins creed valhalla" data-type="action rpg open">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/2208920/header.jpg">
-
-<div class="card-body">
-<h3>Assassin's Creed Valhalla</h3>
-<div class="card-info">أكشن • RPG • عالم مفتوح</div>
-<div class="tags">
-<span class="tag">⚔️ مغامرات</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Assassin’s Creed Valhalla',
-'https://cdn.akamai.steamstatic.com/steam/apps/2208920/header.jpg',
-'مغامرة تاريخية ضخمة تجمع القتال والاستكشاف والعالم المفتوح.',
-'https://www.youtube.com/embed/ssrNcwxALS4',
-'Windows 10',
-'Intel i5-4460 / Ryzen 3 1200',
-'8 GB RAM',
-'GTX 960 / R9 380',
-'160 GB',
-'DirectX 12'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 13 -->
-
-<div class="card game" data-name="hogwarts legacy" data-type="action rpg open">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/990080/header.jpg">
-
-<div class="card-body">
-<h3>Hogwarts Legacy</h3>
-<div class="card-info">سحر • RPG • مغامرات</div>
-<div class="tags">
-<span class="tag">✨ Fantasy</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Hogwarts Legacy',
-'https://cdn.akamai.steamstatic.com/steam/apps/990080/header.jpg',
-'عالم سحري ضخم مليء بالمغامرات والتعاويذ والاستكشاف.',
-'https://www.youtube.com/embed/BtyBjOW8sGY',
-'Windows 10 64-bit',
-'Intel Core i5-6600 / Ryzen 5 1400',
-'16 GB RAM',
-'GTX 960 4GB / RX 470',
-'85 GB',
-'DirectX 12'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
-
-<!-- 14 -->
-
-<div class="card game" data-name="dying light 2" data-type="action horror open">
-
-<img class="card-img" src="https://cdn.akamai.steamstatic.com/steam/apps/534380/header.jpg">
-
-<div class="card-body">
-<h3>Dying Light 2</h3>
-<div class="card-info">زومبي • بقاء • أكشن</div>
-<div class="tags">
-<span class="tag">🧟 زومبي</span>
-<span class="tag">Windows</span>
-</div>
-
-<button class="open" onclick="openGame(
-'Dying Light 2',
-'https://cdn.akamai.steamstatic.com/steam/apps/534380/header.jpg',
-'مدينة مليئة بالزومبي والحركة والباركور والبقاء.',
-'https://www.youtube.com/embed/2MD4gTitmzw',
-'Windows 10',
-'Intel Core i3-9100 / Ryzen 3 2300X',
-'8 GB RAM',
-'GTX 1050 Ti / RX 560',
-'60 GB',
-'DirectX 12'
-)">عرض التفاصيل 🎬</button>
-</div>
-</div>
+<div class="games" id="gamesGrid"></div>
 
 </div>
 </section>
 
-<!-- MOBILE -->
 
-<section class="container" id="mobile">
-
+<section class="section" id="mobile">
 <div class="title">
 <h2>📱 عالم <span class="gradient">الجوال</span></h2>
-<p>ألعاب وتطبيقات وأدوات Android</p>
+<p>نجهز مجموعة من التطبيقات والألعاب والأدوات.</p>
 </div>
 
-<div class="category-grid">
+<div class="info-grid">
 
-<div class="category">
-<div class="icon">🎮</div>
+<div class="info-card">
+<div class="big">🎮</div>
 <h3>ألعاب Android</h3>
-<p>ألعاب جوال قادمة إلى RAVEX</p>
+<p>نختار ونجهز المزيد من ألعاب الجوال لتجربة RAVEX.</p>
 </div>
 
-<div class="category">
-<div class="icon">📲</div>
+<div class="info-card">
+<div class="big">📲</div>
 <h3>تطبيقات الجوال</h3>
-<p>تطبيقات وأدوات مفيدة</p>
+<p>تطبيقات وأدوات مفيدة سنعمل على إضافتها للمنصة.</p>
 </div>
 
-<div class="category">
-<div class="icon">🛠️</div>
+<div class="info-card">
+<div class="big">🛠️</div>
 <h3>أدوات الهاتف</h3>
-<p>أدوات عملية للهواتف</p>
-</div>
-
-<div class="category">
-<div class="icon">⚡</div>
-<h3>RAVEX Mobile</h3>
-<p>مشاريعنا الخاصة للجوال</p>
+<p>مجموعة من الأدوات العملية والمفيدة للمستخدم.</p>
 </div>
 
 </div>
 </section>
 
-<!-- WINDOWS -->
 
-<section class="container section-dark" id="windows">
+<section class="dark" id="windows">
+<div class="inside section">
 
 <div class="title">
 <h2>🪟 <span class="gradient">Windows</span></h2>
-<p>برامج الكمبيوتر والمحاكيات وأدوات التصميم</p>
+<p>نسعى لتوفير مجموعة متنوعة من البرامج والأدوات.</p>
 </div>
 
-<div class="windows-grid">
+<div class="info-grid">
 
-<div class="win-card">
-<h3>🎮 برامج المحاكاة</h3>
-<p>محاكيات وأدوات للألعاب</p>
+<div class="info-card">
+<div class="big">🕹️</div>
+<h3>برامج المحاكاة</h3>
+<p>نعمل على تجهيز مجموعة من برامج Emulator لمحبي الألعاب.</p>
+<strong>🚀 في الطريق إلى RAVEX</strong>
 </div>
 
-<div class="win-card">
-<h3>🎨 برامج التصميم</h3>
-<p>برامج التصميم والجرافيك</p>
+<div class="info-card">
+<div class="big">⚙️</div>
+<h3>أدوات الكمبيوتر</h3>
+<p>أدوات مساعدة وصيانة وتحسين تجربة الكمبيوتر.</p>
+<strong>🛠️ نعمل على تجهيزها</strong>
 </div>
 
-<div class="win-card">
-<h3>💻 برامج البرمجة</h3>
-<p>أدوات للمبرمجين والمطورين</p>
+<div class="info-card">
+<div class="big">💻</div>
+<h3>برامج متنوعة</h3>
+<p>برامج مفيدة للعمل والدراسة والاستخدام اليومي.</p>
+<strong>👀 ترقب المزيد</strong>
 </div>
 
-<div class="win-card">
-<h3>🧰 أدوات الكمبيوتر</h3>
-<p>برامج مساعدة وصيانة</p>
-</div>
-
-<div class="win-card">
-<h3>🚀 RAVEX Launcher</h3>
-<p>مشروع RAVEX المستقبلي</p>
-</div>
-
-<div class="win-card">
-<h3>📦 برامج متنوعة</h3>
-<p>برامج مفيدة للاستخدام اليومي</p>
 </div>
 
 </div>
 </section>
 
-<!-- PROGRAMS -->
 
-<section class="container" id="programs">
+<section class="design" id="design">
+<div class="section">
 
-<div class="title">
-<h2>💻 <span class="gradient">البرامج</span></h2>
-<p>قسم البرامج والمشاريع القادمة</p>
-</div>
+<div class="design-box">
 
-<div class="grid">
-
-<div class="card">
-<img class="card-img" src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=90">
-<div class="card-body">
-<h3>Programming Tools</h3>
-<div class="card-info">أدوات للمبرمجين والمطورين</div>
-<span class="tag">🚧 قريبًا</span>
-</div>
-</div>
-
-<div class="card">
-<img class="card-img" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=1200&q=90">
-<div class="card-body">
-<h3>Design Tools</h3>
-<div class="card-info">برامج التصميم والجرافيك</div>
-<span class="tag">🎨 قريبًا</span>
-</div>
-</div>
-
-<div class="card">
-<img class="card-img" src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1200&q=90">
-<div class="card-body">
-<h3>Emulators</h3>
-<div class="card-info">برامج المحاكاة</div>
-<span class="tag">🎮 قريبًا</span>
-</div>
-</div>
-
-<div class="card">
-<img class="card-img" src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=1200&q=90">
-<div class="card-body">
-<h3>PC Utilities</h3>
-<div class="card-info">أدوات الكمبيوتر</div>
-<span class="tag">🧰 قريبًا</span>
-</div>
-</div>
-
-</div>
-</section>
-
-<!-- ABOUT -->
-
-<section class="container section-dark">
-
-<div class="about-box">
-
-<h2>👑 عن <span class="gradient">RAVEX</span></h2>
+<h2>🎨 <span class="gradient">RAVEX DESIGN</span></h2>
 
 <p>
-RAVEX ليست مجرد مكتبة ألعاب.
-نحن نبني منصة تجمع الألعاب والتطبيقات والبرامج
-ومشاريعنا الخاصة في تجربة واحدة حديثة.
-هذه مجرد البداية.
+✨ نسعى دائمًا لتوفير كل ما تحتاجه في مكان واحد،
+ونواصل العمل لتقديم المزيد من أدوات وتطبيقات التصميم وصناعة المحتوى بأفضل تجربة ممكنة.
 </p>
 
-<div class="owner">
-⚡ <strong>DEED — Founder & Developer</strong>
-<br>
-نبني المستقبل... لعبة بعد لعبة.
+<p>
+🚀 <strong>قريبًا سيتم إضافة RAVEX DESIGN</strong><br>
+نعمل حاليًا على تجهيز القسم وتوفير المزيد من الأدوات والتطبيقات.
+</p>
+
+<div class="design-grid">
+
+<div class="design-item">
+<b>🖼️ تصميم الصور</b>
+<span>أدوات لتحرير وتصميم الصور.</span>
 </div>
 
+<div class="design-item">
+<b>🎬 تحرير الفيديو</b>
+<span>أدوات صناعة وتعديل الفيديو.</span>
+</div>
+
+<div class="design-item">
+<b>🖌️ الرسم والتصميم</b>
+<span>مساحة للمبدعين والفنانين.</span>
+</div>
+
+<div class="design-item">
+<b>🎧 الصوت والمحتوى</b>
+<span>أدوات لصناعة المحتوى.</span>
+</div>
+
+</div>
+</div>
 </div>
 </section>
 
-<!-- CONTACT -->
-
-<section class="contact" id="contact">
-
-<h2>تواصل مع <span class="gradient">RAVEX</span></h2>
-
-<p style="color:#858093;margin-top:8px">
-للاستفسارات والمشاريع والتواصل
-</p>
-
-<div class="socials">
-
-<a class="social whatsapp" href="https://wa.me/963995870515" target="_blank">
-💬 WhatsApp
-</a>
-
-<a class="social instagram" href="https://instagram.com/leonardoo_688" target="_blank">
-📸 Instagram
-</a>
-
-</div>
-</section>
 
 <footer>
 <div class="brand">RAVEX ⚡</div>
-<p>DEED — Founder & Developer</p>
+<p>GAMING • APPS • WINDOWS • DESIGN</p>
 <p>© 2026 RAVEX — جميع الحقوق محفوظة</p>
 </footer>
 
-<!-- GAME MODAL -->
 
-<div class="modal" id="modal" onclick="outsideClose(event)">
+<div class="modal" id="modal">
 
 <div class="modal-box">
 
+<div class="modal-hero" id="modalHero">
+
+<button class="back" onclick="closeGame()">← رجوع إلى الألعاب</button>
 <button class="close" onclick="closeGame()">×</button>
 
-<img id="mImage" class="modal-image" src="" alt="Game">
+</div>
 
 <div class="modal-content">
 
-<button class="back" onclick="closeGame()">← رجوع إلى الألعاب</button>
+<h2 id="modalTitle"></h2>
 
-<h2 id="mTitle" class="modal-title"></h2>
+<div class="meta" id="modalMeta"></div>
 
-<p id="mDescription" class="description"></p>
+<p class="description" id="modalDesc"></p>
 
-<div class="detail-grid">
-
-<div class="detail">
-<span>🖥️ النظام</span>
-<strong id="mOS"></strong>
-</div>
-
-<div class="detail">
-<span>⚙️ المعالج</span>
-<strong id="mCPU"></strong>
-</div>
-
-<div class="detail">
-<span>🧠 الذاكرة</span>
-<strong id="mRAM"></strong>
-</div>
-
-<div class="detail">
-<span>🎮 كرت الشاشة</span>
-<strong id="mGPU"></strong>
-</div>
-
-<div class="detail">
-<span>💾 المساحة</span>
-<strong id="mStorage"></strong>
-</div>
-
-<div class="detail">
-<span>⚡ DirectX</span>
-<strong id="mDX"></strong>
-</div>
-
-</div>
-
-<h3 class="trailer-title">🎬 الإعلان والتريلر</h3>
+<div class="trailer">
+<h3>🎬 الإعلان والتريلر</h3>
 
 <div class="video" id="video"></div>
+</div>
+
+<div class="requirements">
+<h3>⚙️ متطلبات التشغيل</h3>
+
+<div class="req-grid" id="requirements"></div>
+</div>
 
 <div class="download">
+<h3>📥 تحميل اللعبة</h3>
+<p style="color:#858c9f;margin-top:5px;font-size:12px">
+سيتم إضافة رابط التحميل عند تجهيزه.
+</p>
 
-<strong>📥 تحميل اللعبة</strong>
-
-<br>
-
-<a href="#" onclick="downloadSoon(event)">
-تحميل اللعبة
-</a>
-
-<small>
-الرابط سيصبح متاحًا عندما تضيف رابط التحميل الخاص بك.
-</small>
-
+<button class="btn primary" style="margin-top:12px" onclick="comingSoon()">
+🚀 رابط التحميل قريبًا
+</button>
 </div>
 
 </div>
 </div>
 </div>
+
 
 <script>
 
+const games = [
+
+{
+name:"Grand Theft Auto V",
+type:"action",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/271590/header.jpg",
+desc:"عالم مفتوح ضخم مليء بالمغامرات والمطاردات والشخصيات والمهام.",
+meta:["🔥 عالم مفتوح","💥 أكشن","⭐ 9.5/10"],
+video:"https://www.youtube.com/embed/QkkoHAzjnUs",
+req:["Windows 10 64-bit","Intel Core 2 Quad Q6600","RAM 4 GB","NVIDIA GTX 660","مساحة 110 GB"]
+},
+
+{
+name:"Call of Duty",
+type:"action",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/1938090/header.jpg",
+desc:"تجربة تصويب عسكرية مليئة بالحركة والقتال والمواجهات السريعة.",
+meta:["🎯 FPS","🔥 أكشن","🎮 Multiplayer"],
+video:"",
+req:["Windows 10 64-bit","Intel Core i5","RAM 8 GB","GTX 960 / RX 470","مساحة 125 GB"]
+},
+
+{
+name:"Minecraft",
+type:"action",
+image:"https://images.unsplash.com/photo-1607513746994-51f730a44832?auto=format&fit=crop&w=1400&q=90",
+desc:"ابنِ عالمك الخاص، استكشف، اجمع الموارد وواجه المخاطر في عالم لا نهائي.",
+meta:["🧱 بناء","🌍 عالم مفتوح","⭐ كلاسيكية"],
+video:"",
+req:["Windows 10/11","Intel Core i3","RAM 4 GB","Intel HD Graphics","مساحة 4 GB"]
+},
+
+{
+name:"Far Cry 3",
+type:"farcry",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/220240/header.jpg",
+desc:"جزيرة استوائية خطيرة ومغامرة مليئة بالمواجهات والأسرار.",
+meta:["🎯 Far Cry","🌴 عالم مفتوح","💥 أكشن"],
+video:"https://www.youtube.com/embed/J6gnOvMv7JI",
+req:["Windows 7","Intel Core 2 Duo","RAM 4 GB","GTX 8800","مساحة 15 GB"]
+},
+
+{
+name:"Far Cry 4",
+type:"farcry",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/298110/header.jpg",
+desc:"قاتل من أجل حريتك في عالم Kyrat المفتوح والمليء بالمخاطر.",
+meta:["🎯 Far Cry","🏔️ عالم مفتوح","🔥 أكشن"],
+video:"https://www.youtube.com/embed/6d60v1OrywE",
+req:["Windows 7/8/10","Intel Core i5","RAM 4 GB","GTX 460","مساحة 30 GB"]
+},
+
+{
+name:"Far Cry 5",
+type:"farcry",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/552520/header.jpg",
+desc:"واجه جماعة متطرفة في Hope County واستكشف عالمًا مفتوحًا مليئًا بالمغامرات.",
+meta:["🎯 Far Cry","🔥 عالم مفتوح","💥 أكشن"],
+video:"https://www.youtube.com/embed/7f3ZKJ0wQJ8",
+req:["Windows 7/8/10","Intel Core i5","RAM 8 GB","GTX 670","مساحة 40 GB"]
+},
+
+{
+name:"Far Cry 6",
+type:"farcry",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/2369390/header.jpg",
+desc:"انضم إلى المقاومة وخض معركة ضخمة ضد النظام في جزيرة Yara.",
+meta:["🎯 Far Cry","🌴 عالم مفتوح","🔥 أكشن"],
+video:"",
+req:["Windows 10","Intel Core i5","RAM 8 GB","GTX 960","مساحة 60 GB"]
+},
+
+{
+name:"Far Cry New Dawn",
+type:"farcry",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/939960/header.jpg",
+desc:"عالم ما بعد الكارثة يعود من جديد مع ألوان وأعداء ومواجهات مختلفة.",
+meta:["🎯 Far Cry","☢️ ما بعد الكارثة","💥 أكشن"],
+video:"",
+req:["Windows 10","Intel Core i5","RAM 8 GB","GTX 670","مساحة 30 GB"]
+},
+
+{
+name:"Batman: Arkham Asylum",
+type:"batman",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/35140/header.jpg",
+desc:"ادخل إلى Arkham Asylum وخض واحدة من أشهر مغامرات Batman.",
+meta:["🦇 Batman","🥷 أكشن","⭐ كلاسيكية"],
+video:"",
+req:["Windows 7","Intel Core 2 Duo","RAM 2 GB","NVIDIA 8800","مساحة 8 GB"]
+},
+
+{
+name:"Batman: Arkham City",
+type:"batman",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/200260/header.jpg",
+desc:"مدينة Arkham أصبحت ساحة ضخمة للمطاردات والقتال والأسرار.",
+meta:["🦇 Batman","🌃 عالم مفتوح","🔥 أكشن"],
+video:"",
+req:["Windows 7","Intel Core 2 Duo","RAM 2 GB","GTX 460","مساحة 17 GB"]
+},
+
+{
+name:"Batman: Arkham Origins",
+type:"batman",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/209000/header.jpg",
+desc:"قصة Batman في بداياته ومواجهة مجموعة من أخطر الأعداء.",
+meta:["🦇 Batman","💥 أكشن","🥷 قتال"],
+video:"",
+req:["Windows 7","Intel Core 2 Duo","RAM 2 GB","GTX 460","مساحة 20 GB"]
+},
+
+{
+name:"Batman: Arkham Knight",
+type:"batman",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/208650/header.jpg",
+desc:"عودة Batman في مغامرة ضخمة مع Batmobile ومدينة Gotham.",
+meta:["🦇 Batman","🏙️ Gotham","🚗 Batmobile"],
+video:"",
+req:["Windows 7/10","Intel Core i5","RAM 8 GB","GTX 760","مساحة 55 GB"]
+},
+
+{
+name:"Marvel's Spider-Man Remastered",
+type:"spiderman",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/1817070/header.jpg",
+desc:"تجول فوق مدينة نيويورك وخض مغامرة Spider-Man الملحمية.",
+meta:["🕷️ Spider-Man","🏙️ عالم مفتوح","💥 أكشن"],
+video:"",
+req:["Windows 10","Intel Core i5","RAM 16 GB","GTX 1060","مساحة 75 GB"]
+},
+
+{
+name:"Marvel's Spider-Man: Miles Morales",
+type:"spiderman",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/1817190/header.jpg",
+desc:"عش مغامرة Miles Morales بقواه الجديدة في مدينة نيويورك.",
+meta:["🕷️ Spider-Man","⚡ Miles","🌃 عالم مفتوح"],
+video:"",
+req:["Windows 10","Intel Core i5","RAM 8 GB","GTX 1060","مساحة 75 GB"]
+},
+
+{
+name:"Red Dead Redemption 2",
+type:"action",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/1174180/header.jpg",
+desc:"رحلة ملحمية في عالم الغرب الأمريكي المفتوح.",
+meta:["🤠 عالم مفتوح","🐎 مغامرات","⭐ 9.8/10"],
+video:"https://www.youtube.com/embed/gmA6MrX81z4",
+req:["Windows 10","Intel Core i5","RAM 8 GB","GTX 770","مساحة 150 GB"]
+},
+
+{
+name:"Resident Evil 4",
+type:"action",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/2050650/header.jpg",
+desc:"رعب وبقاء وأكشن في واحدة من أشهر ألعاب السلسلة.",
+meta:["🧟 رعب","🔫 بقاء","💥 أكشن"],
+video:"https://www.youtube.com/embed/Id2EaldBaWw",
+req:["Windows 10","Intel Core i5","RAM 8 GB","GTX 1050 Ti","مساحة 67 GB"]
+},
+
+{
+name:"God of War",
+type:"action",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/1593500/header.jpg",
+desc:"رحلة ملحمية تجمع القتال والأساطير والقصة في عالم مذهل.",
+meta:["⚔️ أكشن","🏔️ أساطير","🔥 مغامرات"],
+video:"https://www.youtube.com/embed/K0u_kAWLJOA",
+req:["Windows 10","Intel Core i5","RAM 8 GB","GTX 960","مساحة 70 GB"]
+},
+
+{
+name:"Cyberpunk 2077",
+type:"action",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/1091500/header.jpg",
+desc:"مدينة مستقبلية ضخمة مليئة بالمهام والشخصيات والأحداث.",
+meta:["🌃 RPG","🤖 مستقبل","🔥 عالم مفتوح"],
+video:"",
+req:["Windows 10","Intel Core i7","RAM 16 GB","GTX 1060","مساحة 70 GB"]
+},
+
+{
+name:"Elden Ring",
+type:"action",
+image:"https://cdn.akamai.steamstatic.com/steam/apps/1245620/header.jpg",
+desc:"عالم فانتازي ضخم مليء بالزعماء والأسرار والاستكشاف.",
+meta:["⚔️ RPG","👑 زعماء","🌌 عالم مفتوح"],
+video:"",
+req:["Windows 10","Intel Core i5","RAM 12 GB","GTX 1060","مساحة 60 GB"]
+}
+
+];
+
 let currentFilter="all";
 
-function openGame(title,image,description,video,os,cpu,ram,gpu,storage,dx){
+function renderGames(){
 
- document.getElementById("mTitle").textContent=title;
- document.getElementById("mImage").src=image;
- document.getElementById("mDescription").textContent=description;
+ const grid=document.getElementById("gamesGrid");
+ const search=document.getElementById("search").value.toLowerCase();
 
- document.getElementById("mOS").textContent=os;
- document.getElementById("mCPU").textContent=cpu;
- document.getElementById("mRAM").textContent=ram;
- document.getElementById("mGPU").textContent=gpu;
- document.getElementById("mStorage").textContent=storage;
- document.getElementById("mDX").textContent=dx;
+ grid.innerHTML="";
 
- const box=document.getElementById("video");
+ games.forEach((g,i)=>{
 
- if(video && !video.includes("gTA?")){
-   box.innerHTML=
-   '<iframe src="'+video+'?rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
- }else{
-   box.innerHTML=
-   '<div class="no-video">🎬 التريلر سيظهر هنا قريبًا</div>';
- }
+  const matchesSearch=
+   g.name.toLowerCase().includes(search);
 
- document.getElementById("modal").classList.add("show");
- document.body.style.overflow="hidden";
-}
+  const matchesFilter=
+   currentFilter==="all" || g.type===currentFilter;
 
-function closeGame(){
- document.getElementById("modal").classList.remove("show");
- document.getElementById("video").innerHTML="";
- document.body.style.overflow="";
-}
+  if(!matchesSearch || !matchesFilter)return;
 
-function outsideClose(e){
- if(e.target.id==="modal"){
-   closeGame();
- }
-}
+  grid.innerHTML+=`
+  <div class="card">
+   <img src="${g.image}" alt="${g.name}">
+   <div class="card-body">
+    <h3>${g.name}</h3>
+    <p>🎮 تجربة مميزة من عالم RAVEX</p>
 
-function downloadSoon(e){
- e.preventDefault();
+    <div class="tags">
+     ${g.meta.map(x=>`<span class="tag">${x}</span>`).join("")}
+    </div>
 
- alert(
- "🚧 التحميل غير متوفر حاليًا\n\n"+
- "أضف رابط التحميل الخاص باللعبة لاحقًا."
- );
+    <button class="open" onclick="openGame(${i})">
+     عرض التفاصيل 🎬
+    </button>
+   </div>
+  </div>
+  `;
+ });
 }
 
 function searchGames(){
-
- const value=document
- .getElementById("search")
- .value
- .toLowerCase()
- .trim();
-
- document.querySelectorAll(".game").forEach(game=>{
-
-   const text=(
-     game.innerText+" "+
-     game.dataset.name
-   ).toLowerCase();
-
-   const matchesSearch=text.includes(value);
-
-   const matchesFilter=
-     currentFilter==="all" ||
-     game.dataset.type.includes(currentFilter);
-
-   game.style.display=
-     matchesSearch && matchesFilter
-     ? ""
-     : "none";
- });
+ renderGames();
 }
 
 function filterGames(type,button){
@@ -1677,18 +1165,76 @@ function filterGames(type,button){
  currentFilter=type;
 
  document.querySelectorAll(".filter")
- .forEach(b=>b.classList.remove("active"));
+ .forEach(x=>x.classList.remove("active"));
 
  button.classList.add("active");
 
- searchGames();
+ renderGames();
 }
 
-document.addEventListener("keydown",function(e){
- if(e.key==="Escape"){
-   closeGame();
+function openGame(index){
+
+ const g=games[index];
+
+ document.getElementById("modalTitle").textContent=g.name;
+
+ document.getElementById("modalHero").style.backgroundImage=
+ `url("${g.image}")`;
+
+ document.getElementById("modalDesc").textContent=g.desc;
+
+ document.getElementById("modalMeta").innerHTML=
+ g.meta.map(x=>`<span>${x}</span>`).join("");
+
+ document.getElementById("requirements").innerHTML=
+ g.req.map(x=>{
+  const parts=x.split(" ");
+  return `<div class="req">
+  <b>${parts.slice(0,2).join(" ")}</b>
+  <span>${parts.slice(2).join(" ")}</span>
+  </div>`;
+ }).join("");
+
+ if(g.video){
+
+  document.getElementById("video").innerHTML=
+  `<iframe src="${g.video}?rel=0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen></iframe>`;
+
+ }else{
+
+  document.getElementById("video").innerHTML=
+  `<div style="height:100%;display:flex;align-items:center;justify-content:center;color:#777f92">
+  🎬 سيتم إضافة الإعلان قريبًا
+  </div>`;
+
  }
+
+ document.getElementById("modal").classList.add("show");
+ document.body.style.overflow="hidden";
+}
+
+function closeGame(){
+
+ document.getElementById("modal").classList.remove("show");
+ document.getElementById("video").innerHTML="";
+ document.body.style.overflow="";
+}
+
+function comingSoon(){
+ alert("🚀 سيتم إضافة رابط التحميل عند تجهيز اللعبة على RAVEX.");
+}
+
+document.getElementById("modal").addEventListener("click",function(e){
+ if(e.target===this)closeGame();
 });
+
+document.addEventListener("keydown",function(e){
+ if(e.key==="Escape")closeGame();
+});
+
+renderGames();
 
 </script>
 
