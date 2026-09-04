@@ -2,1328 +2,3975 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>RAVEX | Gaming & Apps</title>
-
-<meta name="description"
-content="RAVEX - منصة الألعاب والبرامج والتطبيقات والتصميم.">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#070611">
+<title>RAVEX | Gaming Universe</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap');
+
 :root{
-  --bg:#070711;
-  --bg2:#0d0d1c;
-  --card:#121225;
-  --card2:#18182e;
-  --text:#ffffff;
-  --muted:#a7a7c2;
-  --purple:#8b5cf6;
-  --purple2:#6d28d9;
-  --cyan:#22d3ee;
-  --blue:#3b82f6;
-  --gold:#f5c542;
-  --green:#22c55e;
-  --red:#ef4444;
-  --border:rgba(255,255,255,.09);
-  --shadow:0 15px 50px rgba(0,0,0,.45);
+--bg:#070611;
+--panel:#0e0d1c;
+--panel2:#121126;
+--line:#26223e;
+--purple:#8b5cf6;
+--violet:#b45cff;
+--cyan:#28d7ff;
+--gold:#f6c85f;
+--text:#f7f5ff;
+--muted:#aaa5bd;
+--shadow:0 20px 70px rgba(0,0,0,.55)
 }
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html{
-  scroll-behavior:smooth;
-}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
 
 body{
-  font-family:
-    Arial,
-    Tahoma,
-    sans-serif;
-  background:
-    radial-gradient(
-      circle at 20% 10%,
-      rgba(124,58,237,.14),
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 80% 30%,
-      rgba(34,211,238,.08),
-      transparent 30%
-    ),
-    var(--bg);
-  color:var(--text);
-  min-height:100vh;
-  overflow-x:hidden;
+margin:0;
+background:
+radial-gradient(circle at 15% 5%,rgba(139,92,246,.16),transparent 30%),
+radial-gradient(circle at 85% 10%,rgba(40,215,255,.08),transparent 28%),
+var(--bg);
+color:var(--text);
+font-family:Cairo,Arial,sans-serif
 }
 
-a{
-  color:inherit;
-  text-decoration:none;
+a{text-decoration:none;color:inherit}
+
+button,input{font-family:inherit}
+
+.container{
+width:min(1400px,94%);
+margin:auto
 }
 
-button,
-input,
-textarea,
-select{
-  font-family:inherit;
+/* TOP TICKER */
+
+.topbar{
+height:34px;
+overflow:hidden;
+background:linear-gradient(90deg,#140b25,#0b1022,#140b25);
+border-bottom:1px solid var(--line);
+display:flex;
+align-items:center
 }
-
-button{
-  cursor:pointer;
-}
-
-/* =========================
-   TOP COLOR BAR
-========================= */
-
-.color-bar{
-  height:4px;
-  width:100%;
-  background:
-    linear-gradient(
-      90deg,
-      #7c3aed,
-      #2563eb,
-      #06b6d4,
-      #7c3aed,
-      #ec4899,
-      #7c3aed
-    );
-  background-size:300% 100%;
-  animation:colorMove 7s linear infinite;
-}
-
-@keyframes colorMove{
-  0%{
-    background-position:0% 50%;
-  }
-
-  100%{
-    background-position:300% 50%;
-  }
-}
-
-/* =========================
-   TICKER
-========================= */
 
 .ticker{
-  height:40px;
-  background:
-    linear-gradient(
-      90deg,
-      #0b0b17,
-      #15112b,
-      #0b0b17
-    );
-  border-bottom:1px solid var(--border);
-  overflow:hidden;
-  display:flex;
-  align-items:center;
-  position:relative;
+white-space:nowrap;
+animation:ticker 28s linear infinite;
+color:#ddd;
+font-size:12px
 }
 
-.ticker-track{
-  display:flex;
-  width:max-content;
-  gap:70px;
-  animation:tickerMove 30s linear infinite;
-  white-space:nowrap;
+.ticker b{
+color:var(--gold);
+margin:0 18px
 }
 
-.ticker-item{
-  color:#ddd;
-  font-size:13px;
-  display:flex;
-  align-items:center;
-  gap:9px;
+@keyframes ticker{
+from{transform:translateX(100%)}
+to{transform:translateX(-100%)}
 }
 
-.ticker-item b{
-  color:var(--cyan);
-}
-
-.ticker-dot{
-  width:6px;
-  height:6px;
-  background:var(--purple);
-  border-radius:50%;
-  box-shadow:
-    0 0 12px var(--purple);
-}
-
-@keyframes tickerMove{
-  from{
-    transform:translateX(0);
-  }
-
-  to{
-    transform:translateX(50%);
-  }
-}
-
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  backdrop-filter:blur(18px);
-  background:rgba(7,7,17,.86);
-  border-bottom:1px solid var(--border);
+position:sticky;
+top:0;
+z-index:50;
+background:rgba(7,6,17,.86);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(139,92,246,.18)
 }
 
-.navbar{
-  width:min(1400px,94%);
-  margin:auto;
-  min-height:76px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:25px;
+.nav{
+height:74px;
+display:flex;
+align-items:center;
+gap:25px
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  font-size:27px;
-  font-weight:900;
-  letter-spacing:2px;
+font-weight:900;
+font-size:31px;
+letter-spacing:1px
 }
 
-.logo-mark{
-  width:45px;
-  height:45px;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
-  background:
-    linear-gradient(
-      135deg,
-      var(--purple),
-      var(--blue)
-    );
-  box-shadow:
-    0 0 25px rgba(139,92,246,.45);
+.logo span{
+color:var(--purple);
+text-shadow:0 0 24px #8b5cf6
 }
 
-.logo-mark span{
-  font-size:23px;
+.navlinks{
+display:flex;
+gap:8px;
+align-items:center;
+flex:1;
+justify-content:center
 }
 
-.logo-text{
-  background:
-    linear-gradient(
-      90deg,
-      #fff,
-      #a78bfa,
-      #67e8f9
-    );
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+.navlinks a{
+padding:11px 14px;
+border-radius:12px;
+color:#ddd;
+transition:.25s;
+font-weight:700;
+font-size:14px
 }
 
-.nav-links{
-  display:flex;
-  align-items:center;
-  gap:6px;
-  flex-wrap:wrap;
-  justify-content:center;
+.navlinks a:hover,
+.navlinks a.active{
+background:rgba(139,92,246,.12);
+color:#fff;
+box-shadow:inset 0 -2px var(--purple)
 }
 
-.nav-links a{
-  color:#c7c7dc;
-  padding:10px 13px;
-  border-radius:10px;
-  font-size:14px;
-  transition:.25s;
+.search{
+display:flex;
+align-items:center;
+background:#0c0b18;
+border:1px solid var(--line);
+border-radius:14px;
+padding:4px 10px;
+width:230px
 }
 
-.nav-links a:hover{
-  color:#fff;
-  background:rgba(139,92,246,.13);
+.search input{
+width:100%;
+background:none;
+border:0;
+outline:0;
+color:white;
+padding:9px
 }
 
-.nav-actions{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-
-.nav-btn{
-  border:1px solid var(--border);
-  background:#111124;
-  color:white;
-  width:42px;
-  height:42px;
-  border-radius:12px;
-  transition:.25s;
-}
-
-.nav-btn:hover{
-  border-color:var(--purple);
-  transform:translateY(-2px);
-}
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
-  position:relative;
-  min-height:650px;
-  display:flex;
-  align-items:center;
-  overflow:hidden;
-  background:
-    linear-gradient(
-      90deg,
-      rgba(7,7,17,.98) 0%,
-      rgba(7,7,17,.82) 42%,
-      rgba(7,7,17,.38) 100%
-    ),
-    url("https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/page_bg_generated.jpg")
-    center/cover;
+margin-top:22px;
+min-height:480px;
+border:1px solid #302552;
+border-radius:28px;
+overflow:hidden;
+position:relative;
+background:
+linear-gradient(
+90deg,
+rgba(7,6,17,.98) 0%,
+rgba(7,6,17,.72) 38%,
+rgba(7,6,17,.20) 100%
+),
+url('https://cdn.akamai.steamstatic.com/steam/apps/1091500/library_hero.jpg')
+center/cover
 }
 
-.hero::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(
-      circle at 75% 45%,
-      rgba(124,58,237,.25),
-      transparent 35%
-    );
-  pointer-events:none;
+.hero:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(0deg,var(--bg),transparent 35%);
+pointer-events:none
 }
 
-.hero-content{
-  position:relative;
-  z-index:2;
-  width:min(1400px,94%);
-  margin:auto;
-  padding:90px 0;
+.heroContent{
+position:relative;
+z-index:2;
+padding:72px 65px;
+max-width:760px
 }
 
-.hero-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 14px;
-  border:1px solid rgba(139,92,246,.4);
-  border-radius:999px;
-  background:rgba(139,92,246,.1);
-  color:#c4b5fd;
-  font-size:13px;
-  margin-bottom:20px;
+.kicker{
+color:var(--cyan);
+font-weight:800;
+letter-spacing:2px
 }
 
 .hero h1{
-  max-width:850px;
-  font-size:
-    clamp(45px,7vw,86px);
-  line-height:.98;
-  font-weight:1000;
-  letter-spacing:-3px;
-  margin-bottom:25px;
+font-size:clamp(40px,6vw,76px);
+line-height:1;
+margin:15px 0
 }
 
 .hero h1 span{
-  background:
-    linear-gradient(
-      90deg,
-      #a78bfa,
-      #22d3ee,
-      #60a5fa
-    );
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
+background:linear-gradient(90deg,#fff,var(--violet),var(--cyan));
+-webkit-background-clip:text;
+color:transparent
 }
 
 .hero p{
-  max-width:680px;
-  color:#c1c1d4;
-  font-size:18px;
-  line-height:1.9;
-  margin-bottom:30px;
-}
-
-.hero-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:13px;
+color:#d0cbdc;
+font-size:18px;
+line-height:1.9
 }
 
 .btn{
-  border:0;
-  border-radius:13px;
-  padding:14px 23px;
-  font-weight:800;
-  transition:.25s;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
+border:0;
+border-radius:13px;
+padding:13px 20px;
+font-weight:800;
+cursor:pointer;
+display:inline-flex;
+align-items:center;
+gap:8px;
+transition:.25s
+}
+
+.btn.primary{
+background:linear-gradient(135deg,var(--purple),#5f27d7);
+color:#fff;
+box-shadow:0 10px 35px rgba(139,92,246,.28)
+}
+
+.btn.secondary{
+background:#111020;
+border:1px solid #35304d;
+color:#fff
 }
 
 .btn:hover{
-  transform:translateY(-3px);
+transform:translateY(-2px);
+filter:brightness(1.1)
 }
 
-.btn-primary{
-  color:#fff;
-  background:
-    linear-gradient(
-      135deg,
-      var(--purple),
-      var(--blue)
-    );
-  box-shadow:
-    0 12px 30px rgba(99,102,241,.28);
-}
-
-.btn-secondary{
-  color:#fff;
-  background:rgba(255,255,255,.06);
-  border:1px solid var(--border);
-}
-
-.btn-green{
-  color:#fff;
-  background:
-    linear-gradient(
-      135deg,
-      #16a34a,
-      #22c55e
-    );
-}
-
-.btn-gold{
-  color:#111;
-  background:
-    linear-gradient(
-      135deg,
-      #facc15,
-      #f59e0b
-    );
-}
-
-.hero-stats{
-  display:flex;
-  flex-wrap:wrap;
-  gap:35px;
-  margin-top:50px;
-}
-
-.hero-stat strong{
-  display:block;
-  font-size:25px;
-}
-
-.hero-stat span{
-  color:var(--muted);
-  font-size:13px;
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-section{
-  position:relative;
-  padding:85px 0;
-}
-
-.container{
-  width:min(1400px,94%);
-  margin:auto;
-}
-
-.section-title{
-  display:flex;
-  align-items:end;
-  justify-content:space-between;
-  gap:20px;
-  margin-bottom:30px;
-}
-
-.section-title h2{
-  font-size:34px;
-  font-weight:950;
-}
-
-.section-title h2 span{
-  color:var(--purple);
-}
-
-.section-title p{
-  color:var(--muted);
-  margin-top:8px;
-  line-height:1.7;
-}
-
-.section-line{
-  width:70px;
-  height:4px;
-  border-radius:10px;
-  margin-top:14px;
-  background:
-    linear-gradient(
-      90deg,
-      var(--purple),
-      var(--cyan)
-    );
-}
-
-/* =========================
-   STATS
-========================= */
+/* STATS */
 
 .stats{
-  margin-top:-45px;
-  position:relative;
-  z-index:5;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-top:25px
 }
 
-.stats-grid{
-  display:grid;
-  grid-template-columns:
-    repeat(4,1fr);
-  gap:15px;
-}
+.stat{
+background:rgba(13,12,27,.8);
+border:1px solid var(--line);
+border-radius:18px;
+padding:18px;
+text-align:center
+}
+
+.stat strong{
+font-size:24px
+}
+
+.stat small{
+display:block;
+color:var(--muted)
+}
+
+/* SECTIONS */
+
+.section{
+padding:45px 0 10px;
+position:relative;
+overflow:hidden
+}
+
+.section:before{
+content:"";
+position:absolute;
+inset:0;
+z-index:-2;
+pointer-events:none;
+opacity:.24;
+background:
+linear-gradient(180deg,rgba(7,6,17,.72),rgba(7,6,17,.94)),
+url('https://cdn.akamai.steamstatic.com/steam/apps/1091500/page_bg_generated.jpg')
+center/cover fixed
+}
+
+#games:before{
+opacity:.28;
+background:
+linear-gradient(180deg,rgba(7,6,17,.68),rgba(7,6,17,.95)),
+url('https://cdn.akamai.steamstatic.com/steam/apps/1174180/page_bg_generated.jpg')
+center/cover fixed
+}
+
+#design:before{
+opacity:.23;
+background:
+linear-gradient(180deg,rgba(7,6,17,.70),rgba(7,6,17,.94)),
+url('https://images.unsplash.com/photo-1558655146-9f40138edfeb?auto=format&fit=crop&w=2200&q=90')
+center/cover fixed
+}
+
+#apps:before{
+opacity:.18;
+background:
+linear-gradient(180deg,rgba(7,6,17,.72),rgba(7,6,17,.95)),
+url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=2200&q=90')
+center/cover fixed
+}
+
+#windows:before{
+opacity:.18;
+background:
+linear-gradient(180deg,rgba(7,6,17,.72),rgba(7,6,17,.95)),
+url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=2200&q=90')
+center/cover fixed
+}
+
+#customer:before{
+opacity:.22;
+background:
+linear-gradient(180deg,rgba(7,6,17,.72),rgba(7,6,17,.94)),
+url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2200&q=90')
+center/cover fixed
+}
+
+.sectionHead{
+display:flex;
+align-items:end;
+justify-content:space-between;
+margin-bottom:18px
+}
+
+.sectionHead h2{
+margin:0;
+font-size:27px
+}
+
+.sectionHead p{
+margin:0;
+color:var(--muted)
+}
+
+/* TABS */
+
+.tabs{
+display:flex;
+gap:9px;
+overflow:auto;
+padding-bottom:12px
+}
+
+.tab{
+white-space:nowrap;
+padding:10px 15px;
+border-radius:12px;
+background:#0d0c1a;
+border:1px solid var(--line);
+color:#bbb;
+cursor:pointer
+}
+
+.tab.active{
+color:#fff;
+border-color:var(--purple);
+background:rgba(139,92,246,.12)
+}
+
+/* GAMES */
+
+.grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:16px
+}
+
+.card{
+background:linear-gradient(180deg,#111021,#0c0b17);
+border:1px solid #29243f;
+border-radius:18px;
+overflow:hidden;
+position:relative;
+transition:.3s;
+box-shadow:0 8px 35px rgba(0,0,0,.22)
+}
+
+.card:hover{
+transform:translateY(-7px);
+border-color:#7650c7;
+box-shadow:0 20px 50px rgba(139,92,246,.16)
+}
+
+.cover{
+height:190px;
+background-size:cover;
+background-position:center;
+position:relative
+}
+
+.cover:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(0deg,rgba(9,8,18,.98),transparent 65%)
+}
+
+.badge{
+position:absolute;
+z-index:2;
+top:10px;
+right:10px;
+background:rgba(8,7,16,.78);
+border:1px solid #4b3a76;
+border-radius:999px;
+padding:5px 9px;
+font-size:11px
+}
+
+.cardbody{
+padding:14px
+}
+
+.card h3{
+margin:0 0 5px;
+font-size:17px
+}
+
+.meta{
+color:var(--muted);
+font-size:12px
+}
+
+.cardActions{
+display:flex;
+gap:7px;
+margin-top:12px
+}
+
+.mini{
+flex:1;
+padding:9px 7px;
+border-radius:10px;
+border:1px solid #342d4c;
+background:#141226;
+color:#fff;
+font-weight:700;
+cursor:pointer
+}
+
+.mini.detail{
+background:linear-gradient(135deg,#7c3aed,#5421c9);
+border:0
+}
+
+/* WEEKLY */
+
+.week{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+margin-top:20px
+}
+
+.weekCard{
+border:1px solid #302552;
+border-radius:18px;
+padding:20px;
+background:
+linear-gradient(135deg,#121025,#0b0a15);
+position:relative;
+overflow:hidden;
+min-height:180px;
+background-size:cover;
+background-position:center
+}
+
+.weekCard:nth-child(1){
+background-image:
+linear-gradient(90deg,rgba(10,8,20,.96),rgba(10,8,20,.55)),
+url('https://cdn.akamai.steamstatic.com/steam/apps/208650/page_bg_generated.jpg')
+}
+
+.weekCard:nth-child(2){
+background-image:
+linear-gradient(90deg,rgba(10,8,20,.96),rgba(10,8,20,.55)),
+url('https://cdn.akamai.steamstatic.com/steam/apps/1817070/page_bg_generated.jpg')
+}
+
+.weekCard:nth-child(3){
+background-image:
+linear-gradient(90deg,rgba(10,8,20,.96),rgba(10,8,20,.55)),
+url('https://cdn.akamai.steamstatic.com/steam/apps/1174180/page_bg_generated.jpg')
+}
+
+.weekCard h3{
+margin:0 0 6px
+}
+
+.weekCard p{
+color:var(--muted);
+font-size:13px;
+line-height:1.8
+}
+
+.rating{
+color:#ffc85a;
+font-size:13px;
+margin-top:8px
+}
+
+/* DESIGN */
+
+.designHero{
+margin-top:20px;
+min-height:360px;
+border-radius:25px;
+overflow:hidden;
+border:1px solid #342653;
+background:
+linear-gradient(90deg,rgba(7,6,17,.97),rgba(7,6,17,.55),rgba(7,6,17,.15)),
+url('https://images.unsplash.com/photo-1633412802994-5c058f151b66?auto=format&fit=crop&w=2200&q=90')
+center/cover
+}
+
+.designHero .heroContent{
+padding:55px
+}
+
+.designHero h2{
+font-size:48px;
+margin:10px 0
+}
+
+.designCats{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:12px;
+margin:18px 0
+}
+
+.cat{
+padding:20px;
+border:1px solid var(--line);
+background:#0d0c1a;
+border-radius:17px;
+text-align:center;
+cursor:pointer
+}
+
+.cat b{
+display:block;
+margin-top:6px
+}
+
+.cat span{
+font-size:28px
+}
+
+.designGrid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:14px
+}
+
+.app{
+background:#0e0d1b;
+border:1px solid var(--line);
+border-radius:16px;
+transition:.25s;
+overflow:hidden;
+padding:0;
+text-align:right
+}
+
+.app:hover{
+border-color:var(--purple);
+transform:translateY(-4px)
+}
+
+.appImage{
+height:145px;
+background-size:cover;
+background-position:center;
+position:relative
+}
+
+.appImage:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(0deg,#0e0d1b,transparent 65%)
+}
+
+.appIcon{
+position:absolute;
+z-index:2;
+bottom:10px;
+right:12px;
+width:55px;
+height:55px;
+border-radius:14px;
+background:#0a0912e8;
+border:1px solid #ffffff22;
+display:grid;
+place-items:center;
+font-size:27px
+}
+
+.appInner{
+padding:14px
+}
+
+.appInner h3{
+margin:0 0 5px
+}
+
+.appInner p{
+min-height:55px;
+font-size:11px;
+color:var(--muted)
+}
+
+.availability{
+display:inline-block;
+margin-top:8px;
+padding:5px 8px;
+border-radius:8px;
+background:#171329;
+color:#d8a7ff;
+font-size:10px
+}
+
+.coming{
+color:#d8a7ff;
+font-weight:800;
+font-size:12px
+}
+
+.megaSmall{
+width:100%;
+justify-content:center;
+margin-top:9px;
+background:linear-gradient(135deg,#7c3aed,#5421c9);
+color:#fff;
+border:0
+}
+
+/* SUPPORT */
+
+.supportBox{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+margin-top:20px
+}
+
+.supportItem{
+padding:20px;
+border:1px solid var(--line);
+border-radius:17px;
+background:#0e0d1b
+}
+
+.supportItem p{
+color:var(--muted);
+line-height:1.9;
+font-size:13px
+}
+
+.supportLinks{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-top:12px
+}
+
+.serviceStatus{
+display:flex;
+align-items:center;
+gap:8px;
+padding:10px 12px;
+border-radius:12px;
+background:#0c1a13;
+border:1px solid #1d5736;
+color:#b9f6cc;
+margin:12px 0
+}
+
+.authPanel{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+margin-top:20px
+}
+
+.authCard,
+.chatCard{
+background:linear-gradient(145deg,rgba(18,16,34,.96),rgba(9,8,17,.96));
+border:1px solid #302a49;
+border-radius:20px;
+padding:22px;
+box-shadow:0 15px 55px rgba(0,0,0,.3)
+}
+
+.authTabs{
+display:flex;
+gap:8px;
+margin-bottom:15px
+}
+
+.authTabs button{
+flex:1;
+padding:10px;
+border-radius:10px;
+background:#111020;
+border:1px solid #302a49;
+color:#aaa;
+font-weight:800;
+cursor:pointer
+}
+
+.authTabs button.active{
+background:linear-gradient(135deg,var(--purple),#5421c9);
+color:#fff;
+border-color:transparent
+}
+
+.authForm{
+display:grid;
+gap:10px
+}
+
+.authForm input,
+.chatInput{
+width:100%;
+padding:12px 13px;
+border-radius:11px;
+border:1px solid #342d4c;
+background:#090812;
+color:#fff;
+outline:none
+}
+
+.authForm input:focus,
+.chatInput:focus{
+border-color:var(--purple);
+box-shadow:0 0 20px rgba(139,92,246,.18)
+}
+
+.formMsg{
+min-height:20px;
+color:#bfa7ff;
+font-size:12px
+}
+
+.chatShell{
+display:grid;
+grid-template-rows:auto 1fr auto;
+min-height:360px
+}
+
+.chatHeader{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding-bottom:12px;
+border-bottom:1px solid #2a2540
+}
+
+.online{
+color:#4ade80;
+font-size:12px
+}
+
+.chatMessages{
+height:235px;
+overflow:auto;
+padding:14px 3px;
+display:flex;
+flex-direction:column;
+gap:9px
+}
+
+.chatMsg{
+max-width:82%;
+padding:10px 12px;
+border-radius:13px;
+line-height:1.65;
+font-size:13px
+}
+
+.chatMsg.user{
+align-self:flex-start;
+background:linear-gradient(135deg,#6d28d9,#4c1d95)
+}
+
+.chatMsg.support{
+align-self:flex-end;
+background:#17152a;
+border:1px solid #302a49;
+color:#ddd
+}
+
+.chatComposer{
+display:flex;
+gap:8px;
+margin-top:10px
+}
+
+.chatComposer button{
+width:48px;
+border-radius:11px;
+background:linear-gradient(135deg,var(--purple),#5421c9);
+color:#fff;
+font-size:18px;
+border:0
+}
+
+.quickReplies{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin-top:9px
+}
+
+.quickReplies button{
+padding:7px 9px;
+border-radius:9px;
+background:#111020;
+border:1px solid #302a49;
+color:#bbb;
+cursor:pointer;
+font-size:11px
+}
+
+.accountBadge{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:7px 10px;
+border-radius:10px;
+background:#171329;
+border:1px solid #342a4e;
+color:#d8c8ff;
+font-size:12px
+}
+
+/* MODAL */
+
+.overlay{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.78);
+backdrop-filter:blur(10px);
+z-index:100;
+display:none;
+align-items:center;
+justify-content:center;
+padding:18px
+}
+
+.overlay.show{
+display:flex
+}
+
+.modal{
+width:min(1180px,100%);
+max-height:95vh;
+overflow:auto;
+background:linear-gradient(180deg,#121025,#090812);
+border:1px solid #514075;
+border-radius:24px;
+box-shadow:var(--shadow)
+}
+
+.modalHero{
+min-height:390px;
+background-size:cover;
+background-position:center;
+position:relative
+}
+
+.modalHero:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(0deg,#0a0912,transparent 70%)
+}
+
+.modalHero:before{
+content:"";
+position:absolute;
+inset:0;
+background:radial-gradient(circle at 80% 20%,rgba(139,92,246,.28),transparent 35%);
+z-index:1
+}
+
+.close{
+position:absolute;
+z-index:5;
+top:14px;
+left:14px;
+width:42px;
+height:42px;
+border-radius:50%;
+border:1px solid #584976;
+background:#0a0912;
+color:#fff;
+font-size:22px;
+cursor:pointer
+}
+
+.modalTitle{
+position:absolute;
+z-index:4;
+right:30px;
+bottom:25px;
+max-width:85%
+}
+
+.modalTitle h2{
+margin:0;
+font-size:40px;
+text-shadow:0 5px 25px #000
+}
+
+.modalContent{
+padding:28px
+}
+
+.chips{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin:14px 0
+}
+
+.chip{
+padding:6px 10px;
+border-radius:999px;
+background:#171329;
+border:1px solid #342a4e;
+color:#d8d0e8;
+font-size:12px
+}
+
+.modalCols{
+display:grid;
+grid-template-columns:1.35fr .65fr;
+gap:20px
+}
+
+.box{
+background:#0d0c19;
+border:1px solid var(--line);
+border-radius:15px;
+padding:17px
+}
+
+.box h4{
+margin-top:0;
+color:#d9b8ff;
+font-size:16px
+}
+
+.box p{
+color:#c2bdca;
+line-height:1.8;
+white-space:pre-line
+}
+
+.realAd{
+border:1px solid #342653;
+border-radius:16px;
+overflow:hidden;
+margin-top:15px;
+background:#07070d
+}
+
+.trailer{
+position:relative;
+overflow:hidden;
+aspect-ratio:16/9;
+background:#05050a;
+display:grid;
+place-items:center;
+border:1px solid #302744;
+color:#aaa;
+min-height:280px
+}
+
+.trailer iframe{
+width:100%;
+height:100%;
+min-height:280px;
+border:0
+}
+
+.trailerOverlay{
+position:absolute;
+inset:0;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+gap:10px;
+background:linear-gradient(135deg,rgba(13,8,27,.85),rgba(4,8,18,.92))
+}
+
+.playBig{
+width:76px;
+height:76px;
+border-radius:50%;
+display:grid;
+place-items:center;
+background:linear-gradient(135deg,var(--purple),#5f27d7);
+font-size:30px;
+box-shadow:0 0 45px rgba(139,92,246,.45)
+}
+
+.detailList{
+display:grid;
+gap:9px;
+margin-top:12px
+}
+
+.detailRow{
+display:flex;
+justify-content:space-between;
+gap:15px;
+padding:11px 12px;
+border-radius:11px;
+background:#111020;
+border:1px solid #29233f;
+color:#c9c4d2
+}
+
+.detailRow b{
+color:#fff
+}
+
+.megaFull{
+display:flex;
+align-items:center;
+justify-content:center;
+width:100%;
+margin-top:10px
+}
+
+.megaFull.disabled{
+opacity:.6;
+cursor:not-allowed
+}
+
+/* COLOR BAR */
+
+.colorbar{
+position:fixed;
+bottom:18px;
+right:18px;
+z-index:80;
+display:flex;
+gap:7px;
+padding:8px 10px;
+background:#0b0a15e8;
+border:1px solid #ffffff22;
+border-radius:14px;
+backdrop-filter:blur(12px)
+}
+
+.colorbar button{
+width:24px;
+height:24px;
+border-radius:50%;
+border:2px solid #fff4;
+cursor:pointer
+}
+
+.colorbar button:nth-child(1){background:#8b5cf6}
+.colorbar button:nth-child(2){background:#00b7ff}
+.colorbar button:nth-child(3){background:#ff3da8}
+.colorbar button:nth-child(4){background:#ffb72b}
+
+/* FAQ */
+
+.faq{
+margin-top:18px;
+display:grid;
+gap:9px
+}
+
+.faq details{
+background:#0d0c19;
+border:1px solid #29243f;
+border-radius:13px;
+padding:12px 15px
+}
+
+.faq summary{
+cursor:pointer;
+font-weight:800
+}
+
+.faq p{
+color:#aaa;
+line-height:1.8;
+margin-top:8px;
+font-size:13px
+}
+
+/* FOOTER */
+
+footer{
+margin-top:60px;
+border-top:1px solid var(--line);
+padding:30px 0;
+color:#999;
+text-align:center
+}
+
+/* MOBILE */
+
+@media(max-width:1100px){
+
+.grid{
+grid-template-columns:repeat(4,1fr)
+}
+
+.designGrid{
+grid-template-columns:repeat(4,1fr)
+}
+
+}
+
+@media(max-width:800px){
+
+.nav{
+height:64px
+}
+
+.navlinks{
+display:none
+}
+
+.search{
+width:150px
+}
+
+.hero{
+min-height:530px
+}
+
+.heroContent{
+padding:48px 25px
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr)
+}
+
+.grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.designCats{
+grid-template-columns:repeat(2,1fr)
+}
+
+.designGrid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.modalHero{
+min-height:300px
+}
+
+.modalTitle h2{
+font-size:30px
+}
+
+.modalCols{
+grid-template-columns:1fr
+}
+
+.chatMessages{
+height:200px
+}
+
+.authPanel{
+grid-template-columns:1fr
+}
+
+.designHero h2{
+font-size:36px
+}
+
+}
+
+@media(max-width:430px){
+
+.logo{
+font-size:25px
+}
+
+.search{
+width:120px
+}
+
+.hero h1{
+font-size:40px
+}
+
+.grid{
+gap:10px
+}
+
+.card h3{
+font-size:15px
+}
+
+.cover{
+height:145px
+}
+
+.cardbody{
+padding:10px
+}
+
+.mini{
+font-size:11px
+}
+
+.designHero .heroContent{
+padding:35px 20px
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- COLOR BAR -->
+
+<div class="colorbar">
+<button onclick="setTheme(0)"></button>
+<button onclick="setTheme(1)"></button>
+<button onclick="setTheme(2)"></button>
+<button onclick="setTheme(3)"></button>
+</div>
+
+<!-- TICKER -->
+
+<div class="topbar">
+<div class="ticker">
+🔥 RAVEX — عالم الألعاب بين يديك
+<b>✦</b>
+🆕 ألعاب جديدة أضيفت هذا الأسبوع
+<b>✦</b>
+🎨 RAVEX DESIGN — أدوات الإبداع في مكان واحد
+<b>✦</b>
+⚡ نعمل باستمرار على تطوير المكتبة
+</div>
+</div>
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container nav">
+
+<a class="logo" href="#home">
+RAVE<span>X</span>
+</a>
+
+<nav class="navlinks">
+
+<a class="active" href="#home">الرئيسية</a>
+
+<a href="#games">🎮 الألعاب</a>
+
+<a href="#design">🎨 RAVEX DESIGN</a>
+
+<a href="#apps">📱 تطبيقات أندرويد</a>
+
+<a href="#windows">🪟 برامج ويندوز</a>
+
+<a href="#customer">🎧 الدعم</a>
+
+<a href="#contact">✉️ تواصل</a>
+
+</nav>
+
+<div class="search">
+<span>⌕</span>
+<input id="search" placeholder="ابحث في الموقع...">
+</div>
+
+</div>
+
+</header>
+
+<!-- MAIN -->
+
+<main id="home" class="container">
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="heroContent">
+
+<div class="kicker">
+⚡ RAVEX GAMING UNIVERSE
+</div>
+
+<h1>
+اكتشف عالم <span>RAVEX</span>
+</h1>
+
+<p>
+مكتبة ألعاب وبرامج بتصميم عصري، واجهة سريعة،
+تفاصيل واضحة وتجربة مرتبة على الكمبيوتر والجوال.
+</p>
+
+<a href="#games" class="btn primary">
+🎮 استكشف الألعاب
+</a>
+
+<a href="#design" class="btn secondary">
+🎨 RAVEX DESIGN
+</a>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<div class="stats">
+
+<div class="stat">
+<strong>40+</strong>
+<small>لعبة في المكتبة</small>
+</div>
+
+<div class="stat">
+<strong>22+</strong>
+<small>برنامج تصميم</small>
+</div>
+
+<div class="stat">
+<strong>100%</strong>
+<small>واجهة متجاوبة</small>
+</div>
+
+<div class="stat">
+<strong>⚡</strong>
+<small>تحديثات مستمرة</small>
+</div>
+
+</div>
+
+<!-- WEEKLY -->
+
+<section class="section">
+
+<div class="sectionHead">
+
+<div>
+<h2>🆕 ألعاب أضيفت هذا الأسبوع</h2>
+<p>اختيارات مميزة من مكتبة RAVEX</p>
+</div>
+
+</div>
+
+<div class="week">
+
+<div class="weekCard">
+
+<h3>
+🦇 Batman: Arkham Knight
+</h3>
+
+<p>
+تجربة Batman ضخمة مع Gotham
+وBatmobile وقصة سينمائية.
+</p>
+
+<div class="rating">
+★★★★★ 9.2/10
+</div>
+
+</div>
+
+<div class="weekCard">
+
+<h3>
+🕷️ Spider-Man Remastered
+</h3>
+
+<p>
+تجول فوق نيويورك وخض المعارك
+في واحدة من أشهر تجارب Spider-Man.
+</p>
+
+<div class="rating">
+★★★★★ 9.0/10
+</div>
+
+</div>
+
+<div class="weekCard">
+
+<h3>
+🐎 Red Dead Redemption 2
+</h3>
+
+<p>
+عالم مفتوح هائل وقصة طويلة
+وتفاصيل دقيقة من Rockstar.
+</p>
+
+<div class="rating">
+★★★★★ 9.7/10
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- GAMES -->
+
+<section id="games" class="section">
+
+<div class="sectionHead">
+
+<div>
+<h2>🎮 مكتبة الألعاب</h2>
+<p>ألعاب قديمة وحديثة في واجهة واحدة</p>
+</div>
+
+</div>
+
+<div class="tabs" id="gameTabs">
+
+<button class="tab active" data-filter="all">
+الكل
+</button>
+
+<button class="tab" data-filter="new">
+🆕 جديد
+</button>
+
+<button class="tab" data-filter="action">
+🔥 أكشن
+</button>
+
+<button class="tab" data-filter="story">
+📖 قصة
+</button>
+
+<button class="tab" data-filter="open">
+🌍 عالم مفتوح
+</button>
+
+</div>
+
+<div class="grid" id="gameGrid"></div>
+
+</section>
+
+<!-- DESIGN -->
+
+<section id="design" class="section">
+
+<div class="designHero">
+
+<div class="heroContent">
+
+<div class="kicker">
+✨ RAVEX DESIGN
+</div>
+
+<h2>
+أدواتك الإبداعية في مكان واحد
+</h2>
+
+<p>
+قسم تصميم مستقل داخل RAVEX للتصميم والمونتاج
+والصوت و3D وصناعة المحتوى.
+</p>
+
+</div>
+
+</div>
+
+<div class="designCats">
+
+<div class="cat" data-dfilter="design">
+<span>🎨</span>
+<b>التصميم</b>
+<small>برامج الجرافيك</small>
+</div>
+
+<div class="cat" data-dfilter="video">
+<span>🎬</span>
+<b>المونتاج</b>
+<small>فيديو وصناعة محتوى</small>
+</div>
+
+<div class="cat" data-dfilter="audio">
+<span>🎙️</span>
+<b>الصوت</b>
+<small>تسجيل وتحرير</small>
+</div>
+
+<div class="cat" data-dfilter="3d">
+<span>🧊</span>
+<b>3D</b>
+<small>نمذجة ورندر</small>
+</div>
+
+<div class="cat" data-dfilter="content">
+<span>📸</span>
+<b>المحتوى</b>
+<small>أدوات للمبدعين</small>
+</div>
+
+</div>
+
+<div class="sectionHead">
+<h2>🎨 برامج التصميم والمونتاج</h2>
+</div>
+
+<div class="designGrid" id="designGrid"></div>
+
+</section>
+
+<!-- APPS -->
+
+<section id="apps" class="section">
+
+<div class="sectionHead">
+
+<div>
+<h2>📱 تطبيقات أندرويد</h2>
+
+<p>
+منطقة الجوال داخل RAVEX —
+واجهة مرتبة وخلفية حقيقية ومعلومات واضحة.
+</p>
+
+</div>
+
+</div>
+
+<div class="supportBox">
+
+<div class="supportItem">
+
+<h3>
+📱 مكتبة Mobile
+</h3>
+
+<p>
+سيتم عرض التطبيقات هنا بنفس نظام صفحات RAVEX:
+صورة، وصف، معلومات، حالة التحميل وزر MEGA
+تضع رابطه بنفسك.
+</p>
+
+<span class="coming">
+🚀 المكتبة قابلة للتوسعة بدون تغيير التصميم
+</span>
+
+</div>
+
+<div class="supportItem">
+
+<h3>
+🛡️ نظام آمن للروابط
+</h3>
+
+<p>
+لا يوجد أي رابط تحميل مخترع.
+الحقل يبقى فارغًا حتى تضيف رابطك أنت للملف
+الذي تملك حق توزيعه.
+</p>
+
+<span class="coming">
+☁️ MEGA — رابطك أنت
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- WINDOWS -->
+
+<section id="windows" class="section">
+
+<div class="sectionHead">
+
+<div>
+
+<h2>
+🪟 برامج Windows
+</h2>
+
+<p>
+برامج النظام والإنتاجية والتصميم والأدوات،
+بنفس تجربة صفحات الألعاب.
+</p>
+
+</div>
+
+</div>
+
+<div class="supportBox">
+
+<div class="supportItem">
+
+<h3>
+⚙️ برامج الكمبيوتر
+</h3>
+
+<p>
+قسم مستقل قابل لإضافة عدد كبير من البرامج
+مع صفحة وصف كاملة لكل برنامج.
+</p>
+
+<span class="coming">
+⚡ يتم تجهيز المكتبة
+</span>
+
+</div>
+
+<div class="supportItem">
+
+<h3>
+📦 تحميل من MEGA
+</h3>
+
+<p>
+كل برنامج له مكان مستقل لرابط MEGA الخاص بك
+بدل وضع روابط جاهزة من طرفنا.
+</p>
+
+<span class="coming">
+🚀 قريبًا داخل RAVEX
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<!-- CUSTOMER SERVICE -->
+
+<section id="customer" class="section">
+
+<div class="container">
+
+<div class="sectionHead">
+
+<div>
+
+<h2>
+🎧 خدمة عملاء RAVEX — مركز المساعدة
+</h2>
+
+<p>
+مراسلة، تسجيل بالبريد الإلكتروني،
+اقتراحات، بلاغات ومتابعة مباشرة من نفس الصفحة.
+</p>
+
+</div>
+
+</div>
+
+<div class="serviceStatus">
+
+<span>●</span>
+
+<b>
+مركز الدعم جاهز لاستقبال رسالتك
+</b>
+
+<span style="margin-right:auto">
+RAVEX SUPPORT
+</span>
+
+</div>
+
+<div class="authPanel">
+
+<!-- LOGIN -->
+
+<div class="authCard">
+
+<div class="authTabs">
+
+<button
+id="loginTab"
+class="active"
+onclick="showAuth('login')"
+>
+🔐 تسجيل الدخول
+</button>
+
+<button
+id="registerTab"
+onclick="showAuth('register')"
+>
+✉️ تسجيل جديد
+</button>
+
+</div>
+
+<div id="loginForm" class="authForm">
+
+<input
+id="loginEmail"
+type="email"
+placeholder="البريد الإلكتروني"
+>
+
+<input
+id="loginPass"
+type="password"
+placeholder="كلمة المرور"
+>
+
+<button
+class="btn primary"
+onclick="loginUser()"
+>
+دخول إلى حساب RAVEX
+</button>
+
+<div id="loginMsg" class="formMsg"></div>
+
+</div>
+
+<div
+id="registerForm"
+class="authForm"
+style="display:none"
+>
+
+<input
+id="regName"
+placeholder="الاسم"
+>
+
+<input
+id="regEmail"
+type="email"
+placeholder="البريد الإلكتروني"
+>
+
+<input
+id="regPass"
+type="password"
+placeholder="كلمة المرور"
+>
+
+<button
+class="btn primary"
+onclick="registerUser()"
+>
+✉️ إنشاء حساب
+</button>
+
+<div id="regMsg" class="formMsg"></div>
+
+<small style="color:#777;line-height:1.7">
+
+ملاحظة:
+هذا نظام واجهة محلي داخل المتصفح.
+التسجيل الحقيقي الذي يرسل بريدًا ويعمل
+على كل الأجهزة يحتاج قاعدة بيانات وخادم.
+
+</small>
+
+</div>
+
+<div id="accountState" style="margin-top:12px"></div>
+
+</div>
+
+<!-- CHAT -->
+
+<div class="chatCard">
+
+<div class="chatShell">
+
+<div class="chatHeader">
+
+<div>
+
+<b>
+💬 مراسلة الدعم
+</b>
+
+<div class="online">
+● متصل الآن
+</div>
+
+</div>
+
+<span class="accountBadge">
+RAVEX CARE
+</span>
+
+</div>
+
+<div
+id="chatMessages"
+class="chatMessages"
+></div>
+
+<div>
+
+<div class="chatComposer">
+
+<input
+id="chatInput"
+class="chatInput"
+placeholder="اكتب رسالتك للدعم..."
+onkeydown="if(event.key==='Enter')sendMessage()"
+>
+
+<button onclick="sendMessage()">
+➤
+</button>
+
+</div>
+
+<div class="quickReplies">
+
+<button onclick="quickMsg('أريد اقتراح لعبة')">
+🎮 اقتراح لعبة
+</button>
+
+<button onclick="quickMsg('رابط التحميل لا يعمل')">
+🔗 رابط لا يعمل
+</button>
+
+<button onclick="quickMsg('أريد برنامج تصميم')">
+🎨 أريد برنامج
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="supportBox">
+
+<div class="supportItem">
+
+<h3>
+📧 مراسلة عبر البريد
+</h3>
+
+<p>
+لرسالة رسمية أو مشكلة طويلة،
+افتح تطبيق البريد مباشرة مع عنوان الدعم جاهزًا.
+</p>
+
+<a
+class="btn primary"
+href="mailto:support@ravex.site?subject=RAVEX%20Support"
+>
+✉️ إرسال بريد
+</a>
+
+</div>
+
+<div class="supportItem">
+
+<h3>
+💬 WhatsApp & Instagram
+</h3>
+
+<p>
+قنوات التواصل السريع مع فريق RAVEX.
+</p>
+
+<div class="supportLinks">
+
+<a
+class="btn primary"
+href="https://wa.me/963995870515"
+target="_blank"
+>
+WhatsApp
+</a>
+
+<a
+class="btn secondary"
+href="https://instagram.com/leonardoo_688"
+target="_blank"
+>
+Instagram
+</a>
+
+</div>
+
+</div>
+
+<div class="supportItem">
+
+<h3>
+📝 طلب دعم
+</h3>
+
+<p>
+اكتب مشكلتك في المراسلة أعلاه.
+سيتم حفظ الرسائل محليًا في هذا المتصفح
+لتبقى ظاهرة لك.
+</p>
+
+<span class="coming">
+⚡ نظام تذاكر قابل للتطوير
+</span>
+
+</div>
+
+</div>
+
+<div class="faq">
+
+<details>
+
+<summary>
+هل رابط MEGA جاهز لكل لعبة؟
+</summary>
+
+<p>
+لا.
+تركت كل الروابط كحقول فارغة حتى تضيف
+روابط الملفات التي تملك حق توزيعها.
+</p>
+
+</details>
+
+<details>
+
+<summary>
+هل تسجيل البريد حقيقي؟
+</summary>
+
+<p>
+الواجهة الحالية تحفظ الحساب محليًا على جهاز الزائر.
+لتسجيل حقيقي متعدد الأجهزة وإرسال رسائل بريد،
+يجب ربطها بخادم وقاعدة بيانات وخدمة بريد.
+</p>
+
+</details>
+
+<details>
+
+<summary>
+كيف أضيف لعبة جديدة؟
+</summary>
+
+<p>
+أضف بيانات اللعبة داخل مصفوفة games
+بنفس بنية العناصر الموجودة،
+وستظهر تلقائيًا في المكتبة.
+</p>
+
+</details>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer id="contact">
+
+<div class="container">
+
+© 2026 RAVEX —
+Gaming • Design • 3D • Apps ·
+🎧 RAVEX SUPPORT ·
+✉️ Email ·
+📱 WhatsApp ·
+Instagram
+
+</div>
+
+</footer>
+
+<!-- MODAL -->
+
+<div class="overlay" id="modal">
+
+<div class="modal">
+
+<div
+class="modalHero"
+id="modalHero"
+>
+
+<button
+class="close"
+onclick="closeModal()"
+>
+✕
+</button>
+
+<div class="modalTitle">
+
+<h2 id="mTitle"></h2>
+
+</div>
+
+</div>
+
+<div class="modalContent">
+
+<div
+class="chips"
+id="mChips"
+></div>
+
+<div class="modalCols">
+
+<div>
+
+<div class="box">
+
+<h4>
+📖 وصف اللعبة
+</h4>
+
+<p id="mDesc"></p>
+
+</div>
+
+<div
+class="box"
+style="margin-top:14px"
+>
+
+<h4>
+🎬 الإعلان الرسمي / Trailer
+</h4>
+
+<div class="realAd">
+
+<div class="trailer" id="trailerBox">
+
+<div class="trailerOverlay">
+
+<div class="playBig">
+▶
+</div>
+
+<b>
+الإعلان الرسمي / Trailer
+</b>
+
+<span style="color:#aaa;font-size:12px">
+يتم تشغيل الإعلان داخل موقع RAVEX
+</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<div>
+
+<div class="box">
+
+<h4>
+⚙️ متطلبات التشغيل
+</h4>
+
+<p id="mReq"></p>
+
+</div>
+
+<div
+class="box"
+style="margin-top:14px"
+>
+
+<h4>
+📦 معلومات
+</h4>
+
+<p id="mInfo"></p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+/* =====================================================
+   RAVEX CONFIG
+===================================================== */
+
+const CDN='https://cdn.akamai.steamstatic.com/steam/apps/';
+
+/*
+MEGA:
+ضع روابطك الخاصة هنا.
+لا توجد روابط تحميل مقرصنة أو مخترعة.
+*/
+
+const megaLinks={
+games:{},
+design:{}
+};
+
+/*
+=========================================================
+YouTube TRAILERS
+الفيديو يظهر داخل موقع RAVEX بواسطة iframe.
+=========================================================
+*/
+
+const trailerLinks={
+
+"Far Cry Primal":
+"https://www.youtube.com/embed/-Wx_QGdh0Xs?rel=0",
+
+"Batman: Arkham Origins":
+"https://www.youtube.com/embed/QqDWx8kfoXo?rel=0",
+
+"Grand Theft Auto V":
+"https://www.youtube.com/embed/3DBrG2YjqQA?rel=0",
+
+"God of War":
+"https://www.youtube.com/embed/RQK_40a0XUY?rel=0"
+
+};
+
+/*
+=========================================================
+OFFICIAL STORE LINKS
+روابط المتاجر الرسمية للألعاب
+=========================================================
+*/
+
+const officialLinks={
+
+'Far Cry 3':
+'https://store.steampowered.com/app/220240/',
+
+'Far Cry 4':
+'https://store.steampowered.com/app/298110/',
+
+'Far Cry 5':
+'https://store.steampowered.com/app/552520/',
+
+'Far Cry New Dawn':
+'https://store.steampowered.com/app/939960/',
+
+'Far Cry 6':
+'https://store.steampowered.com/app/2369390/',
+
+'Far Cry Primal':
+'https://store.steampowered.com/app/371660/',
+
+'Batman: Arkham Asylum':
+'https://store.steampowered.com/app/35140/',
+
+'Batman: Arkham City':
+'https://store.steampowered.com/app/200260/',
+
+'Batman: Arkham Origins':
+'https://store.steampowered.com/app/209000/',
+
+'Batman: Arkham Knight':
+'https://store.steampowered.com/app/208650/',
+
+'Marvel’s Spider-Man Remastered':
+'https://store.steampowered.com/app/1817070/',
+
+'Spider-Man: Miles Morales':
+'https://store.steampowered.com/app/1817190/',
+
+'Resident Evil 2':
+'https://store.steampowered.com/app/883710/',
+
+'Resident Evil 3':
+'https://store.steampowered.com/app/952060/',
+
+'Resident Evil 4':
+'https://store.steampowered.com/app/2050650/',
+
+'Resident Evil Village':
+'https://store.steampowered.com/app/1196590/',
+
+'Resident Evil 7':
+'https://store.steampowered.com/app/418370/',
+
+'Grand Theft Auto V':
+'https://store.steampowered.com/app/271590/',
+
+'Red Dead Redemption 2':
+'https://store.steampowered.com/app/1174180/',
+
+'Assassin’s Creed II':
+'https://store.steampowered.com/app/33230/',
+
+'Assassin’s Creed Brotherhood':
+'https://store.steampowered.com/app/48190/',
+
+'Assassin’s Creed IV Black Flag':
+'https://store.steampowered.com/app/242050/',
+
+'Assassin’s Creed Unity':
+'https://store.steampowered.com/app/289650/',
+
+'Assassin’s Creed Origins':
+'https://store.steampowered.com/app/582160/',
+
+'Assassin’s Creed Odyssey':
+'https://store.steampowered.com/app/812140/',
+
+'Need for Speed Heat':
+'https://store.steampowered.com/app/1222680/',
+
+'Need for Speed Unbound':
+'https://store.steampowered.com/app/1846380/',
+
+'Cyberpunk 2077':
+'https://store.steampowered.com/app/1091500/',
+
+'The Witcher 3':
+'https://store.steampowered.com/app/292030/',
+
+'Elden Ring':
+'https://store.steampowered.com/app/1245620/',
+
+'Hogwarts Legacy':
+'https://store.steampowered.com/app/990080/',
+
+'God of War':
+'https://store.steampowered.com/app/1593500/',
+
+'Horizon Zero Dawn':
+'https://store.steampowered.com/app/1151640/',
+
+'Control':
+'https://store.steampowered.com/app/870780/',
+
+'Dying Light':
+'https://store.steampowered.com/app/239140/',
+
+'Marvel’s Spider-Man 2':
+'https://store.steampowered.com/app/2651280/',
+
+'Grand Theft Auto IV':
+'https://store.steampowered.com/app/12120/',
+
+'Grand Theft Auto: San Andreas':
+'https://store.steampowered.com/app/12100/',
+
+'Red Dead Redemption':
+'https://store.steampowered.com/app/2668510/',
+
+'El Mono':
+'https://store.steampowered.com/app/3060580/'
+
+};
+
+/* =====================================================
+   GAMES
+===================================================== */
+
+const games=[
+
+[
+'Far Cry 3',
+220240,
+'new,action,open',
+'🔥 جديد على RAVEX',
+'مغامرة وأكشن في جزيرة استوائية مليئة بالمخاطر.',
+'Windows · 2012',
+'Core 2 Duo · 4GB RAM · GTX 460'
+],
+
+[
+'Far Cry 4',
+298110,
+'action,open',
+'⭐ كلاسيكية',
+'مغامرة عالم مفتوح في كيرات مع قصة مليئة بالمواجهات.',
+'Windows · 2014',
+'Core i5 · 4GB RAM · GTX 460'
+],
+
+[
+'Far Cry 5',
+552520,
+'new,action,open',
+'🆕 إضافة الأسبوع',
+'عالم مفتوح ومواجهات ضد طائفة مسلحة في Hope County.',
+'Windows · 2018',
+'i5 · 8GB RAM · GTX 670'
+],
+
+[
+'Far Cry New Dawn',
+939960,
+'action,open',
+'⚡ إضافة RAVEX',
+'مغامرة ما بعد الكارثة في عالم Far Cry.',
+'Windows · 2019',
+'i5 · 8GB RAM · GTX 670'
+],
+
+[
+'Far Cry 6',
+2369390,
+'new,action,open',
+'🔥 جديد',
+'حرب ثورية في جزيرة Yara بعالم واسع.',
+'Windows · 2021',
+'i5-8400 · 8GB RAM · GTX 960'
+],
+
+[
+'Far Cry Primal',
+371660,
+'action,open',
+'🏹 كلاسيكية',
+'عصر ما قبل التاريخ، الصيد والبقاء والاستكشاف.',
+'Windows · 2016',
+'i5 · 8GB RAM · GTX 780'
+],
+
+[
+'Batman: Arkham Asylum',
+35140,
+'story,action',
+'🦇 كلاسيكية',
+'عودة Batman إلى Arkham Asylum في واحدة من أشهر مغامرات السلسلة.',
+'Windows · 2009',
+'Core 2 Duo · 2GB RAM · GPU 512MB'
+],
+
+[
+'Batman: Arkham City',
+200260,
+'story,action,open',
+'🦇 أسطورية',
+'مدينة مفتوحة ومهام وقصة Batman الشهيرة.',
+'Windows · 2011',
+'Core 2 Duo · 2GB RAM · GPU 512MB'
+],
+
+[
+'Batman: Arkham Origins',
+209000,
+'story,action',
+'🦇 إضافة الأسبوع',
+'بداية مبكرة من رحلة Batman ومطاردات وأعداء أقوياء.',
+'Windows · 2013',
+'i5 · 4GB RAM · GTX 460'
+],
+
+[
+'Batman: Arkham Knight',
+208650,
+'new,action,open',
+'👑 AAA',
+'أكبر مدينة Batman مع Batmobile ومواجهة Scarecrow.',
+'Windows · 2015',
+'i7 · 8GB RAM · GTX 760'
+],
+
+[
+'Marvel’s Spider-Man Remastered',
+1817070,
+'new,action,open',
+'🕷️ جديد',
+'مدينة نيويورك مفتوحة وقصة Spider-Man بتجربة سينمائية.',
+'Windows · 2022',
+'i5-4670 · 16GB RAM · GTX 1060'
+],
+
+[
+'Spider-Man: Miles Morales',
+1817190,
+'new,action,story',
+'🕷️ إضافة الأسبوع',
+'Miles Morales يتولى دور Spider-Man في نيويورك شتاءً.',
+'Windows · 2022',
+'i5-6600 · 8GB RAM · GTX 960'
+],
+
+[
+'Resident Evil 2',
+883710,
+'story,action',
+'🧟 كلاسيكية جديدة',
+'رعب وبقاء داخل Raccoon City بنسخة حديثة.',
+'Windows · 2019',
+'i5 · 8GB RAM · GTX 760'
+],
+
+[
+'Resident Evil 3',
+952060,
+'new,action',
+'🧟 إضافة الأسبوع',
+'Jill Valentine تواجه Nemesis وسط كارثة Raccoon City.',
+'Windows · 2020',
+'i5 · 8GB RAM · GTX 1060'
+],
+
+[
+'Resident Evil 4',
+2050650,
+'new,action,story',
+'🧟 AAA',
+'مغامرة رعب وبقاء حديثة بقصة Leon Kennedy.',
+'Windows · 2023',
+'i5-7500 · 8GB RAM · GTX 1050 Ti'
+],
+
+[
+'Resident Evil Village',
+1196590,
+'new,story,action',
+'🧟 رعب',
+'قرية غامضة وأجواء رعب وقصة Ethan Winters.',
+'Windows · 2021',
+'i5 · 8GB RAM · GTX 1050 Ti'
+],
+
+[
+'Resident Evil 7',
+418370,
+'story,action',
+'🧟 رعب',
+'منظور أول وأجواء رعب قوية داخل منزل غامض.',
+'Windows · 2017',
+'i5 · 8GB RAM · GTX 760'
+],
+
+[
+'Grand Theft Auto V',
+271590,
+'open,action',
+'🔥 كلاسيكية',
+'عالم Los Santos المفتوح ومجموعة شخصيات وقصص.',
+'Windows · 2015',
+'i5 · 8GB RAM · GTX 660'
+],
+
+[
+'Red Dead Redemption 2',
+1174180,
+'new,story,open',
+'👑 أسطورية',
+'رحلة Arthur Morgan في الغرب الأمريكي.',
+'Windows · 2019',
+'i5-2500K · 8GB RAM · GTX 770'
+],
+
+[
+'Assassin’s Creed II',
+33230,
+'story,action,open',
+'⚔️ كلاسيكية',
+'بداية قصة Ezio في إيطاليا عصر النهضة.',
+'Windows · 2009',
+'2GB RAM · GPU 512MB'
+],
+
+[
+'Assassin’s Creed Brotherhood',
+48190,
+'story,action,open',
+'⚔️ كلاسيكية',
+'Ezio يقود الإخوان في روما.',
+'Windows · 2010',
+'2GB RAM · GPU 512MB'
+],
+
+[
+'Assassin’s Creed IV Black Flag',
+242050,
+'action,open',
+'🏴‍☠️ مغامرة',
+'قراصنة وسفن واستكشاف جزر البحر الكاريبي.',
+'Windows · 2013',
+'i5 · 4GB RAM · GTX 460'
+],
+
+[
+'Assassin’s Creed Unity',
+289650,
+'new,action,open',
+'⚔️ باريس',
+'باريس والثورة الفرنسية مع أسلوب لعب حر.',
+'Windows · 2014',
+'i5 · 6GB RAM · GTX 680'
+],
+
+[
+'Assassin’s Creed Origins',
+582160,
+'new,action,open',
+'🏺 عالم مفتوح',
+'مصر القديمة وبداية نشأة جماعة الـAssassins.',
+'Windows · 2017',
+'i7 · 8GB RAM · GTX 660'
+],
+
+[
+'Assassin’s Creed Odyssey',
+812140,
+'new,action,open',
+'🏛️ أسطورية',
+'اليونان القديمة وعالم مفتوح ضخم.',
+'Windows · 2018',
+'i5 · 8GB RAM · GTX 660'
+],
+
+[
+'Need for Speed Heat',
+1222680,
+'new,action,open',
+'🏎️ سباقات',
+'سباقات ليلية ونهارية وتخصيص سيارات واسع.',
+'Windows · 2019',
+'i5 · 8GB RAM · GTX 760'
+],
+
+[
+'Need for Speed Unbound',
+1846380,
+'new,action',
+'🏎️ جديد',
+'سباقات شوارع بأسلوب بصري عصري ومميز.',
+'Windows · 2022',
+'i5 · 8GB RAM · GTX 1050 Ti'
+],
+
+[
+'Cyberpunk 2077',
+1091500,
+'new,story,open',
+'🌆 AAA',
+'مدينة Night City المستقبلية وقصة V.',
+'Windows · 2020',
+'i7 · 16GB RAM · GTX 1060'
+],
+
+[
+'The Witcher 3',
+292030,
+'story,open,action',
+'🐺 أسطورية',
+'Geralt يخوض رحلة ضخمة مليئة بالقصص والمهام.',
+'Windows · 2015',
+'i5 · 8GB RAM · GTX 660'
+],
+
+[
+'Elden Ring',
+1245620,
+'new,action,open',
+'⚔️ أسطورية',
+'عالم فانتازي ضخم واستكشاف ومعارك صعبة.',
+'Windows · 2022',
+'i5-8400 · 12GB RAM · GTX 1060'
+],
+
+[
+'Hogwarts Legacy',
+990080,
+'new,story,open',
+'✨ جديد',
+'مدرسة Hogwarts وعالم سحري واسع للاستكشاف.',
+'Windows · 2023',
+'i5-6600 · 16GB RAM · GTX 1070'
+],
+
+[
+'God of War',
+1593500,
+'new,story,action',
+'⚔️ ملحمة',
+'رحلة Kratos وAtreus في عالم أسطوري.',
+'Windows · 2022',
+'i5-6600 · 8GB RAM · GTX 960'
+],
+
+[
+'Horizon Zero Dawn',
+1151640,
+'new,story,open',
+'🤖 عالم مفتوح',
+'صيادة تواجه آلات ضخمة في عالم ما بعد الحضارة.',
+'Windows · 2020',
+'i5-2500K · 8GB RAM · GTX 780'
+],
+
+[
+'Control',
+870780,
+'story,action',
+'🌀 غموض',
+'قوى خارقة ومبنى غامض ومواجهات سينمائية.',
+'Windows · 2019',
+'i5 · 8GB RAM · GTX 780'
+],
+
+[
+'Dying Light',
+239140,
+'new,action,open',
+'🧟 بقاء',
+'باركور وبقاء وسط مدينة مليئة بالمصابين.',
+'Windows · 2015',
+'i5 · 4GB RAM · GTX 560'
+],
+
+[
+'Marvel’s Spider-Man 2',
+2651280,
+'new,action,story',
+'🕷️ AAA',
+'Peter Parker وMiles Morales يواجهان تهديدات جديدة في نيويورك.',
+'Windows · 2025',
+'i3-8100 / Ryzen 3 3100 · 16GB RAM · GTX 1650 / RX 5500 XT · 140GB SSD'
+],
+
+[
+'Grand Theft Auto IV',
+12120,
+'story,action,open',
+'🚘 Rockstar',
+'قصة Niko Bellic في Liberty City.',
+'Windows · 2008',
+'Core 2 Duo · 2GB RAM · 512MB GPU'
+],
+
+[
+'Grand Theft Auto: San Andreas',
+12100,
+'story,action,open',
+'🚘 كلاسيكية',
+'عودة CJ إلى Los Santos في واحدة من أشهر ألعاب Rockstar.',
+'Windows · 2005',
+'Pentium III/Athlon · 256MB RAM · 64MB GPU'
+],
+
+[
+'Red Dead Redemption',
+2668510,
+'story,action,open',
+'🤠 Rockstar',
+'قصة John Marston في الغرب الأمريكي.',
+'Windows · 2024',
+'Core i5 / Ryzen 5 · 8GB RAM · GPU 4GB'
+],
+
+[
+'El Mono',
+3060580,
+'action',
+'🐒 غريب ومضحك',
+'محاكاة فوضوية من منظور أول مع حركات فيزيائية ومواقف كوميدية.',
+'Windows · 2024',
+'Core i5 / Ryzen 5 · 4GB RAM · GPU يدعم WebGPU · 100MB'
+]
+
+];
+
+/* =====================================================
+   DESIGN APPS
+===================================================== */
+
+const designApps=[
+
+['Photoshop','🎨','design','تحرير الصور والتصميم الاحترافي'],
+
+['Illustrator','✒️','design','رسومات وشعارات Vector'],
+
+['CorelDRAW','🟢','design','تصميم جرافيك احترافي'],
+
+['Canva','🟣','design','تصميم سريع للمبتدئين والمحترفين'],
+
+['GIMP','🖌️','design','بديل مجاني لتحرير الصور'],
+
+['Inkscape','✏️','design','رسومات Vector مفتوحة المصدر'],
+
+['Premiere Pro','🎬','video','مونتاج فيديو احترافي'],
+
+['After Effects','✨','video','موشن جرافيك ومؤثرات'],
+
+['DaVinci Resolve','🎞️','video','مونتاج وتصحيح ألوان'],
+
+['CapCut','✂️','video','مونتاج سريع وصناعة محتوى'],
+
+['Filmora','🎥','video','مونتاج سهل ومتقدم'],
+
+['Kdenlive','🎬','video','مونتاج مجاني ومفتوح المصدر'],
+
+['Audacity','🎙️','audio','تسجيل وتحرير الصوت'],
+
+['Adobe Audition','🎚️','audio','إنتاج صوت احترافي'],
+
+['FL Studio','🎹','audio','إنتاج موسيقي وصناعة Beats'],
+
+['Blender','🧊','3d','نمذجة وتحريك ورندر 3D'],
+
+['Cinema 4D','🔷','3d','3D وموشن جرافيك'],
+
+['Maya','🔶','3d','نمذجة وتحريك ثلاثي الأبعاد'],
+
+['OBS Studio','📡','content','تسجيل وبث مباشر'],
+
+['Figma','🖥️','content','تصميم واجهات UI/UX'],
+
+['DaVinci Fusion','💠','content','مؤثرات بصرية وCompositing'],
+
+['Lightroom','📷','content','معالجة وتنظيم الصور']
+
+];
+
+/* =====================================================
+   IMAGES
+===================================================== */
+
+function gameImage(id){
+
+return CDN+id+'/header.jpg';
+
+}
+
+function gameBg(id){
+
+return CDN+id+'/page_bg_generated.jpg';
+
+}
+
+/* =====================================================
+   RENDER GAMES
+===================================================== */
+
+function renderGames(filter='all',query=''){
+
+const q=query.trim().toLowerCase();
+
+const list=games.filter(g=>
+(filter==='all'||g[2].includes(filter)) &&
+(!q||g[0].toLowerCase().includes(q))
+);
+
+document.getElementById('gameGrid').innerHTML=
+
+list.length?
+
+list.map(g=>`
+
+<article class="card">
+
+<div
+class="cover"
+style="
+background-image:
+url('${gameImage(g[1])}'),
+url('${gameBg(g[1])}')
+"
+>
+
+<span class="badge">
+${g[3]}
+</span>
+
+</div>
+
+<div class="cardbody">
+
+<h3>
+${g[0]}
+</h3>
+
+<div class="meta">
+🎮 PC · ${g[4]}
+</div>
+
+<div class="rating">
+★★★★★
+<small style="color:#aaa">
+RAVEX
+</small>
+</div>
+
+<div class="cardActions">
+
+<button
+class="mini detail"
+onclick="openGame(${games.indexOf(g)})"
+>
+📖 صفحة اللعبة
+</button>
+
+<button
+class="mini"
+onclick="openGame(${games.indexOf(g)})"
+>
+🎬 الإعلان
+</button>
+
+</div>
+
+</div>
+
+</article>
+
+`).join('')
+
+:
+
+`
+<div
+class="box"
+style="grid-column:1/-1;text-align:center;padding:40px"
+>
+🔎 لم نجد نتيجة مطابقة.
+</div>
+`;
+
+}
+
+/* =====================================================
+   DESIGN IMAGE
+===================================================== */
+
+function designImage(name){
+
+const m={
+
+"Photoshop":
+"https://upload.wikimedia.org/wikipedia/commons/a/af/Adobe_Photoshop_CC_icon.svg",
+
+"Illustrator":
+"https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg",
+
+"Premiere Pro":
+"https://upload.wikimedia.org/wikipedia/commons/4/40/Adobe_Premiere_Pro_CC_icon.svg",
+
+"After Effects":
+"https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg",
+
+"Blender":
+"https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg",
+
+"GIMP":
+"https://upload.wikimedia.org/wikipedia/commons/7/77/GIMP_icon_%282019%29.svg",
+
+"Inkscape":
+"https://upload.wikimedia.org/wikipedia/commons/0/0d/Inkscape_Logo.svg",
+
+"Audacity":
+"https://upload.wikimedia.org/wikipedia/commons/f/f6/Audacity_Logo.svg",
+
+"CorelDRAW":
+"https://cdn.simpleicons.org/coreldraw/44A8D8",
+
+"Canva":
+"https://cdn.simpleicons.org/canva/00C4CC",
+
+"Figma":
+"https://cdn.simpleicons.org/figma/F24E1E",
+
+"FL Studio":
+"https://cdn.simpleicons.org/flstudio/F58220",
+
+"OBS Studio":
+"https://cdn.simpleicons.org/obsstudio/FFFFFF",
+
+"Lightroom":
+"https://cdn.simpleicons.org/adobelightroom/31A8FF"
+
+};
+
+return m[name] ||
+"https://cdn.simpleicons.org/adobe/FFFFFF";
+
+}
+
+/* =====================================================
+   RENDER DESIGN
+===================================================== */
+
+function renderDesign(filter='all'){
+
+const list=
+filter==='all'
+?designApps
+:designApps.filter(a=>a[2]===filter);
+
+document.getElementById('designGrid').innerHTML=
+
+list.map(a=>`
+
+<div class="app">
+
+<div
+class="appImage"
+style="
+background-image:url('${designImage(a[0])}')
+"
+>
+
+<div class="appIcon">
+${a[1]}
+</div>
+
+</div>
+
+<div class="appInner">
+
+<h3>
+${a[0]}
+</h3>
+
+<p>
+${a[3]}
+</p>
+
+<span class="availability">
+🚀 التحميل: قريبًا
+</span>
+
+<button
+class="btn megaSmall"
+onclick="openDesign(${designApps.indexOf(a)})"
+>
+📖 صفحة البرنامج
+</button>
+
+</div>
+
+</div>
+
+`).join('');
+
+}
+
+/* =====================================================
+   MEGA BUTTON
+===================================================== */
+
+function megaButton(
+url,
+label='⬇️ تحميل من MEGA'
+){
+
+if(url && url!=='#'){
+
+return `
+
+<a
+class="btn primary megaFull"
+href="${url}"
+target="_blank"
+rel="noopener"
+>
+${label}
+</a>
+
+`;
+
+}
+
+return `
+
+<div
+class="btn secondary megaFull disabled"
+>
+☁️ رابط MEGA سيُضاف من قبلك
+</div>
+
+`;
+
+}
+
+/* =====================================================
+   OPEN GAME
+===================================================== */
+
+function openGame(i){
+
+const g=games[i];
+
+document.getElementById('mTitle').textContent=g[0];
+
+document.getElementById('modalHero').style.backgroundImage=
+
+`
+url('${gameBg(g[1])}'),
+url('${gameImage(g[1])}')
+`;
+
+document.getElementById('mChips').innerHTML=
+
+`
+<span class="chip">🎮 PC</span>
+<span class="chip">${g[3]}</span>
+<span class="chip">⭐ RAVEX</span>
+<span class="chip">📦 صفحة كاملة</span>
+`;
+
+document.getElementById('mDesc').innerHTML=
+
+`
+<b style="color:#fff">
+نبذة عن اللعبة
+</b>
+
+<br>
+
+${g[4]}
+
+<br><br>
+
+<b style="color:#fff">
+تجربة RAVEX
+</b>
+
+<br>
+
+صفحة مخصصة للعبة داخل RAVEX
+تعرض صورة الغلاف والخلفية والمعلومات
+والتصنيف ومتطلبات التشغيل،
+مع إعلان رسمي داخل الصفحة
+ورابط المتجر النظامي.
+`;
+
+document.getElementById('mReq').innerHTML=
+
+`
+
+<div class="detailList">
+
+<div class="detailRow">
+
+<b>
+الحد الأدنى
+</b>
+
+<span>
+${g[6]}
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+الموصى به
+</b>
+
+<span>
+معالج Core i5/i7 حديث ·
+RAM 16GB ·
+بطاقة رسومية أعلى من الحد الأدنى
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+المنصة
+</b>
+
+<span>
+${g[5]}
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+التصنيف
+</b>
+
+<span>
+${g[2].replaceAll(',',' · ')}
+</span>
+
+</div>
+
+</div>
+
+`;
+
+/* =====================================================
+   YOUTUBE TRAILER
+===================================================== */
+
+const turl=trailerLinks[g[0]] || '';
+
+if(turl){
+
+document.getElementById('trailerBox').innerHTML=
+
+`
+
+<iframe
+
+src="${turl}"
+
+title="RAVEX Official Game Trailer"
+
+allow="
+accelerometer;
+autoplay;
+clipboard-write;
+encrypted-media;
+gyroscope;
+picture-in-picture;
+web-share
+"
+
+allowfullscreen
+
+loading="lazy"
+
+></iframe>
+
+`;
+
+}else{
+
+document.getElementById('trailerBox').innerHTML=
+
+`
+
+<div class="trailerOverlay">
+
+<div class="playBig">
+▶
+</div>
+
+<b>
+الإعلان الرسمي / Trailer
+</b>
+
+<span style="color:#aaa;font-size:12px">
+الإعلان سيظهر هنا عند إضافة رابط الفيديو.
+</span>
+
+</div>
+
+`;
+
+}
+
+/* =====================================================
+   GAME INFO
+===================================================== */
+
+const gameMega=
+megaLinks.games[g[0]] || '#';
+
+document.getElementById('mInfo').innerHTML=
+
+`
+
+<div class="detailList">
+
+<div class="detailRow">
+
+<b>
+تقييم RAVEX
+</b>
+
+<span>
+★★★★★
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+الصور
+</b>
+
+<span>
+غلاف + خلفية اللعبة
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+الإعلان
+</b>
+
+<span>
+${turl?'متوفر داخل RAVEX':'قريبًا'}
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+التحميل
+</b>
+
+<span>
+${gameMega!=='#'?'متوفر':'قريبًا'}
+</span>
+
+</div>
 
-.stat-card{
-  background:
-    linear-gradient(
-      145deg,
-      rgba(24,24,46,.95),
-      rgba(13,13,28,.95)
-    );
-  border:1px solid var(--border);
-  border-radius:18px;
-  padding:25px;
-  box-shadow:var(--shadow);
+</div>
+
+${megaButton(gameMega)}
+
+<a
+class="btn secondary megaFull"
+style="
+margin-top:8px;
+justify-content:center
+"
+href="${officialLinks[g[0]]||'#'}"
+target="_blank"
+rel="noopener noreferrer"
+>
+🌐 الموقع الرسمي / المتجر النظامي
+</a>
+
+`;
+
+document
+.getElementById('modal')
+.classList
+.add('show');
+
+document.body.style.overflow='hidden';
+
+}
+
+/* =====================================================
+   DESIGN DETAILS
+===================================================== */
+
+function openDesign(i){
+
+const a=designApps[i];
+
+document.getElementById('mTitle').textContent=a[0];
+
+document.getElementById('modalHero').style.backgroundImage=
+
+`
+linear-gradient(
+90deg,
+rgba(7,6,17,.78),
+rgba(7,6,17,.18)
+),
+url('${designImage(a[0])}')
+`;
+
+document.getElementById('mChips').innerHTML=
+
+`
+<span class="chip">
+🎨 RAVEX DESIGN
+</span>
+
+<span class="chip">
+📦 برنامج
+</span>
+
+<span class="chip">
+${a[2]}
+</span>
+
+<span class="chip">
+☁️ MEGA
+</span>
+`;
+
+document.getElementById('mDesc').innerHTML=
+
+`
+
+<b style="color:#fff">
+وصف كامل
+</b>
+
+<br>
+
+${a[3]}
+
+<br><br>
+
+<b style="color:#fff">
+لماذا يوجد في RAVEX؟
+</b>
+
+<br>
+
+برنامج مخصص للمصممين وصناع المحتوى،
+وتعرض هذه الصفحة مجاله واستخداماته
+وحالة التحميل ومكان رابط MEGA
+الذي تضيفه أنت.
+
+`;
+
+document.getElementById('mReq').innerHTML=
+
+`
+
+<div class="detailList">
+
+<div class="detailRow">
+
+<b>
+الحد الأدنى
+</b>
+
+<span>
+نظام تشغيل متوافق ·
+8GB RAM كقاعدة عامة
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+الموصى به
+</b>
+
+<span>
+16GB RAM أو أكثر ·
+SSD · GPU مناسب للأعمال الثقيلة
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+الفئة
+</b>
+
+<span>
+${a[2]}
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+المنصات
+</b>
+
+<span>
+Windows / macOS حسب الإصدار
+</span>
+
+</div>
+
+</div>
+
+`;
+
+const designMega=
+megaLinks.design[a[0]] || '#';
+
+document.getElementById('mInfo').innerHTML=
+
+`
+
+<div class="detailList">
+
+<div class="detailRow">
+
+<b>
+البرنامج
+</b>
+
+<span>
+${a[0]}
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+الاستخدام
+</b>
+
+<span>
+${a[3]}
+</span>
+
+</div>
+
+<div class="detailRow">
+
+<b>
+الحالة
+</b>
+
+<span>
+${designMega!=='#'
+?'متاح'
+:'🚀 قيد التجهيز'}
+</span>
+
+</div>
+
+</div>
+
+${megaButton(designMega)}
+
+`;
+
+document.getElementById('trailerBox').innerHTML=
+
+`
+
+<div class="trailerOverlay">
+
+<div class="playBig">
+✦
+</div>
+
+<b>
+واجهة البرنامج / معرض
+</b>
+
+<span style="color:#aaa;font-size:12px">
+يمكنك لاحقًا إضافة صور أو فيديو رسمي للبرنامج داخل بياناته.
+</span>
+
+</div>
+
+`;
+
+document
+.getElementById('modal')
+.classList
+.add('show');
+
+document.body.style.overflow='hidden';
+
+}
+
+/* =====================================================
+   CLOSE MODAL
+===================================================== */
+
+function closeModal(){
+
+document
+.getElementById('modal')
+.classList
+.remove('show');
+
+document.body.style.overflow='';
+
+}
+
+/* =====================================================
+   AUTH
+===================================================== */
+
+function showAuth(mode){
+
+document.getElementById('loginForm').style.display=
+mode==='login'?'grid':'none';
+
+document.getElementById('registerForm').style.display=
+mode==='register'?'grid':'none';
+
+document.getElementById('loginTab')
+.classList
+.toggle('active',mode==='login');
+
+document.getElementById('registerTab')
+.classList
+.toggle('active',mode==='register');
+
+}
+
+function registerUser(){
+
+const name=
+document.getElementById('regName')
+.value
+.trim();
+
+const email=
+document.getElementById('regEmail')
+.value
+.trim()
+.toLowerCase();
+
+const pass=
+document.getElementById('regPass')
+.value;
+
+const msg=
+document.getElementById('regMsg');
+
+if(
+!name ||
+!email ||
+pass.length<6
+){
+
+msg.textContent=
+'⚠️ أدخل الاسم والبريد وكلمة مرور من 6 أحرف على الأقل.';
+
+return;
+
+}
+
+localStorage.setItem(
+'ravex_user',
+JSON.stringify({
+name,
+email,
+pass
+})
+);
+
+msg.textContent=
+'✅ تم إنشاء الحساب على هذا الجهاز. يمكنك تسجيل الدخول الآن.';
+
+showAuth('login');
+
+document.getElementById('loginEmail').value=email;
+
+}
+
+function loginUser(){
+
+const email=
+document.getElementById('loginEmail')
+.value
+.trim()
+.toLowerCase();
+
+const pass=
+document.getElementById('loginPass')
+.value;
+
+const saved=
+JSON.parse(
+localStorage.getItem('ravex_user')||'null'
+);
+
+const msg=
+document.getElementById('loginMsg');
+
+if(
+saved &&
+saved.email===email &&
+saved.pass===pass
+){
+
+localStorage.setItem(
+'ravex_session',
+'1'
+);
+
+msg.textContent=
+'✅ تم تسجيل الدخول بنجاح.';
+
+renderAccountState(saved);
+
+}else{
+
+msg.textContent=
+'❌ بيانات الدخول غير صحيحة على هذا الجهاز.';
+
+}
+
+}
+
+function renderAccountState(user){
+
+const el=
+document.getElementById('accountState');
+
+if(!el)return;
+
+el.innerHTML=
+
+user?
+
+`
+
+<span class="accountBadge">
+
+👤 ${user.name}
+·
+${user.email}
+
+</span>
+
+<button
+class="mini"
+onclick="logoutUser()"
+>
+تسجيل خروج
+</button>
+
+`
+
+:'';
+
+}
+
+function logoutUser(){
+
+localStorage.removeItem('ravex_session');
+
+document.getElementById(
+'accountState'
+).innerHTML='';
+
+}
+
+/* =====================================================
+   CHAT
+===================================================== */
+
+function getChat(){
+
+return JSON.parse(
+localStorage.getItem('ravex_chat')||'[]'
+);
+
+}
+
+function saveChat(x){
+
+localStorage.setItem(
+'ravex_chat',
+JSON.stringify(x)
+);
+
+}
+
+function renderChat(){
+
+const box=
+document.getElementById('chatMessages');
+
+if(!box)return;
+
+let arr=getChat();
+
+if(!arr.length){
+
+arr=[
+{
+role:'support',
+text:'أهلًا بك في RAVEX 👋 كيف يمكننا مساعدتك؟'
+}
+];
+
+}
+
+box.innerHTML=
+
+arr.map(m=>
+`
+
+<div class="chatMsg ${m.role}">
+${m.text}
+</div>
+
+`
+).join('');
+
+box.scrollTop=box.scrollHeight;
+
+}
+
+function sendMessage(){
+
+const input=
+document.getElementById('chatInput');
+
+const text=
+input.value.trim();
+
+if(!text)return;
+
+const arr=getChat();
+
+arr.push({
+role:'user',
+text
+});
+
+saveChat(arr);
+
+input.value='';
+
+renderChat();
+
+setTimeout(()=>{
+
+const a=getChat();
+
+a.push({
+
+role:'support',
+
+text:
+'وصلت رسالتك ✅ تم حفظها في مركز الدعم. إذا أردت إرسالها لفريقك مباشرة استخدم WhatsApp أو البريد من الأعلى.'
+
+});
+
+saveChat(a);
+
+renderChat();
+
+},450);
+
+}
+
+function quickMsg(t){
+
+document.getElementById(
+'chatInput'
+).value=t;
+
+sendMessage();
+
+}
+
+/* =====================================================
+   THEMES
+===================================================== */
+
+function setTheme(n){
+
+const root=document.documentElement;
+
+if(n===0){
+
+root.style.setProperty(
+'--purple',
+'#8b5cf6'
+);
+
+root.style.setProperty(
+'--violet',
+'#b45cff'
+);
+
+root.style.setProperty(
+'--cyan',
+'#28d7ff'
+);
+
+}
+
+if(n===1){
+
+root.style.setProperty(
+'--purple',
+'#00b7ff'
+);
+
+root.style.setProperty(
+'--violet',
+'#008cff'
+);
+
+root.style.setProperty(
+'--cyan',
+'#00eaff'
+);
+
+}
+
+if(n===2){
+
+root.style.setProperty(
+'--purple',
+'#ff3da8'
+);
+
+root.style.setProperty(
+'--violet',
+'#ff6fc4'
+);
+
+root.style.setProperty(
+'--cyan',
+'#ff9bd8'
+);
+
+}
+
+if(n===3){
+
+root.style.setProperty(
+'--purple',
+'#ffb72b'
+);
+
+root.style.setProperty(
+'--violet',
+'#ff7b00'
+);
+
+root.style.setProperty(
+'--cyan',
+'#ffe08a'
+);
+
+}
+
+}
+
+/* =====================================================
+   EVENTS
+===================================================== */
+
+document
+.getElementById('modal')
+.addEventListener(
+'click',
+e=>{
+
+if(e.target.id==='modal'){
+closeModal();
+}
+
+}
+);
+
+document.addEventListener(
+'keydown',
+e=>{
+
+if(e.key==='Escape'){
+closeModal();
+}
+
+}
+);
+
+document
+.getElementById('search')
+.addEventListener(
+'input',
+e=>{
+
+renderGames(
+'all',
+e.target.value
+);
+
 }
+);
+
+document
+.querySelectorAll('#gameTabs .tab')
+.forEach(b=>{
+
+b.onclick=()=>{
+
+document
+.querySelectorAll('#gameTabs .tab')
+.forEach(x=>
+x.classList.remove('active')
+);
 
-.stat-icon{
-  font-size:25px;
-  margin-bottom:13px;
-}
-
-.stat-card strong{
-  display:block;
-  font-size:28px;
-  margin-bottom:6px;
-}
-
-.stat-card span{
-  color:var(--muted);
-  font-size:13px;
-}
-
-/* =========================
-   GAMES SECTION
-========================= */
-
-#games{
-  background:
-    linear-gradient(
-      rgba(7,7,17,.94),
-      rgba(7,7,17,.97)
-    ),
-    url("https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/page_bg_generated.jpg")
-    center/cover fixed;
-}
-
-.filters{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:25px;
+b.classList.add('active');
+
+renderGames(
+b.dataset.filter,
+document.getElementById('search').value
+);
+
+};
+
+});
+
+document
+.querySelectorAll('.cat')
+.forEach(c=>{
+
+c.onclick=()=>{
+
+renderDesign(
+c.dataset.dfilter
+);
+
+};
+
+});
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+renderGames();
+
+renderDesign();
+
+renderChat();
+
+const savedUser=
+JSON.parse(
+localStorage.getItem('ravex_user')||'null'
+);
+
+if(
+savedUser &&
+localStorage.getItem('ravex_session')
+){
+
+renderAccountState(savedUser);
+
 }
+
+</script>
 
-.search-box{
-  flex:1;
-  min-width:220px;
-  position:relative;
-}
-
-.search-box input{
-  width:100%;
-  padding:14px 45px 14px 15px;
-  background:#101022;
-  border:1px solid var(--border);
-  color:#fff;
-  outline:none;
-  border-radius:12px;
-}
-
-.search-box input:focus{
-  border-color:var(--purple);
-}
-
-.search-icon{
-  position:absolute;
-  right:15px;
-  top:50%;
-  transform:translateY(-50%);
-  color:var(--muted);
-}
-
-.filter-btn{
-  border:1px solid var(--border);
-  background:#101022;
-  color:#c9c9d9;
-  padding:0 16px;
-  border-radius:12px;
-  min-height:46px;
-  transition:.2s;
-}
-
-.filter-btn:hover,
-.filter-btn.active{
-  background:
-    linear-gradient(
-      135deg,
-      rgba(139,92,246,.25),
-      rgba(37,99,235,.18)
-    );
-  border-color:rgba(139,92,246,.55);
-  color:#fff;
-}
-
-.games-grid{
-  display:grid;
-  grid-template-columns:
-    repeat(4,minmax(0,1fr));
-  gap:18px;
-}
-
-.game-card{
-  position:relative;
-  overflow:hidden;
-  border-radius:17px;
-  background:#111122;
-  border:1px solid var(--border);
-  min-height:365px;
-  cursor:pointer;
-  transition:
-    transform .3s,
-    border-color .3s,
-    box-shadow .3s;
-}
-
-.game-card:hover{
-  transform:translateY(-8px);
-  border-color:
-    rgba(139,92,246,.6);
-  box-shadow:
-    0 20px 45px rgba(0,0,0,.55),
-    0 0 30px rgba(124,58,237,.12);
-}
-
-.game-image{
-  height:210px;
-  position:relative;
-  overflow:hidden;
-  background:#16162a;
-}
-
-.game-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.5s;
-}
-
-.game-card:hover .game-image img{
-  transform:scale(1.08);
-}
-
-.game-image::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      transparent 35%,
-      rgba(0,0,0,.85)
-    );
-}
-
-.game-badge{
-  position:absolute;
-  top:12px;
-  right:12px;
-  z-index:2;
-  padding:6px 9px;
-  border-radius:8px;
-  background:rgba(0,0,0,.65);
-  border:1px solid rgba(255,255,255,.12);
-  font-size:11px;
-}
-
-.game-rating{
-  position:absolute;
-  left:12px;
-  bottom:12px;
-  z-index:2;
-  color:#facc15;
-  font-size:13px;
-}
-
-.game-content{
-  padding:17px;
-}
-
-.game-content h3{
-  font-size:17px;
-  margin-bottom:9px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.game-content p{
-  color:var(--muted);
-  font-size:12px;
-  line-height:1.7;
-  height:42px;
-  overflow:hidden;
-}
-
-.game-footer{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:8px;
-  margin-top:15px;
-}
-
-.game-type{
-  color:#a5b4fc;
-  font-size:11px;
-}
-
-.details-btn{
-  padding:8px 11px;
-  border-radius:9px;
-  border:1px solid var(--border);
-  background:#19192d;
-  color:#fff;
-  font-size:11px;
-}
-
-/* =========================
-   WEEKLY
-========================= */
-
-#weekly{
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(139,92,246,.14),
-      transparent 35%
-    ),
-    var(--bg);
-}
-
-.weekly-grid{
-  display:grid;
-  grid-template-columns:
-    repeat(3,1fr);
-  gap:18px;
-}
-
-.weekly-card{
-  min-height:250px;
-  position:relative;
-  overflow:hidden;
-  border-radius:18px;
-  border:1px solid var(--border);
-  background:#111122 center/cover;
-}
-
-.weekly-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      transparent 15%,
-      rgba(4,4,10,.92)
-    );
-}
-
-.weekly-content{
-  position:absolute;
-  inset:auto 20px 20px;
-  z-index:2;
-}
-
-.weekly-label{
-  display:inline-block;
-  padding:6px 9px;
-  border-radius:7px;
-  background:rgba(139,92,246,.25);
-  color:#c4b5fd;
-  font-size:11px;
-  margin-bottom:9px;
-}
-
-.weekly-content h3{
-  font-size:21px;
-  margin-bottom:6px;
-}
-
-.weekly-content p{
-  color:#bdbdd0;
-  font-size:12px;
-}/* =========================
-   RAVEX DESIGN
-========================= */
-
-#design{
-  background:
-    linear-gradient(
-      rgba(7,7,17,.94),
-      rgba(7,7,17,.96)
-    ),
-    url("https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&w=2000&q=85")
-    center/cover fixed;
-}
-
-.design-hero{
-  position:relative;
-  padding:35px;
-  margin-bottom:30px;
-  border-radius:24px;
-  overflow:hidden;
-  border:1px solid rgba(139,92,246,.25);
-  background:
-    linear-gradient(
-      120deg,
-      rgba(124,58,237,.22),
-      rgba(34,211,238,.08),
-      rgba(0,0,0,.5)
-    );
-}
-
-.design-hero::before{
-  content:"RAVEX DESIGN";
-  position:absolute;
-  left:-20px;
-  bottom:-55px;
-  font-size:100px;
-  font-weight:1000;
-  color:rgba(255,255,255,.025);
-  transform:rotate(-5deg);
-  pointer-events:none;
-}
-
-.design-hero-content{
-  position:relative;
-  z-index:2;
-  max-width:800px;
-}
-
-.design-hero h2{
-  font-size:clamp(30px,5vw,55px);
-  margin-bottom:12px;
-}
-
-.design-hero h2 span{
-  background:
-    linear-gradient(
-      90deg,
-      #a78bfa,
-      #22d3ee
-    );
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-}
-
-.design-hero p{
-  color:#c0c0d0;
-  line-height:1.9;
-}
-
-.design-grid{
-  display:grid;
-  grid-template-columns:
-    repeat(5,minmax(0,1fr));
-  gap:15px;
-}
-
-.design-card{
-  position:relative;
-  min-height:245px;
-  overflow:hidden;
-  border-radius:17px;
-  border:1px solid var(--border);
-  background:#111122;
-  cursor:pointer;
-  transition:.3s;
-}
-
-.design-card:hover{
-  transform:translateY(-7px);
-  border-color:
-    rgba(34,211,238,.5);
-  box-shadow:
-    0 18px 40px rgba(0,0,0,.5);
-}
-
-.design-card-bg{
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(
-      rgba(7,7,17,.15),
-      rgba(7,7,17,.95)
-    );
-}
-
-.design-card img{
-  width:100%;
-  height:100%;
-  position:absolute;
-  inset:0;
-  object-fit:cover;
-  opacity:.7;
-  transition:.4s;
-}
-
-.design-card:hover img{
-  transform:scale(1.08);
-  opacity:.9;
-}
-
-.design-info{
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:0;
-  padding:17px;
-  z-index:2;
-}
-
-.design-icon{
-  width:43px;
-  height:43px;
-  border-radius:11px;
-  background:rgba(0,0,0,.55);
-  border:1px solid rgba(255,255,255,.15);
-  display:grid;
-  place-items:center;
-  margin-bottom:10px;
-  overflow:hidden;
-}
-
-.design-icon img{
-  position:static;
-  width:28px;
-  height:28px;
-  opacity:1;
-  object-fit:contain;
-}
-
-.design-info h3{
-  font-size:15px;
-  margin-bottom:5px;
-}
-
-.design-info p{
-  color:#aaaabd;
-  font-size:11px;
-  line-height:1.6;
-}
-
-/* =========================
-   3D SECTION
-========================= */
-
-#threeD{
-  background:
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(34,211,238,.1),
-      transparent 35%
-    ),
-    #080812;
-}
-
-.three-grid{
-  display:grid;
-  grid-template-columns:
-    repeat(4,minmax(0,1fr));
-  gap:18px;
-}
-
-.three-card{
-  position:relative;
-  overflow:hidden;
-  min-height:220px;
-  border-radius:18px;
-  border:1px solid var(--border);
-  background:
-    linear-gradient(
-      145deg,
-      #151528,
-      #0d0d1b
-    );
-  cursor:pointer;
-  transition:.3s;
-}
-
-.three-card:hover{
-  transform:translateY(-7px);
-  border-color:
-    rgba(139,92,246,.55);
-}
-
-.three-image{
-  height:130px;
-  overflow:hidden;
-  background:#15152a;
-}
-
-.three-image img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:.4s;
-}
-
-.three-card:hover .three-image img{
-  transform:scale(1.08);
-}
-
-.three-content{
-  padding:14px;
-}
-
-.three-content h3{
-  font-size:15px;
-  margin-bottom:6px;
-}
-
-.three-content p{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.6;
-}
-
-/* =========================
-   MOBILE APPS
-========================= */
-
-#mobile{
-  background:
-    linear-gradient(
-      rgba(7,7,17,.95),
-      rgba(7,7,17,.97)
-    ),
-    url("https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=2000&q=85")
-    center/cover fixed;
-}
-
-.mobile-grid{
-  display:grid;
-  grid-template-columns:
-    repeat(5,minmax(0,1fr));
-  gap:15px;
-}
-
-.mobile-card{
-  background:
-    rgba(17,17,34,.88);
-  border:1px solid var(--border);
-  border-radius:17px;
-  padding:20px;
-  text-align:center;
-  transition:.3s;
-  cursor:pointer;
-}
-
-.mobile-card:hover{
-  transform:translateY(-7px);
-  border-color:
-    rgba(34,211,238,.45);
-  background:#16162c;
-}
-
-.mobile-icon{
-  width:65px;
-  height:65px;
-  border-radius:17px;
-  margin:0 auto 14px;
-  background:#20203a;
-  display:grid;
-  place-items:center;
-  overflow:hidden;
-}
-
-.mobile-icon img{
-  width:45px;
-  height:45px;
-  object-fit:contain;
-}
-
-.mobile-card h3{
-  font-size:14px;
-  margin-bottom:7px;
-}
-
-.mobile-card p{
-  color:var(--muted);
-  font-size:11px;
-  line-height:1.6;
-}
-
-/* =========================
-   WINDOWS
-========================= */
-
-#windows{
-  background:
-    linear-gradient(
-      rgba(7,7,17,.94),
-      rgba(7,7,17,.97)
-    ),
-    url("https://images.unsplash.com/photo-1593642532744-d377ab507dc8?auto=format&fit=crop&w=2000&q=85")
-    center/cover fixed;
-}
-
-.windows-box{
-  display:grid;
-  grid-template-columns:
-    1.2fr .8fr;
-  gap:25px;
-  align-items:stretch;
-}
-
-.windows-main{
-  padding:35px;
-  min-height:300px;
-  border-radius:22px;
-  border:1px solid var(--border);
-  background:
-    linear-gradient(
-      135deg,
-      rgba(37,99,235,.15),
-      rgba(124,58,237,.1)
-    );
-}
-
-.windows-main h3{
-  font-size:30px;
-  margin-bottom:15px;
-}
-
-.windows-main p{
-  color:#bcbcd0;
-  line-height:1.9;
-  max-width:650px;
-}
-
-.windows-features{
-  display:grid;
-  grid-template-columns:
-    repeat(2,1fr);
-  gap:12px;
-  margin-top:25px;
-}
-
-.windows-feature{
-  padding:15px;
-  border-radius:13px;
-  background:rgba(0,0,0,.25);
-  border:1px solid var(--border);
-}
-
-.windows-feature strong{
-  display:block;
-  margin-bottom:5px;
-}
-
-.windows-feature span{
-  color:var(--muted);
-  font-size:11px;
-}
-
-.windows-side{
-  padding:30px;
-  border-radius:22px;
-  border:1px solid var(--border);
-  background:
-    rgba(17,17,34,.88);
-}
-
-.windows-side h3{
-  margin-bottom:20px;
-}
-
-.platform-list{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-
-.platform{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  padding:13px;
-  border-radius:12px;
-  background:#111122;
-  border:1px solid var(--border);
-}
-
-.platform-icon{
-  width:38px;
-  height:38px;
-  border-radius:10px;
-  background:#1c1c32;
-  display:grid;
-  place-items:center;
-}
-
-.platform span{
-  color:#c8c8d8;
-  font-size:13px;
-}
-
-/* =========================
-   CUSTOMER SERVICE
-========================= */
-
-#customer{
-  background:
-    linear-gradient(
-      rgba(7,7,17,.93),
-      rgba(7,7,17,.97)
-    ),
-    url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=2000&q=85")
-    center/cover fixed;
-}
-
-.support-grid{
-  display:grid;
-  grid-template-columns:
-    .85fr 1.15fr;
-  gap:22px;
-}
-
-.support-card{
-  border:1px solid var(--border);
-  border-radius:22px;
-  background:
-    rgba(13,13,28,.88);
-  padding:28px;
-  box-shadow:var(--shadow);
-}
-
-.support-card h3{
-  font-size:23px;
-  margin-bottom:9px;
-}
-
-.support-card > p{
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.8;
-  margin-bottom:20px;
-}
-
-.support-buttons{
-  display:grid;
-  grid-template-columns:
-    repeat(2,1fr);
-  gap:10px;
-}
-
-.support-btn{
-  min-height:50px;
-  border-radius:12px;
-  border:1px solid var(--border);
-  background:#121225;
-  color:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  transition:.25s;
-}
-
-.support-btn:hover{
-  transform:translateY(-3px);
-  border-color:var(--purple);
-}
-
-.support-online{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  margin-bottom:20px;
-  color:#bcbcd0;
-  font-size:12px;
-}
-
-.online-dot{
-  width:9px;
-  height:9px;
-  border-radius:50%;
-  background:#22c55e;
-  box-shadow:
-    0 0 12px #22c55e;
-}
-
-/* =========================
-   LOGIN
-========================= */
-
-.auth-box{
-  margin-top:20px;
-  padding-top:20px;
-  border-top:1px solid var(--border);
-}
-
-.auth-tabs{
-  display:flex;
-  gap:7px;
-  margin-bottom:14px;
-}
-
-.auth-tab{
-  flex:1;
-  padding:10px;
-  border-radius:10px;
-  background:#111122;
-  border:1px solid var(--border);
-  color:#aaaabd;
-}
-
-.auth-tab.active{
-  color:#fff;
-  border-color:var(--purple);
-  background:
-    rgba(139,92,246,.12);
-}
-
-.auth-form{
-  display:flex;
-  flex-direction:column;
-  gap:
+</body>
+</html>
