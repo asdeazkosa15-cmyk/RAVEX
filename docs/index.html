@@ -24,7 +24,11 @@
 }
 
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
+
+html{
+scroll-behavior:smooth
+}
+
 body{
 margin:0;
 background:
@@ -34,12 +38,30 @@ var(--bg);
 color:var(--text);
 font-family:Cairo,Arial,sans-serif
 }
-body.modal-open{overflow:hidden}
-a{text-decoration:none;color:inherit}
-button,input{font-family:inherit}
-.container{width:min(1400px,94%);margin:auto}
 
-/* TOP */
+body.modal-open{
+overflow:hidden
+}
+
+a{
+text-decoration:none;
+color:inherit
+}
+
+button,input{
+font-family:inherit
+}
+
+.container{
+width:min(1400px,94%);
+margin:auto
+}
+
+
+/* =====================================================
+TOP
+===================================================== */
+
 .topbar{
 height:34px;
 overflow:hidden;
@@ -48,19 +70,29 @@ border-bottom:1px solid var(--line);
 display:flex;
 align-items:center
 }
+
 .ticker{
 white-space:nowrap;
 animation:ticker 28s linear infinite;
 color:#ddd;
 font-size:12px
 }
-.ticker b{color:var(--gold);margin:0 18px}
+
+.ticker b{
+color:var(--gold);
+margin:0 18px
+}
+
 @keyframes ticker{
 from{transform:translateX(100%)}
 to{transform:translateX(-100%)}
 }
 
-/* HEADER */
+
+/* =====================================================
+HEADER
+===================================================== */
+
 header{
 position:sticky;
 top:0;
@@ -69,21 +101,25 @@ background:rgba(7,6,17,.86);
 backdrop-filter:blur(18px);
 border-bottom:1px solid rgba(139,92,246,.18)
 }
+
 .nav{
 height:74px;
 display:flex;
 align-items:center;
 gap:25px
 }
+
 .logo{
 font-weight:900;
 font-size:31px;
 letter-spacing:1px
 }
+
 .logo span{
 color:var(--purple);
 text-shadow:0 0 24px #8b5cf6
 }
+
 .navlinks{
 display:flex;
 gap:8px;
@@ -91,6 +127,7 @@ align-items:center;
 flex:1;
 justify-content:center
 }
+
 .navlinks a{
 padding:11px 14px;
 border-radius:12px;
@@ -99,12 +136,14 @@ transition:.25s;
 font-weight:700;
 font-size:14px
 }
+
 .navlinks a:hover,
 .navlinks a.active{
 background:rgba(139,92,246,.12);
 color:#fff;
 box-shadow:inset 0 -2px var(--purple)
 }
+
 .search{
 display:flex;
 align-items:center;
@@ -114,6 +153,7 @@ border-radius:14px;
 padding:4px 10px;
 width:230px
 }
+
 .search input{
 width:100%;
 background:none;
@@ -123,7 +163,11 @@ color:white;
 padding:9px
 }
 
-/* HERO */
+
+/* =====================================================
+HERO
+===================================================== */
+
 .hero{
 margin-top:22px;
 min-height:480px;
@@ -132,10 +176,16 @@ border-radius:28px;
 overflow:hidden;
 position:relative;
 background:
-linear-gradient(90deg,rgba(7,6,17,.98) 0%,rgba(7,6,17,.72) 38%,rgba(7,6,17,.18) 100%),
+linear-gradient(
+90deg,
+rgba(7,6,17,.98) 0%,
+rgba(7,6,17,.72) 38%,
+rgba(7,6,17,.18) 100%
+),
 url('https://cdn.akamai.steamstatic.com/steam/apps/2651280/library_hero.jpg')
 center/cover
 }
+
 .hero:after{
 content:"";
 position:absolute;
@@ -143,32 +193,38 @@ inset:0;
 background:linear-gradient(0deg,var(--bg),transparent 35%);
 pointer-events:none
 }
+
 .heroContent{
 position:relative;
 z-index:2;
 padding:72px 65px;
 max-width:760px
 }
+
 .kicker{
 color:var(--cyan);
 font-weight:800;
 letter-spacing:2px
 }
+
 .hero h1{
 font-size:clamp(40px,6vw,76px);
 line-height:1;
 margin:15px 0
 }
+
 .hero h1 span{
 background:linear-gradient(90deg,#fff,var(--violet),var(--cyan));
 -webkit-background-clip:text;
 color:transparent
 }
+
 .hero p{
 color:#d0cbdc;
 font-size:18px;
 line-height:1.9
 }
+
 .btn{
 border:0;
 border-radius:13px;
@@ -181,28 +237,36 @@ justify-content:center;
 gap:8px;
 transition:.25s
 }
+
 .btn.primary{
 background:linear-gradient(135deg,var(--purple),#5f27d7);
 color:#fff;
 box-shadow:0 10px 35px rgba(139,92,246,.28)
 }
+
 .btn.secondary{
 background:#111020;
 border:1px solid #35304d;
 color:#fff
 }
+
 .btn:hover{
 transform:translateY(-2px);
 filter:brightness(1.1)
 }
 
-/* STATS */
+
+/* =====================================================
+STATS
+===================================================== */
+
 .stats{
 display:grid;
 grid-template-columns:repeat(4,1fr);
 gap:12px;
 margin-top:25px
 }
+
 .stat{
 background:rgba(13,12,27,.8);
 border:1px solid var(--line);
@@ -210,18 +274,27 @@ border-radius:18px;
 padding:18px;
 text-align:center
 }
-.stat strong{font-size:24px}
+
+.stat strong{
+font-size:24px
+}
+
 .stat small{
 display:block;
 color:var(--muted)
 }
 
-/* SECTIONS */
+
+/* =====================================================
+SECTIONS
+===================================================== */
+
 .section{
 padding:45px 0 10px;
 position:relative;
 overflow:hidden
 }
+
 .section:before{
 content:"";
 position:absolute;
@@ -234,6 +307,7 @@ linear-gradient(180deg,rgba(7,6,17,.72),rgba(7,6,17,.94)),
 url('https://cdn.akamai.steamstatic.com/steam/apps/1091500/page_bg_generated.jpg')
 center/cover fixed
 }
+
 #games:before{
 opacity:.28;
 background:
@@ -241,6 +315,7 @@ linear-gradient(180deg,rgba(7,6,17,.68),rgba(7,6,17,.95)),
 url('https://cdn.akamai.steamstatic.com/steam/apps/1174180/page_bg_generated.jpg')
 center/cover fixed
 }
+
 #design:before{
 opacity:.25;
 background:
@@ -248,6 +323,7 @@ linear-gradient(180deg,rgba(7,6,17,.70),rgba(7,6,17,.94)),
 url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=2200&q=90')
 center/cover fixed
 }
+
 #apps:before{
 opacity:.18;
 background:
@@ -255,6 +331,7 @@ linear-gradient(180deg,rgba(7,6,17,.72),rgba(7,6,17,.95)),
 url('https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=2200&q=90')
 center/cover fixed
 }
+
 #windows:before{
 opacity:.18;
 background:
@@ -262,6 +339,7 @@ linear-gradient(180deg,rgba(7,6,17,.72),rgba(7,6,17,.95)),
 url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=2200&q=90')
 center/cover fixed
 }
+
 #customer:before{
 opacity:.22;
 background:
@@ -276,22 +354,29 @@ align-items:end;
 justify-content:space-between;
 margin-bottom:18px
 }
+
 .sectionHead h2{
 margin:0;
 font-size:27px
 }
+
 .sectionHead p{
 margin:0;
 color:var(--muted)
 }
 
-/* TABS */
+
+/* =====================================================
+TABS
+===================================================== */
+
 .tabs{
 display:flex;
 gap:9px;
 overflow:auto;
 padding-bottom:12px
 }
+
 .tab{
 white-space:nowrap;
 padding:10px 15px;
@@ -301,18 +386,24 @@ border:1px solid var(--line);
 color:#bbb;
 cursor:pointer
 }
+
 .tab.active{
 color:#fff;
 border-color:var(--purple);
 background:rgba(139,92,246,.12)
 }
 
-/* GAME GRID */
+
+/* =====================================================
+GAME GRID
+===================================================== */
+
 .grid{
 display:grid;
 grid-template-columns:repeat(5,1fr);
 gap:16px
 }
+
 .card{
 background:linear-gradient(180deg,#111021,#0c0b17);
 border:1px solid #29243f;
@@ -322,23 +413,27 @@ position:relative;
 transition:.3s;
 box-shadow:0 8px 35px rgba(0,0,0,.22)
 }
+
 .card:hover{
 transform:translateY(-7px);
 border-color:#7650c7;
 box-shadow:0 20px 50px rgba(139,92,246,.16)
 }
+
 .cover{
 height:190px;
 background-size:cover;
 background-position:center;
 position:relative
 }
+
 .cover:after{
 content:"";
 position:absolute;
 inset:0;
 background:linear-gradient(0deg,rgba(9,8,18,.98),transparent 65%)
 }
+
 .badge{
 position:absolute;
 z-index:2;
@@ -350,26 +445,34 @@ border-radius:999px;
 padding:5px 9px;
 font-size:11px
 }
-.cardbody{padding:14px}
+
+.cardbody{
+padding:14px
+}
+
 .card h3{
 margin:0 0 5px;
 font-size:17px
 }
+
 .meta{
 color:var(--muted);
 font-size:12px;
 min-height:43px
 }
+
 .rating{
 color:#ffc85a;
 font-size:13px;
 margin-top:8px
 }
+
 .cardActions{
 display:flex;
 gap:7px;
 margin-top:12px
 }
+
 .mini{
 flex:1;
 padding:9px 7px;
@@ -380,17 +483,23 @@ color:#fff;
 font-weight:700;
 cursor:pointer
 }
+
 .mini.detail{
 background:linear-gradient(135deg,#7c3aed,#5421c9);
 border:0
 }
+
 .mini.mega{
 background:linear-gradient(135deg,#1b1530,#0d0a18);
 border-color:#6f4fc7;
 color:#e8dcff
 }
 
-/* DESIGN */
+
+/* =====================================================
+DESIGN
+===================================================== */
+
 .designHero{
 margin-top:20px;
 min-height:390px;
@@ -398,27 +507,39 @@ border-radius:25px;
 overflow:hidden;
 border:1px solid #342653;
 background:
-linear-gradient(90deg,rgba(7,6,17,.97),rgba(7,6,17,.55),rgba(7,6,17,.12)),
+linear-gradient(
+90deg,
+rgba(7,6,17,.97),
+rgba(7,6,17,.55),
+rgba(7,6,17,.12)
+),
 url('https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=2200&q=90')
 center/cover;
 box-shadow:0 25px 90px rgba(0,0,0,.4)
 }
-.designHero .heroContent{padding:65px}
+
+.designHero .heroContent{
+padding:65px
+}
+
 .designHero h2{
 font-size:clamp(38px,5vw,65px);
 margin:10px 0
 }
+
 .designHero p{
 max-width:700px;
 font-size:17px;
 line-height:2
 }
+
 .designCats{
 display:grid;
 grid-template-columns:repeat(5,1fr);
 gap:12px;
 margin:18px 0
 }
+
 .cat{
 padding:20px;
 border:1px solid var(--line);
@@ -428,21 +549,27 @@ text-align:center;
 cursor:pointer;
 transition:.25s
 }
+
 .cat:hover{
 border-color:var(--purple);
 transform:translateY(-4px)
 }
+
 .cat b{
 display:block;
 margin-top:6px
 }
-.cat span{font-size:28px}
+
+.cat span{
+font-size:28px
+}
 
 .designGrid{
 display:grid;
 grid-template-columns:repeat(6,1fr);
 gap:14px
 }
+
 .app{
 background:#0e0d1b;
 border:1px solid var(--line);
@@ -450,22 +577,26 @@ border-radius:16px;
 transition:.25s;
 overflow:hidden
 }
+
 .app:hover{
 border-color:var(--purple);
 transform:translateY(-4px)
 }
+
 .appImage{
 height:145px;
 background-size:cover;
 background-position:center;
 position:relative
 }
+
 .appImage:after{
 content:"";
 position:absolute;
 inset:0;
 background:linear-gradient(0deg,#0e0d1b,transparent 65%)
 }
+
 .appIcon{
 position:absolute;
 z-index:2;
@@ -480,21 +611,28 @@ display:grid;
 place-items:center;
 font-size:27px
 }
-.appInner{padding:14px}
+
+.appInner{
+padding:14px
+}
+
 .appInner h3{
 margin:0 0 5px;
 font-size:15px
 }
+
 .appInner p{
 font-size:11px;
 color:var(--muted);
 min-height:55px
 }
+
 .coming{
 color:#d8a7ff;
 font-weight:800;
 font-size:12px
 }
+
 .availability{
 display:inline-block;
 margin-top:8px;
@@ -504,6 +642,7 @@ background:#171329;
 color:#d8a7ff;
 font-size:10px
 }
+
 .megaSmall{
 width:100%;
 justify-content:center;
@@ -513,13 +652,18 @@ color:#fff;
 border:0
 }
 
-/* WEEK */
+
+/* =====================================================
+WEEK
+===================================================== */
+
 .week{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:14px;
 margin-top:20px
 }
+
 .weekCard{
 min-height:190px;
 border:1px solid #302552;
@@ -532,41 +676,54 @@ center/cover;
 position:relative;
 overflow:hidden
 }
+
 .weekCard:nth-child(2){
 background-image:
 linear-gradient(90deg,rgba(10,8,20,.96),rgba(10,8,20,.55)),
 url('https://cdn.akamai.steamstatic.com/steam/apps/1817070/page_bg_generated.jpg')
 }
+
 .weekCard:nth-child(3){
 background-image:
 linear-gradient(90deg,rgba(10,8,20,.96),rgba(10,8,20,.55)),
 url('https://cdn.akamai.steamstatic.com/steam/apps/1174180/page_bg_generated.jpg')
 }
-.weekCard h3{margin:0 0 6px}
+
+.weekCard h3{
+margin:0 0 6px
+}
+
 .weekCard p{
 color:var(--muted);
 font-size:13px;
 line-height:1.8
 }
 
-/* SUPPORT */
+
+/* =====================================================
+SUPPORT
+===================================================== */
+
 .supportBox{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:18px;
 margin-top:20px
 }
+
 .supportItem{
 padding:20px;
 border:1px solid var(--line);
 border-radius:17px;
 background:#0e0d1b
 }
+
 .supportItem p{
 color:var(--muted);
 line-height:1.9;
 font-size:13px
 }
+
 .supportLinks{
 display:flex;
 gap:8px;
@@ -574,13 +731,18 @@ flex-wrap:wrap;
 margin-top:12px
 }
 
-/* AUTH + CHAT */
+
+/* =====================================================
+AUTH + CHAT
+===================================================== */
+
 .authPanel{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:18px;
 margin-top:20px
 }
+
 .authCard,
 .chatCard{
 background:linear-gradient(145deg,rgba(18,16,34,.96),rgba(9,8,17,.96));
@@ -589,11 +751,13 @@ border-radius:20px;
 padding:22px;
 box-shadow:0 15px 55px rgba(0,0,0,.3)
 }
+
 .authTabs{
 display:flex;
 gap:8px;
 margin-bottom:15px
 }
+
 .authTabs button{
 flex:1;
 padding:10px;
@@ -604,15 +768,18 @@ color:#aaa;
 font-weight:800;
 cursor:pointer
 }
+
 .authTabs button.active{
 background:linear-gradient(135deg,var(--purple),#5421c9);
 color:#fff;
 border-color:transparent
 }
+
 .authForm{
 display:grid;
 gap:10px
 }
+
 .authForm input,
 .chatInput{
 width:100%;
@@ -623,21 +790,25 @@ background:#090812;
 color:#fff;
 outline:none
 }
+
 .authForm input:focus,
 .chatInput:focus{
 border-color:var(--purple);
 box-shadow:0 0 20px rgba(139,92,246,.18)
 }
+
 .formMsg{
 min-height:20px;
 color:#bfa7ff;
 font-size:12px
 }
+
 .chatShell{
 display:grid;
 grid-template-rows:auto 1fr auto;
 min-height:360px
 }
+
 .chatHeader{
 display:flex;
 align-items:center;
@@ -645,10 +816,12 @@ justify-content:space-between;
 padding-bottom:12px;
 border-bottom:1px solid #2a2540
 }
+
 .online{
 color:#4ade80;
 font-size:12px
 }
+
 .chatMessages{
 height:235px;
 overflow:auto;
@@ -657,6 +830,7 @@ display:flex;
 flex-direction:column;
 gap:9px
 }
+
 .chatMsg{
 max-width:82%;
 padding:10px 12px;
@@ -664,21 +838,25 @@ border-radius:13px;
 line-height:1.65;
 font-size:13px
 }
+
 .chatMsg.user{
 align-self:flex-start;
 background:linear-gradient(135deg,#6d28d9,#4c1d95)
 }
+
 .chatMsg.support{
 align-self:flex-end;
 background:#17152a;
 border:1px solid #302a49;
 color:#ddd
 }
+
 .chatComposer{
 display:flex;
 gap:8px;
 margin-top:10px
 }
+
 .chatComposer button{
 width:48px;
 border-radius:11px;
@@ -687,12 +865,14 @@ color:#fff;
 font-size:18px;
 border:0
 }
+
 .quickReplies{
 display:flex;
 flex-wrap:wrap;
 gap:7px;
 margin-top:9px
 }
+
 .quickReplies button{
 padding:7px 9px;
 border-radius:9px;
@@ -702,6 +882,7 @@ color:#bbb;
 cursor:pointer;
 font-size:11px
 }
+
 .serviceStatus{
 display:flex;
 align-items:center;
@@ -713,27 +894,32 @@ border:1px solid #1d5736;
 color:#b9f6cc;
 margin:12px 0
 }
+
 .faq{
 margin-top:18px;
 display:grid;
 gap:9px
 }
+
 .faq details{
 background:#0d0c19;
 border:1px solid #29243f;
 border-radius:13px;
 padding:12px 15px
 }
+
 .faq summary{
 cursor:pointer;
 font-weight:800
 }
+
 .faq p{
 color:#aaa;
 line-height:1.8;
 margin-top:8px;
 font-size:13px
 }
+
 .accountBadge{
 display:inline-flex;
 align-items:center;
@@ -746,7 +932,13 @@ color:#d8c8ff;
 font-size:12px
 }
 
-/* FULL SCREEN GAME PAGE */
+
+/* =====================================================
+FULL SCREEN DETAILS
+لا يوجد زر خروج هنا.
+الرجوع يتم من سهم المتصفح الطبيعي.
+===================================================== */
+
 .overlay{
 position:fixed;
 inset:0;
@@ -757,14 +949,17 @@ align-items:stretch;
 justify-content:stretch;
 padding:0
 }
-.overlay.show{display:flex}
+
+.overlay.show{
+display:flex
+}
 
 .modal{
 position:fixed;
 inset:0;
 width:100vw;
-max-width:none;
 height:100vh;
+max-width:none;
 max-height:none;
 border-radius:0;
 border:0;
@@ -775,80 +970,143 @@ overflow-y:auto;
 box-shadow:none
 }
 
+
+/* =====================================================
+HORIZONTAL / LANDSCAPE GAME HEADER
+===================================================== */
+
 .modalHero{
-min-height:46vh;
+min-height:48vh;
 background-size:cover;
 background-position:center;
 position:relative;
-border-radius:0
+display:flex;
+align-items:flex-end;
+overflow:hidden
 }
+
 .modalHero:after{
 content:"";
 position:absolute;
 inset:0;
 background:
-linear-gradient(0deg,#080711,transparent 65%),
-linear-gradient(90deg,rgba(7,6,17,.2),rgba(7,6,17,.05))
+linear-gradient(
+0deg,
+#080711 0%,
+rgba(8,7,17,.82) 20%,
+rgba(8,7,17,.12) 70%
+),
+linear-gradient(
+90deg,
+rgba(7,6,17,.35),
+rgba(7,6,17,.02)
+)
 }
+
 .modalHero:before{
 content:"";
 position:absolute;
 inset:0;
-background:radial-gradient(circle at 80% 20%,rgba(139,92,246,.28),transparent 35%);
+background:
+radial-gradient(
+circle at 80% 20%,
+rgba(139,92,246,.30),
+transparent 35%
+);
 z-index:1
 }
 
-/* EXIT BUTTON VERY CLEAR */
-.close{
-position:absolute;
-z-index:20;
-top:18px;
-left:18px;
-min-width:180px;
-height:62px;
-border-radius:16px;
-padding:0 24px;
-background:linear-gradient(135deg,#ef4444,#b91c1c);
-border:2px solid #ffb4b4;
-color:#fff;
-font-size:25px;
-font-weight:900;
-cursor:pointer;
-box-shadow:0 12px 35px rgba(0,0,0,.65);
-transition:.2s
+
+/*
+بطاقة عرضية داخل صفحة التفاصيل
+*/
+
+.detailHeroLayout{
+position:relative;
+z-index:4;
+width:min(1450px,92%);
+margin:0 auto;
+padding:35px 0 42px;
+display:grid;
+grid-template-columns:330px 1fr;
+gap:30px;
+align-items:end;
+direction:ltr
 }
-.close:hover{
-transform:scale(1.04);
-background:linear-gradient(135deg,#ff5555,#c51f1f)
+
+.detailPoster{
+height:390px;
+border-radius:20px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.18);
+background:#090812;
+box-shadow:
+0 25px 70px rgba(0,0,0,.65),
+0 0 40px rgba(139,92,246,.15)
 }
-.close span{
-font-size:17px;
-margin-right:8px
+
+.detailPoster img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block
+}
+
+.detailHeroInfo{
+direction:rtl;
+padding-bottom:8px
+}
+
+.detailEyebrow{
+display:inline-flex;
+padding:7px 12px;
+border-radius:999px;
+background:rgba(139,92,246,.16);
+border:1px solid rgba(139,92,246,.35);
+color:#ddd;
+font-size:12px;
+font-weight:800;
+margin-bottom:12px
 }
 
 .modalTitle{
-position:absolute;
-z-index:4;
-right:4vw;
-bottom:30px;
-max-width:85%
+position:static;
+max-width:900px
 }
+
 .modalTitle h2{
 margin:0;
-font-size:clamp(32px,4vw,58px);
-text-shadow:0 5px 25px #000
+font-size:clamp(36px,5vw,70px);
+line-height:1.05;
+text-shadow:0 8px 35px #000
 }
+
+.detailHeroDesc{
+color:#d0cadc;
+font-size:15px;
+line-height:1.9;
+max-width:850px;
+margin-top:15px
+}
+
+
+/* =====================================================
+DETAIL CONTENT
+===================================================== */
+
 .modalContent{
-max-width:1450px;
+max-width:1500px;
 margin:0 auto;
-padding:32px 4vw 70px
+padding:30px 4vw 80px
 }
+
 .chips{
 display:flex;
 flex-wrap:wrap;
 gap:7px;
-margin:0 0 18px
+margin:0 0 20px
 }
+
 .chip{
 padding:7px 11px;
 border-radius:999px;
@@ -857,33 +1115,46 @@ border:1px solid #342a4e;
 color:#d8d0e8;
 font-size:12px
 }
+
 .modalCols{
 display:grid;
 grid-template-columns:1.35fr .65fr;
 gap:20px
 }
+
 .box{
-background:#0d0c19;
+background:
+linear-gradient(
+145deg,
+rgba(16,14,29,.96),
+rgba(9,8,17,.96)
+);
 border:1px solid var(--line);
-border-radius:15px;
+border-radius:17px;
 padding:20px;
-box-shadow:inset 0 1px rgba(255,255,255,.025)
+box-shadow:
+inset 0 1px rgba(255,255,255,.025),
+0 15px 45px rgba(0,0,0,.18)
 }
+
 .box h4{
 margin-top:0;
 color:#d9b8ff;
 font-size:17px
 }
+
 .box p{
 color:#c2bdca;
 line-height:1.9;
 white-space:pre-line
 }
+
 .detailList{
 display:grid;
 gap:9px;
 margin-top:12px
 }
+
 .detailRow{
 display:flex;
 justify-content:space-between;
@@ -894,7 +1165,16 @@ background:#111020;
 border:1px solid #29233f;
 color:#c9c4d2
 }
-.detailRow b{color:#fff}
+
+.detailRow b{
+color:#fff
+}
+
+
+/* =====================================================
+TRAILER
+===================================================== */
+
 .realAd{
 border:1px solid #342653;
 border-radius:16px;
@@ -902,6 +1182,7 @@ overflow:hidden;
 margin-top:15px;
 background:#07070d
 }
+
 .trailer{
 aspect-ratio:16/9;
 background:#05050a;
@@ -913,6 +1194,7 @@ position:relative;
 overflow:hidden;
 min-height:430px
 }
+
 .trailer iframe{
 display:block;
 width:100%;
@@ -920,6 +1202,7 @@ height:100%;
 min-height:430px;
 border:0
 }
+
 .trailerOverlay{
 position:absolute;
 inset:0;
@@ -928,10 +1211,16 @@ align-items:center;
 justify-content:center;
 flex-direction:column;
 gap:12px;
-background:linear-gradient(135deg,rgba(13,8,27,.94),rgba(4,8,18,.96));
+background:
+linear-gradient(
+135deg,
+rgba(13,8,27,.94),
+rgba(4,8,18,.96)
+);
 text-align:center;
 padding:25px
 }
+
 .playBig{
 width:85px;
 height:85px;
@@ -942,6 +1231,12 @@ background:linear-gradient(135deg,var(--purple),#5f27d7);
 font-size:32px;
 box-shadow:0 0 45px rgba(139,92,246,.45)
 }
+
+
+/* =====================================================
+MEGA
+===================================================== */
+
 .megaFull{
 display:flex;
 align-items:center;
@@ -949,12 +1244,116 @@ justify-content:center;
 width:100%;
 margin-top:10px
 }
+
 .megaFull.disabled{
 opacity:.6;
 cursor:not-allowed
 }
 
-/* COLOR BAR */
+
+/* =====================================================
+RELATED CONTENT
+اللعبة ← ألعاب
+البرنامج ← برامج
+===================================================== */
+
+.relatedSection{
+margin-top:28px
+}
+
+.relatedHeader{
+display:flex;
+align-items:end;
+justify-content:space-between;
+gap:15px;
+margin-bottom:15px
+}
+
+.relatedHeader h3{
+margin:0;
+font-size:23px
+}
+
+.relatedHeader p{
+margin:0;
+color:var(--muted);
+font-size:12px
+}
+
+.relatedGrid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:14px
+}
+
+.relatedCard{
+background:
+linear-gradient(180deg,#111021,#0b0a15);
+border:1px solid #29243f;
+border-radius:16px;
+overflow:hidden;
+transition:.25s
+}
+
+.relatedCard:hover{
+transform:translateY(-5px);
+border-color:var(--purple);
+box-shadow:0 15px 45px rgba(139,92,246,.15)
+}
+
+.relatedImage{
+height:145px;
+background-size:cover;
+background-position:center;
+position:relative
+}
+
+.relatedImage:after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(0deg,#0b0a15,transparent 70%)
+}
+
+.relatedBody{
+padding:12px
+}
+
+.relatedBody h4{
+margin:0 0 5px;
+font-size:14px
+}
+
+.relatedBody p{
+color:var(--muted);
+font-size:11px;
+line-height:1.7;
+min-height:38px;
+margin:0
+}
+
+.relatedBtn{
+width:100%;
+margin-top:9px;
+padding:9px;
+border-radius:9px;
+border:1px solid #3b3157;
+background:#151226;
+color:#fff;
+font-weight:800;
+cursor:pointer
+}
+
+.relatedBtn:hover{
+background:linear-gradient(135deg,#7c3aed,#5421c9);
+border-color:transparent
+}
+
+
+/* =====================================================
+COLOR BAR
+===================================================== */
+
 .colorbar{
 position:fixed;
 bottom:18px;
@@ -968,6 +1367,7 @@ border:1px solid #ffffff22;
 border-radius:14px;
 backdrop-filter:blur(12px)
 }
+
 .colorbar button{
 width:24px;
 height:24px;
@@ -975,12 +1375,28 @@ border-radius:50%;
 border:2px solid #fff4;
 cursor:pointer
 }
-.colorbar button:nth-child(1){background:#8b5cf6}
-.colorbar button:nth-child(2){background:#00b7ff}
-.colorbar button:nth-child(3){background:#ff3da8}
-.colorbar button:nth-child(4){background:#ffb72b}
 
-/* FOOTER */
+.colorbar button:nth-child(1){
+background:#8b5cf6
+}
+
+.colorbar button:nth-child(2){
+background:#00b7ff
+}
+
+.colorbar button:nth-child(3){
+background:#ff3da8
+}
+
+.colorbar button:nth-child(4){
+background:#ffb72b
+}
+
+
+/* =====================================================
+FOOTER
+===================================================== */
+
 footer{
 margin-top:60px;
 border-top:1px solid var(--line);
@@ -989,115 +1405,331 @@ color:#999;
 text-align:center
 }
 
-/* RESPONSIVE */
+
+/* =====================================================
+RESPONSIVE
+===================================================== */
+
 @media(max-width:1100px){
-.grid{grid-template-columns:repeat(4,1fr)}
-.designGrid{grid-template-columns:repeat(4,1fr)}
+
+.grid{
+grid-template-columns:repeat(4,1fr)
 }
 
-@media(max-width:800px){
-.nav{height:64px}
-.navlinks{display:none}
-.search{width:150px}
-.hero{min-height:530px}
-.heroContent{padding:48px 25px}
-.stats{grid-template-columns:repeat(2,1fr)}
-.grid{grid-template-columns:repeat(2,1fr)}
-.designCats{grid-template-columns:repeat(2,1fr)}
-.designGrid{grid-template-columns:repeat(2,1fr)}
-.modalCols{grid-template-columns:1fr}
-.modalHero{min-height:300px}
-.modalTitle h2{font-size:30px}
-.close{
-left:10px;
-top:10px;
-min-width:145px;
-height:54px;
-font-size:21px;
-padding:0 15px
+.designGrid{
+grid-template-columns:repeat(4,1fr)
 }
-.realAd .trailer,
+
+.relatedGrid{
+grid-template-columns:repeat(4,1fr)
+}
+
+.detailHeroLayout{
+grid-template-columns:270px 1fr
+}
+
+.detailPoster{
+height:330px
+}
+
+}
+
+
+@media(max-width:800px){
+
+.nav{
+height:64px
+}
+
+.navlinks{
+display:none
+}
+
+.search{
+width:150px
+}
+
+.hero{
+min-height:530px
+}
+
+.heroContent{
+padding:48px 25px
+}
+
+.stats{
+grid-template-columns:repeat(2,1fr)
+}
+
+.grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.designCats{
+grid-template-columns:repeat(2,1fr)
+}
+
+.designGrid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.relatedGrid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.modalCols{
+grid-template-columns:1fr
+}
+
+.modalHero{
+min-height:auto
+}
+
+.detailHeroLayout{
+width:92%;
+grid-template-columns:180px 1fr;
+gap:18px;
+padding:30px 0 35px
+}
+
+.detailPoster{
+height:260px
+}
+
+.modalTitle h2{
+font-size:30px
+}
+
+.detailHeroDesc{
+font-size:13px;
+line-height:1.8
+}
+
 .trailer,
 .trailer iframe{
 min-height:240px
 }
-.authPanel{grid-template-columns:1fr}
-.chatMessages{height:200px}
-.designHero .heroContent{padding:45px 25px}
+
+.authPanel{
+grid-template-columns:1fr
 }
 
-@media(max-width:430px){
-.logo{font-size:25px}
-.search{width:120px}
-.hero h1{font-size:40px}
-.grid{gap:10px}
-.card h3{font-size:15px}
-.cover{height:145px}
-.cardbody{padding:10px}
-.mini{font-size:11px}
-.designHero h2{font-size:35px}
-.close{
-min-width:132px;
-height:50px;
-font-size:19px
+.chatMessages{
+height:200px
 }
-.close span{font-size:14px}
+
+.designHero .heroContent{
+padding:45px 25px
+}
+
+.supportBox{
+grid-template-columns:1fr
+}
+
+}
+
+
+@media(max-width:560px){
+
+.detailHeroLayout{
+grid-template-columns:1fr;
+direction:rtl;
+align-items:start
+}
+
+.detailPoster{
+width:190px;
+height:260px;
+margin:auto
+}
+
+.detailHeroInfo{
+text-align:center
+}
+
+.detailHeroDesc{
+margin-left:auto;
+margin-right:auto
+}
+
+.relatedGrid{
+grid-template-columns:1fr 1fr
+}
+
+.relatedImage{
+height:120px
+}
+
+.relatedBody h4{
+font-size:12px
+}
+
+}
+
+
+@media(max-width:430px){
+
+.logo{
+font-size:25px
+}
+
+.search{
+width:120px
+}
+
+.hero h1{
+font-size:40px
+}
+
+.grid{
+gap:10px
+}
+
+.card h3{
+font-size:15px
+}
+
+.cover{
+height:145px
+}
+
+.cardbody{
+padding:10px
+}
+
+.mini{
+font-size:11px
+}
+
+.designHero h2{
+font-size:35px
+}
+
+.detailPoster{
+width:170px;
+height:235px
+}
+
+.modalContent{
+padding:25px 4vw 60px
+}
+
+.relatedGrid{
+gap:9px
+}
+
 }
 </style>
 </head>
 
 <body>
 
+
 <div class="colorbar">
+
 <button onclick="setTheme(0)" title="بنفسجي"></button>
+
 <button onclick="setTheme(1)" title="أزرق"></button>
+
 <button onclick="setTheme(2)" title="وردي"></button>
+
 <button onclick="setTheme(3)" title="ذهبي"></button>
+
 </div>
+
 
 <div class="topbar">
+
 <div class="ticker">
+
 🔥 RAVEX — عالم الألعاب بين يديك
+
 <b>✦</b>
+
 🆕 ألعاب جديدة أضيفت هذا الأسبوع
+
 <b>✦</b>
+
 🎨 RAVEX DESIGN — استوديو الإبداع الرقمي
+
 <b>✦</b>
+
 🎬 إعلانات الألعاب الرسمية داخل صفحات RAVEX
+
 <b>✦</b>
+
 ⚡ تحديثات مستمرة
+
 </div>
+
 </div>
+
 
 <header>
+
 <div class="container nav">
 
-<a class="logo" href="#home">RAVE<span>X</span></a>
+<a class="logo" href="#home">
+RAVE<span>X</span>
+</a>
 
 <nav class="navlinks">
-<a class="active" href="#home">الرئيسية</a>
-<a href="#games">🎮 الألعاب</a>
-<a href="#design">🎨 RAVEX DESIGN</a>
-<a href="#apps">📱 التطبيقات</a>
-<a href="#windows">🪟 Windows</a>
-<a href="#customer">🎧 الدعم</a>
-<a href="#contact">✉️ تواصل</a>
+
+<a class="active" href="#home">
+الرئيسية
+</a>
+
+<a href="#games">
+🎮 الألعاب
+</a>
+
+<a href="#design">
+🎨 RAVEX DESIGN
+</a>
+
+<a href="#apps">
+📱 التطبيقات
+</a>
+
+<a href="#windows">
+🪟 Windows
+</a>
+
+<a href="#customer">
+🎧 الدعم
+</a>
+
+<a href="#contact">
+✉️ تواصل
+</a>
+
 </nav>
 
 <div class="search">
+
 <span>⌕</span>
-<input id="search" placeholder="ابحث في الموقع...">
+
+<input
+id="search"
+placeholder="ابحث في الموقع...">
+
 </div>
 
 </div>
+
 </header>
+
 
 <main id="home" class="container">
 
+
 <section class="hero">
+
 <div class="heroContent">
 
-<div class="kicker">⚡ RAVEX GAMING UNIVERSE</div>
+<div class="kicker">
+⚡ RAVEX GAMING UNIVERSE
+</div>
 
 <h1>
 اكتشف عالم
@@ -1105,103 +1737,212 @@ font-size:19px
 </h1>
 
 <p>
-منصة ألعاب رقمية بتصميم سينمائي، صفحات ألعاب كاملة،
+منصة ألعاب رقمية بتصميم سينمائي،
+صفحات ألعاب كاملة،
 إعلانات رسمية، معلومات ومتطلبات تشغيل واضحة،
 ومكتبة قابلة للتوسع على الكمبيوتر والموبايل.
 </p>
 
-<a href="#games" class="btn primary">
+<a
+href="#games"
+class="btn primary">
+
 🎮 استكشف الألعاب
+
 </a>
 
-<a href="#design" class="btn secondary">
+<a
+href="#design"
+class="btn secondary">
+
 🎨 RAVEX DESIGN
+
 </a>
 
 </div>
+
 </section>
 
+
 <div class="stats">
-<div class="stat">
-<strong>40+</strong>
-<small>لعبة في المكتبة</small>
-</div>
 
 <div class="stat">
-<strong>22+</strong>
-<small>برنامج تصميم وإبداع</small>
+
+<strong>
+40+
+</strong>
+
+<small>
+لعبة في المكتبة
+</small>
+
 </div>
 
-<div class="stat">
-<strong>100%</strong>
-<small>واجهة متجاوبة</small>
-</div>
 
 <div class="stat">
-<strong>🎬</strong>
-<small>إعلانات داخل الموقع</small>
+
+<strong>
+22+
+</strong>
+
+<small>
+برنامج تصميم وإبداع
+</small>
+
 </div>
+
+
+<div class="stat">
+
+<strong>
+100%
+</strong>
+
+<small>
+واجهة متجاوبة
+</small>
+
+</div>
+
+
+<div class="stat">
+
+<strong>
+🎬
+</strong>
+
+<small>
+إعلانات داخل الموقع
+</small>
+
+</div>
+
 </div>
 
 
 <section class="section">
 
 <div class="sectionHead">
+
 <div>
-<h2>🆕 ألعاب أضيفت هذا الأسبوع</h2>
-<p>اختيارات مميزة من مكتبة RAVEX</p>
+
+<h2>
+🆕 ألعاب أضيفت هذا الأسبوع
+</h2>
+
+<p>
+اختيارات مميزة من مكتبة RAVEX
+</p>
+
 </div>
+
 </div>
+
 
 <div class="week">
 
+
 <div class="weekCard">
-<h3>🦇 Batman: Arkham Knight</h3>
+
+<h3>
+🦇 Batman: Arkham Knight
+</h3>
+
 <p>
 Gotham City، Batmobile، معارك سينمائية
 وقصة ضخمة في واحدة من أقوى ألعاب Batman.
 </p>
-<div class="rating">★★★★★ 9.2/10</div>
+
+<div class="rating">
+★★★★★ 9.2/10
 </div>
 
+</div>
+
+
 <div class="weekCard">
-<h3>🕷️ Spider-Man Remastered</h3>
+
+<h3>
+🕷️ Spider-Man Remastered
+</h3>
+
 <p>
 تجول فوق نيويورك وخض المعارك
 في تجربة Spider-Man السينمائية.
 </p>
-<div class="rating">★★★★★ 9.0/10</div>
+
+<div class="rating">
+★★★★★ 9.0/10
 </div>
 
+</div>
+
+
 <div class="weekCard">
-<h3>🐎 Red Dead Redemption 2</h3>
+
+<h3>
+🐎 Red Dead Redemption 2
+</h3>
+
 <p>
 عالم مفتوح ضخم وقصة Arthur Morgan
 وتجربة Rockstar الأسطورية.
 </p>
-<div class="rating">★★★★★ 9.7/10</div>
+
+<div class="rating">
+★★★★★ 9.7/10
 </div>
 
 </div>
+
+</div>
+
 </section>
 
 
 <section id="games" class="section">
 
 <div class="sectionHead">
+
 <div>
-<h2>🎮 مكتبة الألعاب</h2>
-<p>ألعاب قديمة وحديثة في واجهة RAVEX واحدة</p>
-</div>
+
+<h2>
+🎮 مكتبة الألعاب
+</h2>
+
+<p>
+ألعاب قديمة وحديثة في واجهة RAVEX واحدة
+</p>
+
 </div>
 
-<div class="tabs" id="gameTabs">
-<button class="tab active" data-filter="all">الكل</button>
-<button class="tab" data-filter="new">🆕 جديد</button>
-<button class="tab" data-filter="action">🔥 أكشن</button>
-<button class="tab" data-filter="story">📖 قصة</button>
-<button class="tab" data-filter="open">🌍 عالم مفتوح</button>
 </div>
+
+
+<div class="tabs" id="gameTabs">
+
+<button class="tab active" data-filter="all">
+الكل
+</button>
+
+<button class="tab" data-filter="new">
+🆕 جديد
+</button>
+
+<button class="tab" data-filter="action">
+🔥 أكشن
+</button>
+
+<button class="tab" data-filter="story">
+📖 قصة
+</button>
+
+<button class="tab" data-filter="open">
+🌍 عالم مفتوح
+</button>
+
+</div>
+
 
 <div class="grid" id="gameGrid"></div>
 
@@ -1214,7 +1955,9 @@ Gotham City، Batmobile، معارك سينمائية
 
 <div class="heroContent">
 
-<div class="kicker">✨ RAVEX DESIGN STUDIO</div>
+<div class="kicker">
+✨ RAVEX DESIGN STUDIO
+</div>
 
 <h2>
 استوديو الإبداع الرقمي
@@ -1228,47 +1971,102 @@ RAVEX DESIGN — مساحة فخمة تجمع التصميم،
 </p>
 
 </div>
+
 </div>
+
 
 <div class="designCats">
 
 <div class="cat" data-dfilter="design">
+
 <span>🎨</span>
-<b>التصميم</b>
-<small>برامج الجرافيك</small>
+
+<b>
+التصميم
+</b>
+
+<small>
+برامج الجرافيك
+</small>
+
 </div>
+
 
 <div class="cat" data-dfilter="video">
+
 <span>🎬</span>
-<b>المونتاج</b>
-<small>فيديو وصناعة محتوى</small>
+
+<b>
+المونتاج
+</b>
+
+<small>
+فيديو وصناعة محتوى
+</small>
+
 </div>
+
 
 <div class="cat" data-dfilter="audio">
+
 <span>🎙️</span>
-<b>الصوت</b>
-<small>تسجيل وتحرير</small>
+
+<b>
+الصوت
+</b>
+
+<small>
+تسجيل وتحرير
+</small>
+
 </div>
+
 
 <div class="cat" data-dfilter="3d">
+
 <span>🧊</span>
-<b>3D</b>
-<small>نمذجة ورندر</small>
+
+<b>
+3D
+</b>
+
+<small>
+نمذجة ورندر
+</small>
+
 </div>
+
 
 <div class="cat" data-dfilter="content">
+
 <span>📸</span>
-<b>المحتوى</b>
-<small>أدوات للمبدعين</small>
+
+<b>
+المحتوى
+</b>
+
+<small>
+أدوات للمبدعين
+</small>
+
 </div>
 
 </div>
+
 
 <div class="sectionHead">
-<h2>🎨 برامج التصميم والمونتاج</h2>
+
+<h2>
+🎨 برامج التصميم والمونتاج
+</h2>
+
 </div>
 
-<div class="designGrid" id="designGrid"></div>
+
+<div
+class="designGrid"
+id="designGrid">
+</div>
 
 </section>
 
@@ -1276,71 +2074,118 @@ RAVEX DESIGN — مساحة فخمة تجمع التصميم،
 <section id="apps" class="section">
 
 <div class="sectionHead">
+
 <div>
-<h2>📱 تطبيقات أندرويد</h2>
-<p>قسم Mobile داخل RAVEX</p>
+
+<h2>
+📱 تطبيقات أندرويد
+</h2>
+
+<p>
+قسم Mobile داخل RAVEX
+</p>
+
 </div>
+
 </div>
+
 
 <div class="supportBox">
 
 <div class="supportItem">
-<h3>📱 مكتبة Mobile</h3>
+
+<h3>
+📱 مكتبة Mobile
+</h3>
+
 <p>
 تطبيقات التصميم والمونتاج وصناعة المحتوى
 بتصميم موحد مع RAVEX.
 </p>
+
 <span class="coming">
 🚀 المكتبة قابلة للتوسعة
 </span>
+
 </div>
 
+
 <div class="supportItem">
-<h3>☁️ تحميل MEGA</h3>
+
+<h3>
+☁️ تحميل MEGA
+</h3>
+
 <p>
 كل تطبيق يمكن ربطه برابط MEGA الخاص بك.
 لا توجد روابط تحميل مخترعة.
 </p>
+
 <span class="coming">
 قريباً — تحميل من MEGA
 </span>
+
 </div>
 
 </div>
+
 </section>
 
 
 <section id="windows" class="section">
 
 <div class="sectionHead">
+
 <div>
-<h2>🪟 برامج Windows</h2>
-<p>منطقة البرامج والأدوات داخل RAVEX</p>
+
+<h2>
+🪟 برامج Windows
+</h2>
+
+<p>
+منطقة البرامج والأدوات داخل RAVEX
+</p>
+
 </div>
+
 </div>
+
 
 <div class="supportBox">
 
 <div class="supportItem">
-<h3>⚙️ برامج الكمبيوتر</h3>
+
+<h3>
+⚙️ برامج الكمبيوتر
+</h3>
+
 <p>
 قسم مستقل للبرامج الإنتاجية والتصميم
 والأدوات المختلفة.
 </p>
+
 <span class="coming">
 ⚡ مكتبة قابلة للتوسع
 </span>
+
 </div>
 
+
 <div class="supportItem">
-<h3>☁️ تحميل من MEGA</h3>
+
+<h3>
+☁️ تحميل من MEGA
+</h3>
+
 <p>
 زر التحميل يبقى جاهزاً وتضع أنت رابط الملف
 الذي تملك حق توزيعه.
 </p>
+
 <span class="coming">
 🚀 قريباً — تحميل من MEGA
 </span>
+
 </div>
 
 </div>
@@ -1357,38 +2202,69 @@ RAVEX DESIGN — مساحة فخمة تجمع التصميم،
 <div class="sectionHead">
 
 <div>
-<h2>🎧 خدمة عملاء RAVEX</h2>
+
+<h2>
+🎧 خدمة عملاء RAVEX
+</h2>
+
 <p>
 مراسلة، تسجيل، اقتراحات، مشاكل وروابط
 من نفس الصفحة.
 </p>
+
 </div>
 
 </div>
+
 
 <div class="serviceStatus">
-<span>●</span>
-<b>مركز الدعم جاهز لاستقبال رسالتك</b>
-<span style="margin-right:auto">RAVEX SUPPORT</span>
+
+<span>
+●
+</span>
+
+<b>
+مركز الدعم جاهز لاستقبال رسالتك
+</b>
+
+<span style="margin-right:auto">
+RAVEX SUPPORT
+</span>
+
 </div>
 
 
 <div class="authPanel">
 
+
 <div class="authCard">
 
 <div class="authTabs">
-<button id="loginTab" class="active" onclick="showAuth('login')">
+
+<button
+id="loginTab"
+class="active"
+onclick="showAuth('login')">
+
 🔐 تسجيل الدخول
+
 </button>
 
-<button id="registerTab" onclick="showAuth('register')">
+
+<button
+id="registerTab"
+onclick="showAuth('register')">
+
 ✉️ تسجيل جديد
+
 </button>
+
 </div>
 
 
-<div id="loginForm" class="authForm">
+<div
+id="loginForm"
+class="authForm">
 
 <input
 id="loginEmail"
@@ -1403,15 +2279,23 @@ placeholder="كلمة المرور">
 <button
 class="btn primary"
 onclick="loginUser()">
+
 دخول إلى حساب RAVEX
+
 </button>
 
-<div id="loginMsg" class="formMsg"></div>
+<div
+id="loginMsg"
+class="formMsg">
+</div>
 
 </div>
 
 
-<div id="registerForm" class="authForm" style="display:none">
+<div
+id="registerForm"
+class="authForm"
+style="display:none">
 
 <input
 id="regName"
@@ -1430,19 +2314,30 @@ placeholder="كلمة المرور">
 <button
 class="btn primary"
 onclick="registerUser()">
+
 ✉️ إنشاء حساب
+
 </button>
 
-<div id="regMsg" class="formMsg"></div>
+<div
+id="regMsg"
+class="formMsg">
+</div>
 
 <small style="color:#777;line-height:1.7">
+
 ملاحظة: التسجيل الحالي يعمل محلياً داخل المتصفح.
 لربطه بقاعدة بيانات حقيقية يجب إضافة Backend.
+
 </small>
 
 </div>
 
-<div id="accountState" style="margin-top:12px"></div>
+
+<div
+id="accountState"
+style="margin-top:12px">
+</div>
 
 </div>
 
@@ -1454,8 +2349,15 @@ onclick="registerUser()">
 <div class="chatHeader">
 
 <div>
-<b>💬 مراسلة الدعم</b>
-<div class="online">● متصل الآن</div>
+
+<b>
+💬 مراسلة الدعم
+</b>
+
+<div class="online">
+● متصل الآن
+</div>
+
 </div>
 
 <span class="accountBadge">
@@ -1464,7 +2366,12 @@ RAVEX CARE
 
 </div>
 
-<div id="chatMessages" class="chatMessages"></div>
+
+<div
+id="chatMessages"
+class="chatMessages">
+</div>
+
 
 <div>
 
@@ -1476,22 +2383,36 @@ class="chatInput"
 placeholder="اكتب رسالتك للدعم..."
 onkeydown="if(event.key==='Enter')sendMessage()">
 
-<button onclick="sendMessage()">➤</button>
+<button onclick="sendMessage()">
+➤
+</button>
 
 </div>
 
+
 <div class="quickReplies">
 
-<button onclick="quickMsg('أريد اقتراح لعبة')">
+<button
+onclick="quickMsg('أريد اقتراح لعبة')">
+
 🎮 اقتراح لعبة
+
 </button>
 
-<button onclick="quickMsg('رابط التحميل لا يعمل')">
+
+<button
+onclick="quickMsg('رابط التحميل لا يعمل')">
+
 🔗 رابط لا يعمل
+
 </button>
 
-<button onclick="quickMsg('أريد برنامج تصميم')">
+
+<button
+onclick="quickMsg('أريد برنامج تصميم')">
+
 🎨 أريد برنامج
+
 </button>
 
 </div>
@@ -1507,9 +2428,12 @@ onkeydown="if(event.key==='Enter')sendMessage()">
 
 <div class="supportBox">
 
+
 <div class="supportItem">
 
-<h3>📧 مراسلة عبر البريد</h3>
+<h3>
+📧 مراسلة عبر البريد
+</h3>
 
 <p>
 لرسالة رسمية أو مشكلة طويلة.
@@ -1518,7 +2442,9 @@ onkeydown="if(event.key==='Enter')sendMessage()">
 <a
 class="btn primary"
 href="mailto:support@ravex.site?subject=RAVEX%20Support">
+
 ✉️ إرسال بريد
+
 </a>
 
 </div>
@@ -1526,26 +2452,49 @@ href="mailto:support@ravex.site?subject=RAVEX%20Support">
 
 <div class="supportItem">
 
-<h3>💬 WhatsApp & Instagram</h3>
+<h3>
+💬 WhatsApp & Telegram & Instagram
+</h3>
 
 <p>
 قنوات التواصل السريع مع RAVEX.
+رقم WhatsApp وTelegram واحد.
 </p>
 
+
 <div class="supportLinks">
+
 
 <a
 class="btn primary"
 href="https://wa.me/963995870515"
-target="_blank">
-WhatsApp
+target="_blank"
+rel="noopener noreferrer">
+
+💬 WhatsApp
+
 </a>
+
+
+<a
+class="btn secondary"
+href="https://t.me/+963995870515"
+target="_blank"
+rel="noopener noreferrer">
+
+✈️ Telegram
+
+</a>
+
 
 <a
 class="btn secondary"
 href="https://instagram.com/leonardoo_688"
-target="_blank">
-Instagram
+target="_blank"
+rel="noopener noreferrer">
+
+📸 Instagram
+
 </a>
 
 </div>
@@ -1555,7 +2504,9 @@ Instagram
 
 <div class="supportItem">
 
-<h3>📝 طلب دعم</h3>
+<h3>
+📝 طلب دعم
+</h3>
 
 <p>
 اكتب مشكلتك في المراسلة وسيتم حفظ الرسالة
@@ -1574,64 +2525,134 @@ Instagram
 <div class="faq">
 
 <details>
-<summary>هل رابط MEGA جاهز لكل لعبة؟</summary>
+
+<summary>
+هل رابط MEGA جاهز لكل لعبة؟
+</summary>
+
 <p>
 لا. كل رابط MEGA يبقى فارغاً حتى تضيف رابطك أنت.
 </p>
+
 </details>
 
-<details>
-<summary>هل الإعلان يفتح خارج الموقع؟</summary>
-<p>
-الإعلانات التي تحتوي على رابط YouTube قابل للتضمين تعمل داخل صفحة اللعبة نفسها.
-</p>
-</details>
 
 <details>
-<summary>هل صفحة اللعبة كاملة؟</summary>
+
+<summary>
+كيف أرجع من صفحة اللعبة؟
+</summary>
+
 <p>
-نعم. عند الضغط على صفحة اللعبة تظهر واجهة كاملة الشاشة مع زر خروج واضح وكبير.
+صفحة اللعبة تستخدم سجل المتصفح الطبيعي. اضغط سهم الرجوع ← الموجود في المتصفح للعودة إلى المكان السابق في RAVEX.
 </p>
+
+</details>
+
+
+<details>
+
+<summary>
+هل يوجد قسم ألعاب تحت صفحة اللعبة؟
+</summary>
+
+<p>
+نعم. أسفل تفاصيل كل لعبة يظهر قسم ألعاب مقترحة من مكتبة RAVEX.
+</p>
+
+</details>
+
+
+<details>
+
+<summary>
+هل يوجد قسم برامج تحت صفحة البرنامج؟
+</summary>
+
+<p>
+نعم. أسفل تفاصيل كل برنامج يظهر قسم برامج مقترحة من RAVEX DESIGN.
+</p>
+
 </details>
 
 </div>
 
 </div>
+
 </section>
 
 
 <footer id="contact">
 
 <div class="container">
+
 © 2026 RAVEX — Gaming • Design • 3D • Apps
+
 <br>
-🎧 RAVEX SUPPORT · ✉️ Email · 📱 WhatsApp · Instagram
+
+🎧 RAVEX SUPPORT · ✉️ Email · 📱 WhatsApp · ✈️ Telegram · Instagram
+
 </div>
 
 </footer>
 
 
-<!-- FULL SCREEN DETAILS -->
-<div class="overlay" id="modal">
+<!-- =====================================================
+DETAIL PAGE
+لا يوجد زر خروج.
+زر الرجوع هو سهم المتصفح.
+===================================================== -->
+
+<div
+class="overlay"
+id="modal">
 
 <div class="modal">
+
 
 <div
 class="modalHero"
 id="modalHero">
 
-<button
-class="close"
-onclick="closeModal()"
-aria-label="خروج من صفحة اللعبة">
 
-✕
-<span>خروج من صفحة اللعبة</span>
+<div
+class="detailHeroLayout"
+id="detailHeroLayout">
 
-</button>
+
+<div
+class="detailPoster"
+id="detailPoster">
+</div>
+
+
+<div class="detailHeroInfo">
+
+
+<div
+class="detailEyebrow"
+id="detailEyebrow">
+
+RAVEX DETAILS
+
+</div>
+
 
 <div class="modalTitle">
-<h2 id="mTitle"></h2>
+
+<h2 id="mTitle">
+</h2>
+
+</div>
+
+
+<div
+class="detailHeroDesc"
+id="detailHeroDesc">
+</div>
+
+</div>
+
 </div>
 
 </div>
@@ -1639,18 +2660,28 @@ aria-label="خروج من صفحة اللعبة">
 
 <div class="modalContent">
 
-<div class="chips" id="mChips"></div>
 
-<div class="modalCols">
+<div
+class="chips"
+id="mChips">
+</div>
+
+
+<div
+class="modalCols">
 
 
 <div>
 
+
 <div class="box">
 
-<h4>📖 وصف اللعبة</h4>
+<h4>
+📖 الوصف
+</h4>
 
-<p id="mDesc"></p>
+<p id="mDesc">
+</p>
 
 </div>
 
@@ -1659,22 +2690,29 @@ aria-label="خروج من صفحة اللعبة">
 class="box"
 style="margin-top:14px">
 
-<h4>
-🎬 الإعلان الرسمي للعبة داخل RAVEX
+<h4 id="mediaTitle">
+🎬 الإعلان الرسمي داخل RAVEX
 </h4>
+
 
 <div class="realAd">
 
-<div class="trailer" id="trailerBox">
+<div
+class="trailer"
+id="trailerBox">
 
 <div class="trailerOverlay">
 
-<div class="playBig">▶</div>
+<div class="playBig">
+▶
+</div>
 
-<b>الإعلان الرسمي للعبة</b>
+<b>
+الإعلان الرسمي
+</b>
 
 <span style="color:#aaa;font-size:12px">
-سيتم تشغيل الإعلان داخل صفحة RAVEX
+سيتم تشغيل المحتوى داخل صفحة RAVEX
 </span>
 
 </div>
@@ -1687,16 +2725,18 @@ style="margin-top:14px">
 
 </div>
 
-</div>
-
 
 <div>
 
+
 <div class="box">
 
-<h4>⚙️ متطلبات التشغيل</h4>
+<h4>
+⚙️ المعلومات والمتطلبات
+</h4>
 
-<p id="mReq"></p>
+<p id="mReq">
+</p>
 
 </div>
 
@@ -1705,19 +2745,58 @@ style="margin-top:14px">
 class="box"
 style="margin-top:14px">
 
-<h4>📦 معلومات اللعبة</h4>
+<h4>
+📦 معلومات إضافية
+</h4>
 
-<p id="mInfo"></p>
+<p id="mInfo">
+</p>
 
-<div id="megaArea"></div>
+<div id="megaArea">
+</div>
 
-<div id="officialArea"></div>
-
+<div id="officialArea">
 </div>
 
 </div>
 
 </div>
+
+</div>
+
+
+<!-- =====================================================
+RELATED SECTION
+===================================================== -->
+
+<div
+class="relatedSection"
+id="relatedSection">
+
+<div class="relatedHeader">
+
+<div>
+
+<h3 id="relatedTitle">
+🔥 ألعاب مقترحة
+</h3>
+
+<p id="relatedSubtitle">
+اكتشف المزيد من مكتبة RAVEX
+</p>
+
+</div>
+
+</div>
+
+
+<div
+class="relatedGrid"
+id="relatedGrid">
+</div>
+
+</div>
+
 
 </div>
 
@@ -1728,34 +2807,28 @@ style="margin-top:14px">
 
 <script>
 
-const CDN='https://cdn.akamai.steamstatic.com/steam/apps/';
 
-/*
-====================================================
+/* =====================================================
 MEGA
-====================================================
-ضع روابطك الخاصة هنا.
-لن يتم اختراع أي رابط تحميل.
-====================================================
-*/
+ضع روابطك الخاصة هنا
+===================================================== */
 
 const megaLinks={
+
 games:{},
+
 design:{}
+
 };
 
 
-/*
-====================================================
-YOUTUBE OFFICIAL TRAILERS
-====================================================
-الروابط هنا لفيديوهات YouTube قابلة للتضمين.
-إذا كان فيديو معين يمنع التضمين من YouTube
-سيظهر زر مشاهدة الإعلان.
-====================================================
-*/
+/* =====================================================
+YOUTUBE
+===================================================== */
 
-const YT='https://'+'www.youtube-nocookie.com/embed/';
+const YT=
+'https://'+'www.youtube-nocookie.com/embed/';
+
 
 const trailerLinks={
 
@@ -1793,18 +2866,24 @@ YT+"E3Huy2cdih0?rel=0&playsinline=1",
 YT+"wzx96gYA8ek?rel=0&playsinline=1",
 
 "Hogwarts Legacy":
-YT+"FS4guiVlXN4?rel=0&playsinline=1"
+YT+"FS4guiVlXN4?rel=0&playsinline=1",
+
+"God of War":
+YT+"RQK_40a0XUY?rel=0&playsinline=1",
+
+"Marvel’s Spider-Man Remastered":
+YT+"Tsf5Wjb1uAM?rel=0&playsinline=1"
 
 };
 
 
-/*
-====================================================
-OFFICIAL GAME PAGES
-====================================================
-*/
+/* =====================================================
+OFFICIAL LINKS
+===================================================== */
 
-const STEAM='https://'+'store.steampowered.com/app/';
+const STEAM=
+'https://'+'store.steampowered.com/app/';
+
 
 const officialLinks={
 
@@ -1861,11 +2940,9 @@ const officialLinks={
 };
 
 
-/*
-====================================================
-40 GAMES
-====================================================
-*/
+/* =====================================================
+GAMES
+===================================================== */
 
 const games=[
 
@@ -2272,11 +3349,9 @@ const games=[
 ];
 
 
-/*
-====================================================
+/* =====================================================
 DESIGN APPS
-====================================================
-*/
+===================================================== */
 
 const designApps=[
 
@@ -2437,11 +3512,9 @@ const designApps=[
 ];
 
 
-/*
-====================================================
+/* =====================================================
 IMAGE MAP
-====================================================
-*/
+===================================================== */
 
 function designImage(name){
 
@@ -2491,40 +3564,50 @@ const m={
 
 };
 
-return m[name] || "https://cdn.simpleicons.org/adobe/FFFFFF";
+return m[name] ||
+"https://cdn.simpleicons.org/adobe/FFFFFF";
 
 }
 
 
-/*
-====================================================
+/* =====================================================
 GAME IMAGE
-====================================================
-*/
+===================================================== */
+
+const CDN=
+'https://cdn.akamai.steamstatic.com/steam/apps/';
+
 
 function gameImage(id){
+
 return CDN+id+'/header.jpg';
+
 }
+
 
 function gameBg(id){
+
 return CDN+id+'/page_bg_generated.jpg';
+
 }
 
 
-/*
-====================================================
+/* =====================================================
 RENDER GAMES
-====================================================
-*/
+===================================================== */
 
 function renderGames(filter='all',query=''){
 
-const q=query.trim().toLowerCase();
+const q=
+query.trim().toLowerCase();
 
-const list=games.filter(g=>
+
+const list=
+games.filter(g=>
 (filter==='all'||g[2].includes(filter)) &&
 (!q||g[0].toLowerCase().includes(q))
 );
+
 
 document.getElementById('gameGrid').innerHTML=
 
@@ -2550,13 +3633,18 @@ ${g[3]}
 
 </div>
 
+
 <div class="cardbody">
 
-<h3>${g[0]}</h3>
+<h3>
+${g[0]}
+</h3>
+
 
 <div class="meta">
 🎮 PC · ${g[4]}
 </div>
+
 
 <div class="rating">
 ★★★★★
@@ -2564,6 +3652,7 @@ ${g[3]}
 RAVEX
 </small>
 </div>
+
 
 <div class="cardActions">
 
@@ -2574,6 +3663,7 @@ onclick="openGame(${games.indexOf(g)})">
 📖 صفحة اللعبة ✦
 
 </button>
+
 
 <button
 class="mini mega"
@@ -2594,27 +3684,26 @@ onclick="openGame(${games.indexOf(g)})">
 :
 
 `
+
 <div
 class="box"
 style="
 grid-column:1/-1;
 text-align:center;
-padding:40px
-">
+padding:40px">
 
 🔎 لم نجد نتيجة مطابقة.
 
 </div>
+
 `;
 
 }
 
 
-/*
-====================================================
-DESIGN RENDER
-====================================================
-*/
+/* =====================================================
+RENDER DESIGN
+===================================================== */
 
 function renderDesign(filter='all'){
 
@@ -2624,6 +3713,7 @@ filter==='all'
 designApps
 :
 designApps.filter(a=>a[2]===filter);
+
 
 document.getElementById('designGrid').innerHTML=
 
@@ -2644,6 +3734,7 @@ ${a[1]}
 
 </div>
 
+
 <div class="appInner">
 
 <h3>
@@ -2657,6 +3748,7 @@ ${a[3]}
 <span class="availability">
 🚀 التحميل: قريباً
 </span>
+
 
 <button
 class="btn megaSmall"
@@ -2675,17 +3767,19 @@ onclick="openDesign(${designApps.indexOf(a)})">
 }
 
 
-/*
-====================================================
+/* =====================================================
 MEGA BUTTON
-====================================================
-*/
+===================================================== */
 
-function megaButton(url,label='⬇️ تحميل من MEGA'){
+function megaButton(
+url,
+label='⬇️ تحميل من MEGA'
+){
 
 if(url && url!=='#'){
 
 return `
+
 <a
 class="btn primary megaFull"
 href="${url}"
@@ -2695,41 +3789,285 @@ rel="noopener noreferrer">
 ${label}
 
 </a>
+
 `;
 
 }
 
+
 return `
+
 <div
 class="btn secondary megaFull disabled">
 
 ☁️ قريباً — تحميل من MEGA
 
 </div>
+
 `;
 
 }
 
 
-/*
-====================================================
+/* =====================================================
+BROWSER HISTORY
+===================================================== */
+
+let detailHistoryActive=false;
+
+
+function pushDetailHistory(type,index){
+
+const hash=
+type==='game'
+?
+'#game-'+index
+:
+'#program-'+index;
+
+
+if(!detailHistoryActive){
+
+history.pushState(
+{
+ravexDetail:true,
+type:type,
+index:index
+},
+'',
+hash
+);
+
+detailHistoryActive=true;
+
+}else{
+
+history.replaceState(
+{
+ravexDetail:true,
+type:type,
+index:index
+},
+'',
+hash
+);
+
+}
+
+}
+
+
+/* =====================================================
+RELATED GAMES
+===================================================== */
+
+function renderRelatedGames(currentIndex){
+
+const current=
+games[currentIndex];
+
+let related=
+games.filter((g,i)=>{
+
+if(i===currentIndex)return false;
+
+const currentCats=
+current[2].split(',');
+
+const cats=
+g[2].split(',');
+
+return cats.some(c=>currentCats.includes(c));
+
+});
+
+
+if(related.length<5){
+
+const extra=
+games.filter((g,i)=>
+i!==currentIndex &&
+!related.includes(g)
+);
+
+related=
+related.concat(extra);
+
+}
+
+
+related=
+related.slice(0,5);
+
+
+document.getElementById('relatedTitle').textContent=
+'🎮 ألعاب قد تعجبك';
+
+document.getElementById('relatedSubtitle').textContent=
+'المزيد من الألعاب من مكتبة RAVEX';
+
+
+document.getElementById('relatedGrid').innerHTML=
+
+related.map(g=>`
+
+<div class="relatedCard">
+
+<div
+class="relatedImage"
+style="
+background-image:
+url('${gameImage(g[1])}'),
+url('${gameBg(g[1])}')
+">
+</div>
+
+
+<div class="relatedBody">
+
+<h4>
+${g[0]}
+</h4>
+
+<p>
+${g[4]}
+</p>
+
+<button
+class="relatedBtn"
+onclick="openGame(${games.indexOf(g)})">
+
+📖 فتح اللعبة
+
+</button>
+
+</div>
+
+</div>
+
+`).join('');
+
+}
+
+
+/* =====================================================
+RELATED PROGRAMS
+===================================================== */
+
+function renderRelatedPrograms(currentIndex){
+
+let related=
+designApps.filter((a,i)=>i!==currentIndex);
+
+
+related=
+related.slice(0,6);
+
+
+document.getElementById('relatedTitle').textContent=
+'🎨 برامج قد تعجبك';
+
+document.getElementById('relatedSubtitle').textContent=
+'المزيد من برامج RAVEX DESIGN';
+
+
+document.getElementById('relatedGrid').innerHTML=
+
+related.map(a=>`
+
+<div class="relatedCard">
+
+<div
+class="relatedImage"
+style="
+background-image:
+url('${designImage(a[0])}')
+">
+</div>
+
+
+<div class="relatedBody">
+
+<h4>
+${a[1]} ${a[0]}
+</h4>
+
+<p>
+${a[3]}
+</p>
+
+<button
+class="relatedBtn"
+onclick="openDesign(${designApps.indexOf(a)})">
+
+📖 فتح البرنامج
+
+</button>
+
+</div>
+
+</div>
+
+`).join('');
+
+}
+
+
+/* =====================================================
 OPEN GAME
-====================================================
-*/
+===================================================== */
 
 function openGame(i){
 
-const g=games[i];
+const g=
+games[i];
 
-const modal=document.getElementById('modal');
+if(!g)return;
 
-document.getElementById('mTitle').textContent=g[0];
+
+pushDetailHistory(
+'game',
+i
+);
+
+
+const modal=
+document.getElementById('modal');
+
+
+document.getElementById('detailEyebrow').textContent=
+'🎮 RAVEX GAME DETAILS';
+
+
+document.getElementById('mTitle').textContent=
+g[0];
+
 
 document.getElementById('modalHero').style.backgroundImage=
 `
-url('${gameBg(g[1])}'),
-url('${gameImage(g[1])}')
+url('${gameBg(g[1])}')
 `;
+
+
+document.getElementById('detailPoster').innerHTML=
+`
+<img
+src="${gameImage(g[1])}"
+alt="${g[0]}"
+onerror="
+this.style.display='none';
+this.parentElement.style.backgroundImage=
+'url(${gameBg(g[1])})';
+this.parentElement.style.backgroundSize='cover';
+this.parentElement.style.backgroundPosition='center';
+">
+
+`;
+
+
+document.getElementById('detailHeroDesc').textContent=
+g[4];
+
 
 document.getElementById('mChips').innerHTML=`
 
@@ -2762,7 +4100,7 @@ document.getElementById('mDesc').innerHTML=`
 نبذة عن اللعبة
 </b>
 
-<br>
+<br><br>
 
 ${g[4]}
 
@@ -2772,12 +4110,12 @@ ${g[4]}
 تجربة RAVEX
 </b>
 
-<br>
+<br><br>
 
 صفحة كاملة مخصصة للعبة داخل RAVEX
 تجمع صورة الغلاف والخلفية والمعلومات
 والتصنيف ومتطلبات التشغيل والإعلان الرسمي
-وزر التحميل.
+وقسم ألعاب مقترحة في نهاية الصفحة.
 
 `;
 
@@ -2798,6 +4136,7 @@ ${g[6]}
 
 </div>
 
+
 <div class="detailRow">
 
 <b>
@@ -2812,6 +4151,7 @@ SSD ومساحة إضافية للتحديثات
 
 </div>
 
+
 <div class="detailRow">
 
 <b>
@@ -2823,6 +4163,7 @@ ${g[5]}
 </span>
 
 </div>
+
 
 <div class="detailRow">
 
@@ -2844,6 +4185,7 @@ ${g[2].replaceAll(',',' · ')}
 const gameMega=
 megaLinks.games[g[0]] || '#';
 
+
 document.getElementById('mInfo').innerHTML=`
 
 <div class="detailList">
@@ -2860,6 +4202,7 @@ document.getElementById('mInfo').innerHTML=`
 
 </div>
 
+
 <div class="detailRow">
 
 <b>
@@ -2871,6 +4214,7 @@ document.getElementById('mInfo').innerHTML=`
 </span>
 
 </div>
+
 
 <div class="detailRow">
 
@@ -2896,6 +4240,7 @@ megaButton(gameMega);
 const official=
 officialLinks[g[0]];
 
+
 document.getElementById('officialArea').innerHTML=
 
 official
@@ -2903,6 +4248,7 @@ official
 ?
 
 `
+
 <a
 class="btn secondary megaFull"
 style="margin-top:8px"
@@ -2913,6 +4259,7 @@ rel="noopener noreferrer">
 🌐 الصفحة الرسمية / المتجر
 
 </a>
+
 `
 
 :
@@ -2920,17 +4267,20 @@ rel="noopener noreferrer">
 '';
 
 
-/*
-====================================================
-YOUTUBE PLAYER
-====================================================
-*/
+/* =====================================================
+TRAILER
+===================================================== */
 
-const turl=trailerLinks[g[0]] || '';
+const turl=
+trailerLinks[g[0]] || '';
+
 
 const ytSearch=
 'https://'+'www.youtube.com/results?search_query='+
-encodeURIComponent(g[0]+' official trailer');
+encodeURIComponent(
+g[0]+' official trailer'
+);
+
 
 const trailerBox=
 document.getElementById('trailerBox');
@@ -2972,7 +4322,7 @@ href="${ytSearch}"
 target="_blank"
 rel="noopener noreferrer">
 
-🎬 فتح صفحة الإعلان على YouTube
+🎬 فتح الإعلان على YouTube
 
 </a>
 
@@ -3001,7 +4351,7 @@ font-size:12px;
 max-width:500px">
 
 الإعلان الرسمي لهذه اللعبة غير مضمّن حالياً،
-لكن زر YouTube يبحث عن الإعلان الرسمي مباشرة.
+لكن يمكنك فتح البحث الرسمي عنها على YouTube.
 
 </span>
 
@@ -3022,25 +4372,58 @@ rel="noopener noreferrer">
 }
 
 
+/* =====================================================
+RELATED GAMES
+===================================================== */
+
+renderRelatedGames(i);
+
+
+document.getElementById('mediaTitle').textContent=
+'🎬 الإعلان الرسمي للعبة داخل RAVEX';
+
+
 modal.classList.add('show');
 
 document.body.classList.add('modal-open');
 
+
+/* نبدأ من أعلى صفحة التفاصيل */
+
+modal.scrollTop=0;
+
 }
 
 
-/*
-====================================================
-OPEN DESIGN
-====================================================
-*/
+/* =====================================================
+OPEN DESIGN PROGRAM
+===================================================== */
 
 function openDesign(i){
 
-const a=designApps[i];
+const a=
+designApps[i];
+
+if(!a)return;
+
+
+pushDetailHistory(
+'program',
+i
+);
+
+
+const modal=
+document.getElementById('modal');
+
+
+document.getElementById('detailEyebrow').textContent=
+'🎨 RAVEX DESIGN';
+
 
 document.getElementById('mTitle').textContent=
 a[0];
+
 
 document.getElementById('modalHero').style.backgroundImage=
 `
@@ -3051,6 +4434,31 @@ rgba(7,6,17,.25)
 ),
 url('${designImage(a[0])}')
 `;
+
+
+document.getElementById('detailPoster').innerHTML=
+`
+
+<img
+src="${designImage(a[0])}"
+alt="${a[0]}"
+style="
+object-fit:contain;
+padding:35px;
+background:
+radial-gradient(
+circle,
+#20153e,
+#080711
+);
+">
+
+`;
+
+
+document.getElementById('detailHeroDesc').textContent=
+a[3];
+
 
 document.getElementById('mChips').innerHTML=`
 
@@ -3070,6 +4478,10 @@ ${a[2]}
 ☁️ MEGA
 </span>
 
+<span class="chip">
+🖥️ Windows / macOS
+</span>
+
 `;
 
 
@@ -3079,7 +4491,7 @@ document.getElementById('mDesc').innerHTML=`
 وصف البرنامج
 </b>
 
-<br>
+<br><br>
 
 ${a[3]}
 
@@ -3089,11 +4501,11 @@ ${a[3]}
 RAVEX DESIGN
 </b>
 
-<br>
+<br><br>
 
-برنامج مخصص للمصممين وصناع المحتوى،
-ويظهر هنا داخل صفحة RAVEX الخاصة بالبرامج
-مع الصورة والوصف والفئة وحالة التحميل.
+صفحة خاصة بالبرنامج داخل RAVEX DESIGN
+تحتوي على الصورة والوصف والفئة وحالة التحميل
+وفي أسفل الصفحة برامج أخرى مقترحة للمستخدم.
 
 `;
 
@@ -3103,31 +4515,54 @@ document.getElementById('mReq').innerHTML=`
 <div class="detailList">
 
 <div class="detailRow">
-<b>الحد الأدنى</b>
+
+<b>
+الحد الأدنى
+</b>
+
 <span>
 نظام تشغيل متوافق · 8GB RAM
 </span>
+
 </div>
 
+
 <div class="detailRow">
-<b>الموصى به</b>
+
+<b>
+الموصى به
+</b>
+
 <span>
 16GB RAM أو أكثر · SSD · GPU مناسب
 </span>
+
 </div>
 
+
 <div class="detailRow">
-<b>الفئة</b>
+
+<b>
+الفئة
+</b>
+
 <span>
 ${a[2]}
 </span>
+
 </div>
 
+
 <div class="detailRow">
-<b>المنصات</b>
+
+<b>
+المنصات
+</b>
+
 <span>
 Windows / macOS حسب الإصدار
 </span>
+
 </div>
 
 </div>
@@ -3138,35 +4573,64 @@ Windows / macOS حسب الإصدار
 const designMega=
 megaLinks.design[a[0]] || '#';
 
+
 document.getElementById('mInfo').innerHTML=`
 
 <div class="detailList">
 
 <div class="detailRow">
-<b>البرنامج</b>
-<span>${a[0]}</span>
+
+<b>
+البرنامج
+</b>
+
+<span>
+${a[0]}
+</span>
+
 </div>
 
-<div class="detailRow">
-<b>الاستخدام</b>
-<span>${a[3]}</span>
-</div>
 
 <div class="detailRow">
-<b>الحالة</b>
+
+<b>
+الاستخدام
+</b>
+
+<span>
+${a[3]}
+</span>
+
+</div>
+
+
+<div class="detailRow">
+
+<b>
+الحالة
+</b>
+
 <span>
 ${designMega!=='#'?'متاح':'🚀 قيد التجهيز'}
 </span>
+
 </div>
 
 </div>
 
 `;
 
+
 document.getElementById('megaArea').innerHTML=
 megaButton(designMega);
 
-document.getElementById('officialArea').innerHTML='';
+
+document.getElementById('officialArea').innerHTML=
+'';
+
+
+document.getElementById('mediaTitle').textContent=
+'✨ معرض البرنامج داخل RAVEX DESIGN';
 
 
 document.getElementById('trailerBox').innerHTML=`
@@ -3187,8 +4651,8 @@ color:#aaa;
 font-size:12px;
 max-width:500px">
 
-تصميم فخم ومكان مخصص لعرض صور أو
-فيديو رسمي للبرنامج.
+مكان مخصص لعرض صور البرنامج
+أو الفيديو الرسمي لاحقاً.
 
 </span>
 
@@ -3196,24 +4660,37 @@ max-width:500px">
 
 `;
 
-document.getElementById('modal').classList.add('show');
+
+/* =====================================================
+RELATED PROGRAMS
+===================================================== */
+
+renderRelatedPrograms(i);
+
+
+modal.classList.add('show');
 
 document.body.classList.add('modal-open');
+
+modal.scrollTop=0;
 
 }
 
 
-/*
-====================================================
-CLOSE FULL PAGE
-====================================================
-*/
+/* =====================================================
+CLOSE DETAIL
+===================================================== */
 
-function closeModal(){
+function closeModal(fromPopState=false){
 
-document.getElementById('modal').classList.remove('show');
+const modal=
+document.getElementById('modal');
+
+
+modal.classList.remove('show');
 
 document.body.classList.remove('modal-open');
+
 
 document.getElementById('trailerBox').innerHTML=`
 
@@ -3224,80 +4701,179 @@ document.getElementById('trailerBox').innerHTML=`
 </div>
 
 <b>
-الإعلان الرسمي للعبة
+الإعلان الرسمي
 </b>
 
 </div>
 
 `;
 
+
+/*
+إذا المستخدم ضغط سهم الرجوع:
+لا نعمل history.back مرة ثانية.
+*/
+
+if(!fromPopState){
+
+if(detailHistoryActive){
+
+detailHistoryActive=false;
+
+history.back();
+
+}
+
+}else{
+
+detailHistoryActive=false;
+
+}
+
 }
 
 
+/* =====================================================
+BROWSER BACK BUTTON
+===================================================== */
+
+window.addEventListener(
+'popstate',
+function(event){
+
+const modal=
+document.getElementById('modal');
+
+
 /*
-====================================================
-THEMES
-====================================================
+إذا رجع المستخدم للخلف،
+نغلق صفحة التفاصيل.
 */
+
+if(modal.classList.contains('show')){
+
+closeModal(true);
+
+return;
+
+}
+
+}
+);
+
+
+/* =====================================================
+THEMES
+===================================================== */
 
 function setTheme(n){
 
-const root=document.documentElement;
+const root=
+document.documentElement;
+
 
 if(n===0){
 
-root.style.setProperty('--purple','#8b5cf6');
-root.style.setProperty('--violet','#b45cff');
-root.style.setProperty('--cyan','#28d7ff');
+root.style.setProperty(
+'--purple',
+'#8b5cf6'
+);
+
+root.style.setProperty(
+'--violet',
+'#b45cff'
+);
+
+root.style.setProperty(
+'--cyan',
+'#28d7ff'
+);
 
 }
+
 
 if(n===1){
 
-root.style.setProperty('--purple','#00b7ff');
-root.style.setProperty('--violet','#4169ff');
-root.style.setProperty('--cyan','#55e7ff');
+root.style.setProperty(
+'--purple',
+'#00b7ff'
+);
+
+root.style.setProperty(
+'--violet',
+'#4169ff'
+);
+
+root.style.setProperty(
+'--cyan',
+'#55e7ff'
+);
 
 }
+
 
 if(n===2){
 
-root.style.setProperty('--purple','#ff3da8');
-root.style.setProperty('--violet','#b44cff');
-root.style.setProperty('--cyan','#ff79c6');
+root.style.setProperty(
+'--purple',
+'#ff3da8'
+);
+
+root.style.setProperty(
+'--violet',
+'#b44cff'
+);
+
+root.style.setProperty(
+'--cyan',
+'#ff79c6'
+);
 
 }
+
 
 if(n===3){
 
-root.style.setProperty('--purple','#ffb72b');
-root.style.setProperty('--violet','#ff6b00');
-root.style.setProperty('--cyan','#ffd166');
+root.style.setProperty(
+'--purple',
+'#ffb72b'
+);
+
+root.style.setProperty(
+'--violet',
+'#ff6b00'
+);
+
+root.style.setProperty(
+'--cyan',
+'#ffd166'
+);
 
 }
 
 }
 
 
-/*
-====================================================
+/* =====================================================
 AUTH
-====================================================
-*/
+===================================================== */
 
 function showAuth(mode){
 
 document.getElementById('loginForm').style.display=
 mode==='login'?'grid':'none';
 
+
 document.getElementById('registerForm').style.display=
 mode==='register'?'grid':'none';
+
 
 document.getElementById('loginTab')
 .classList.toggle(
 'active',
 mode==='login'
 );
+
 
 document.getElementById('registerTab')
 .classList.toggle(
@@ -3311,18 +4887,30 @@ mode==='register'
 function registerUser(){
 
 const name=
-document.getElementById('regName').value.trim();
+document.getElementById('regName')
+.value.trim();
+
 
 const email=
-document.getElementById('regEmail').value.trim().toLowerCase();
+document.getElementById('regEmail')
+.value.trim()
+.toLowerCase();
+
 
 const pass=
-document.getElementById('regPass').value;
+document.getElementById('regPass')
+.value;
+
 
 const msg=
 document.getElementById('regMsg');
 
-if(!name || !email || pass.length<6){
+
+if(
+!name ||
+!email ||
+pass.length<6
+){
 
 msg.textContent=
 '⚠️ أدخل الاسم والبريد وكلمة مرور من 6 أحرف على الأقل.';
@@ -3330,6 +4918,7 @@ msg.textContent=
 return;
 
 }
+
 
 localStorage.setItem(
 'ravex_user',
@@ -3340,12 +4929,17 @@ pass
 })
 );
 
+
 msg.textContent=
 '✅ تم إنشاء الحساب على هذا الجهاز. يمكنك تسجيل الدخول الآن.';
 
+
 showAuth('login');
 
-document.getElementById('loginEmail').value=email;
+
+document.getElementById(
+'loginEmail'
+).value=email;
 
 }
 
@@ -3353,20 +4947,32 @@ document.getElementById('loginEmail').value=email;
 function loginUser(){
 
 const email=
-document.getElementById('loginEmail')
+document.getElementById(
+'loginEmail'
+)
 .value.trim()
 .toLowerCase();
 
+
 const pass=
-document.getElementById('loginPass').value;
+document.getElementById(
+'loginPass'
+).value;
+
 
 const saved=
 JSON.parse(
-localStorage.getItem('ravex_user')||'null'
+localStorage.getItem(
+'ravex_user'
+)||'null'
 );
 
+
 const msg=
-document.getElementById('loginMsg');
+document.getElementById(
+'loginMsg'
+);
+
 
 if(
 saved &&
@@ -3379,8 +4985,10 @@ localStorage.setItem(
 '1'
 );
 
+
 msg.textContent=
 '✅ تم تسجيل الدخول بنجاح.';
+
 
 renderAccountState(saved);
 
@@ -3397,9 +5005,13 @@ msg.textContent=
 function renderAccountState(user){
 
 const el=
-document.getElementById('accountState');
+document.getElementById(
+'accountState'
+);
+
 
 if(!el)return;
+
 
 el.innerHTML=
 
@@ -3408,9 +5020,13 @@ user
 ?
 
 `
+
 <span class="accountBadge">
+
 👤 ${user.name} · ${user.email}
+
 </span>
+
 
 <button
 class="mini"
@@ -3419,6 +5035,7 @@ onclick="logoutUser()">
 تسجيل خروج
 
 </button>
+
 `
 
 :
@@ -3430,7 +5047,10 @@ onclick="logoutUser()">
 
 function logoutUser(){
 
-localStorage.removeItem('ravex_session');
+localStorage.removeItem(
+'ravex_session'
+);
+
 
 document.getElementById(
 'accountState'
@@ -3439,19 +5059,20 @@ document.getElementById(
 }
 
 
-/*
-====================================================
+/* =====================================================
 CHAT
-====================================================
-*/
+===================================================== */
 
 function getChat(){
 
 return JSON.parse(
-localStorage.getItem('ravex_chat')||'[]'
+localStorage.getItem(
+'ravex_chat'
+)||'[]'
 );
 
 }
+
 
 function saveChat(x){
 
@@ -3466,22 +5087,32 @@ JSON.stringify(x)
 function renderChat(){
 
 const box=
-document.getElementById('chatMessages');
+document.getElementById(
+'chatMessages'
+);
+
 
 if(!box)return;
 
-let arr=getChat();
+
+let arr=
+getChat();
+
 
 if(!arr.length){
 
 arr=[
+
 {
 role:'support',
-text:'أهلًا بك في RAVEX 👋 كيف يمكننا مساعدتك؟'
+text:
+'أهلًا بك في RAVEX 👋 كيف يمكننا مساعدتك؟'
 }
+
 ];
 
 }
+
 
 box.innerHTML=
 
@@ -3493,7 +5124,9 @@ ${m.text}
 
 `).join('');
 
-box.scrollTop=box.scrollHeight;
+
+box.scrollTop=
+box.scrollHeight;
 
 }
 
@@ -3501,37 +5134,55 @@ box.scrollTop=box.scrollHeight;
 function sendMessage(){
 
 const input=
-document.getElementById('chatInput');
+document.getElementById(
+'chatInput'
+);
+
 
 const text=
 input.value.trim();
 
+
 if(!text)return;
 
-const arr=getChat();
+
+const arr=
+getChat();
+
 
 arr.push({
 role:'user',
 text
 });
 
+
 saveChat(arr);
+
 
 input.value='';
 
+
 renderChat();
+
 
 setTimeout(()=>{
 
-const a=getChat();
+const a=
+getChat();
+
 
 a.push({
+
 role:'support',
+
 text:
-'وصلت رسالتك ✅ تم حفظها في مركز الدعم. إذا أردت إرسالها للفريق مباشرة استخدم WhatsApp أو البريد.'
+'وصلت رسالتك ✅ تم حفظها في مركز الدعم. إذا أردت إرسالها للفريق مباشرة استخدم WhatsApp أو Telegram أو البريد.'
+
 });
 
+
 saveChat(a);
+
 
 renderChat();
 
@@ -3546,42 +5197,15 @@ document.getElementById(
 'chatInput'
 ).value=t;
 
+
 sendMessage();
 
 }
 
 
-/*
-====================================================
-EVENTS
-====================================================
-*/
-
-document
-.getElementById('modal')
-.addEventListener(
-'click',
-e=>{
-
-if(e.target.id==='modal'){
-closeModal();
-}
-
-}
-);
-
-
-document.addEventListener(
-'keydown',
-e=>{
-
-if(e.key==='Escape'){
-closeModal();
-}
-
-}
-);
-
+/* =====================================================
+SEARCH
+===================================================== */
 
 document
 .getElementById('search')
@@ -3598,74 +5222,4 @@ e.target.value
 );
 
 
-document
-.querySelectorAll('#gameTabs .tab')
-.forEach(b=>{
-
-b.onclick=()=>{
-
-document
-.querySelectorAll('#gameTabs .tab')
-.forEach(x=>
-x.classList.remove('active')
-);
-
-b.classList.add('active');
-
-renderGames(
-b.dataset.filter,
-document.getElementById('search').value
-);
-
-};
-
-});
-
-
-document
-.querySelectorAll('.cat')
-.forEach(c=>{
-
-c.onclick=()=>{
-
-renderDesign(
-c.dataset.dfilter
-);
-
-};
-
-});
-
-
-/*
-====================================================
-START
-====================================================
-*/
-
-renderGames();
-
-renderDesign();
-
-renderChat();
-
-
-const savedUser=
-JSON.parse(
-localStorage.getItem('ravex_user')||'null'
-);
-
-if(
-savedUser &&
-localStorage.getItem('ravex_session')
-){
-
-renderAccountState(savedUser);
-
-}
-
-</script>
-
-</body>
-</html>
-```0
+/* ==============================================
