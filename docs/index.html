@@ -1,322 +1,1268 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>مكتبة الألعاب</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #121212;
-      color: #ffffff;
-      margin: 0;
-      padding: 20px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAVEX | Digital Universe</title>
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #1e1e1e;
-      padding: 25px;
-      border-radius: 10px;
-    }
+<style>
+:root{
+    --bg:#050505;
+    --panel:#0b0b0b;
+    --panel2:#111;
+    --line:#242424;
+    --text:#f5f5f5;
+    --muted:#999;
+    --gold:#f4c542;
+    --gold2:#ffdc73;
+    --danger:#ff4d4d;
+    --shadow:0 25px 80px rgba(0,0,0,.5);
+}
 
-    /* هيدر الصفحة */
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-      border-bottom: 1px solid #333;
-      padding-bottom: 15px;
-    }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-    .lang-btn, .back-btn {
-      background-color: #333;
-      color: #fff;
-      border: 1px solid #555;
-      padding: 8px 15px;
-      border-radius: 5px;
-      cursor: pointer;
-    }
+html{
+    scroll-behavior:smooth;
+}
 
-    .back-btn {
-      background-color: #00adb5;
-      color: #fff;
-      display: none; /* يظهر فقط عند فتح لعبة */
-    }
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    overflow-x:hidden;
+}
 
-    /* شبكة قائمة الألعاب */
-    .games-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      gap: 20px;
-    }
+button, input, textarea, select{
+    font:inherit;
+}
 
-    .game-card {
-      background: #252525;
-      border-radius: 8px;
-      padding: 15px;
-      text-align: center;
-      cursor: pointer;
-      transition: transform 0.2s, background 0.2s;
-    }
+button{
+    cursor:pointer;
+}
 
-    .game-card:hover {
-      transform: translateY(-5px);
-      background: #2d2d2d;
-    }
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
-    .game-card img {
-      width: 100%;
-      height: 250px;
-      object-fit: cover;
-      border-radius: 5px;
-    }
+/* =========================
+   TOP ANNOUNCEMENT BAR
+========================= */
+.top-bar {
+    background: #111;
+    border-bottom: 1px solid var(--line);
+    color: #ccc;
+    font-size: 12px;
+    padding: 6px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1001;
+}
 
-    /* صفحة اللعبة المنفردة */
-    #game-details {
-      display: none;
-    }
+.top-bar-text {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+}
 
-    .trailer-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      height: 0;
-      overflow: hidden;
-      margin: 20px 0;
-      border-radius: 8px;
-    }
+.top-bar-badge {
+    background: var(--gold);
+    color: #000;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 2px;
+    font-size: 10px;
+}
 
-    .trailer-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
+.lang-btn {
+    background: var(--panel2);
+    border: 1px solid #333;
+    color: var(--gold);
+    padding: 3px 10px;
+    font-size: 11px;
+    border-radius: 3px;
+    font-weight: bold;
+    transition: .2s;
+}
 
-    .btn-mega {
-      display: inline-block;
-      background-color: #d00000;
-      color: white;
-      padding: 12px 25px;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
-      margin: 15px 0;
-    }
+.lang-btn:hover {
+    border-color: var(--gold);
+}
 
-    .req-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-    }
+/* =========================
+   BOOT SCREEN
+========================= */
+.boot{
+    position:fixed;
+    inset:0;
+    background:#000;
+    z-index:9999;
+    display:grid;
+    place-items:center;
+    transition:.8s;
+}
 
-    .req-table th, .req-table td {
-      border: 1px solid #333;
-      padding: 10px;
-      text-align: start;
-    }
+.boot.hide{
+    opacity:0;
+    pointer-events:none;
+}
 
-    .req-table th {
-      background-color: #252525;
-      color: #00adb5;
-    }
-  </style>
+.bootbox{
+    width:min(620px,88%);
+    text-align:center;
+}
+
+.boot-top{
+    display:flex;
+    justify-content:space-between;
+    color:#666;
+    font-size:11px;
+    letter-spacing:2px;
+    margin-bottom:35px;
+}
+
+.boot-logo{
+    font-size:clamp(64px,14vw,150px);
+    font-weight:900;
+    letter-spacing:-7px;
+}
+
+.boot-logo span{
+    color:var(--gold);
+}
+
+.boot-status{
+    color:#777;
+    letter-spacing:5px;
+    font-size:12px;
+    margin:24px 0;
+}
+
+.progress{
+    height:3px;
+    background:#1c1c1c;
+    overflow:hidden;
+}
+
+.progress i{
+    display:block;
+    height:100%;
+    width:0;
+    background:var(--gold);
+    box-shadow:0 0 25px var(--gold);
+    animation:load 2.2s ease forwards;
+}
+
+@keyframes load{
+    to{ width:100%; }
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+.nav{
+    position:sticky;
+    top:0;
+    left:0;
+    right:0;
+    z-index:1000;
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 5%;
+    background:rgba(5,5,5,0.9);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid #1a1a1a;
+}
+
+.brand{
+    font-weight:900;
+    letter-spacing:3px;
+    font-size:24px;
+}
+
+.brand span{
+    color:var(--gold);
+}
+
+.navlinks{
+    display:flex;
+    gap:20px;
+    color:#aaa;
+    font-size:13px;
+}
+
+.navlinks a:hover{
+    color:var(--gold);
+}
+
+.menu{
+    display:none;
+    background:none;
+    border:0;
+    color:white;
+    font-size:24px;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero{
+    min-height:85vh;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    padding:100px 6% 80px;
+    background:
+        linear-gradient(90deg, #050505 0%, #050505cc 34%, #05050522 70%),
+        linear-gradient(0deg, #050505 0%, transparent 55%),
+        url("https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/library_hero.jpg") center/cover;
+}
+
+.hero-content{
+    position:relative;
+    z-index:1;
+    max-width:760px;
+}
+
+.eyebrow{
+    color:var(--gold);
+    letter-spacing:3px;
+    font-size:12px;
+    font-weight:800;
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(40px,7vw,100px);
+    line-height:1;
+    letter-spacing:-2px;
+    text-transform:uppercase;
+}
+
+.hero h1 em{
+    font-style:normal;
+    color:transparent;
+    -webkit-text-stroke:1px #fff;
+}
+
+.hero p{
+    max-width:620px;
+    color:#bbb;
+    line-height:1.8;
+    margin:25px 0;
+    font-size:16px;
+}
+
+.hero-actions{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:1px solid #333;
+    background:#111;
+    color:white;
+    padding:12px 22px;
+    border-radius:3px;
+    transition:.2s;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    border-color:var(--gold);
+}
+
+.btn.gold{
+    background:var(--gold);
+    color:#080808;
+    border-color:var(--gold);
+    font-weight:900;
+}
+
+.btn.ghost{
+    background:transparent;
+}
+
+/* =========================
+   SECTIONS & GRID
+========================= */
+.section{
+    padding:80px 6%;
+}
+
+.section-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:30px;
+    margin-bottom:35px;
+}
+
+.section-kicker{
+    color:var(--gold);
+    font-size:11px;
+    letter-spacing:3px;
+}
+
+.section h2{
+    font-size:clamp(28px,4vw,50px);
+    letter-spacing:-1px;
+    margin-top:8px;
+}
+
+.section-intro{
+    max-width:470px;
+    color:#777;
+    line-height:1.7;
+}
+
+.toolbar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:28px;
+}
+
+.search{
+    flex:1;
+    min-width:240px;
+    background:#0d0d0d;
+    border:1px solid #262626;
+    color:white;
+    padding:12px 18px;
+    border-radius:3px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:var(--gold);
+}
+
+.filter{
+    background:#0d0d0d;
+    border:1px solid #262626;
+    color:#aaa;
+    padding:10px 16px;
+}
+
+.filter.active, .filter:hover{
+    border-color:var(--gold);
+    color:var(--gold);
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:16px;
+}
+
+.card{
+    position:relative;
+    background:#0b0b0b;
+    border:1px solid #1b1b1b;
+    min-height:360px;
+    overflow:hidden;
+    cursor:pointer;
+    transition:.3s;
+    display:flex;
+    flex-direction:column;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+    border-color:#4c401f;
+    box-shadow:var(--shadow);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+    filter:saturate(.82);
+    transition:.4s;
+}
+
+.card:hover img{
+    transform:scale(1.04);
+    filter:saturate(1);
+}
+
+.card-body{
+    padding:18px;
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.card-no{
+    color:#555;
+    font-size:10px;
+    letter-spacing:2px;
+}
+
+.card h3{
+    font-size:18px;
+    margin:6px 0;
+}
+
+.card-type{
+    color:#777;
+    font-size:12px;
+}
+
+.tag{
+    display:inline-block;
+    color:var(--gold);
+    font-size:11px;
+    border:1px solid #493d1d;
+    padding:5px 8px;
+    margin-top:12px;
+    align-self:flex-start;
+}
+
+/* AI SECTION SPECIAL */
+.ai-box {
+    background: linear-gradient(135deg, #111, #080808);
+    border: 1px solid #222;
+    padding: 30px;
+    border-radius: 4px;
+    margin-top: 20px;
+}
+
+.ai-input-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.ai-input-group input {
+    flex: 1;
+    background: #000;
+    border: 1px solid #333;
+    color: #fff;
+    padding: 12px;
+    outline: none;
+}
+
+.ai-result {
+    margin-top: 20px;
+    padding: 15px;
+    background: #000;
+    border: 1px solid #222;
+    color: var(--gold);
+    font-family: monospace;
+    min-height: 80px;
+    white-space: pre-wrap;
+}
+
+/* =========================
+   SUPPORT & TRANSMISSIONS
+========================= */
+.support{
+    background:linear-gradient(120deg,#111,#070707);
+    border:1px solid #292929;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    padding:50px;
+}
+
+.support-form{
+    display:grid;
+    gap:10px;
+}
+
+.support-form input, .support-form textarea{
+    background:#070707;
+    border:1px solid #272727;
+    color:white;
+    padding:14px;
+    outline:none;
+}
+
+.support-form textarea{
+    min-height:120px;
+}
+
+.footer{
+    border-top:1px solid #222;
+    padding:35px 6%;
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    color:#666;
+    font-size:12px;
+}
+
+/* =========================
+   MODAL WITH IFRAME & MEGA
+========================= */
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    backdrop-filter:blur(12px);
+    z-index:2000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.modal.open{
+    display:flex;
+}
+
+.modal-card{
+    width:min(1000px,100%);
+    max-height:90vh;
+    overflow:auto;
+    background:#090909;
+    border:1px solid #292929;
+    box-shadow:var(--shadow);
+    position:relative;
+}
+
+.close{
+    position:absolute;
+    z-index:10;
+    top:15px;
+    left:15px;
+    background:rgba(0,0,0,0.7);
+    color:#fff;
+    border:1px solid #444;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    font-size:18px;
+}
+
+[dir="rtl"] .close {
+    left:auto;
+    right:15px;
+}
+
+.modal-hero{
+    min-height:250px;
+    background-position:center;
+    background-size:cover;
+    position:relative;
+    display:flex;
+    align-items:flex-end;
+    padding:30px;
+}
+
+.modal-hero:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(0deg,#090909,transparent 80%);
+}
+
+.modal-title{
+    position:relative;
+    z-index:1;
+}
+
+.modal-content{
+    padding:30px;
+}
+
+.detail-grid, .requirements{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin:20px 0;
+}
+
+.detail, .req{
+    border:1px solid #222;
+    padding:18px;
+    background:#0d0d0d;
+}
+
+.req div{
+    display:flex;
+    justify-content:space-between;
+    padding:6px 0;
+    border-bottom:1px solid #1a1a1a;
+    color:#888;
+    font-size:13px;
+}
+
+.req div span:last-child{
+    color:#eee;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin-top: 20px;
+    border: 1px solid #222;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.download-box{
+    margin-top:25px;
+    border:1px solid #55451c;
+    background:linear-gradient(90deg,#171207,#0d0d0d);
+    padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:20px;
+}
+
+.mega-btn {
+    background: #d9272e;
+    color: white;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 3px;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mega-btn:hover {
+    background: #ff333b;
+}
+
+.toast{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    z-index:3000;
+    background:#111;
+    border:1px solid var(--gold);
+    padding:12px 20px;
+    transform:translateY(120px);
+    transition:.3s;
+    color:#fff;
+}
+
+.toast.show{
+    transform:translateY(0);
+}
+
+@media(max-width:900px){
+    .grid{ grid-template-columns:repeat(2,1fr); }
+    .support, .detail-grid, .requirements{ grid-template-columns:1fr; }
+    .navlinks{ display:none; }
+    .menu{ display:block; }
+}
+
+@media(max-width:600px){
+    .grid{ grid-template-columns:1fr; }
+    .download-box{ flex-direction:column; align-items:stretch; text-align:center; }
+}
+</style>
 </head>
+
 <body>
 
-<div class="container">
-  <div class="top-bar">
-    <button class="back-btn" id="back-btn" onclick="showCatalog()">← العودة للقائمة</button>
-    <button class="lang-btn" id="lang-btn" onclick="toggleLanguage()">English</button>
-  </div>
-
-  <!-- قائمة الألعاب (المعرض) -->
-  <div id="games-catalog">
-    <h1 id="catalog-title">مكتبة الألعاب</h1>
-    <div class="games-grid" id="grid-container"></div>
-  </div>
-
-  <!-- تفاصيل اللعبة (يتم ملؤها ديناميكياً) -->
-  <div id="game-details">
-    <h1 id="detail-title"></h1>
-
-    <h2 id="heading-trailer">الإعلان الرسمي (التريلر)</h2>
-    <div class="trailer-container">
-      <iframe id="detail-trailer" src="" allowfullscreen></iframe>
+<!-- TOP ANNOUNCEMENT BAR -->
+<div class="top-bar">
+    <div class="top-bar-text">
+        <span class="top-bar-badge" id="txt-badge">تحديث جديد</span>
+        <span id="txt-announcement">🚀 تم إضافة روابط MEGA المباشرة، قسم المونتاج المتقدم، وأداة الذكاء الاصطناعي!</span>
     </div>
-
-    <h2 id="heading-desc">شرح اللعبة</h2>
-    <p id="detail-desc"></p>
-
-    <h2 id="heading-download">رابط التحميل</h2>
-    <a id="detail-mega" href="" target="_blank" class="btn-mega">تحميل اللعبة من MEGA</a>
-
-    <h2 id="heading-reqs">متطلبات تشغيل اللعبة</h2>
-    <table class="req-table">
-      <thead>
-        <tr>
-          <th id="th-spec">المواصفات</th>
-          <th id="th-min">الحد الأدنى</th>
-          <th id="th-rec">الموصى به</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td id="row-os">نظام التشغيل</td><td id="min-os"></td><td id="rec-os"></td></tr>
-        <tr><td id="row-cpu">المعالج</td><td id="min-cpu"></td><td id="rec-cpu"></td></tr>
-        <tr><td id="row-ram">الذاكرة (RAM)</td><td id="min-ram"></td><td id="rec-ram"></td></tr>
-        <tr><td id="row-gpu">كرت الشاشة</td><td id="min-gpu"></td><td id="rec-gpu"></td></tr>
-        <tr><td id="row-storage">المساحة المطلوبة</td><td id="min-storage"></td><td id="rec-storage"></td></tr>
-      </tbody>
-    </table>
-  </div>
+    <button class="lang-btn" onclick="toggleLanguage()" id="langBtn">English 🌐</button>
 </div>
 
+<!-- BOOT SCREEN -->
+<div class="boot" id="boot">
+    <div class="bootbox">
+        <div class="boot-top">
+            <span>RAVEX SYSTEM</span>
+            <span>INITIALIZING</span>
+        </div>
+        <div class="boot-logo">RAVEX<span>.</span></div>
+        <div class="boot-status">DIGITAL UNIVERSE / ONLINE</div>
+        <div class="progress"><i></i></div>
+    </div>
+</div>
+
+<!-- NAVIGATION -->
+<header class="nav">
+    <a class="brand" href="#top">RAVEX<span>.</span></a>
+    <nav class="navlinks">
+        <a href="#games" id="nav-games">الألعاب</a>
+        <a href="#montage" id="nav-montage">المونتاج</a>
+        <a href="#apps" id="nav-apps">البرامج والأندرويد</a>
+        <a href="#ai" id="nav-ai">الذكاء الاصطناعي</a>
+        <a href="#support" id="nav-support">الدعم الفني</a>
+    </nav>
+    <button class="menu" onclick="soon('القائمة الموبايل')">☰</button>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-content">
+        <div class="eyebrow" id="hero-eyebrow">RAVEX // DIGITAL UNIVERSE</div>
+        <h1 id="hero-title">إلعب.<br><em>إستكشف.</em><br>حمّل مباشرة.</h1>
+        <p id="hero-desc">منصة سينمائية متكاملة لتحميل الألعاب، ملحقات المونتاج، برامج الويندوز والأندرويد بروابط MEGA مباشرة ومشاهدة التريلرات مباشرة داخل الموقع.</p>
+        <div class="hero-actions">
+            <a class="btn gold" href="#games" id="hero-btn1">أرشيف الألعاب 🎮</a>
+            <a class="btn ghost" href="#montage" id="hero-btn2">قسم المونتاج 🎬</a>
+        </div>
+    </div>
+</section>
+
+<!-- GAMES SECTION -->
+<section class="section" id="games">
+    <div class="section-head">
+        <div>
+            <div class="section-kicker" id="kicker-games">01 / GAME ARCHIVE</div>
+            <h2 id="title-games">أرشيف الألعاب المباشر</h2>
+        </div>
+        <p class="section-intro" id="desc-games">شرح كامل لكل لعبة، متطلبات التشغيل الدقيقة، مشاهدة الإعلان داخل الموقع والتحميل المباشر عبر MEGA.</p>
+    </div>
+
+    <div class="toolbar">
+        <input id="search" class="search" placeholder="بحث عن لعبة..." oninput="renderGames()">
+        <button class="filter active" data-filter="all" onclick="setFilter('all',this)">الكل</button>
+        <button class="filter" data-filter="action" onclick="setFilter('action',this)">أكشن</button>
+        <button class="filter" data-filter="horror" onclick="setFilter('horror',this)">رعب</button>
+        <button class="filter" data-filter="open-world" onclick="setFilter('open-world',this)">عالم مفتوح</button>
+        <button class="filter" data-filter="story" onclick="setFilter('story',this)">قصة</button>
+    </div>
+
+    <div class="grid" id="gameGrid"></div>
+</section>
+
+<!-- MONTAGE SECTION -->
+<section class="section" id="montage" style="background:#080808;">
+    <div class="section-head">
+        <div>
+            <div class="section-kicker" id="kicker-montage">02 / MONTAGE LAB</div>
+            <h2 id="title-montage">قسم المونتاج والملحقات</h2>
+        </div>
+        <p class="section-intro" id="desc-montage">حزم الانتقالات، المؤثرات البصرية، قوالب جاهزة وبرامج المونتاج مع الشرح وروابط التحميل.</p>
+    </div>
+
+    <div class="grid" id="montageGrid"></div>
+</section>
+
+<!-- SOFTWARE & ANDROID SECTION -->
+<section class="section" id="apps">
+    <div class="section-head">
+        <div>
+            <div class="section-kicker" id="kicker-apps">03 / SOFTWARE & MOBILE</div>
+            <h2 id="title-apps">تطبيقات الأندرويد والبرامج</h2>
+        </div>
+        <p class="section-intro" id="desc-apps">أحدث أدوات الويندوز وتطبيقات الأندرويد المعدلة والجاهزة للتحميل المباشر.</p>
+    </div>
+
+    <div class="grid" id="appsGrid"></div>
+</section>
+
+<!-- AI SECTION -->
+<section class="section" id="ai" style="background:#080808;">
+    <div class="section-head">
+        <div>
+            <div class="section-kicker" id="kicker-ai">04 / AI STUDIO</div>
+            <h2 id="title-ai">مساعد RAVEX الذكي</h2>
+        </div>
+    </div>
+
+    <div class="ai-box">
+        <h3 style="color:var(--gold);" id="ai-subtitle">مولد أفكار الألعاب والبرومبتس (Prompt Generator)</h3>
+        <p style="color:#aaa; margin-top:5px;" id="ai-desc">اكتب اسم لعبة أو فكرة وسيقوم الذكاء الاصطناعي بتوليد وصف سينمائي وبرومبت لتصميم الصور!</p>
+        <div class="ai-input-group">
+            <input type="text" id="aiInput" placeholder="مثال: لعبة رعب في محطة فضائية...">
+            <button class="btn gold" onclick="generateAI()" id="aiBtn">توليد الفكرة ✨</button>
+        </div>
+        <div class="ai-result" id="aiResult">// النتيجة ستظهر هنا...</div>
+    </div>
+</section>
+
+<!-- SUPPORT SECTION -->
+<section class="section" id="support">
+    <div class="support">
+        <div>
+            <div class="section-kicker" id="kicker-support">05 / COMMAND CENTER</div>
+            <h2 id="title-support">مركز الدعم والتواصل</h2>
+            <p style="color:#888; margin:15px 0;" id="desc-support">هل واجهتك مشكلة في رابط MEGA أو تريد طلب لعبة/برنامج؟ ارسل لنا مباشرة.</p>
+        </div>
+
+        <form class="support-form" onsubmit="sendTicket(event)">
+            <input id="name" required placeholder="الاسم">
+            <input id="email" type="email" required placeholder="البريد الإلكتروني">
+            <input id="subject" required placeholder="الموضوع">
+            <textarea id="ticket" required placeholder="تفاصيل الطلب..."></textarea>
+            <button class="btn gold" type="submit" id="btn-submit">إرسال التذكرة ←</button>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer class="footer">
+    <div><b>RAVEX.</b> DIGITAL UNIVERSE</div>
+    <div>© 2026 RAVEX // ALL RIGHTS RESERVED</div>
+</footer>
+
+<!-- UNIVERSAL MODAL -->
+<div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-card">
+        <button class="close" onclick="closeModal()">✕</button>
+
+        <div class="modal-hero" id="modalHero">
+            <div class="modal-title">
+                <small id="modalType" style="color:var(--gold);"></small>
+                <h2 id="modalTitle"></h2>
+            </div>
+        </div>
+
+        <div class="modal-content">
+            <p class="modal-desc" id="modalDesc" style="color:#aaa; line-height:1.8;"></p>
+
+            <div class="detail-grid">
+                <div class="detail">
+                    <h4 style="color:var(--gold); margin-bottom:8px;" id="label-story">القصة / الشرح</h4>
+                    <p id="modalStory" style="color:#888; font-size:14px; line-height:1.6;"></p>
+                </div>
+                <div class="detail">
+                    <h4 style="color:var(--gold); margin-bottom:8px;" id="label-gameplay">أسلوب اللعب / المميزات</h4>
+                    <p id="modalGameplay" style="color:#888; font-size:14px; line-height:1.6;"></p>
+                </div>
+            </div>
+
+            <!-- REQUIREMENTS SECTION -->
+            <div id="reqContainer">
+                <h4 style="color:var(--gold); margin-top:20px;" id="label-reqs">متطلبات التشغيل (System Requirements)</h4>
+                <div class="requirements">
+                    <div class="req">
+                        <h4 style="color:#fff; margin-bottom:10px;" id="label-min">الحد الأدنى (Minimum)</h4>
+                        <div><span>OS:</span><span id="minOS"></span></div>
+                        <div><span>CPU:</span><span id="minCPU"></span></div>
+                        <div><span>RAM:</span><span id="minRAM"></span></div>
+                        <div><span>GPU:</span><span id="minGPU"></span></div>
+                        <div><span>Storage:</span><span id="minStorage"></span></div>
+                    </div>
+                    <div class="req">
+                        <h4 style="color:#fff; margin-bottom:10px;" id="label-rec">الحد الموصى به (Recommended)</h4>
+                        <div><span>OS:</span><span id="recOS"></span></div>
+                        <div><span>CPU:</span><span id="recCPU"></span></div>
+                        <div><span>RAM:</span><span id="recRAM"></span></div>
+                        <div><span>GPU:</span><span id="recGPU"></span></div>
+                        <div><span>Storage:</span><span id="recStorage"></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IN-SITE TRAILER -->
+            <h4 style="color:var(--gold); margin-top:20px;" id="label-trailer">الإعلان الرسمي (Trailer)</h4>
+            <div class="video-container">
+                <iframe id="modalIframe" src="" allowfullscreen></iframe>
+            </div>
+
+            <!-- MEGA DOWNLOAD BOX -->
+            <div class="download-box">
+                <div>
+                    <strong style="color:var(--gold); font-size:18px;">MEGA DIRECT DOWNLOAD</strong>
+                    <span style="display:block; color:#777; font-size:12px; margin-top:4px;" id="txt-megainfo">رابط تحميل مباشر وسريع عبر سيرفرات MEGA المشفرة.</span>
+                </div>
+                <a id="megaLink" href="#" target="_blank" class="mega-btn">
+                    <span>تحميل من MEGA</span> 📥
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
 <script>
-  let currentLang = 'ar';
-  let activeGameId = null;
+/* =========================================================
+   TRANSLATION SYSTEM (AR / EN)
+========================================================= */
+let currentLang = "ar";
 
-  // قائمة الألعاب - يمكنك إضافة أي عدد من الألعاب هنا بنفس النمط
-  const gamesData = [
-    {
-      id: "game1",
-      cover: "https://via.placeholder.com/200x250",
-      megaUrl: "https://mega.nz/file/example1",
-      youtubeId: "dQw4w9WgXcQ",
-      title: { ar: "لعبة 1", en: "Game 1" },
-      desc: { 
-        ar: "هذا شرح مفصل عن قصة وأسلوب لعب اللعبة الأولى.", 
-        en: "This is a detailed overview of Game 1 story and gameplay." 
-      },
-      reqs: {
-        min: { os: "Win 10", cpu: "i5-4460", ram: "8 GB", gpu: "GTX 760", storage: "50 GB" },
-        rec: { os: "Win 11", cpu: "i7-3770", ram: "16 GB", gpu: "GTX 1060", storage: "50 GB SSD" }
-      }
-    },
-    {
-      id: "game2",
-      cover: "https://via.placeholder.com/200x250",
-      megaUrl: "https://mega.nz/file/example2",
-      youtubeId: "dQw4w9WgXcQ",
-      title: { ar: "لعبة 2", en: "Game 2" },
-      desc: { 
-        ar: "هذا شرح مفصل عن اللعبة الثانية وأبرز مميزاتها.", 
-        en: "This is a detailed overview of Game 2 and its features." 
-      },
-      reqs: {
-        min: { os: "Win 10", cpu: "i3-6100", ram: "8 GB", gpu: "GTX 960", storage: "30 GB" },
-        rec: { os: "Win 10/11", cpu: "i5-8400", ram: "16 GB", gpu: "GTX 1070", storage: "30 GB SSD" }
-      }
-    }
-  ];
-
-  const UI_TEXT = {
+const translations = {
     ar: {
-      langBtn: "English", backBtn: "← العودة للقائمة", catalogTitle: "مكتبة الألعاب",
-      headingTrailer: "الإعلان الرسمي (التريلر)", headingDesc: "شرح اللعبة",
-      headingDownload: "رابط التحميل", megaBtn: "تحميل اللعبة من MEGA",
-      headingReqs: "متطلبات تشغيل اللعبة", thSpec: "المواصفات", thMin: "الحد الأدنى",
-      thRec: "الموصى به", rowOs: "نظام التشغيل", rowCpu: "المعالج", rowRam: "الذاكرة (RAM)",
-      rowGpu: "كرت الشاشة", rowStorage: "المساحة المطلوبة"
+        badge: "تحديث جديد",
+        announcement: "🚀 تم إضافة روابط MEGA المباشرة، قسم المونتاج المتقدم، وأداة الذكاء الاصطناعي!",
+        navGames: "الألعاب", navMontage: "المونتاج", navApps: "البرامج والأندرويد", navAi: "الذكاء الاصطناعي", navSupport: "الدعم الفني",
+        heroEyebrow: "RAVEX // DIGITAL UNIVERSE", heroTitle: "إلعب.<br><em>إستكشف.</em><br>حمّل مباشرة.",
+        heroDesc: "منصة سينمائية متكاملة لتحميل الألعاب، ملحقات المونتاج، برامج الويندوز والأندرويد بروابط MEGA مباشرة ومشاهدة التريلرات مباشرة داخل الموقع.",
+        heroBtn1: "أرشيف الألعاب 🎮", heroBtn2: "قسم المونتاج 🎬",
+        kickerGames: "01 / ARCHIVE", titleGames: "أرشيف الألعاب المباشر", descGames: "شرح كامل لكل لعبة، متطلبات التشغيل الدقيقة، مشاهدة الإعلان داخل الموقع والتحميل المباشر عبر MEGA.",
+        kickerMontage: "02 / MONTAGE", titleMontage: "قسم المونتاج والملحقات", descMontage: "حزم الانتقالات، المؤثرات البصرية، قوالب جاهزة وبرامج المونتاج مع الشرح وروابط التحميل.",
+        kickerApps: "03 / SOFTWARE", titleApps: "تطبيقات الأندرويد والبرامج", descApps: "أحدث أدوات الويندوز وتطبيقات الأندرويد المعدلة والجاهزة للتحميل المباشر.",
+        kickerAi: "04 / AI STUDIO", titleAi: "مساعد RAVEX الذكي", aiSubtitle: "مولد أفكار الألعاب والبرومبتس (Prompt Generator)",
+        aiDesc: "اكتب اسم لعبة أو فكرة وسيقوم الذكاء الاصطناعي بتوليد وصف سينمائي وبرومبت لتصميم الصور!", aiBtn: "توليد الفكرة ✨",
+        kickerSupport: "05 / SUPPORT", titleSupport: "مركز الدعم والتواصل", descSupport: "هل واجهتك مشكلة في رابط MEGA أو تريد طلب لعبة/برنامج؟ ارسل لنا مباشرة.",
+        btnSubmit: "إرسال التذكرة ←",
+        labelStory: "القصة / الشرح", labelGameplay: "أسلوب اللعب / المميزات", labelReqs: "متطلبات التشغيل (System Requirements)",
+        labelMin: "الحد الأدنى (Minimum)", labelRec: "الحد الموصى به (Recommended)", labelTrailer: "الإعلان الرسمي (Trailer)",
+        megaText: "تحميل من MEGA", megaInfo: "رابط تحميل مباشر وسريع عبر سيرفرات MEGA المشفرة."
     },
     en: {
-      langBtn: "العربية", backBtn: "← Back to List", catalogTitle: "Games Catalog",
-      headingTrailer: "Official Trailer", headingDesc: "Game Overview",
-      headingDownload: "Download Link", megaBtn: "Download via MEGA",
-      headingReqs: "System Requirements", thSpec: "Spec", thMin: "Minimum",
-      thRec: "Recommended", rowOs: "OS", rowCpu: "Processor", rowRam: "RAM",
-      rowGpu: "Graphics", rowStorage: "Storage"
+        badge: "NEW UPDATE",
+        announcement: "🚀 Direct MEGA Links, Advanced Montage Section & AI Studio Added!",
+        navGames: "Games", navMontage: "Montage", navApps: "Software & Mobile", navAi: "AI Studio", navSupport: "Support",
+        heroEyebrow: "RAVEX // DIGITAL UNIVERSE", heroTitle: "PLAY.<br><em>EXPLORE.</em><br>DOWNLOAD NOW.",
+        heroDesc: "A cinematic platform for games, video editing assets, Windows and Android software with direct MEGA download links and embedded trailers.",
+        heroBtn1: "Game Archive 🎮", heroBtn2: "Montage Lab 🎬",
+        kickerGames: "01 / ARCHIVE", titleGames: "Direct Game Archive", descGames: "Detailed descriptions, system specs, in-site trailers, and direct MEGA downloads.",
+        kickerMontage: "02 / MONTAGE", titleMontage: "Montage & VFX Assets", descMontage: "Transitions, VFX packs, templates, and editing tools with MEGA links.",
+        kickerApps: "03 / SOFTWARE", titleApps: "Apps & Windows Software", descApps: "Essential Windows utilities and Android applications ready for fast download.",
+        kickerAi: "04 / AI STUDIO", titleAi: "RAVEX AI Assistant", aiSubtitle: "Game Concept & Prompt Generator",
+        aiDesc: "Enter any game topic or concept to generate a cinematic synopsis and AI art prompt!", aiBtn: "Generate Idea ✨",
+        kickerSupport: "05 / SUPPORT", titleSupport: "Command Center", descSupport: "Having issues with a MEGA link or want to request content? Send us a ticket.",
+        btnSubmit: "Send Ticket →",
+        labelStory: "Story / Description", labelGameplay: "Gameplay / Features", labelReqs: "System Requirements",
+        labelMin: "Minimum Requirements", labelRec: "Recommended Requirements", labelTrailer: "Official Trailer",
+        megaText: "Download from MEGA", megaInfo: "Direct and fast download link via encrypted MEGA servers."
     }
-  };
+};
 
-  // عرض بطاقات الألعاب
-  function renderCatalog() {
-    const container = document.getElementById('grid-container');
-    container.innerHTML = '';
-    
-    gamesData.forEach(game => {
-      const card = document.createElement('div');
-      card.className = 'game-card';
-      card.onclick = () => openGame(game.id);
-      card.innerHTML = `
-        <img src="${game.cover}" alt="${game.title[currentLang]}">
-        <h3>${game.title[currentLang]}</h3>
-      `;
-      container.appendChild(card);
-    });
-  }
-
-  // فتح صفحة اللعبة
-  function openGame(gameId) {
-    activeGameId = gameId;
-    const game = gamesData.find(g => g.id === gameId);
-    
-    document.getElementById('games-catalog').style.display = 'none';
-    document.getElementById('game-details').style.display = 'block';
-    document.getElementById('back-btn').style.display = 'inline-block';
-
-    document.getElementById('detail-title').textContent = game.title[currentLang];
-    document.getElementById('detail-desc').textContent = game.desc[currentLang];
-    document.getElementById('detail-mega').href = game.megaUrl;
-    document.getElementById('detail-trailer').src = `https://www.youtube.com/embed/${game.youtubeId}`;
-
-    // ملء متطلبات التشغيل
-    document.getElementById('min-os').textContent = game.reqs.min.os;
-    document.getElementById('min-cpu').textContent = game.reqs.min.cpu;
-    document.getElementById('min-ram').textContent = game.reqs.min.ram;
-    document.getElementById('min-gpu').textContent = game.reqs.min.gpu;
-    document.getElementById('min-storage').textContent = game.reqs.min.storage;
-
-    document.getElementById('rec-os').textContent = game.reqs.rec.os;
-    document.getElementById('rec-cpu').textContent = game.reqs.rec.cpu;
-    document.getElementById('rec-ram').textContent = game.reqs.rec.ram;
-    document.getElementById('rec-gpu').textContent = game.reqs.rec.gpu;
-    document.getElementById('rec-storage').textContent = game.reqs.rec.storage;
-  }
-
-  // العودة إلى قائمة الألعاب
-  function showCatalog() {
-    activeGameId = null;
-    document.getElementById('games-catalog').style.display = 'block';
-    document.getElementById('game-details').style.display = 'none';
-    document.getElementById('back-btn').style.display = 'none';
-    document.getElementById('detail-trailer').src = ''; // إيقاف الفيديو عند الخروج
-  }
-
-  // تحويل اللغة
-  function toggleLanguage() {
-    currentLang = currentLang === 'ar' ? 'en' : 'ar';
+function toggleLanguage() {
+    currentLang = currentLang === "ar" ? "en" : "ar";
+    document.documentElement.dir = currentLang === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = currentLang;
-    document.documentElement.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+    document.getElementById("langBtn").textContent = currentLang === "ar" ? "English 🌐" : "عربي 🌐";
 
-    const text = UI_TEXT[currentLang];
-    
-    document.getElementById('lang-btn').textContent = text.langBtn;
-    document.getElementById('back-btn').textContent = text.backBtn;
-    document.getElementById('catalog-title').textContent = text.catalogTitle;
-    document.getElementById('heading-trailer').textContent = text.headingTrailer;
-    document.getElementById('heading-desc').textContent = text.headingDesc;
-    document.getElementById('heading-download').textContent = text.headingDownload;
-    document.getElementById('detail-mega').textContent = text.megaBtn;
-    document.getElementById('heading-reqs').textContent = text.headingReqs;
-    document.getElementById('th-spec').textContent = text.thSpec;
-    document.getElementById('th-min').textContent = text.thMin;
-    document.getElementById('th-rec').textContent = text.thRec;
-    document.getElementById('row-os').textContent = text.rowOs;
-    document.getElementById('row-cpu').textContent = text.rowCpu;
-    document.getElementById('row-ram').textContent = text.rowRam;
-    document.getElementById('row-gpu').textContent = text.rowGpu;
-    document.getElementById('row-storage').textContent = text.rowStorage;
+    const t = translations[currentLang];
+    document.getElementById("txt-badge").textContent = t.badge;
+    document.getElementById("txt-announcement").textContent = t.announcement;
+    document.getElementById("nav-games").textContent = t.navGames;
+    document.getElementById("nav-montage").textContent = t.navMontage;
+    document.getElementById("nav-apps").textContent = t.navApps;
+    document.getElementById("nav-ai").textContent = t.navAi;
+    document.getElementById("nav-support").textContent = t.navSupport;
 
-    renderCatalog();
-    if (activeGameId) openGame(activeGameId);
-  }
+    document.getElementById("hero-eyebrow").textContent = t.heroEyebrow;
+    document.getElementById("hero-title").innerHTML = t.heroTitle;
+    document.getElementById("hero-desc").textContent = t.heroDesc;
+    document.getElementById("hero-btn1").textContent = t.heroBtn1;
+    document.getElementById("hero-btn2").textContent = t.heroBtn2;
 
-  // التشغيل الأولي
-  renderCatalog();
+    document.getElementById("kicker-games").textContent = t.kickerGames;
+    document.getElementById("title-games").textContent = t.titleGames;
+    document.getElementById("desc-games").textContent = t.descGames;
+
+    document.getElementById("kicker-montage").textContent = t.kickerMontage;
+    document.getElementById("title-montage").textContent = t.titleMontage;
+    document.getElementById("desc-montage").textContent = t.descMontage;
+
+    document.getElementById("kicker-apps").textContent = t.kickerApps;
+    document.getElementById("title-apps").textContent = t.titleApps;
+    document.getElementById("desc-apps").textContent = t.descApps;
+
+    document.getElementById("kicker-ai").textContent = t.kickerAi;
+    document.getElementById("title-ai").textContent = t.titleAi;
+    document.getElementById("ai-subtitle").textContent = t.aiSubtitle;
+    document.getElementById("ai-desc").textContent = t.aiDesc;
+    document.getElementById("aiBtn").textContent = t.aiBtn;
+
+    document.getElementById("kicker-support").textContent = t.kickerSupport;
+    document.getElementById("title-support").textContent = t.titleSupport;
+    document.getElementById("desc-support").textContent = t.descSupport;
+    document.getElementById("btn-submit").textContent = t.btnSubmit;
+
+    document.getElementById("label-story").textContent = t.labelStory;
+    document.getElementById("label-gameplay").textContent = t.labelGameplay;
+    document.getElementById("label-reqs").textContent = t.labelReqs;
+    document.getElementById("label-min").textContent = t.labelMin;
+    document.getElementById("label-rec").textContent = t.labelRec;
+    document.getElementById("label-trailer").textContent = t.labelTrailer;
+    document.getElementById("txt-megainfo").textContent = t.megaInfo;
+
+    renderGames();
+    renderMontage();
+    renderApps();
+}
+
+/* =========================================================
+   DATABASES (GAMES, MONTAGE, APPS)
+========================================================= */
+const games = [
+{
+    title:"Resident Evil 4 Remake",
+    type:"Survival Horror",
+    category:["horror","action"],
+    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/library_600x900_2x.jpg",
+    header:"https://cdn.cloudflare.steamstatic.com/steam/apps/2050650/library_hero.jpg",
+    description:"ليون كينيدي يتجه إلى قرية أوروبية معزولة لإنقاذ ابنة الرئيس الأمريكي من طائفة مرعبة.",
+    story:"تتحول عملية الإنقاذ إلى صراع للبقاء ضد قرية كاملة مصابة بطفيل الـ Las Plagas المرعب.",
+    gameplay:"تصويب من منظور الشخص الثالث، صد الهجمات بالسكين، صناعة الموارد ومواجهات زعماء ملحمية.",
+    min:{ os:"Win 10 64-bit", cpu:"Ryzen 3 1200 / i5-7500", ram:"8 GB", gpu:"RX 560 / GTX 1050 Ti", storage:"67 GB" },
+    rec:{ os:"Win 10 64-bit", cpu:"Ryzen 5 3600 / i7-8700", ram:"16 GB", gpu:"RX 5700 / RTX 2070", storage:"67 GB" },
+    youtubeId:"j5Xv2lM96DQ",
+    mega:"https://mega.nz/#F!example_re4"
+},
+{
+    title:"Devil May Cry 5",
+    type:"Action / Hack & Slash",
+    category:["action"],
+    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/601150/library_600x900_2x.jpg",
+    header:"https://cdn.cloudflare.steamstatic.com/steam/apps/601150/library_hero.jpg",
+    description:"عودة أسلوب الأكشن القتالي السريع مع دانتي، نيرو، و V في مواجهة الغزو الشيطاني.",
+    story:"ثلاث شخصيات بأساليب قتال مختلفة تواجه الخطر الشيطاني الأكبر الذي يهدد العالم.",
+    gameplay:"قتال سريع ومستمر، حركات كومبو مذهلة، تبديل الأسلحة والتحول الشيطاني.",
+    min:{ os:"Win 7 64-bit", cpu:"Core i5-4460", ram:"8 GB", gpu:"GTX 760", storage:"35 GB" },
+    rec:{ os:"Win 10 64-bit", cpu:"Core i7-3770", ram:"8 GB", gpu:"GTX 1060", storage:"35 GB" },
+    youtubeId:"K9PSoBno2O8",
+    mega:"https://mega.nz/#F!example_dmc5"
+},
+{
+    title:"God of War Ragnarök",
+    type:"Action / Adventure",
+    category:["action","story"],
+    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/2322010/library_600x900_2x.jpg",
+    header:"https://cdn.cloudflare.steamstatic.com/steam/apps/2322010/library_hero.jpg",
+    description:"رحلة كريتوس وأتريوس عبر العوالم التسعة مع اقتراب معركة الراغناروك الملحمية.",
+    story:"يواجه الأب والابن الآلهة والوحوش بينما يبحثان عن إجابات حول قدر أتريوس المستقبلي.",
+    gameplay:"قتال بمحورين فاس الفراست ودرع السلسلة، ألغاز سينمائية وترقية العتاد.",
+    min:{ os:"Win 10 64-bit", cpu:"i5-4670k / Ryzen 3 1200", ram:"8 GB", gpu:"GTX 1060 6GB", storage:"190 GB" },
+    rec:{ os:"Win 10 64-bit", cpu:"i7-4770k / Ryzen 7 2700", ram:"16 GB", gpu:"RTX 2060 Super", storage:"190 GB" },
+    youtubeId:"hfJ4Km46A-0",
+    mega:"https://mega.nz/#F!example_gow"
+},
+{
+    title:"Cyberpunk 2077",
+    type:"Action RPG / Open World",
+    category:["action","open-world"],
+    image:"https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_600x900_2x.jpg",
+    header:"https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_hero.jpg",
+    description:"انغمس في مدينة نايت سيتي المستقبلية بشخصية V المرتزق الذي يبحث عن الخلود.",
+    story:"مؤامرة ضخمة تحيط بشرائح الذاكرة الرقمية وتداخل شخصية جوني سيلفرهاند معك.",
+    gameplay:"منظور أول، اختراق إلكتروني، أسلحة مستقبلية وتعديل قدرات الجسد.",
+    min:{ os:"Win 10 64-bit", cpu:"Core i7-6700", ram:"12 GB", gpu:"GTX 1060", storage:"70 GB SSD" },
+    rec:{ os:"Win 10 64-bit", cpu:"Core i7-12700", ram:"16 GB", gpu:"RTX 2060 Super", storage:"70 GB SSD" },
+    youtubeId:"8X2kIfS6fb8",
+    mega:"https://mega.nz/#F!example_cyberpunk"
+}
+];
+
+const montageData = [
+{
+    title: "Premiere Pro Transition Pack 2026",
+    type: "Transitions / VFX",
+    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=80",
+    desc: "أكثر من 500 الانتقالات احترافية لبرنامج بريمير برو جاهزة للاستخدام بالسحب والإفلات.",
+    mega: "https://mega.nz/#F!example_transitions"
+},
+{
+    title: "Cinematic Sound Effects FX",
+    type: "Audio / SFX",
+    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=600&q=80",
+    desc: "حزمة المؤثرات الصوتية السينمائية للصدمات، الانفتاحات والتنقلات الصوتية بدقة عالية.",
+    mega: "https://mega.nz/#F!example_sfx"
+}
+];
+
+const appsData = [
+{
+    title: "RAVEX Speed Booster PC",
+    type: "Windows Utility",
+    image: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=600&q=80",
+    desc: "أداة خفيفة لتنظيف الذاكرة وتسريع أداء الألعاب وتنظيف ملفات النظام المؤقتة.",
+    mega: "https://mega.nz/#F!example_booster"
+},
+{
+    title: "CapCut Pro APK Android",
+    type: "Android Mod",
+    image: "https://images.unsplash.com/photo-1616469829941-c7200edec809?w=600&q=80",
+    desc: "تطبيق المونتاج الشهير للأندرويد بدون علامة مائية ومع كافة المؤثرات المفعلة.",
+    mega: "https://mega.nz/#F!example_capcut"
+}
+];
+
+/* =========================================================
+   RENDER FUNCTIONS
+========================================================= */
+let currentFilter = "all";
+
+function renderGames() {
+    const q = document.getElementById("search").value.toLowerCase().trim();
+    const filtered = games.filter(g => 
+        (currentFilter === "all" || g.category.includes(currentFilter)) &&
+        (g.title.toLowerCase().includes(q) || g.type.toLowerCase().includes(q))
+    );
+
+    document.getElementById("gameGrid").innerHTML = filtered.map((g, index) => `
+        <article class="card" onclick="openModal('game', ${games.indexOf(g)})">
+            <img src="${g.image}" alt="${g.title}" loading="lazy">
+            <div class="card-body">
+                <div class="card-no">ARCHIVE 0${index + 1}</div>
+                <h3>${g.title}</h3>
+                <div class="card-type">${g.type}</div>
+                <span class="tag">تحميل / تفاصيل →</span>
+            </div>
+        </article>
+    `).join("") || `<p style="color:#777">لم يتم العثور على ألعاب.</p>`;
+}
+
+function renderMontage() {
+    document.getElementById("montageGrid").innerHTML = montageData.map((m, index) => `
+        <article class="card" onclick="openModal('montage', ${index})">
+            <img src="${m.image}" alt="${m.title}">
+            <div class="card-body">
+                <div class="card-no">VFX PACK 0${index + 1}</div>
+                <h3>${m.title}</h3>
+                <div class="card-type">${m.type}</div>
+                <span class="tag">تحميل من MEGA →</span>
+            </div>
+        </article>
+    `).join("");
+}
+
+function renderApps() {
+    document.getElementById("appsGrid").innerHTML = appsData.map((a, index) => `
+        <article class="card" onclick="openModal('app', ${index})">
+            <img src="${a.image}" alt="${a.title}">
+            <div class="card-body">
+                <div class="card-no">APP 0${index + 1}</div>
+                <h3>${a.title}</h3>
+                <div class="card-type">${a.type}</div>
+                <span class="tag">تحميل الملحق →</span>
+            </div>
+        </article>
+    `).join("");
+}
+
+function setFilter(filter, btn) {
+    currentFilter = filter;
+    document.querySelectorAll(".filter").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    renderGames();
+}
+
+/* =========================================================
+   MODAL & IFRAME TRAILER SYSTEM
+========================================================= */
+function openModal(type, index) {
+    const modal = document.getElementById("modal");
+    const reqBox = document.getElementById("reqContainer");
+    let data;
+
+    if (type === "game") {
+        data = games[index];
+        reqBox.style.display = "block";
+
+        document.getElementById("minOS").textContent = data.min.os;
+        document.getElementById("minCPU").textContent = data.min.cpu;
+        document.getElementById("minRAM").textContent = data.min.ram;
+        document.getElementById("minGPU").textContent = data.min.gpu;
+        document.getElementById("minStorage").textContent = data.min.storage;
+
+        document.getElementById("recOS").textContent = data.rec.os;
+        document.getElementById("recCPU").textContent = data.rec.cpu;
+        document.getElementById("recRAM").textContent = data.rec.ram;
+        document.getElementById("recGPU").textContent = data.rec.gpu;
+        document.getElementById("recStorage").textContent = data.rec.storage;
+
+        document.getElementById("modalStory").textContent = data.story;
+        document.getElementById("modalGameplay").textContent = data.gameplay;
+        document.getElementById("modalIframe").src = `https://www.youtube.com/embed/${data.youtubeId}`;
+    } else {
+        data = type === "montage" ? montageData[index] : appsData[index];
+        reqBox.style.display = "none";
+        document.getElementById("modalStory").textContent = data.desc;
+        document.getElementById("modalGameplay").textContent = "جاهز للاستخدام والتثبيت المباشر.";
+        document.getElementById("modalIframe").src = "https://www.youtube.com/embed/dQw4w9WgXcQ";
+    }
+
+    document.getElementById("modalHero").style.backgroundImage = `url("${data.header || data.image}")`;
+    document.getElementById("modalType").textContent = data.type;
+    document.getElementById("modalTitle").textContent = data.title;
+    document.getElementById("modalDesc").textContent = data.description || data.desc;
+    document.getElementById("megaLink").href = data.mega;
+
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+    const modal = document.getElementById("modal");
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
+    document.getElementById("modalIframe").src = "";
+}
+
+/* =========================================================
+   AI GENERATOR SIMULATOR
+========================================================= */
+function generateAI() {
+    const input = document.getElementById("aiInput").value.trim();
+    const result = document.getElementById("aiResult");
+
+    if (!input) {
+        result.textContent = "// يرجى كتابة فكرة أو عنوان أولاً!";
+        return;
+    }
+
+    result.textContent = "⌛ جاري معالجة الفكرة وتوليد السيناريو بذكاء RAVEX...";
+
+    setTimeout(() => {
+        result.textContent = 
+`[RAVEX AI CONCEPT GENERATED]
+------------------------------------
+🎯 العنوان المقترح: ${input} - Beyond Darkness
+📖 القصة: في عالم مغطى بالرماد والمشكلات التكنولوجية، ينطلق البطل في رحلة محفوفة بالمخاطر لفك شفرات الماضي.
+🎮 أسلوب اللعب: عالم مفتوح، أكشن وتصويب منظور ثالث مع عناصر التخفي والتطوير المتقدم.
+🎨 Midjourney Prompt: /imagine prompt: ${input}, cinematic lighting, unreal engine 5 render, highly detailed, dark sci-fi theme --ar 16:9`;
+    }, 1200);
+}
+
+/* =========================================================
+   SUPPORT & TOAST
+========================================================= */
+function soon(msg) {
+    const toast = document.getElementById("toast");
+    toast.textContent = "RAVEX // " + msg;
+    toast.classList.add("show");
+    setTimeout(() => toast.classList.remove("show"), 3000);
+}
+
+function sendTicket(e) {
+    e.preventDefault();
+    soon("تم حفظ التذكرة بنجاح في النظام المحلي!");
+    e.target.reset();
+}
+
+window.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
+
+window.addEventListener("load", () => {
+    setTimeout(() => document.getElementById("boot").classList.add("hide"), 2000);
+    renderGames();
+    renderMontage();
+    renderApps();
+});
 </script>
 
 </body>
